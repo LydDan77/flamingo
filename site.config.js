@@ -7,7 +7,7 @@ module.exports = {
   tagline: "Stem Cell Therapy, Peptides & Longevity Medicine",
   description:
     "In-home stem cell therapy and nationwide telehealth for peptides, hormones, and NAD+. One physician-led medical team, one patient record, one plan for the best decade of your life.",
-  url: "https://flamingo.vercel.app", // update when the custom domain is attached
+  url: "https://flamingo-regenerative-revival.vercel.app", // update when the custom domain is attached
   ogImage: "assets/img/og-image.jpg",
 
   phone: "612-453-3182",
