@@ -3,12 +3,17 @@ title: Why We're Different
 description: Regenerative medicine is full of big promises and thin evidence. Rigorous sourcing, licensed practitioners, personalized protocols, and education every step of the way.
 nav: about
 ---
-<section class="hero hero--page hero--center">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:certificates-check|class=hero__img|dark=kettlebell-bw|warm=therapist-senior-arm|bright=therapist-shoulder|elite=gold-streak|eager|sizes=100vw}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:award}}</span><div><b>Eight principles</b><span>From source to follow-up</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="about.html">About</a>{{icon:chevron-down}}<span>Why We're Different</span></nav>
-      <span class="pill pill--accent">About Us</span>
-      <h1 class="mt-5">Why {{site.name}} <em class="hl">is different</em></h1>
+      <p class="hero__kicker">About Us</p>
+      <h1>Why {{site.name}} <em class="hl">is different</em></h1>
       <p class="lead">Regenerative medicine is full of big promises and thin evidence. We built this practice to be the exception: rigorous sourcing, licensed practitioners, personalized protocols, and a commitment to your education every step of the way.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
@@ -21,19 +26,29 @@ nav: about
 <section class="section">
   <div class="container container--wide">
     <div class="section-head reveal">
-      <span class="pill pill--accent">Our Principles</span>
-      <h2 class="mt-5">Eight reasons the bar is <em class="hl">set higher here</em></h2>
+      <span class="eyebrow">Our Principles</span>
+      <h2>Eight reasons the bar is <em class="hl">set higher here</em></h2>
       <p class="lead">From source to protocol to follow-up, here's exactly what makes the approach different, and why it matters for your outcomes.</p>
     </div>
-    <div class="grid grid--4">
-      <div class="card card--hover reveal"><span class="card__icon card__icon--grad">{{icon:flask}}</span><h4>Premium-Grade Source Material</h4><p>Wharton's Jelly MSCs from accredited tissue banks. Neonatal tissue is younger and more active than adult-derived cells. No compromise, no shortcuts.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon card__icon--grad">{{icon:shield-check}}</span><h4>Rigorous Quality Assurance</h4><p>Every product is tested for sterility, viability, and potency before it reaches a patient, with full chain-of-custody documentation from tissue bank partners.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon card__icon--grad">{{icon:users}}</span><h4>Licensed Practitioner Network</h4><p>We don't sell you a product and send you home. You're matched with a licensed, vetted provider who administers your protocol under proper medical oversight.</p></div>
-      <div class="card card--hover reveal" data-delay="3"><span class="card__icon card__icon--grad">{{icon:heart}}</span><h4>Truly Personalized Protocols</h4><p>Your biology is unique. Each protocol is built around your health history, goals, and response profile. Generic programs exist elsewhere. Not here.</p></div>
-      <div class="card card--hover reveal"><span class="card__icon card__icon--grad">{{icon:book-open}}</span><h4>Education-First Approach</h4><p>Before any protocol, you'll know exactly what's going into your body, why, and what to expect. An informed patient is an empowered patient.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon card__icon--grad">{{icon:zap}}</span><h4>Current Regenerative Protocols</h4><p>The clinical team continuously reviews emerging research so patients get the most effective, well-supported options available.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon card__icon--grad">{{icon:map-pin}}</span><h4>Access Where You Are</h4><p>In-home regenerative care plus telehealth programs mean care is closer than you think. We coordinate everything so you don't have to.</p></div>
-      <div class="card card--hover reveal" data-delay="3"><span class="card__icon card__icon--grad">{{icon:award}}</span><h4>Documented Outcomes</h4><p>We track results and set honest expectations. Real outcomes, not just anecdotes, guide how the process is refined.</p></div>
+    <div class="grid grid--4 reveal reveal--stagger">
+      <div class="card card--hover"><span class="card__num">01</span><span class="card__icon card__icon--grad">{{icon:flask}}</span><h4>Premium-Grade Source Material</h4><p>Wharton's Jelly MSCs from accredited tissue banks. Neonatal tissue is younger and more active than adult-derived cells. No compromise, no shortcuts.</p></div>
+      <div class="card card--hover"><span class="card__num">02</span><span class="card__icon card__icon--grad">{{icon:shield-check}}</span><h4>Rigorous Quality Assurance</h4><p>Every product is tested for sterility, viability, and potency before it reaches a patient, with full chain-of-custody documentation from tissue bank partners.</p></div>
+      <div class="card card--hover"><span class="card__num">03</span><span class="card__icon card__icon--grad">{{icon:users}}</span><h4>Licensed Practitioner Network</h4><p>We don't sell you a product and send you home. You're matched with a licensed, vetted provider who administers your protocol under proper medical oversight.</p></div>
+      <div class="card card--hover"><span class="card__num">04</span><span class="card__icon card__icon--grad">{{icon:heart}}</span><h4>Truly Personalized Protocols</h4><p>Your biology is unique. Each protocol is built around your health history, goals, and response profile. Generic programs exist elsewhere. Not here.</p></div>
+      <div class="card card--hover"><span class="card__num">05</span><span class="card__icon card__icon--grad">{{icon:book-open}}</span><h4>Education-First Approach</h4><p>Before any protocol, you'll know exactly what's going into your body, why, and what to expect. An informed patient is an empowered patient.</p></div>
+      <div class="card card--hover"><span class="card__num">06</span><span class="card__icon card__icon--grad">{{icon:zap}}</span><h4>Current Regenerative Protocols</h4><p>The clinical team continuously reviews emerging research so patients get the most effective, well-supported options available.</p></div>
+      <div class="card card--hover"><span class="card__num">07</span><span class="card__icon card__icon--grad">{{icon:map-pin}}</span><h4>Access Where You Are</h4><p>In-home regenerative care plus telehealth programs mean care is closer than you think. We coordinate everything so you don't have to.</p></div>
+      <div class="card card--hover"><span class="card__num">08</span><span class="card__icon card__icon--grad">{{icon:award}}</span><h4>Documented Outcomes</h4><p>We track results and set honest expectations. Real outcomes, not just anecdotes, guide how the process is refined.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--wide">
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card card--overlay">{{img:cells-macro|light=cells-blue-white|warm=cells-violet-white|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="card__body"><span class="pill pill--sm">Source</span><h4>Accredited tissue banks</h4><p>Tested every lot. Documented chain of custody.</p></div></div>
+      <div class="card card--overlay">{{img:nurse-portrait|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="card__body"><span class="pill pill--sm">People</span><h4>Licensed, vetted clinicians</h4><p>Physician oversight on every protocol.</p></div></div>
+      <div class="card card--overlay">{{img:notebook-desk|dark=laptop-stethoscope|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="card__body"><span class="pill pill--sm">Process</span><h4>One chart, one plan</h4><p>Every program coordinated by one team.</p></div></div>
     </div>
   </div>
 </section>
@@ -41,11 +56,11 @@ nav: about
 <section class="section section--deep lux-grid">
   <div class="container" style="max-width:1000px">
     <div class="section-head reveal">
-      <span class="pill pill--accent">Side by Side</span>
-      <h2 class="mt-5">How we stack up</h2>
+      <span class="eyebrow">Side by Side</span>
+      <h2>How we stack up</h2>
       <p class="lead">Most alternatives cut corners somewhere. Here's an honest look at what separates this model from the rest.</p>
     </div>
-    <div class="compare reveal">
+    <div class="compare reveal reveal--stagger">
       <div class="compare__head"><span class="them">The Typical Alternative</span><span class="us">{{icon:star}} {{site.name}}</span></div>
       <div class="compare__row"><div class="compare__them">Lab-derived synthetic compounds</div><div class="compare__us">{{icon:check-circle}} Living Wharton's Jelly MSCs from neonatal tissue</div></div>
       <div class="compare__row"><div class="compare__them">Off-the-shelf, one-size programs</div><div class="compare__us">{{icon:check-circle}} Personalized protocol built around your biology</div></div>

@@ -2,12 +2,13 @@
 title: Hormone Optimization - TRT & HRT Online
 description: Online testosterone and bioidentical hormone therapy, clinician-prescribed and lab-reviewed, shipped to your door. Book a free consultation.
 nav: hormones
+module: hormones
 ---
 <section class="hero hero--simple lux-grid">
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Hormones</span></nav>
-      <p class="eyebrow eyebrow--rule">Telehealth · Clinician-Prescribed</p>
+      <p class="hero__kicker">Telehealth · Clinician-Prescribed</p>
       <h1>Hormone optimization, <em class="hl">prescribed online</em></h1>
       <p class="lead">Testosterone replacement for men. Bioidentical hormone therapy for women. Clinician-led, lab-reviewed, shipped from a licensed compounding pharmacy, and coordinated with your peptides and NAD+ by the same medical team.</p>
       <ul class="hero__pills">
@@ -17,13 +18,13 @@ nav: hormones
       </ul>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
-        <a class="btn btn--secondary btn--lg" href="peptides.html">Browse Peptide Programs</a>
+        {{#if module:peptides}}<a class="btn btn--secondary btn--lg" href="peptides.html">Browse Peptide Programs</a>{{/if}}{{#unless module:peptides}}<a class="btn btn--secondary btn--lg" href="nad.html">Explore NAD+ Programs</a>{{/unless}}
       </div>
     </div>
   </div>
   <div class="hero__art" aria-hidden="true">
-    <svg class="vial vial--lg" style="--vial-cap:#8AB4FF"><use href="#i-vial"></use></svg>
-    <svg class="vial" style="--vial-cap:#F5B84C"><use href="#i-vial"></use></svg>
+    <svg class="vial vial--lg" style="--vial-cap:#3DF2FF"><use href="#i-vial"></use></svg>
+    <svg class="vial" style="--vial-cap:#FF7A3D"><use href="#i-vial"></use></svg>
   </div>
 </section>
 
@@ -34,18 +35,22 @@ nav: hormones
       <h2>Hormone programs our clinicians prescribe</h2>
       <p class="lead">Every protocol starts with labs and a telehealth consult. Your clinician builds a plan around your goals, not a one-size-fits-all template.</p>
     </div>
-    <div class="grid grid--3">
-      <a class="card card--hover reveal" href="{{site.bookUrl}}"><span class="card__icon card__icon--grad">{{icon:heart-pulse}}</span><h3>TRT: Testosterone Optimization</h3><p>Bioidentical testosterone replacement for men. Labs reviewed, dosing adjusted, shipped to your door.</p><div class="card__foot"><span>Get Started</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover reveal" data-delay="1" href="{{site.bookUrl}}"><span class="card__icon card__icon--grad">{{icon:sparkles}}</span><h3>HRT: Women's Hormone Therapy</h3><p>Bioidentical hormone therapy for peri-menopause, post-menopause, and women's hormone optimization through telehealth.</p><div class="card__foot"><span>Get Started</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover reveal" data-delay="2" href="{{site.bookUrl}}"><span class="card__icon card__icon--grad">{{icon:zap}}</span><h3>Thyroid &amp; Metabolic Support</h3><p>Clinician-led protocols for energy, metabolism, and hormone balance, reviewed against your labs.</p><div class="card__foot"><span>Get Started</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <a class="card card--hover" href="{{site.bookUrl}}"><span class="card__icon card__icon--grad">{{icon:heart-pulse}}</span><h3>TRT: Testosterone Optimization</h3><p>Bioidentical testosterone replacement for men. Labs reviewed, dosing adjusted, shipped to your door.</p><div class="card__foot"><span>Get Started</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover" href="{{site.bookUrl}}"><span class="card__icon card__icon--grad">{{icon:sparkles}}</span><h3>HRT: Women's Hormone Therapy</h3><p>Bioidentical hormone therapy for peri-menopause, post-menopause, and women's hormone optimization through telehealth.</p><div class="card__foot"><span>Get Started</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover" href="{{site.bookUrl}}"><span class="card__icon card__icon--grad">{{icon:zap}}</span><h3>Thyroid &amp; Metabolic Support</h3><p>Clinician-led protocols for energy, metabolism, and hormone balance, reviewed against your labs.</p><div class="card__foot"><span>Get Started</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
     </div>
   </div>
 </section>
 
 <section class="section section--alt">
   <div class="container container--wide">
-    <div class="split split--top">
-      <div class="reveal">
+    <div class="split">
+      <div class="media media--4x5 reveal reveal--left">
+        <div class="media__frame">{{img:telehealth-tablet-hand|dark=kettlebell-bw|warm=tablet-coffee-plant|elite=laptop-stethoscope|alt=Telehealth visit on a tablet|sizes=(max-width: 899px) 100vw, 50vw}}</div>
+        <div class="media__float media__float--tr"><strong>Labs</strong><span>reviewed before<br>every prescription</span></div>
+      </div>
+      <div class="reveal reveal--right">
         <span class="eyebrow">Why {{site.name}}</span>
         <h2 class="mt-4">One team coordinates your hormones, peptides, and NAD+</h2>
         <p class="lead mt-6">Most telehealth hormone clinics operate in silos. Your TRT provider doesn't know about your peptide stack. Here, one physician-led team manages all of it.</p>
@@ -57,20 +62,34 @@ nav: hormones
           <li>{{icon:check-circle}} Ongoing dose adjustments based on follow-up labs</li>
         </ul>
       </div>
-      <div class="reveal" data-delay="1">
-        <div class="grid grid--2" style="gap:14px">
-          <div class="stat stat--card"><strong>XX+</strong><span>Licensed clinicians on the medical team</span></div>
-          <div class="stat stat--card"><strong>XX</strong><span>States served via telehealth</span></div>
-          <div class="stat stat--card"><strong>XX hrs</strong><span>Typical time to first clinician review</span></div>
-          <div class="stat stat--card"><strong>X,XXX+</strong><span>Patients treated</span></div>
-        </div>
-        <p class="small muted mt-4">Placeholder figures. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
-      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Lab-Review Loop</span>
+      <h2>Prescribed, measured, adjusted</h2>
+      <p class="lead">Hormone therapy is never set-and-forget. Your protocol follows a loop that keeps dosing tied to your results.</p>
+    </div>
+    <div class="steps steps--line">
+      <div class="step"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">01</span><h3>Intake &amp; baseline labs</h3><p>A telehealth intake and a baseline panel establish where you're starting from.</p></div>
+      <div class="step"><span class="step__icon">{{icon:stethoscope}}</span><span class="step__num">02</span><h3>Clinician prescribes</h3><p>A licensed clinician builds the initial protocol around your labs and goals.</p></div>
+      <div class="step"><span class="step__icon">{{icon:package-check}}</span><span class="step__num">03</span><h3>Shipped to your door</h3><p>Dispensed by a licensed compounding pharmacy, delivered to you.</p></div>
+      <div class="step"><span class="step__icon">{{icon:activity}}</span><span class="step__num">04</span><h3>Follow-up labs &amp; adjust</h3><p>Repeat labs on a schedule. Dosing is adjusted to your response, not a template.</p></div>
+    </div>
+    <div class="grid grid--4 mt-12 reveal reveal--stagger" style="gap:14px">
+      <div class="stat stat--card"><strong>XX+</strong><span>Licensed clinicians on the medical team</span></div>
+      <div class="stat stat--card"><strong>XX</strong><span>States served via telehealth</span></div>
+      <div class="stat stat--card"><strong>XX hrs</strong><span>Typical time to first clinician review</span></div>
+      <div class="stat stat--card"><strong>X,XXX+</strong><span>Patients treated</span></div>
+    </div>
+    <p class="small muted mt-3 text-center">Placeholder figures. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+  </div>
+</section>
+
+<section class="section section--alt">
   <div class="container container--narrow">
     <span class="eyebrow">FAQ</span>
     <h2 class="mt-4 mb-8">Common questions about hormone therapy online</h2>

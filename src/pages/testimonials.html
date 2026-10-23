@@ -3,12 +3,34 @@ title: Testimonials - Patient Stories
 description: Patient experiences with regenerative therapy, hormone optimization, and peptide programs.
 nav: about
 ---
-<section class="hero hero--page hero--center hero--short">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:seniors-pool|class=hero__img|dark=hiker-rail|bright=physio-knee|elite=spa-towel-dark|eager|sizes=100vw|pos=center 40%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:message-circle}}</span><div><b>Verified reviews only</b><span>Written consent before publishing</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
-      <span class="pill pill--accent">{{icon:message-circle}} Patient Stories</span>
-      <h1 class="mt-5">Hear it from <em class="hl">real people</em></h1>
+      <p class="hero__kicker">Patient Stories</p>
+      <h1>Hear it from <em class="hl">real people</em></h1>
       <p class="lead">This page is a template. Every testimonial below is a placeholder and must be replaced with a verified, consented review before launch. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--wide">
+    <div class="section-head section-head--row reveal">
+      <div><span class="eyebrow">Video Stories</span><h2>Patient stories on camera</h2></div>
+      <p class="small muted">Slots for up to three patient video testimonials.</p>
+    </div>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card card--image video-card"><div class="card__media">{{img:physio-athlete-back|warm=therapist-senior-arm|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="video-card__play"><span>{{icon:play}}</span></div></div><div class="card__body"><h3>Video title</h3><p class="small muted">Patient Name · Regenerative Therapy</p></div></div>
+      <div class="card card--image video-card"><div class="card__media">{{img:seniors-pool|dark=kettlebell-bw|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="video-card__play"><span>{{icon:play}}</span></div></div><div class="card__body"><h3>Video title</h3><p class="small muted">Patient Name · {{#if module:hormones}}Hormone Optimization{{/if}}{{#unless module:hormones}}NAD+ Therapy{{/unless}}</p></div></div>
+      <div class="card card--image video-card"><div class="card__media">{{img:hiker-rail|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="video-card__play"><span>{{icon:play}}</span></div></div><div class="card__body"><h3>Video title</h3><p class="small muted">Patient Name · {{#if module:peptides}}Peptide Therapy{{/if}}{{#unless module:peptides}}Concierge Care{{/unless}}</p></div></div>
     </div>
   </div>
 </section>
@@ -19,30 +41,15 @@ nav: about
       <span class="pill pill--accent">Written Reviews</span>
       <h2 class="mt-5">What patients are saying</h2>
     </div>
-    <div class="grid grid--3 reveal">
-      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="ph-avatar" style="width:38px;height:38px" aria-hidden="true">{{icon:user-round}}</span><span>Patient Name<small>City, ST</small></span></div></article>
-      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="ph-avatar" style="width:38px;height:38px" aria-hidden="true">{{icon:user-round}}</span><span>Patient Name<small>City, ST</small></span></div></article>
-      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="ph-avatar" style="width:38px;height:38px" aria-hidden="true">{{icon:user-round}}</span><span>Patient Name<small>City, ST</small></span></div></article>
-      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="ph-avatar" style="width:38px;height:38px" aria-hidden="true">{{icon:user-round}}</span><span>Patient Name<small>City, ST</small></span></div></article>
-      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="ph-avatar" style="width:38px;height:38px" aria-hidden="true">{{icon:user-round}}</span><span>Patient Name<small>City, ST</small></span></div></article>
-      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="ph-avatar" style="width:38px;height:38px" aria-hidden="true">{{icon:user-round}}</span><span>Patient Name<small>City, ST</small></span></div></article>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="avatar avatar--sm" aria-hidden="true">PN</span><span>Patient Name<small>City, ST</small></span></div></article>
+      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="avatar avatar--sm" aria-hidden="true">PN</span><span>Patient Name<small>City, ST</small></span></div></article>
+      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="avatar avatar--sm" aria-hidden="true">PN</span><span>Patient Name<small>City, ST</small></span></div></article>
+      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="avatar avatar--sm" aria-hidden="true">PN</span><span>Patient Name<small>City, ST</small></span></div></article>
+      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="avatar avatar--sm" aria-hidden="true">PN</span><span>Patient Name<small>City, ST</small></span></div></article>
+      <article class="quote-card"><div class="quote-card__top"><span class="pill pill--accent pill--sm">Condition / Program</span><span class="stars">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</span></div><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Review placeholder. Four to six sentences in the patient's own words: what they were dealing with, what the experience was like, and what changed afterward.</p><div class="quote-card__author"><span class="avatar avatar--sm" aria-hidden="true">PN</span><span>Patient Name<small>City, ST</small></span></div></article>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container container--wide">
-    <div class="section-head section-head--left reveal">
-      <span class="eyebrow">Video Stories</span>
-      <h2>Patient stories on camera</h2>
-      <p class="lead">Slots for up to three patient video testimonials, if the client has them.</p>
-    </div>
-    <div class="grid grid--3">
-      <div class="card card--image reveal"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Video placeholder"><span class="ph__icon">{{icon:play}}</span><span class="ph__label">Patient video</span></div></div><div class="card__body"><h3>Video title</h3><p class="small muted">Patient Name · Program</p></div></div>
-      <div class="card card--image reveal" data-delay="1"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Video placeholder"><span class="ph__icon">{{icon:play}}</span><span class="ph__label">Patient video</span></div></div><div class="card__body"><h3>Video title</h3><p class="small muted">Patient Name · Program</p></div></div>
-      <div class="card card--image reveal" data-delay="2"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Video placeholder"><span class="ph__icon">{{icon:play}}</span><span class="ph__label">Patient video</span></div></div><div class="card__body"><h3>Video title</h3><p class="small muted">Patient Name · Program</p></div></div>
-    </div>
-    <p class="small muted mt-8">Testimonials reflect individual experiences. Results are not typical, expected, or guaranteed. Candidacy is determined by a licensed clinician.</p>
+    <p class="small muted mt-8 text-center">Testimonials reflect individual experiences. Results are not typical, expected, or guaranteed. Candidacy is determined by a licensed clinician.</p>
   </div>
 </section>
 

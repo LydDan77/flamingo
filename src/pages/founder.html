@@ -3,11 +3,16 @@ title: Our Founder
 description: The story behind the practice: why it exists, how it works, and what every patient should expect.
 nav: about
 ---
-<section class="hero hero--page">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:clinician-home-visit|class=hero__img|dark=hiker-rail|warm=doctor-senior-ultrasound|elite=notebook-desk|eager|sizes=100vw|pos=center 30%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:user-round}}</span><div><b>[Founder Name]</b><span>Founder, {{site.name}}</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="about.html">About</a>{{icon:chevron-down}}<span>Founder</span></nav>
-      <p class="eyebrow eyebrow--rule">Founder</p>
+      <p class="hero__kicker">Founder</p>
       <h1>[Founder <em class="hl">Name</em>]</h1>
       <p class="lead">Founder, {{site.name}}. One-line positioning statement about the founder and the mission goes here. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
       <div class="hero__actions">
@@ -15,15 +20,12 @@ nav: about
         <a class="btn btn--secondary btn--lg" href="about.html#team">Meet The Team {{icon:arrow-up-right}}</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">
-      <div class="ph ph--tall" role="img" aria-label="Founder photo placeholder"><span class="ph__icon">{{icon:user-round}}</span><span class="ph__label">Founder photo</span></div>
-    </div>
   </div>
 </section>
 
 <section class="section section--tight section--deep">
   <div class="container">
-    <div class="stat-strip">
+    <div class="stat-strip reveal reveal--stagger">
       <div class="stat">{{icon:users}}<div><strong>X,XXX+</strong><span>Patients Connected</span></div></div>
       <div class="stat">{{icon:stethoscope}}<div><strong>XX+</strong><span>Licensed Practitioners</span></div></div>
       <div class="stat">{{icon:map-pin}}<div><strong>XX</strong><span>States Covered</span></div></div>
@@ -34,12 +36,40 @@ nav: about
 
 <section class="section">
   <div class="container container--narrow">
-    <div class="reveal">
+    <blockquote class="pullquote reveal">
+      <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
+      <p>"A signature line from the founder goes here: one sentence that captures why the practice exists and the standard it holds itself to."</p>
+      <footer>[Founder Name] · Founder</footer>
+    </blockquote>
+    <div class="reveal mt-12">
       <span class="eyebrow">Why {{site.name}} Exists</span>
       <h2 class="mt-4">The origin story, <em class="hl">in the founder's words.</em></h2>
       <div class="ph-copy mt-6">{{icon:pen}}<div><b>Section 1 · Why the practice exists</b><p>Two or three paragraphs: the gap the founder saw in the industry, what they built in response, and the standard of care they hold the team to.</p></div></div>
     </div>
-    <hr style="border:0;height:1px;background:var(--line);margin:48px 0">
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="sticky-media reveal reveal--left">
+        <span class="eyebrow">Milestones</span>
+        <h2 class="mt-4">How the practice took shape</h2>
+        <p class="lead mt-6">A short timeline of the practice's milestones. Years and events are placeholders. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+        <div class="media media--4x3 mt-8"><div class="media__frame">{{img:home-hallway|dark=physio-athlete-back|warm=seniors-pool|elite=spa-towel-dark|alt=|sizes=(max-width: 899px) 100vw, 45vw}}</div></div>
+      </div>
+      <div class="timeline reveal" data-delay="1">
+        <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>The first patients</h3><p>How the founder began connecting patients with regenerative care, and what they learned in the first year.</p></div>
+        <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>A physician-led team</h3><p>When clinical oversight, protocols, and a nurse practitioner network came together.</p></div>
+        <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>Telehealth joins in-home care</h3><p>Longevity programs added under the same chart as regenerative therapy.</p></div>
+        <div class="timeline__item"><span class="timeline__when">Today</span><h3>One team, one plan</h3><p>Where the practice is now, and what it's building next.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
     <div class="reveal">
       <h2>How we meet <em class="hl">patients</em></h2>
       <div class="ph-copy mt-6">{{icon:pen}}<div><b>Section 2 · How patients find the practice</b><p>Two paragraphs: how most patients first meet the team (events, referrals, provider partners), and how the website extends that experience. Include credentials, affiliations, and any verifiable milestones.</p></div></div>

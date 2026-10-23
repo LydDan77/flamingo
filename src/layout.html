@@ -11,16 +11,18 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="{{page.ogImage}}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0B0F0E">
+  <meta name="theme-color" content="#07090B">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
-  <!-- Theme bootstrap: pick the design version before first paint (no flash). ?theme=dark|light|playful -->
+  <!-- Theme bootstrap: pick the design version before first paint (no flash). ?theme=dark|light|warm|bright|elite -->
   <script>
     (function () {
-      var ok = ["dark", "light", "playful"], t = "dark";
+      var ok = ["dark", "light", "warm", "bright", "elite"], t = "dark";
       try {
         var q = new URLSearchParams(location.search).get("theme");
         var s = localStorage.getItem("flamingo-theme");
+        if (q === "playful") q = "bright";
+        if (s === "playful") s = "bright";
         t = q || s || "dark";
         if (ok.indexOf(t) < 0) t = "dark";
         if (q && ok.indexOf(q) >= 0) localStorage.setItem("flamingo-theme", q);
@@ -30,7 +32,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Atkinson+Hyperlegible:wght@400;700&family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body class="page page--{{page.slug}} {{page.bodyClass}}">
@@ -47,6 +49,19 @@
 {{> theme-switch}}
 {{> financing-chip}}
 
+<!-- Swap theme-specific photos as early as possible (site.js repeats this on theme change). -->
+<script>
+  (function () {
+    var t = document.documentElement.getAttribute("data-theme") || "dark", dir = "assets/img/photos/";
+    document.querySelectorAll("img[data-img]").forEach(function (img) {
+      var want = img.getAttribute("data-img-" + t);
+      if (!want) return;
+      if (img.hasAttribute("data-portrait")) { img.src = dir + want + "-portrait.webp"; }
+      else { img.srcset = dir + want + "-800.webp 800w, " + dir + want + "-1200.webp 1200w, " + dir + want + "-1920.webp 1920w"; img.src = dir + want + "-1200.webp"; }
+      img.setAttribute("data-img-current", want);
+    });
+  })();
+</script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

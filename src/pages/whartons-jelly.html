@@ -3,11 +3,16 @@ title: Wharton's Jelly Stem Cell Therapy
 description: Wharton's Jelly MSCs are younger and more potent than bone marrow or fat-derived cells. In-home stem cell therapy, physician-supervised.
 nav: regenerative
 ---
-<section class="hero hero--page">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:cells-macro|class=hero__img|light=cells-blue-white|warm=cells-violet-white|bright=dna-violet|elite=dna-gold|eager|sizes=100vw}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:microscope}}</span><div><b>Tested every lot</b><span>Sterility · viability · potency</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Wharton's Jelly</span></nav>
-      <p class="eyebrow eyebrow--rule">Regenerative Medicine · Source Science</p>
+      <p class="hero__kicker">Regenerative Medicine · Source Science</p>
       <h1>Wharton's Jelly, <em class="hl">the source</em> behind our regenerative protocols</h1>
       <p class="lead">Not all stem cells are equal. Wharton's Jelly, the gelatinous tissue inside the umbilical cord, contains some of the youngest, most active mesenchymal stem cells available. Here's why it matters.</p>
       <div class="hero__actions">
@@ -15,14 +20,13 @@ nav: regenerative
         <a class="btn btn--secondary btn--lg" href="stem-cell-therapy.html">The therapy that uses them {{icon:arrow-up-right}}</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">{{> ph-media}}</div>
   </div>
 </section>
 
 <section class="section">
   <div class="container container--wide">
     <div class="split">
-      <div class="reveal">
+      <div class="reveal reveal--left">
         <span class="eyebrow">The Source</span>
         <h2 class="mt-4">What is Wharton's Jelly, exactly?</h2>
         <div class="prose mt-6">
@@ -31,8 +35,8 @@ nav: regenerative
           <p>The umbilical cord is discarded after birth. Collecting it from consenting mothers after healthy, full-term deliveries gives access to one of the most potent regenerative sources in the human body, with no harm to mother or child.</p>
         </div>
       </div>
-      <div class="media media--4x5 reveal" data-delay="1">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · cells</span></div></div>
+      <div class="media media--4x5 reveal reveal--right">
+        <div class="media__frame">{{img:cells-blue|light=cells-violet-white|warm=cells-blue-white|elite=cells-macro|alt=Mesenchymal stem cells under magnification|sizes=(max-width: 899px) 100vw, 50vw}}</div>
         <div class="media__float media__float--br"><strong>10–100×</strong><span>More MSCs per gram<br>vs bone marrow</span></div>
       </div>
     </div>
@@ -41,16 +45,24 @@ nav: regenerative
 
 <section class="section section--alt">
   <div class="container container--wide">
-    <div class="section-head reveal">
-      <span class="eyebrow">Why It Matters</span>
-      <h2>Why Wharton's Jelly stands out among MSC sources</h2>
-      <p class="lead">Regenerative medicine has tested bone marrow, adipose tissue, dental pulp, and placenta. Wharton's Jelly consistently produces high-quality MSCs across the metrics that matter.</p>
-    </div>
-    <div class="grid grid--2">
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:microscope}}</span><h3>High MSC concentration</h3><p>Wharton's Jelly contains far more MSCs per gram than bone marrow aspirate. More cells means more signaling and more anti-inflammatory activity per therapy.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:zap}}</span><h3>Younger, more active cells</h3><p>Neonatal MSCs divide faster, secrete more growth factors, and have longer telomeres than adult-derived cells. Age matters in regenerative medicine.</p></div>
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:shield-check}}</span><h3>Immune-privileged</h3><p>Wharton's Jelly MSCs express low levels of MHC class II antigens. The immune system tolerates them without immunosuppressants.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:heart}}</span><h3>Ethically sourced, rigorously tested</h3><p>Tissue is donated by consenting mothers after healthy, full-term births. Every lot is tested for sterility, viability, potency, and communicable disease before release.</p></div>
+    <div class="split split--top">
+      <div class="reveal">
+        <span class="eyebrow">Why It Matters</span>
+        <h2 class="mt-4">Why Wharton's Jelly stands out among MSC sources</h2>
+        <p class="lead mt-6">Regenerative medicine has tested bone marrow, adipose tissue, dental pulp, and placenta. Wharton's Jelly consistently produces high-quality MSCs across the metrics that matter.</p>
+        <div class="bars mt-8" data-bar>
+          <div class="bar"><span class="bar__label">Wharton's Jelly</span><span class="bar__track"><span class="bar__fill" style="--v:100%"></span></span><span class="bar__value">High</span></div>
+          <div class="bar bar--alt"><span class="bar__label">Adipose (fat)</span><span class="bar__track"><span class="bar__fill" style="--v:38%"></span></span><span class="bar__value">Mid</span></div>
+          <div class="bar bar--alt"><span class="bar__label">Bone marrow</span><span class="bar__track"><span class="bar__fill" style="--v:14%"></span></span><span class="bar__value">Low</span></div>
+          <p class="bars__note">Relative MSC density per gram of source tissue. Illustrative, not to scale.</p>
+        </div>
+      </div>
+      <div class="grid grid--2 reveal reveal--stagger" style="gap:14px">
+        <div class="card card--hover"><span class="card__icon">{{icon:microscope}}</span><h4>High MSC concentration</h4><p>Far more MSCs per gram than bone marrow aspirate. More cells means more signaling per therapy.</p></div>
+        <div class="card card--hover"><span class="card__icon">{{icon:zap}}</span><h4>Younger, more active cells</h4><p>Neonatal MSCs divide faster, secrete more growth factors, and have longer telomeres.</p></div>
+        <div class="card card--hover"><span class="card__icon">{{icon:shield-check}}</span><h4>Immune-privileged</h4><p>Low MHC class II expression. Tolerated without immunosuppressants.</p></div>
+        <div class="card card--hover"><span class="card__icon">{{icon:heart}}</span><h4>Ethically sourced, tested</h4><p>Donated after healthy, full-term births. Every lot tested before release.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -58,10 +70,10 @@ nav: regenerative
 <section class="section">
   <div class="container container--wide">
     <div class="split split--reverse">
-      <div class="media media--4x3 reveal">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · in-home visit</span></div></div>
+      <div class="media media--4x3 reveal reveal--right">
+        <div class="media__frame">{{img:home-hallway|dark=living-room-bag|warm=hands-tea|elite=spa-towel-dark|alt=A welcoming home hallway|sizes=(max-width: 899px) 100vw, 50vw}}</div>
       </div>
-      <div class="reveal" data-delay="1">
+      <div class="reveal reveal--left">
         <span class="eyebrow">Delivery</span>
         <h2 class="mt-4">Delivered in your home by a licensed clinician</h2>
         <div class="prose mt-6">

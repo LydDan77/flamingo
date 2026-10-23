@@ -3,11 +3,16 @@ title: Stem Cell Therapy - In-Home Regenerative Care
 description: Wharton's Jelly stem cell therapy delivered in your home by a licensed clinician under physician oversight. Book a free consultation.
 nav: regenerative
 ---
-<section class="hero hero--page">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:physio-knee|class=hero__img|dark=physio-athlete-back|warm=therapist-senior-arm|elite=joint-glow|eager|sizes=100vw|pos=center 30%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:home}}</span><div><b>Delivered in your home</b><span>By a licensed nurse practitioner</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Stem Cell Therapy</span></nav>
-      <p class="eyebrow eyebrow--rule">Regenerative Medicine</p>
+      <p class="hero__kicker">Regenerative Medicine</p>
       <h1>Stem Cell <em class="hl">Therapy</em></h1>
       <p class="lead">Mesenchymal stem cells to support natural repair, reduce inflammation, and help restore damaged tissue, delivered in your home by a licensed clinician.</p>
       <ul class="hero__pills">
@@ -20,7 +25,6 @@ nav: regenerative
         <a class="btn btn--secondary btn--lg" href="#how-it-works">How It Works {{icon:arrow-down}}</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">{{> art-cells}}</div>
   </div>
 </section>
 
@@ -30,11 +34,11 @@ nav: regenerative
       <span class="eyebrow">The Process</span>
       <h2>How stem cell therapy <em class="hl">works</em></h2>
     </div>
-    <div class="steps">
-      <div class="step reveal"><span class="step__num">01</span><h3>Consultation &amp; Assessment</h3><p>A licensed practitioner reviews your condition and medical history and determines whether stem cell therapy is appropriate for you.</p></div>
-      <div class="step reveal" data-delay="1"><span class="step__num">02</span><h3>Therapy Planning</h3><p>A personalized plan is created around your specific needs, targeting the source of your pain rather than masking symptoms.</p></div>
-      <div class="step reveal" data-delay="2"><span class="step__num">03</span><h3>Stem Cell Administration</h3><p>Mesenchymal stem cells are administered to the affected area through a targeted, minimally invasive injection.</p></div>
-      <div class="step reveal" data-delay="3"><span class="step__num">04</span><h3>Recovery &amp; Follow-up</h3><p>The cells begin signaling repair pathways. Your team checks in over the following weeks as the process unfolds.</p></div>
+    <div class="steps steps--line">
+      <div class="step"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">01</span><h3>Consultation &amp; Assessment</h3><p>A licensed practitioner reviews your condition and medical history and determines whether stem cell therapy is appropriate for you.</p></div>
+      <div class="step"><span class="step__icon">{{icon:clipboard-list}}</span><span class="step__num">02</span><h3>Therapy Planning</h3><p>A personalized plan is created around your specific needs, targeting the source of your pain rather than masking symptoms.</p></div>
+      <div class="step"><span class="step__icon">{{icon:dna}}</span><span class="step__num">03</span><h3>Stem Cell Administration</h3><p>Mesenchymal stem cells are administered to the affected area through a targeted, minimally invasive injection.</p></div>
+      <div class="step"><span class="step__icon">{{icon:heart-pulse}}</span><span class="step__num">04</span><h3>Recovery &amp; Follow-up</h3><p>The cells begin signaling repair pathways. Your team checks in over the following weeks as the process unfolds.</p></div>
     </div>
   </div>
 </section>
@@ -45,13 +49,13 @@ nav: regenerative
       <span class="eyebrow">Key Benefits</span>
       <h2>Potential benefits of <em class="hl">stem cell therapy</em></h2>
     </div>
-    <div class="grid grid--3">
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:heart-pulse}}</span><h3>Tissue Repair Support</h3><p>MSCs can differentiate into cartilage, bone, and muscle cell types and signal repair in damaged tissue.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:leaf}}</span><h3>Reduced Inflammation</h3><p>Anti-inflammatory signaling may help manage pain and swelling and create a better healing environment.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:shield-check}}</span><h3>Low Rejection Risk</h3><p>Immune-privileged mesenchymal stem cells minimize the likelihood of rejection without immunosuppressants.</p></div>
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:zap}}</span><h3>Faster Recovery</h3><p>A targeted injection instead of surgery means no surgical downtime.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:activity}}</span><h3>Improved Joint Function</h3><p>May support cartilage health and reduce joint inflammation, helping mobility and stiffness.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:timer}}</span><h3>Longer-Lasting Relief</h3><p>By addressing the underlying tissue rather than symptoms, relief may be sustained over time.</p></div>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card card--hover"><span class="card__icon">{{icon:heart-pulse}}</span><h3>Tissue Repair Support</h3><p>MSCs can differentiate into cartilage, bone, and muscle cell types and signal repair in damaged tissue.</p></div>
+      <div class="card card--hover"><span class="card__icon">{{icon:leaf}}</span><h3>Reduced Inflammation</h3><p>Anti-inflammatory signaling may help manage pain and swelling and create a better healing environment.</p></div>
+      <div class="card card--hover"><span class="card__icon">{{icon:shield-check}}</span><h3>Low Rejection Risk</h3><p>Immune-privileged mesenchymal stem cells minimize the likelihood of rejection without immunosuppressants.</p></div>
+      <div class="card card--hover"><span class="card__icon">{{icon:zap}}</span><h3>Faster Recovery</h3><p>A targeted injection instead of surgery means no surgical downtime.</p></div>
+      <div class="card card--hover"><span class="card__icon">{{icon:activity}}</span><h3>Improved Joint Function</h3><p>May support cartilage health and reduce joint inflammation, helping mobility and stiffness.</p></div>
+      <div class="card card--hover"><span class="card__icon">{{icon:timer}}</span><h3>Longer-Lasting Relief</h3><p>By addressing the underlying tissue rather than symptoms, relief may be sustained over time.</p></div>
     </div>
   </div>
 </section>
@@ -59,11 +63,11 @@ nav: regenerative
 <section class="section">
   <div class="container container--wide">
     <div class="split">
-      <div class="media media--4x5 reveal">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · in-home visit</span></div></div>
+      <div class="media media--4x5 reveal reveal--left">
+        <div class="media__frame">{{img:clinician-home-visit|dark=physio-athlete-back|warm=therapist-senior-arm|alt=Clinician arriving for an in-home visit|sizes=(max-width: 899px) 100vw, 50vw|pos=center 30%}}</div>
         <div class="media__float media__float--br"><strong>8+</strong><span>Conditions<br>addressed</span></div>
       </div>
-      <div class="reveal" data-delay="1">
+      <div class="reveal reveal--right">
         <span class="eyebrow">Conditions Addressed</span>
         <h2 class="mt-4">Who can <em class="hl">benefit?</em></h2>
         <p class="lead mt-6">Stem cell therapy can address a range of musculoskeletal conditions. Whether you're an athlete recovering from injury or dealing with age-related wear, it may offer a path to relief.</p>
@@ -79,6 +83,16 @@ nav: regenerative
         </ul>
         <a class="btn btn--primary mt-10" href="{{site.bookUrl}}">See if you qualify {{icon:arrow-right}}</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--deep">
+  <div class="container container--wide">
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card card--overlay">{{img:physio-athlete-back|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="card__body"><span class="pill pill--sm">Active adults</span><h4>Back on the field, not on the table</h4><p>For athletes weighing non-surgical options after injury.</p></div></div>
+      <div class="card card--overlay">{{img:therapist-senior-arm|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="card__body"><span class="pill pill--sm">Age-related wear</span><h4>Mobility you can keep</h4><p>Support for joints that have carried decades of use.</p></div></div>
+      <div class="card card--overlay">{{img:home-hallway|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}<div class="card__body"><span class="pill pill--sm">In your home</span><h4>No clinic. No waiting room.</h4><p>Sessions take 30–60 minutes and happen where you live.</p></div></div>
     </div>
   </div>
 </section>

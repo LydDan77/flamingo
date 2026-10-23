@@ -88,8 +88,63 @@ function icon(name, cls) {
   return `<svg class="icon${cls ? " " + cls : ""}" aria-hidden="true" focusable="false"><use href="#i-${name}"></use></svg>`;
 }
 
+/**
+ * {{img:slug|class=hero__img|alt=...|sizes=...|pos=center 30%|eager|portrait|dark=other-slug|warm=...}}
+ * Renders a responsive <img> from src/assets/img/photos/<slug>-{800,1200,1920}.webp.
+ * Theme overrides (dark/light/warm/bright/elite=slug) are swapped in by site.js.
+ */
+const PHOTO_DIR = "assets/img/photos";
+const THEMES = ["dark", "light", "warm", "bright", "elite"];
+function imgTag(spec) {
+  const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
+  const slug = parts.shift();
+  const opt = { class: "", alt: "", sizes: "(max-width: 899px) 100vw, 50vw", pos: "", eager: false, portrait: false };
+  const themeSrc = {};
+  for (const p of parts) {
+    const i = p.indexOf("=");
+    if (i === -1) { opt[p] = true; continue; }
+    const k = p.slice(0, i).trim(), v = p.slice(i + 1).trim();
+    if (THEMES.includes(k)) themeSrc[k] = v; else opt[k] = v;
+  }
+  const check = (s, suffix) => {
+    const f = path.join(ASSETS, "img", "photos", `${s}-${suffix}.webp`);
+    if (!fs.existsSync(f)) throw new Error(`Missing photo: ${f}`);
+  };
+  check(slug, opt.portrait ? "portrait" : "1200");
+  Object.values(themeSrc).forEach((s) => check(s, opt.portrait ? "portrait" : "1200"));
+  const src = (s) => (opt.portrait ? `${PHOTO_DIR}/${s}-portrait.webp` : `${PHOTO_DIR}/${s}-1200.webp`);
+  const srcset = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
+  let attrs = `class="img${opt.class ? " " + opt.class : ""}" src="${src(slug)}"`;
+  if (!opt.portrait) attrs += ` srcset="${srcset(slug)}" sizes="${opt.sizes}"`;
+  attrs += ` alt="${escapeHtml(opt.alt)}" loading="${opt.eager ? "eager" : "lazy"}" decoding="async" data-img="${slug}"`;
+  if (opt.portrait) attrs += ` data-portrait="1"`;
+  if (opt.eager) attrs += ` fetchpriority="high"`;
+  if (opt.pos) attrs += ` style="object-position:${opt.pos}"`;
+  for (const [t, s] of Object.entries(themeSrc)) attrs += ` data-img-${t}="${s}"`;
+  return `<img ${attrs}>`;
+}
+
+/** Optional modules (site.config.js → modules). Pages, nav items and content blocks tagged with a module are dropped while it is off. */
+const MODULES = site.modules || {};
+function moduleOn(name) {
+  return !!MODULES[name];
+}
+function evalCondition(expr) {
+  // module:x | any:x,y | all:x,y
+  const [kind, list = ""] = expr.split(":");
+  const names = list.split(",").map((s) => s.trim()).filter(Boolean);
+  if (kind === "module") return moduleOn(names[0]);
+  if (kind === "any") return names.some(moduleOn);
+  if (kind === "all") return names.every(moduleOn);
+  throw new Error(`Unknown condition: ${expr}`);
+}
+function navVisible(item) {
+  return !item.module || moduleOn(item.module);
+}
+
 function renderNav(current) {
   const items = site.nav
+    .filter(navVisible)
     .map((item) => {
       const active = item.match && item.match.includes(current);
       if (!item.children) {
@@ -125,6 +180,7 @@ function renderFooterColumns() {
   return site.footer
     .map((col) => {
       const links = col.links
+        .filter(navVisible)
         .map((l) => {
           const ext = /^https?:/.test(l.href) ? ` target="_blank" rel="noopener"` : "";
           return `<li><a href="${l.href}"${ext}>${l.label}</a></li>`;
@@ -153,11 +209,20 @@ function render(template, ctx, depth = 0) {
   if (depth > 20) throw new Error("Template include depth exceeded (circular partial?)");
   let out = template;
 
+  // conditional blocks: {{#if module:peptides}}…{{/if}}  {{#unless any:hormones,peptides}}…{{/unless}}  (nesting allowed: innermost resolves first)
+  const COND = /\{\{#(if|unless)\s+([\w:,-]+)\s*\}\}((?:(?!\{\{#(?:if|unless)\s)[\s\S])*?)\{\{\/\1\}\}/;
+  while (COND.test(out)) {
+    out = out.replace(COND, (_, kind, expr, body) => ((kind === "if") === evalCondition(expr) ? body : ""));
+  }
+
   // partial includes
   out = out.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, name) => render(partial(name), ctx, depth + 1));
 
   // icons
   out = out.replace(/\{\{icon:([\w-]+)(?:\s+([\w\s-]+))?\}\}/g, (_, name, cls) => icon(name, cls));
+
+  // responsive photos
+  out = out.replace(/\{\{img:([^}]+)\}\}/g, (_, spec) => imgTag(spec));
 
   // special tokens
   out = out.replace(/\{\{nav\}\}/g, () => ctx.navHtml);
@@ -181,6 +246,7 @@ function buildPage(file) {
   const raw = read(path.join(PAGES, file));
   const { data, body } = parseFrontMatter(raw);
   const slug = file.replace(/\.html$/, "");
+  if (data.module && !moduleOn(data.module)) return null; // page belongs to a module that is switched off
   const page = {
     slug,
     url: slug === "index" ? "./" : `${slug}.html`,
@@ -219,8 +285,17 @@ function build() {
   fs.mkdirSync(DIST, { recursive: true });
   if (fs.existsSync(ASSETS)) copyDir(ASSETS, path.join(DIST, "assets"));
 
-  const pages = fs.readdirSync(PAGES).filter((f) => f.endsWith(".html")).sort();
-  for (const file of pages) buildPage(file);
+  // Stylesheet is authored in ordered parts (src/assets/css/parts/*.css) and concatenated into one file.
+  const partsDir = path.join(ASSETS, "css", "parts");
+  if (fs.existsSync(partsDir)) {
+    const css = fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n\n");
+    fs.writeFileSync(path.join(DIST, "assets", "css", "site.css"), css);
+    rmrf(path.join(DIST, "assets", "css", "parts"));
+  }
+
+  const allPages = fs.readdirSync(PAGES).filter((f) => f.endsWith(".html")).sort();
+  const pages = allPages.filter((file) => buildPage(file) !== null);
+  const skipped = allPages.filter((f) => !pages.includes(f));
 
   // Simple sitemap so the deployed site has one.
   const urls = pages
@@ -234,7 +309,7 @@ function build() {
   );
   fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
 
-  console.log(`built ${pages.length} pages -> dist/ in ${Date.now() - started}ms`);
+  console.log(`built ${pages.length} pages -> dist/ in ${Date.now() - started}ms${skipped.length ? ` (modules off, skipped: ${skipped.join(", ")})` : ""}`);
 }
 
 // ---------------------------------------------------------------------------

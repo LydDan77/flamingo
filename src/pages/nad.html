@@ -7,7 +7,7 @@ nav: nad
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>NAD+ &amp; Supplements</span></nav>
-      <p class="eyebrow eyebrow--rule">Longevity · Cellular Energy</p>
+      <p class="hero__kicker">Longevity · Cellular Energy</p>
       <h1>NAD+ therapy, injection &amp; <em class="hl">sublingual</em></h1>
       <p class="lead">NAD+ is a coenzyme central to mitochondrial energy production and DNA repair. Levels decline with age. Our clinicians build personalized NAD+ protocols, injection or sublingual, based on your labs and goals.</p>
       <div class="hero__actions">
@@ -17,8 +17,37 @@ nav: nad
     </div>
   </div>
   <div class="hero__art" aria-hidden="true">
-    <svg class="vial vial--lg" style="--vial-cap:#8AB4FF"><use href="#i-vial"></use></svg>
-    <svg class="vial" style="--vial-cap:#5EF2C2"><use href="#i-vial"></use></svg>
+    <svg class="vial vial--lg" style="--vial-cap:#3DF2FF"><use href="#i-vial"></use></svg>
+    <svg class="vial" style="--vial-cap:#C7FF3D"><use href="#i-vial"></use></svg>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="reveal reveal--left">
+        <span class="eyebrow">Why NAD+</span>
+        <h2 class="mt-4">The coenzyme your cells can't function without</h2>
+        <p class="lead mt-6">NAD+ levels decline significantly with age. Restoring them supports the biological processes that keep you sharp, energized, and resilient.</p>
+        <div class="stack mt-8">
+          <div class="info-row"><span class="card__icon">{{icon:zap}}</span><div><b>Cellular Energy</b><span class="small muted">Supports mitochondrial ATP production, the fuel your cells run on.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:brain}}</span><div><b>Cognitive Clarity</b><span class="small muted">NAD+ is essential for neuronal function and stress resilience.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:activity}}</span><div><b>Recovery &amp; Aging</b><span class="small muted">Involved in sirtuin and PARP enzyme activity tied to DNA repair and longevity.</span></div></div>
+        </div>
+      </div>
+      <div class="chart reveal reveal--right" data-draw>
+        <svg viewBox="0 0 600 300" role="img" aria-label="Illustrative chart: NAD+ levels decline with age">
+          <defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" class="chart__fill-a"/><stop offset="100%" class="chart__fill-b"/></linearGradient></defs>
+          <g class="chart__grid"><line x1="60" y1="60" x2="560" y2="60"/><line x1="60" y1="130" x2="560" y2="130"/><line x1="60" y1="200" x2="560" y2="200"/><line x1="60" y1="260" x2="560" y2="260"/></g>
+          <g class="chart__axis"><text x="20" y="64">100%</text><text x="28" y="134">75%</text><text x="28" y="204">50%</text><text x="28" y="264">25%</text><text x="52" y="288">20</text><text x="176" y="288">35</text><text x="300" y="288">50</text><text x="424" y="288">65</text><text x="548" y="288">80</text></g>
+          <path class="chart__area" d="M60 60 C 180 72, 250 120, 330 160 S 480 225, 560 236 L560 260 L60 260 Z"/>
+          <path class="chart__line" pathLength="1" d="M60 60 C 180 72, 250 120, 330 160 S 480 225, 560 236"/>
+          <circle class="chart__dot" cx="330" cy="160" r="7"/>
+          <text class="chart__callout" x="346" y="150">~50% by midlife</text>
+        </svg>
+        <div class="chart__legend"><span>Age (years)</span><span>Relative NAD+ level · illustrative</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -29,41 +58,33 @@ nav: nad
       <h2>Available NAD+ programs</h2>
       <p class="lead">Pricing is shared on your consultation. <span class="ph-tag">{{icon:pen}} Client to confirm catalog &amp; pricing</span></p>
     </div>
-    <div class="grid grid--3">
-      <article class="program reveal"><div class="program__vial" style="--vial-cap:#8AB4FF"><svg class="vial" aria-hidden="true"><use href="#i-vial"></use></svg></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Injection · Telehealth</span><h3>NAD+ Injection</h3><p class="small" style="color:var(--text-2)">Clinician-supervised NAD+ injection therapy for cellular energy, mitochondrial function, and longevity. Subcutaneous or IM, shipped to your door.</p><div class="program__price"><b>Pricing on consultation</b><small>1 &amp; 3-month supplies</small></div><div class="program__actions"><a class="btn btn--primary btn--sm" href="{{site.bookUrl}}">Request this program {{icon:arrow-right}}</a></div></article>
-      <article class="program reveal" data-delay="1"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:droplets}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Sublingual · Telehealth</span><h3>Sublingual NAD+</h3><p class="small" style="color:var(--text-2)">Absorbed under the tongue. No needles. Ideal for daily maintenance protocols. Your clinician recommends the right form based on your goals and labs.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
-      <article class="program reveal" data-delay="2"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:layers}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Supplement Protocols</span><h3>Clinician-curated supplements</h3><p class="small" style="color:var(--text-2)">Supplement protocols built around your labs and reviewed by the same medical team that manages your hormones, peptides, and regenerative care.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <article class="program"><div class="program__vial" style="--vial-cap:#3DF2FF"><svg class="vial" aria-hidden="true"><use href="#i-vial"></use></svg></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Injection · Telehealth</span><h3>NAD+ Injection</h3><p class="small" style="color:var(--text-2)">Clinician-supervised NAD+ injection therapy for cellular energy, mitochondrial function, and longevity. Subcutaneous or IM, shipped to your door.</p><div class="program__price"><b>Pricing on consultation</b><small>1 &amp; 3-month supplies</small></div><div class="program__actions"><a class="btn btn--primary btn--sm" href="{{site.bookUrl}}">Request this program {{icon:arrow-right}}</a></div></article>
+      <article class="program"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:droplets}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Sublingual · Telehealth</span><h3>Sublingual NAD+</h3><p class="small" style="color:var(--text-2)">Absorbed under the tongue. No needles. Ideal for daily maintenance protocols. Your clinician recommends the right form based on your goals and labs.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
+      <article class="program"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:layers}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Supplement Protocols</span><h3>Clinician-curated supplements</h3><p class="small" style="color:var(--text-2)">Supplement protocols built around your labs and reviewed by the same medical team that manages your {{site.teamScope}}.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
     </div>
   </div>
 </section>
 
 <section class="section section--alt">
   <div class="container container--wide">
-    <div class="section-head reveal">
-      <span class="eyebrow">Why NAD+</span>
-      <h2>The coenzyme your cells can't function without</h2>
-      <p class="lead">NAD+ levels decline significantly with age. Restoring them supports the biological processes that keep you sharp, energized, and resilient.</p>
-    </div>
-    <div class="grid grid--3">
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:zap}}</span><h3>Cellular Energy</h3><p>Supports mitochondrial ATP production, the fuel your cells run on.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:brain}}</span><h3>Cognitive Clarity</h3><p>NAD+ is essential for neuronal function and stress resilience.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:activity}}</span><h3>Recovery &amp; Aging</h3><p>Involved in sirtuin and PARP enzyme activity tied to DNA repair and longevity.</p></div>
+    <div class="split">
+      <div class="media media--4x3 reveal reveal--left">
+        <div class="media__frame">{{img:dna-blue|dark=cells-wireframe|warm=seniors-pool|bright=dna-violet|elite=dna-gold|alt=DNA illustration|sizes=(max-width: 899px) 100vw, 50vw}}</div>
+      </div>
+      <div class="reveal reveal--right">
+        <span class="eyebrow">Delivery Options</span>
+        <h2 class="mt-4">Injection vs sublingual: which is right for you?</h2>
+        <div class="grid grid--2 mt-8 reveal--stagger reveal" style="gap:14px">
+          <div class="card card--hover"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Injection</h3><p style="color:var(--brand-2);font-weight:600">Strong absorption, at home</p><p>Subcutaneous or IM injection. Prescribed via telehealth, shipped to your door.</p></div>
+          <div class="card card--hover"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Sublingual</h3><p style="color:var(--brand-2);font-weight:600">Most convenient</p><p>Absorbed under the tongue. No needles. Ideal for daily maintenance protocols.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container" style="max-width:1000px">
-    <span class="eyebrow">Delivery Options</span>
-    <h2 class="mt-4 mb-8">NAD+ injection vs sublingual: which is right for you?</h2>
-    <div class="grid grid--2">
-      <div class="card card--hover reveal"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Injection</h3><p style="color:var(--brand-2);font-weight:600">Strong absorption, at home</p><p>Subcutaneous or IM injection. Prescribed via telehealth, shipped to your door.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Sublingual</h3><p style="color:var(--brand-2);font-weight:600">Most convenient</p><p>Absorbed under the tongue. No needles. Ideal for daily maintenance protocols.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--alt">
   <div class="container container--narrow">
     <span class="eyebrow">FAQ</span>
     <h2 class="mt-4 mb-8">NAD+ therapy questions answered</h2>

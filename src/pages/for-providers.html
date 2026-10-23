@@ -3,11 +3,16 @@ title: For Providers - Build a Concierge Practice Without the Infrastructure
 description: NPs, PAs, and clinics - partner to deliver in-home regenerative medicine and telehealth under a physician-led clinical umbrella.
 nav: providers
 ---
-<section class="hero hero--page">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:nurse-portrait|class=hero__img|dark=physio-athlete-back|warm=doctor-senior-ultrasound|elite=notebook-desk|eager|sizes=100vw|pos=center 25%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:users}}</span><div><b>For NPs, PAs &amp; clinics</b><span>Platform, protocols, pharmacy network</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>For Providers</span></nav>
-      <p class="eyebrow eyebrow--rule">For NPs, PAs &amp; Clinics</p>
+      <p class="hero__kicker">For NPs, PAs &amp; Clinics</p>
       <h1>Build a concierge practice, <em class="hl">without building the infrastructure</em></h1>
       <p class="lead">{{site.name}} partners with licensed clinicians to deliver in-home regenerative therapies and physician-led telehealth. We bring the platform, protocols, and compounding pharmacy network. You bring the patient relationship.</p>
       <div class="hero__actions">
@@ -15,29 +20,29 @@ nav: providers
         <a class="btn btn--secondary btn--lg" href="concierge-care-model.html">How The Model Works</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">{{> ph-media}}</div>
   </div>
 </section>
 
 <section class="section">
   <div class="container container--wide">
     <div class="split">
-      <div class="reveal">
+      <div class="reveal reveal--left">
         <span class="eyebrow">The Opportunity</span>
         <h2 class="mt-4">The demand for regenerative medicine is real. The infrastructure to deliver it isn't.</h2>
         <div class="prose mt-6">
-          <p>Patients are actively searching for peptide therapy, stem cell therapy, and hormone optimization. What's missing is a turnkey model that lets a licensed NP or PA deliver these services without spending 18 months building a platform, finding a medical director, and negotiating with compounding pharmacies.</p>
+          <p>Patients are actively searching for stem cell therapy and {{site.programsPhrase}}. What's missing is a turnkey model that lets a licensed NP or PA deliver these services without spending 18 months building a platform, finding a medical director, and negotiating with compounding pharmacies.</p>
           <p>That's what this is: the infrastructure layer. Clinical oversight, telehealth platform, protocol library, compounding pharmacy network, and patient acquisition support, so you can focus on patient care.</p>
         </div>
-        <div class="grid grid--3 mt-8" style="gap:12px">
-          <div class="stat stat--card"><strong>XX,XXX</strong><span>Monthly searches for peptide therapy near me</span></div>
+        <div class="grid grid--3 mt-8 reveal reveal--stagger" style="gap:12px">
+          <div class="stat stat--card"><strong>XX,XXX</strong><span>Monthly searches for stem cell therapy near me</span></div>
           <div class="stat stat--card"><strong>X,XXX</strong><span>Monthly searches for NAD+ therapy</span></div>
-          <div class="stat stat--card"><strong>XX,XXX</strong><span>Monthly searches for compounded GLP-1</span></div>
+          <div class="stat stat--card"><strong>XX,XXX</strong><span>Monthly searches for {{#if module:peptides}}compounded GLP-1{{/if}}{{#unless module:peptides}}regenerative medicine{{/unless}}</span></div>
         </div>
         <p class="small muted mt-3">Placeholder figures. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
       </div>
-      <div class="media media--4x5 reveal" data-delay="1">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · provider</span></div></div>
+      <div class="media media--4x5 reveal reveal--right">
+        <div class="media__frame">{{img:laptop-stethoscope|dark=kettlebell-bw|warm=tablet-coffee-plant|elite=spa-towel-dark|alt=Telehealth workstation|sizes=(max-width: 899px) 100vw, 50vw}}</div>
+        <div class="media__float media__float--bl media__float--row"><span class="card__icon">{{icon:network}}</span><span><b>Turnkey platform</b><span>Intake · e-Rx · pharmacy</span></span></div>
       </div>
     </div>
   </div>
@@ -49,19 +54,19 @@ nav: providers
       <span class="eyebrow">What You Get</span>
       <h2>Everything you need to launch, nothing you don't</h2>
     </div>
-    <div class="grid grid--2">
-      <div class="card card--hover reveal"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:shield-check}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">XX states</strong><span class="small muted">Telehealth coverage</span></div></div><h3>Clinical umbrella: [Medical Group]</h3><p>Operate under a physician-led medical group's multi-state licensure and clinical oversight. We handle the medical director infrastructure so you can focus on patient care.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:network}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">XX products</strong><span class="small muted">Active catalog</span></div></div><h3>Telehealth stack, already built</h3><p>Plug into a white-labeled telehealth platform with intake forms, e-prescribing, compounding pharmacy partners, and a patient portal. No tech build required.</p></div>
-      <div class="card card--hover reveal"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:book-open}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">5 pillars</strong><span class="small muted">Protocol categories</span></div></div><h3>Protocols &amp; continuing education</h3><p>Access vetted protocols across regenerative medicine, peptides, hormone optimization, GLP-1, and NAD+. Clinical support and continuing education are included.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:wallet}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">Rev share</strong><span class="small muted">Partnership structure</span></div></div><h3>Concierge economics, not commodity telehealth</h3><p>A premium concierge pricing model built around referrals and high-retention programs. Not a race to the bottom on GLP-1 subscriptions.</p></div>
+    <div class="grid grid--2 reveal reveal--stagger">
+      <div class="card card--hover"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:shield-check}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">XX states</strong><span class="small muted">Telehealth coverage</span></div></div><h3>Clinical umbrella: [Medical Group]</h3><p>Operate under a physician-led medical group's multi-state licensure and clinical oversight. We handle the medical director infrastructure so you can focus on patient care.</p></div>
+      <div class="card card--hover"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:network}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">XX products</strong><span class="small muted">Active catalog</span></div></div><h3>Telehealth stack, already built</h3><p>Plug into a white-labeled telehealth platform with intake forms, e-prescribing, compounding pharmacy partners, and a patient portal. No tech build required.</p></div>
+      <div class="card card--hover"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:book-open}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">{{site.pillarCount}} pillars</strong><span class="small muted">Protocol categories</span></div></div><h3>Protocols &amp; continuing education</h3><p>Access vetted protocols across regenerative medicine and {{site.programsPhrase}}. Clinical support and continuing education are included.</p></div>
+      <div class="card card--hover"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start"><span class="card__icon">{{icon:wallet}}</span><div style="text-align:right"><strong class="mono" style="display:block;font-size:1.3rem;color:var(--brand-2)">Rev share</strong><span class="small muted">Partnership structure</span></div></div><h3>Concierge economics, not commodity telehealth</h3><p>A premium concierge pricing model built around referrals and high-retention programs. Not a race to the bottom on {{#if any:hormones,peptides}}GLP-1 subscriptions{{/if}}{{#unless any:hormones,peptides}}commodity telehealth subscriptions{{/unless}}.</p></div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container" style="max-width:1000px">
+  <div class="container container--wide">
     <div class="split split--top">
-      <div class="reveal">
+      <div class="reveal reveal--left">
         <span class="eyebrow">Requirements</span>
         <h2 class="mt-4">What you bring to the partnership</h2>
         <ul class="check-list mt-8">
@@ -71,16 +76,13 @@ nav: providers
           <li>{{icon:check-circle}} Commitment to the concierge care model</li>
           <li>{{icon:check-circle}} Willingness to complete protocol training</li>
         </ul>
+        <div class="media media--16x9 mt-10"><div class="media__frame">{{img:certificates-check|alt=Credential verification|sizes=(max-width: 899px) 100vw, 45vw}}</div></div>
       </div>
-      <div class="reveal" data-delay="1">
-        <span class="eyebrow">The Process</span>
-        <h2 class="mt-4">From application to launch</h2>
-        <div class="mt-8" style="display:flex;flex-direction:column;gap:22px">
-          <div class="info-row"><span class="reason__num" style="min-width:40px">01</span><div><b>Apply</b><span class="small" style="color:var(--text-2)">Submit a brief application. Tell us about your practice, license, and patient population.</span></div></div>
-          <div class="info-row"><span class="reason__num" style="min-width:40px">02</span><div><b>Intro call</b><span class="small" style="color:var(--text-2)">A 15-minute call with the partnerships team. We walk through the model, economics, and fit.</span></div></div>
-          <div class="info-row"><span class="reason__num" style="min-width:40px">03</span><div><b>Onboarding</b><span class="small" style="color:var(--text-2)">Protocol training, platform access, and clinical onboarding under the medical group.</span></div></div>
-          <div class="info-row"><span class="reason__num" style="min-width:40px">04</span><div><b>Launch</b><span class="small" style="color:var(--text-2)">Start delivering concierge regenerative and telehealth services to your patients.</span></div></div>
-        </div>
+      <div class="timeline reveal" data-delay="1">
+        <div class="timeline__item"><span class="timeline__when">Step 01</span><h3>Apply</h3><p>Submit a brief application. Tell us about your practice, license, and patient population.</p></div>
+        <div class="timeline__item"><span class="timeline__when">Step 02</span><h3>Intro call</h3><p>A 15-minute call with the partnerships team. We walk through the model, economics, and fit.</p></div>
+        <div class="timeline__item"><span class="timeline__when">Step 03</span><h3>Onboarding</h3><p>Protocol training, platform access, and clinical onboarding under the medical group.</p></div>
+        <div class="timeline__item"><span class="timeline__when">Step 04</span><h3>Launch</h3><p>Start delivering concierge regenerative and telehealth services to your patients.</p></div>
       </div>
     </div>
   </div>
@@ -88,6 +90,7 @@ nav: providers
 
 <section class="cta-band reveal">
   <div class="cta-band__bg" aria-hidden="true"></div>
+  <div class="cta-band__photo" aria-hidden="true">{{img:therapist-shoulder|dark=athlete-ropes|sizes=100vw}}</div>
   <div class="cta-band__art" aria-hidden="true">{{> art-orbit}}</div>
   <div class="container cta-band__inner">
     <p class="eyebrow">Partner With Us</p>
@@ -105,7 +108,7 @@ nav: providers
       <details class="faq__item"><summary>What kind of providers do you partner with?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Licensed nurse practitioners, physician assistants, and independent clinics who want to offer regenerative medicine and telehealth services without building the infrastructure from scratch.</div></details>
       <details class="faq__item"><summary>Do I need my own malpractice insurance?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Yes. All partnered clinicians maintain their own malpractice coverage. The medical group provides clinical oversight and protocol supervision, but each NP or PA operates under their own license and coverage.</div></details>
       <details class="faq__item"><summary>How does the revenue share work?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Revenue share terms are discussed during the partnership application process. There is no upfront franchise fee. Details will be finalized by the client. <span class="ph-tag">{{icon:pen}} Client to confirm</span></div></details>
-      <details class="faq__item"><summary>What training and protocols do you provide?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">All partnered clinicians receive access to a vetted protocol library covering regenerative medicine, peptide therapy, hormone optimization, GLP-1, and NAD+. Continuing education and clinical support are included.</div></details>
+      <details class="faq__item"><summary>What training and protocols do you provide?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">All partnered clinicians receive access to a vetted protocol library covering regenerative medicine and {{site.programsPhrase}}. Continuing education and clinical support are included.</div></details>
       <details class="faq__item"><summary>What telehealth platform do you use?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">A white-labeled telehealth platform handles intake, e-prescribing, compounding pharmacy handoff, and the patient portal. Platform details will be added once confirmed by the client.</div></details>
     </div>
   </div>

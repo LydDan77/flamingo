@@ -1,36 +1,37 @@
 ---
 title: Regenerative Medicine, Peptides & Longevity Care
-description: In-home regenerative therapy and nationwide telehealth for hormones, peptides, and NAD+. One physician-led medical team, one patient record, one plan.
+description: In-home regenerative therapy and nationwide telehealth for longevity care. One physician-led medical team, one patient record, one plan.
 nav: home
 ---
 <!-- ============================================================ HERO -->
-<section class="hero hero--home lux-grid">
+<section class="hero hero--image hero--home">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.12">
+    {{img:therapist-shoulder|class=hero__img|dark=athlete-ropes|warm=doctor-senior-ultrasound|bright=physio-knee|elite=dna-gold|eager|sizes=100vw|pos=center 35%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:shield-check}}</span><div><b>Physician-led care</b><span>In your home, or by telehealth</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
-      <p class="eyebrow eyebrow--rule">Regenerative Medicine · Telehealth · Longevity</p>
+      <p class="hero__kicker">Regenerative Medicine · Telehealth · Longevity</p>
       <h1>Regenerative care and <em class="hl">longevity medicine</em>, on your terms</h1>
-      <p class="lead">Regenerative therapy delivered in your home. Hormones, peptides, and NAD+ through telehealth. One physician-led medical team, one patient record, one plan built around your labs.</p>
+      <p class="lead">Regenerative therapy delivered in your home. {{site.telehealthSentence}} One physician-led medical team, one patient record, one plan built around your labs.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
         <a class="btn btn--secondary btn--lg" href="services.html">Explore Services {{icon:arrow-up-right}}</a>
       </div>
-      <ul class="trust-strip mt-10" style="justify-content:flex-start">
-        <li>{{icon:shield-check}} Physician-led</li>
-        <li>{{icon:home}} In-home regenerative care</li>
-        <li>{{icon:radio}} Telehealth nationwide</li>
+      <ul class="hero__meta">
+        <li><b>In-home</b> regenerative therapy</li>
+        <li><b>Telehealth</b> {{site.programsPhraseShort}}</li>
+        <li><b>Lab-guided</b> protocols</li>
       </ul>
     </div>
-    <div class="hero__media" aria-hidden="true">{{> art-cells}}</div>
-  </div>
-  <div class="hero__strip">
-    <ul class="cred-strip">
-      <li>{{icon:award}} <b>XX+</b> years in regenerative medicine</li>
-      <li>{{icon:users}} <b>XX+</b> licensed clinicians</li>
-      <li>{{icon:map-pin}} <b>XX</b> states covered</li>
-      <li>{{icon:shield-check}} Overseen by <b>[Medical group]</b></li>
-    </ul>
   </div>
 </section>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__inner">
+    <div class="ticker__track"><span>Joint pain</span><span>Sports injury</span><span>Osteoarthritis</span>{{#if module:hormones}}<span>Hormone optimization</span>{{/if}}{{#if module:peptides}}<span>GLP-1 weight programs</span><span>Peptide therapy</span>{{/if}}<span>NAD+ &amp; longevity</span><span>Recovery</span><span>Energy &amp; sleep</span><span>In-home care</span><span>Telehealth</span></div>
+  </div>
+</div>
 
 <!-- ============================================================ THREE PILLARS -->
 <section class="section lux-grid">
@@ -42,8 +43,8 @@ nav: home
     <div class="pillars">
       <article class="pillar reveal">
         <div class="pillar__media">
-          <div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · regenerative care</span></div>
-          <div class="pillar__counter"><b>01</b><small>of 03</small></div>
+          {{img:physio-knee|dark=physio-athlete-back|warm=therapist-senior-arm|elite=joint-glow|alt=Clinician treating a patient's knee|sizes=(max-width: 899px) 100vw, 45vw}}
+          <div class="pillar__counter"><b>01</b><small>of 0{{site.pillarCount}}</small></div>
           <div class="pillar__chips"><span>Knee</span><span>Hip</span><span>Shoulder</span><span>Back</span><span>Elbow</span><span>Neck</span><span>Ankle</span><span>Wrist</span></div>
         </div>
         <div>
@@ -61,10 +62,11 @@ nav: home
         </div>
       </article>
 
+      {{#if any:hormones,peptides}}
       <article class="pillar pillar--reverse reveal">
         <div class="pillar__media">
-          <div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · telehealth</span></div>
-          <div class="pillar__counter"><b>02</b><small>of 03</small></div>
+          {{img:telehealth-tablet-hand|dark=kettlebell-bw|warm=tablet-coffee-plant|elite=laptop-stethoscope|alt=Telehealth consultation on a tablet|sizes=(max-width: 899px) 100vw, 45vw}}
+          <div class="pillar__counter"><b>02</b><small>of 0{{site.pillarCount}}</small></div>
           <div class="pillar__chips"><span>Energy</span><span>Sleep</span><span>Libido</span><span>Strength</span><span>Cognitive</span></div>
         </div>
         <div>
@@ -78,20 +80,21 @@ nav: home
             <li>Peri-menopause, post-menopause, women's hormone optimization</li>
             <li>Weight management and GLP-1 support</li>
           </ul>
-          <a class="btn btn--brand" href="peptides.html">Get Started {{icon:arrow-up-right}}</a>
+          <a class="btn btn--brand" href="{{site.href.telehealth}}">Get Started {{icon:arrow-up-right}}</a>
         </div>
       </article>
+      {{/if}}
 
       <article class="pillar reveal">
         <div class="pillar__media">
-          <div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · longevity</span></div>
-          <div class="pillar__counter"><b>03</b><small>of 03</small></div>
+          {{img:dna-blue|dark=cells-wireframe|warm=seniors-pool|bright=dna-violet|elite=dna-gold|alt=DNA helix illustration|sizes=(max-width: 899px) 100vw, 45vw}}
+          <div class="pillar__counter"><b>{{#if any:hormones,peptides}}03{{/if}}{{#unless any:hormones,peptides}}02{{/unless}}</b><small>of 0{{site.pillarCount}}</small></div>
           <div class="pillar__chips"><span>Cellular energy</span><span>Cognitive</span><span>Recovery</span><span>Resilience</span></div>
         </div>
         <div>
           <p class="pillar__kicker">Cellular Health · Longevity Protocols</p>
           <h3><em class="hl">Longevity</em>, guided by clinicians, not by an algorithm</h3>
-          <p class="pillar__body">NAD+ therapy and clinician-curated supplement protocols, prescribed based on your labs and reviewed by the same medical team that manages your hormones, peptides, and regenerative care.</p>
+          <p class="pillar__body">NAD+ therapy and clinician-curated supplement protocols, prescribed based on your labs and reviewed by the same medical team that manages your {{site.teamScope}}.</p>
           <ul class="dot-list">
             <li>Cellular energy and mitochondrial function</li>
             <li>Cognitive clarity and stress resilience</li>
@@ -115,7 +118,7 @@ nav: home
     </div>
     <div class="tiles reveal" data-tiles>
       <div class="tiles__panel" data-tint="1">
-        <div class="tiles__art" aria-hidden="true">{{> art-orbit}}</div>
+        {{img:joint-glow|class=tiles__img|alt=|sizes=(max-width: 1023px) 100vw, 60vw}}
         <div class="tiles__top">
           <span class="tiles__num">(01)</span>
           <span class="tiles__icon"><svg class="icon" aria-hidden="true"><use href="#i-dna"></use></svg></span>
@@ -123,16 +126,16 @@ nav: home
         <div>
           <h3 class="tiles__title">Stem Cell Therapy</h3>
           <p class="tiles__text">Regenerative therapy that may support the body's natural repair processes, delivered in your home by a licensed nurse practitioner.</p>
-          <a class="btn btn--primary tiles__link" href="stem-cell-therapy.html">Learn More {{icon:arrow-up-right}}</a>
+          <a class="btn btn--light tiles__link" href="stem-cell-therapy.html">Learn More {{icon:arrow-up-right}}</a>
         </div>
       </div>
       <div class="tiles__list" role="tablist" aria-label="Services">
-        <button class="tile" role="tab" data-num="(01)" data-tint="1" data-icon="dna" data-title="Stem Cell Therapy" data-href="stem-cell-therapy.html" data-text="Regenerative therapy that may support the body's natural repair processes, delivered in your home by a licensed nurse practitioner."><span class="tile__icon">{{icon:dna}}</span><span><span class="tile__num">01</span><span class="tile__label">Stem Cell Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
-        <button class="tile" role="tab" data-num="(02)" data-tint="2" data-icon="droplets" data-title="Wharton's Jelly" data-href="whartons-jelly.html" data-text="Umbilical cord-derived mesenchymal stem cells from accredited tissue banks: the source material behind our regenerative protocols."><span class="tile__icon">{{icon:droplets}}</span><span><span class="tile__num">02</span><span class="tile__label">Wharton's Jelly</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
-        <button class="tile" role="tab" data-num="(03)" data-tint="3" data-icon="orbit" data-title="Exosome Therapy" data-href="why-exosomes.html" data-text="Cell-derived signaling vesicles that may amplify repair signals and support recovery at the cellular level."><span class="tile__icon">{{icon:orbit}}</span><span><span class="tile__num">03</span><span class="tile__label">Exosome Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
-        <button class="tile" role="tab" data-num="(04)" data-tint="4" data-icon="flask" data-title="Hormone Optimization" data-href="hormones.html" data-text="Testosterone and bioidentical hormone therapy tailored to your labs. Prescribed online, shipped to your door."><span class="tile__icon">{{icon:flask}}</span><span><span class="tile__num">04</span><span class="tile__label">Hormone Optimization</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
-        <button class="tile" role="tab" data-num="(05)" data-tint="5" data-icon="zap" data-title="Peptide Therapy" data-href="peptides.html" data-text="Goal-based peptide programs for recovery, weight, sleep, and longevity, prescribed by a licensed clinician."><span class="tile__icon">{{icon:zap}}</span><span><span class="tile__num">05</span><span class="tile__label">Peptide Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
-        <button class="tile" role="tab" data-num="(06)" data-tint="6" data-icon="sparkles" data-title="NAD+ Therapy" data-href="nad.html" data-text="Cellular energy and longevity protocols built around NAD+, supervised by your clinician."><span class="tile__icon">{{icon:sparkles}}</span><span><span class="tile__num">06</span><span class="tile__label">NAD+ Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
+        <button class="tile" role="tab" data-num="(01)" data-tint="1" data-icon="dna" data-image="joint-glow" data-title="Stem Cell Therapy" data-href="stem-cell-therapy.html" data-text="Regenerative therapy that may support the body's natural repair processes, delivered in your home by a licensed nurse practitioner."><span class="tile__icon">{{icon:dna}}</span><span><span class="tile__num">01</span><span class="tile__label">Stem Cell Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
+        <button class="tile" role="tab" data-num="(02)" data-tint="2" data-icon="droplets" data-image="cells-macro" data-title="Wharton's Jelly" data-href="whartons-jelly.html" data-text="Umbilical cord-derived mesenchymal stem cells from accredited tissue banks: the source material behind our regenerative protocols."><span class="tile__icon">{{icon:droplets}}</span><span><span class="tile__num">02</span><span class="tile__label">Wharton's Jelly</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
+        <button class="tile" role="tab" data-num="(03)" data-tint="3" data-icon="orbit" data-image="cells-blue" data-title="Exosome Therapy" data-href="why-exosomes.html" data-text="Cell-derived signaling vesicles that may amplify repair signals and support recovery at the cellular level."><span class="tile__icon">{{icon:orbit}}</span><span><span class="tile__num">03</span><span class="tile__label">Exosome Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
+        {{#if module:hormones}}<button class="tile" role="tab" data-num="({{site.num.hormones}})" data-tint="4" data-icon="flask" data-image="laptop-stethoscope" data-title="Hormone Optimization" data-href="hormones.html" data-text="Testosterone and bioidentical hormone therapy tailored to your labs. Prescribed online, shipped to your door."><span class="tile__icon">{{icon:flask}}</span><span><span class="tile__num">{{site.num.hormones}}</span><span class="tile__label">Hormone Optimization</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>{{/if}}
+        {{#if module:peptides}}<button class="tile" role="tab" data-num="({{site.num.peptides}})" data-tint="5" data-icon="zap" data-image="telehealth-tablet-hand" data-title="Peptide Therapy" data-href="peptides.html" data-text="Goal-based peptide programs for recovery, weight, sleep, and longevity, prescribed by a licensed clinician."><span class="tile__icon">{{icon:zap}}</span><span><span class="tile__num">{{site.num.peptides}}</span><span class="tile__label">Peptide Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>{{/if}}
+        <button class="tile" role="tab" data-num="({{site.num.nad}})" data-tint="6" data-icon="sparkles" data-image="dna-blue" data-title="NAD+ Therapy" data-href="nad.html" data-text="Cellular energy and longevity protocols built around NAD+, supervised by your clinician."><span class="tile__icon">{{icon:sparkles}}</span><span><span class="tile__num">{{site.num.nad}}</span><span class="tile__label">NAD+ Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
       </div>
     </div>
   </div>
@@ -144,20 +147,20 @@ nav: home
     <div class="section-head reveal">
       <span class="eyebrow">Coordinated Care</span>
       <h2>One medical team that holds the whole picture</h2>
-      <p class="lead">A GLP-1 program shouldn't live in a silo. Our clinicians coordinate it with peptide protocols, hormone optimization, NAD+ programs, and regenerative therapy, so each plan plugs into your bigger longevity strategy instead of competing with it.</p>
+      <p class="lead">{{#if any:hormones,peptides}}A GLP-1 program shouldn't live in a silo. Our clinicians coordinate it with peptide protocols, hormone optimization, NAD+ programs, and regenerative therapy, so each plan plugs into your bigger longevity strategy instead of competing with it.{{/if}}{{#unless any:hormones,peptides}}A longevity protocol shouldn't live in a silo. Our clinicians coordinate NAD+ programs with your regenerative therapy, so each plan plugs into one bigger strategy instead of competing with it.{{/unless}}</p>
     </div>
-    <div class="grid grid--3">
-      <a class="treat-card reveal" href="stem-cell-therapy.html">
+    <div class="grid grid--3 reveal--stagger reveal">
+      <a class="treat-card" href="stem-cell-therapy.html">
         <div class="treat-card__top"><h3>Regeneration, delivered to your door.</h3><p>Stem cell and exosome therapy for joints and soft tissue, in your home, by a licensed nurse practitioner, under physician oversight. No clinic visits. No waiting rooms.</p></div>
         <div class="treat-card__stage">{{> art-orbit}}</div>
       </a>
-      <a class="treat-card reveal" data-delay="1" href="peptides.html">
-        <div class="treat-card__top"><h3>Hormones and peptides, prescribed online.</h3><p>Hormone optimization and clinician-led peptide protocols by goal. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p></div>
-        <div class="treat-card__stage"><svg class="vial" style="--vial-cap:#F5B84C" aria-hidden="true"><use href="#i-vial"></use></svg></div>
+      <a class="treat-card" href="{{site.href.telehealth}}">
+        <div class="treat-card__top">{{#if any:hormones,peptides}}<h3>Hormones and peptides, prescribed online.</h3><p>Hormone optimization and clinician-led peptide protocols by goal. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless any:hormones,peptides}}<h3>NAD+ and longevity, prescribed online.</h3><p>Clinician-led NAD+ and supplement protocols built around your labs. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/unless}}</div>
+        <div class="treat-card__stage"><svg class="vial" style="--vial-cap:#FF7A3D" aria-hidden="true"><use href="#i-vial"></use></svg></div>
       </a>
-      <a class="treat-card reveal" data-delay="2" href="concierge-care-model.html">
+      <a class="treat-card" href="concierge-care-model.html">
         <div class="treat-card__top"><h3>One medical team. One patient record. One plan.</h3><p>Every service coordinated across in-home regenerative care and virtual longevity programs, under one physician-led team.</p></div>
-        <div class="treat-card__stage"><div class="ph ph--sm" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Team photo</span></div></div>
+        <div class="treat-card__stage"><div class="media"><div class="media__frame">{{img:laptop-stethoscope|alt=Telehealth setup with laptop and stethoscope|sizes=(max-width: 1023px) 50vw, 30vw}}</div></div></div>
       </a>
     </div>
     <div class="actions actions--center mt-10 reveal">
@@ -174,11 +177,11 @@ nav: home
       <h2>How it works</h2>
       <p class="lead">Between where you are now and where you actually want to be.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">01</span><h3>Book a free consultation</h3><p>Tell us your goals, symptoms, and state. We route you to the right program and the right clinician on our team.</p></div>
-      <div class="step reveal" data-delay="1"><span class="step__icon">{{icon:stethoscope}}</span><span class="step__num">02</span><h3>Meet your medical team</h3><p>Connect with a licensed clinician via telehealth. Labs are ordered if needed.</p></div>
-      <div class="step reveal" data-delay="2"><span class="step__icon">{{icon:clipboard-list}}</span><span class="step__num">03</span><h3>Get a personalized plan</h3><p>Your provider builds a dosing protocol around your labs and goals, not a template.</p></div>
-      <div class="step reveal" data-delay="3"><span class="step__icon">{{icon:package-check}}</span><span class="step__num">04</span><h3>Therapy delivered</h3><p>In-home visits or shipped prescriptions, with ongoing check-ins and dosing adjustments.</p></div>
+    <div class="steps steps--line">
+      <div class="step"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">01</span><h3>Book a free consultation</h3><p>Tell us your goals, symptoms, and state. We route you to the right program and the right clinician on our team.</p></div>
+      <div class="step"><span class="step__icon">{{icon:stethoscope}}</span><span class="step__num">02</span><h3>Meet your medical team</h3><p>Connect with a licensed clinician via telehealth. Labs are ordered if needed.</p></div>
+      <div class="step"><span class="step__icon">{{icon:clipboard-list}}</span><span class="step__num">03</span><h3>Get a personalized plan</h3><p>Your provider builds a dosing protocol around your labs and goals, not a template.</p></div>
+      <div class="step"><span class="step__icon">{{icon:package-check}}</span><span class="step__num">04</span><h3>Therapy delivered</h3><p>In-home visits or shipped prescriptions, with ongoing check-ins and dosing adjustments.</p></div>
     </div>
     <div class="actions actions--center mt-12 reveal">
       <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
@@ -194,16 +197,16 @@ nav: home
       <span class="eyebrow">This is probably you</span>
       <h2>Who we help</h2>
     </div>
-    <div class="grid grid--2">
-      <a class="card card--hover persona-card reveal" href="peptides.html">
+    <div class="grid grid--2 reveal reveal--stagger">
+      <a class="card card--hover persona-card" href="{{site.href.performance}}">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-activity"></use></svg>
         <span class="card__icon card__icon--grad">{{icon:activity}}</span>
         <span class="eyebrow">Performance Mindset</span>
         <h3>You're optimizing, not catching up.</h3>
-        <p>Peptides, NAD+, and hormone support for professionals and athletes chasing energy, body composition, recovery, and cognitive edge.</p>
-        <div class="card__foot"><span>Peptides &amp; NAD+</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
+        <p>{{#if any:hormones,peptides}}Peptides, NAD+, and hormone support{{/if}}{{#unless any:hormones,peptides}}NAD+ and longevity protocols{{/unless}} for professionals and athletes chasing energy, body composition, recovery, and cognitive edge.</p>
+        <div class="card__foot"><span>{{#if any:hormones,peptides}}Peptides &amp; NAD+{{/if}}{{#unless any:hormones,peptides}}NAD+ &amp; Longevity{{/unless}}</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
-      <a class="card card--hover persona-card reveal" data-delay="1" href="stem-cell-therapy.html">
+      <a class="card card--hover persona-card" href="stem-cell-therapy.html">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-heart-pulse"></use></svg>
         <span class="card__icon card__icon--grad">{{icon:heart-pulse}}</span>
         <span class="eyebrow">Recovering From An Injury</span>
@@ -211,7 +214,7 @@ nav: home
         <p>Regenerative therapy for active adults recovering from sports injuries, joint wear, and soft-tissue damage.</p>
         <div class="card__foot"><span>Regenerative Therapy</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
-      <a class="card card--hover persona-card reveal" data-delay="2" href="concierge-care-model.html">
+      <a class="card card--hover persona-card" href="concierge-care-model.html">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-shield-check"></use></svg>
         <span class="card__icon card__icon--grad">{{icon:shield-check}}</span>
         <span class="eyebrow">Before You Say Yes To Surgery</span>
@@ -219,13 +222,13 @@ nav: home
         <p>Non-surgical regenerative options with an honest candidacy assessment. If we're not a fit, we'll tell you.</p>
         <div class="card__foot"><span>Regenerative Therapy</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
-      <a class="card card--hover persona-card reveal" data-delay="3" href="hormones.html">
+      <a class="card card--hover persona-card" href="{{site.href.after40}}">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-gauge"></use></svg>
         <span class="card__icon card__icon--grad">{{icon:gauge}}</span>
         <span class="eyebrow">Optimizing After 40</span>
         <h3>Your labs look different than they used to. So does the mirror.</h3>
-        <p>Hormone optimization for men and women, with coordinated longevity planning built around real labs, not guesses.</p>
-        <div class="card__foot"><span>Hormone Optimization</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
+        <p>{{#if module:hormones}}Hormone optimization for men and women, with{{/if}}{{#unless module:hormones}}Clinician-led longevity planning for men and women, with{{/unless}} coordinated care built around real labs, not guesses.</p>
+        <div class="card__foot"><span>{{#if module:hormones}}Hormone Optimization{{/if}}{{#unless module:hormones}}Longevity Planning{{/unless}}</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
     </div>
   </div>
@@ -237,24 +240,24 @@ nav: home
     <div class="section-head reveal">
       <h2>Physician-led care</h2>
       <p class="lead" style="color:var(--text)">A medical team you can actually name</p>
-      <p class="small mt-4" style="color:var(--text-3);max-width:56ch;margin-inline:auto">Every patient is cared for by a licensed nurse practitioner and overseen by a named Medical Director. Clinician names, credentials, and portraits will be added once the client provides them. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <p class="small mt-4" style="color:var(--text-3);max-width:56ch;margin-inline:auto">Every patient is cared for by a licensed nurse practitioner and overseen by a named Medical Director. Names, credentials, and portraits are stand-ins until the client provides them. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
     </div>
-    <div class="grid" style="gap:20px">
-      <article class="doctor-card reveal">
+    <div class="grid reveal reveal--stagger" style="gap:20px">
+      <article class="doctor-card">
         <div>
-          <div class="doctor-card__portrait"><div class="ph ph--fill" role="img" aria-label="Portrait placeholder"><span class="ph__icon">{{icon:user-round}}</span><span class="ph__label">Clinician portrait</span></div></div>
+          <div class="doctor-card__portrait">{{img:nurse-portrait|portrait|alt=Clinician portrait}}</div>
           <p class="doctor-card__name">[Medical Director Name], MD</p>
           <p class="doctor-card__title">Medical Director · {{site.name}}</p>
         </div>
         <blockquote>
           <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
-          <p>A short quote from the medical director goes here: two or three sentences on why regenerative therapy, hormones, and peptides belong under one coordinated team.</p>
+          <p>A short quote from the medical director goes here: two or three sentences on why regenerative therapy and {{site.programsPhrase}} belong under one coordinated team.</p>
           <cite>[Name] · Medical Director</cite>
         </blockquote>
       </article>
-      <article class="doctor-card reveal" data-delay="1">
+      <article class="doctor-card">
         <div>
-          <div class="doctor-card__portrait"><div class="ph ph--fill" role="img" aria-label="Portrait placeholder"><span class="ph__icon">{{icon:user-round}}</span><span class="ph__label">Clinician portrait</span></div></div>
+          <div class="doctor-card__portrait">{{img:clinician-home-visit|portrait|alt=Clinician portrait}}</div>
           <p class="doctor-card__name">[Chief Medical Officer Name], MD</p>
           <p class="doctor-card__title">Chief Medical Officer · {{site.name}}</p>
         </div>
@@ -312,10 +315,10 @@ nav: home
       <h2>Real patients. Real words.</h2>
       <p class="lead">Testimonial slots below are placeholders. Only publish verified reviews with written patient consent. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
     </div>
-    <div class="grid grid--3">
-      <article class="story-card reveal"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Regenerative Therapy patient</footer></article>
-      <article class="story-card reveal" data-delay="1"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Hormone Therapy patient</footer></article>
-      <article class="story-card reveal" data-delay="2"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Peptide Therapy patient</footer></article>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Regenerative Therapy patient</footer></article>
+      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:hormones}}Hormone Therapy{{/if}}{{#unless module:hormones}}NAD+ Therapy{{/unless}} patient</footer></article>
+      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:peptides}}Peptide Therapy{{/if}}{{#unless module:peptides}}Concierge Care{{/unless}} patient</footer></article>
     </div>
     <div class="mt-10 reveal"><a class="link-arrow" href="testimonials.html">See the testimonials page {{icon:arrow-right}}</a></div>
   </div>
@@ -329,7 +332,7 @@ nav: home
         <span class="eyebrow">Why Us</span>
         <h2 class="mt-4">Why choose <em class="hl">{{site.name}}</em></h2>
         <p class="lead mt-6">Expertise and rigor in regenerative medicine, delivered in a patient-centered way under one physician-led medical team.</p>
-        <div class="media media--4x3 mt-8"><div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · consultation</span></div></div></div>
+        <div class="media media--4x3 mt-8"><div class="media__frame">{{img:doctor-senior-ultrasound|dark=physio-athlete-back|elite=spa-towel-dark|bright=therapist-shoulder|alt=Clinician with a patient|sizes=(max-width: 899px) 100vw, 33vw}}</div></div>
       </div>
       <div class="reasons reveal" data-delay="1">
         <div class="reason"><span class="reason__num">01</span><div><h3>Expertise in regenerative medicine</h3><p>A clinical team with deep experience in regenerative protocols, staying current with the research.</p></div></div>
@@ -368,23 +371,22 @@ nav: home
 <!-- ============================================================ JOURNAL -->
 <section class="section" id="journal">
   <div class="container container--wide">
-    <div class="section-head section-head--left reveal">
-      <span class="eyebrow">News &amp; Education</span>
-      <h2>From the journal</h2>
-      <p class="lead">Article cards below are placeholders for the client's first three posts. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+    <div class="section-head section-head--row reveal">
+      <div><span class="eyebrow">News &amp; Education</span><h2>From the journal</h2></div>
+      <p class="small muted">Article cards are placeholders for the client's first three posts. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
     </div>
-    <div class="grid grid--3">
-      <article class="card card--hover card--image post-card reveal">
-        <div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Article image</span></div></div>
-        <div class="card__body"><div class="post-card__meta"><b>Category</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <article class="card card--hover card--image post-card">
+        <div class="card__media">{{img:dna-blue-2|dark=dna-orange-blue|elite=dna-gold|bright=dna-violet|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
+        <div class="card__body"><div class="post-card__meta"><b>Science</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
       </article>
-      <article class="card card--hover card--image post-card reveal" data-delay="1">
-        <div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Article image</span></div></div>
-        <div class="card__body"><div class="post-card__meta"><b>Education</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
+      <article class="card card--hover card--image post-card">
+        <div class="card__media">{{img:hands-tea|dark=hiker-rail|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
+        <div class="card__body"><div class="post-card__meta"><b>Lifestyle</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
       </article>
-      <article class="card card--hover card--image post-card reveal" data-delay="2">
-        <div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Article image</span></div></div>
-        <div class="card__body"><div class="post-card__meta"><b>Education</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
+      <article class="card card--hover card--image post-card">
+        <div class="card__media">{{img:certificates-check|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
+        <div class="card__body"><div class="post-card__meta"><b>Quality</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
       </article>
     </div>
   </div>

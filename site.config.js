@@ -3,12 +3,47 @@
  * Everything here is a PLACEHOLDER until the client's details arrive.
  * Edit once; every page picks it up on the next build.
  */
+
+// ---------------------------------------------------------------------------
+// Optional modules. Flip to true to publish the page, its navigation links,
+// and every cross-reference on other pages. Off = fully hidden (not built,
+// not in the sitemap, not linked anywhere).
+// ---------------------------------------------------------------------------
+const modules = {
+  hormones: false, // hormones.html (TRT / HRT telehealth)
+  peptides: false, // peptides.html (goal-based peptide programs)
+};
+
+const telehealth = modules.hormones || modules.peptides;
+const pad = (n) => String(n).padStart(2, "0");
+const num = {
+  hormones: pad(4),
+  peptides: pad(4 + (modules.hormones ? 1 : 0)),
+  nad: pad(4 + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0)),
+};
+
 module.exports = {
+  modules,
+  num, // service numbering that shifts when modules are off (used by the home tiles and services cards)
+
+  // Copy fragments that change with the modules, so generic sentences stay true either way.
+  programsPhrase: telehealth ? "hormones, peptides, and NAD+" : "NAD+ and longevity protocols",
+  programsPhraseShort: telehealth ? "hormones · peptides · NAD+" : "NAD+ · longevity",
+  telehealthSentence: telehealth ? "Hormones, peptides, and NAD+ through telehealth." : "NAD+ and longevity protocols through telehealth.",
+  teamScope: telehealth ? "hormones, peptides, and regenerative care" : "longevity protocols and regenerative care",
+  programCount: ["Three", "Four", "Five", "Six"][1 + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0)],
+  pillarCount: 3 + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0),
+  href: {
+    performance: modules.peptides ? "peptides.html" : "nad.html",
+    after40: modules.hormones ? "hormones.html" : "concierge-care-model.html",
+    telehealth: modules.peptides ? "peptides.html" : modules.hormones ? "hormones.html" : "nad.html",
+  },
+
   // Brand (placeholder)
   name: "Brand Name",
   tagline: "Regenerative Medicine & Longevity Care",
   description:
-    "In-home regenerative therapy and nationwide telehealth for hormones, peptides, and NAD+. One physician-led medical team, one patient record, one plan.",
+    "In-home regenerative therapy and nationwide telehealth for longevity care. One physician-led medical team, one patient record, one plan.",
   url: "https://flamingo-regenerative-revival.vercel.app", // update when the client's domain is attached
   ogImage: "assets/img/og-image.png",
 
@@ -49,11 +84,12 @@ module.exports = {
         cta: "Book a Consultation",
       },
     },
-    { label: "Hormones", href: "hormones.html", match: ["hormones"] },
+    { label: "Hormones", href: "hormones.html", match: ["hormones"], module: "hormones" },
     {
       label: "Peptides",
       href: "peptides.html",
       match: ["peptides"],
+      module: "peptides",
       children: [
         { label: "Pain & Recovery", href: "peptides.html#pain-recovery", desc: "Tissue repair & joint support", icon: "activity" },
         { label: "Weight & Metabolic", href: "peptides.html#metabolic-reset", desc: "GLP-1 programs, sublingual or injection", icon: "scale" },
@@ -97,8 +133,8 @@ module.exports = {
         { label: "Regenerative Therapy", href: "stem-cell-therapy.html" },
         { label: "Wharton's Jelly", href: "whartons-jelly.html" },
         { label: "Exosomes", href: "why-exosomes.html" },
-        { label: "Hormones", href: "hormones.html" },
-        { label: "Peptides", href: "peptides.html" },
+        { label: "Hormones", href: "hormones.html", module: "hormones" },
+        { label: "Peptides", href: "peptides.html", module: "peptides" },
         { label: "NAD+ & Supplements", href: "nad.html" },
       ],
     },

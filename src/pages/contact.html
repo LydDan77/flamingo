@@ -6,7 +6,7 @@ nav: contact
 <section class="hero hero--page hero--center hero--short">
   <div class="container hero__inner">
     <div class="hero__content">
-      <p class="eyebrow eyebrow--rule">Contact Us</p>
+      <p class="hero__kicker">Contact Us</p>
       <h1>Expert guidance on your <em class="hl">regenerative health journey</em></h1>
       <p class="lead">Have questions about our therapies? Ready to schedule your consultation? We're here to help.</p>
       <ul class="hero__pills">
@@ -49,8 +49,8 @@ nav: contact
                 <select name="interest">
                   <option value="">Select a program</option>
                   <option>Stem cell / regenerative therapy</option>
-                  <option>Hormone optimization</option>
-                  <option>Peptide therapy</option>
+                  {{#if module:hormones}}<option>Hormone optimization</option>{{/if}}
+                  {{#if module:peptides}}<option>Peptide therapy</option>{{/if}}
                   <option>NAD+ &amp; longevity</option>
                   <option>Not sure yet</option>
                 </select>
@@ -94,9 +94,9 @@ nav: contact
         </div>
       </div>
 
-      <div class="stack reveal" data-delay="1">
+      <div class="stack reveal reveal--stagger">
         <div class="card">
-          <div class="media media--16x9"><div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · office or team</span></div></div></div>
+          <div class="media media--16x9"><div class="media__frame">{{img:notebook-desk|dark=laptop-stethoscope|warm=tablet-coffee-plant|elite=spa-towel-dark|alt=Office|sizes=(max-width: 899px) 100vw, 40vw}}</div></div>
           <a class="info-row" href="{{site.phoneTel}}"><span class="card__icon">{{icon:phone}}</span><div><small>Phone</small><b>{{site.phone}}</b></div></a>
           <a class="info-row" href="mailto:{{site.email}}"><span class="card__icon">{{icon:mail}}</span><div><small>Email</small><b>{{site.email}}</b></div></a>
           <div class="info-row"><span class="card__icon">{{icon:map-pin}}</span><div><small>Address</small><b>{{site.address}}</b><span class="small muted">Service area: <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>

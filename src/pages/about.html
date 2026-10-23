@@ -3,22 +3,27 @@ title: About - Physician-Led Regenerative Medicine
 description: Meet the physician-led team delivering regenerative medicine, peptides, hormones, and NAD+ care.
 nav: about
 ---
-<section class="hero hero--page">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:therapist-shoulder|class=hero__img|dark=hiker-rail|warm=seniors-pool|bright=physio-knee|elite=spa-towel-dark|eager|sizes=100vw|pos=center 30%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:heart}}</span><div><b>Built around the patient</b><span>One team, one plan</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
-      <p class="eyebrow eyebrow--rule">About {{site.name}}</p>
+      <p class="hero__kicker">About {{site.name}}</p>
       <h1>Advanced <em class="hl">regenerative care</em>, built around the patient</h1>
       <p class="lead">Helping you take the first step toward a healthier, more mobile life with regenerative therapy and clinician-led longevity medicine.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:sparkles}} Get Started Today {{icon:arrow-up-right}}</a>
+        <a class="btn btn--secondary btn--lg" href="#team">Meet The Team {{icon:arrow-down}}</a>
       </div>
-      <ul class="trust-strip mt-10" style="justify-content:flex-start">
-        <li>{{icon:shield-check}} Physician-led</li>
-        <li>{{icon:users}} <b class="mono" style="color:var(--brand-2);font-weight:500">X,XXX+</b>&nbsp;patients</li>
-        <li><b class="mono" style="color:var(--brand-2);font-weight:500">XX+</b>&nbsp;years experience</li>
+      <ul class="hero__meta">
+        <li><b>Physician-led</b> oversight</li>
+        <li><b>X,XXX+</b> patients</li>
+        <li><b>XX+</b> years experience</li>
       </ul>
     </div>
-    <div class="hero__media" aria-hidden="true">{{> art-flow}}</div>
   </div>
 </section>
 
@@ -29,11 +34,11 @@ nav: about
       <h2>Your journey, <em class="hl">step by step</em></h2>
       <p class="lead">Four simple steps from first conversation to ongoing care.</p>
     </div>
-    <div class="grid grid--4">
-      <div class="card card--hover card--image reveal"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">1</span></div><div class="card__body"><span class="card__icon">{{icon:calendar-check}}</span><h4>Schedule Your Consultation</h4><p>Book a conversation with the care team to discuss your health concerns and goals, with flexible scheduling.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="1"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">2</span></div><div class="card__body"><span class="card__icon">{{icon:clipboard-list}}</span><h4>Personalized Care Plan</h4><p>We review your medical history and assess your specific needs, creating a tailored care plan designed for the best possible outcome.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="2"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">3</span></div><div class="card__body"><span class="card__icon">{{icon:sparkles}}</span><h4>Therapy Delivered</h4><p>Regenerative therapy in your home, or telehealth prescriptions shipped to your door, delivered by licensed clinicians.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="3"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">4</span></div><div class="card__body"><span class="card__icon">{{icon:heart}}</span><h4>Follow-Up and Support</h4><p>Ongoing support and follow-up care to track progress and keep your plan on course.</p></div></div>
+    <div class="grid grid--4 reveal reveal--stagger">
+      <div class="card card--hover card--image"><div class="card__media">{{img:telehealth-tablet-hand|alt=|sizes=(max-width: 1023px) 50vw, 25vw}}<span class="card__media-badge">1</span></div><div class="card__body"><span class="card__icon">{{icon:calendar-check}}</span><h4>Schedule Your Consultation</h4><p>Book a conversation with the care team to discuss your health concerns and goals, with flexible scheduling.</p></div></div>
+      <div class="card card--hover card--image"><div class="card__media">{{img:notebook-desk|alt=|sizes=(max-width: 1023px) 50vw, 25vw}}<span class="card__media-badge">2</span></div><div class="card__body"><span class="card__icon">{{icon:clipboard-list}}</span><h4>Personalized Care Plan</h4><p>We review your medical history and assess your specific needs, creating a tailored care plan designed for the best possible outcome.</p></div></div>
+      <div class="card card--hover card--image"><div class="card__media">{{img:clinician-home-visit|alt=|sizes=(max-width: 1023px) 50vw, 25vw|pos=center 30%}}<span class="card__media-badge">3</span></div><div class="card__body"><span class="card__icon">{{icon:sparkles}}</span><h4>Therapy Delivered</h4><p>Regenerative therapy in your home, or telehealth prescriptions shipped to your door, delivered by licensed clinicians.</p></div></div>
+      <div class="card card--hover card--image"><div class="card__media">{{img:hands-tea|alt=|sizes=(max-width: 1023px) 50vw, 25vw}}<span class="card__media-badge">4</span></div><div class="card__body"><span class="card__icon">{{icon:heart}}</span><h4>Follow-Up and Support</h4><p>Ongoing support and follow-up care to track progress and keep your plan on course.</p></div></div>
     </div>
     <div class="actions actions--center mt-12 reveal"><a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">Start Your Journey Today {{icon:arrow-up-right}}</a></div>
   </div>
@@ -42,7 +47,7 @@ nav: about
 <section class="section section--alt">
   <div class="container container--wide">
     <div class="split">
-      <div class="reveal">
+      <div class="reveal reveal--left">
         <span class="eyebrow">Our Promise</span>
         <h2 class="mt-4">Our commitment, <em class="hl">your health</em></h2>
         <p class="lead mt-6">Your health and well-being are the priority. We're committed to:</p>
@@ -54,10 +59,10 @@ nav: about
         </div>
         <a class="btn btn--primary mt-10" href="{{site.bookUrl}}">Connect With Us Today {{icon:arrow-up-right}}</a>
       </div>
-      <div class="media media--4x5 reveal" data-delay="1">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · care team</span></div></div>
-        <div class="media__float media__float--bl media__float--row"><span class="card__icon">{{icon:heart}}</span><span><b>Personalized Care</b><span>Tailored to your needs</span></span></div>
-        <div class="media__float media__float--tr media__float--row"><span class="card__icon">{{icon:microscope}}</span><span><b>Rigorous Science</b><span>Research-grounded protocols</span></span></div>
+      <div class="photo-row reveal reveal--stagger">
+        <div class="media"><div class="media__frame">{{img:nurse-portrait|alt=Nurse|sizes=(max-width: 767px) 100vw, 30vw|pos=center 20%}}</div></div>
+        <div class="media"><div class="media__frame">{{img:doctor-senior-ultrasound|portrait|alt=Doctor with a patient}}</div></div>
+        <div class="media"><div class="media__frame">{{img:physio-knee|dark=physio-athlete-back|alt=Knee assessment|sizes=(max-width: 767px) 50vw, 20vw}}</div></div>
       </div>
     </div>
   </div>
@@ -66,16 +71,15 @@ nav: about
 <section class="section section--deep lux-grid" id="founder">
   <div class="container container--wide">
     <div class="split">
-      <div class="media media--4x5 reveal">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Founder photo placeholder"><span class="ph__icon">{{icon:user-round}}</span><span class="ph__label">Founder photo</span></div><div class="media__caption"><small>Founder</small><b>[Founder Name]</b></div></div>
-        <div class="media__float media__float--br"><strong>XX+</strong><span>Years in<br>Regenerative Medicine</span></div>
+      <div class="media media--4x5 reveal reveal--left">
+        <div class="media__frame">{{img:clinician-home-visit|portrait|alt=Founder portrait placeholder}}<div class="media__caption"><small>Founder</small><b>[Founder Name]</b></div></div>
         <div class="media__float media__float--tl gradient-card"><strong style="color:#fff">X,XXX</strong><span style="color:rgba(255,255,255,.75)">Lives Changed</span></div>
       </div>
-      <div class="reveal" data-delay="1">
+      <div class="reveal reveal--right">
         <span class="eyebrow">Our Founder</span>
         <h2 class="mt-4">Meet <em class="hl">[Founder Name]</em></h2>
         <p class="mt-2" style="color:var(--brand-2);font-weight:500">Founder, {{site.name}}</p>
-        <div class="ph-copy mt-6">{{icon:pen}}<div><b>Founder bio · client to provide</b>Two short paragraphs: why the founder started the practice, their background in regenerative medicine, and what they want every patient to experience. Keep claims specific and verifiable.</div></div>
+        <div class="ph-copy mt-6">{{icon:pen}}<div><b>Founder bio · client to provide</b>Two short paragraphs: why the founder started the practice, their background in regenerative medicine, and what they want every patient to experience. The portrait is a stand-in photo until the client's headshot arrives.</div></div>
         <div class="stat-strip mt-8">
           <div class="stat">{{icon:users}}<div><strong>X,XXX+</strong><span>Patients Connected</span></div></div>
           <div class="stat">{{icon:stethoscope}}<div><strong>XX+</strong><span>Licensed Practitioners</span></div></div>
@@ -107,40 +111,40 @@ nav: about
     </div>
 
     <div class="tabs__panel" data-panel="leadership" hidden>
-      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:stethoscope}} Leadership</small><h3>The physicians who oversee every protocol.</h3></div></div>
+      <div class="team-banner">{{img:nurse-portrait|alt=|sizes=100vw}}<div><small>{{icon:stethoscope}} Leadership</small><h3>The physicians who oversee every protocol.</h3></div></div>
       <div class="team-grid team-grid--2">
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], MD</p><p class="member__role">Medical Director</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], MD</p><p class="member__role">Chief Medical Officer</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">MD</span><div><p class="member__name">[Name], MD</p><p class="member__role">Medical Director</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">MD</span><div><p class="member__name">[Name], MD</p><p class="member__role">Chief Medical Officer</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="clinicians" hidden>
-      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:shield-check}} Clinicians</small><h3>Nurse practitioners who deliver care in your home.</h3></div></div>
+      <div class="team-banner">{{img:therapist-shoulder|alt=|sizes=100vw}}<div><small>{{icon:shield-check}} Clinicians</small><h3>Nurse practitioners who deliver care in your home.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], PA-C</p><p class="member__role">Physician Assistant · [Region]</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name], PA-C</p><p class="member__role">Physician Assistant · [Region]</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="advocates" hidden>
-      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:heart-pulse}} Patient Advocates</small><h3>Your first call, and the people who route you to the right program.</h3></div></div>
+      <div class="team-banner">{{img:hands-tea|alt=|sizes=100vw}}<div><small>{{icon:heart-pulse}} Patient Advocates</small><h3>Your first call, and the people who route you to the right program.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Senior Patient Advocate</p></div></div><p class="member__bio">Short bio placeholder: background, why they joined, and how they help patients navigate options.</p></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name]</p><p class="member__role">Senior Patient Advocate</p></div></div><p class="member__bio">Short bio placeholder: background, why they joined, and how they help patients navigate options.</p></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="staff" hidden>
-      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:users}} Support Staff</small><h3>Operations, scheduling, and patient support.</h3></div></div>
+      <div class="team-banner">{{img:notebook-desk|alt=|sizes=100vw}}<div><small>{{icon:users}} Support Staff</small><h3>Operations, scheduling, and patient support.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Director of Operations</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Care Coordinator</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Support</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">OP</span><div><p class="member__name">[Name]</p><p class="member__role">Director of Operations</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">CC</span><div><p class="member__name">[Name]</p><p class="member__role">Care Coordinator</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PS</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Support</p></div></div></article>
       </div>
     </div>
   </div>

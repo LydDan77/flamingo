@@ -3,11 +3,16 @@ title: Exosome Therapy - Science & Benefits
 description: Exosomes carry regenerative signals to damaged tissue. An add-on to Wharton's Jelly protocols, delivered in your home.
 nav: regenerative
 ---
-<section class="hero hero--page">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:cells-wireframe|class=hero__img|light=cells-blue-white|warm=cells-violet-white|bright=dna-violet|elite=cells-macro|eager|sizes=100vw}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:orbit}}</span><div><b>30–150 nanometers</b><span>Smaller than a virus</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Why Exosomes?</span></nav>
-      <p class="eyebrow eyebrow--rule">Regenerative Medicine · Cell Signaling</p>
+      <p class="hero__kicker">Regenerative Medicine · Cell Signaling</p>
       <h1>Exosomes, the <em class="hl">signaling layer</em> that drives repair</h1>
       <p class="lead">Stem cells don't repair tissue directly. They send signals. Exosomes are those signals: nano-sized vesicles packed with the molecular instructions that tell your body to reduce inflammation and rebuild tissue.</p>
       <div class="hero__actions">
@@ -15,14 +20,13 @@ nav: regenerative
         <a class="btn btn--secondary btn--lg" href="whartons-jelly.html">Where they come from {{icon:arrow-up-right}}</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">{{> art-flow}}</div>
   </div>
 </section>
 
 <section class="section">
   <div class="container container--wide">
     <div class="split">
-      <div class="reveal">
+      <div class="reveal reveal--left">
         <span class="eyebrow">The Science</span>
         <h2 class="mt-4">What are exosomes, and why do they matter?</h2>
         <div class="prose mt-6">
@@ -31,9 +35,11 @@ nav: regenerative
           <p>In regenerative medicine, MSC-derived exosomes carry anti-inflammatory signals, pro-regenerative growth factors, and RNA sequences that activate tissue repair pathways. They are, in effect, the active ingredient in stem cell signaling.</p>
         </div>
       </div>
-      <div class="media media--4x5 reveal" data-delay="1">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · science</span></div></div>
-        <div class="media__float media__float--br"><strong>30–150</strong><span>Nanometers, smaller<br>than a virus</span></div>
+      <div class="reveal reveal--right">
+        <div class="media media--4x5">
+          <div class="media__frame">{{img:cells-macro|light=cells-violet-white|warm=cells-blue-white|elite=cells-blue|alt=Cell structures under magnification|sizes=(max-width: 899px) 100vw, 50vw}}</div>
+          <div class="media__float media__float--br"><strong>30–150</strong><span>Nanometers, smaller<br>than a virus</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -41,15 +47,28 @@ nav: regenerative
 
 <section class="section section--alt">
   <div class="container container--wide">
-    <div class="section-head reveal">
-      <span class="eyebrow">Mechanism</span>
-      <h2>Four ways exosomes support regeneration</h2>
-    </div>
-    <div class="grid grid--2">
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:radio}}</span><h3>Cell-to-cell communication</h3><p>Exosomes carry microRNA, proteins, and lipids that influence recipient cells, turning down inflammatory pathways and turning up repair signals.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:layers}}</span><h3>Paracrine signaling at scale</h3><p>A single MSC secretes thousands of exosomes. Delivered therapeutically, they saturate the target tissue with regenerative signals.</p></div>
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:target}}</span><h3>Targeted delivery</h3><p>Exosomes are injected directly into the affected joint or tissue. Their nano-scale size lets them reach intracellular targets that larger molecules cannot.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:trending-up}}</span><h3>Amplifies stem cell protocols</h3><p>Used alongside Wharton's Jelly MSC therapy, exosomes extend the regenerative signal beyond the initial treatment.</p></div>
+    <div class="split split--top">
+      <div class="reveal">
+        <span class="eyebrow">Scale</span>
+        <h2 class="mt-4">How small is small?</h2>
+        <p class="lead mt-6">Exosomes are far smaller than the cells they come from. Their size is what lets them slip into tissue and reach targets larger molecules cannot.</p>
+        <div class="bars mt-8" data-bar>
+          <div class="bar bar--alt"><span class="bar__label">Human cell</span><span class="bar__track"><span class="bar__fill" style="--v:100%"></span></span><span class="bar__value">~10,000 nm</span></div>
+          <div class="bar bar--alt"><span class="bar__label">Red blood cell</span><span class="bar__track"><span class="bar__fill" style="--v:70%"></span></span><span class="bar__value">~7,000 nm</span></div>
+          <div class="bar bar--alt"><span class="bar__label">Virus</span><span class="bar__track"><span class="bar__fill" style="--v:12%"></span></span><span class="bar__value">~100 nm</span></div>
+          <div class="bar"><span class="bar__label">Exosome</span><span class="bar__track"><span class="bar__fill" style="--v:5%"></span></span><span class="bar__value">30–150 nm</span></div>
+          <p class="bars__note">Approximate diameters. Bars are illustrative and not to linear scale.</p>
+        </div>
+      </div>
+      <div class="reveal" data-delay="1">
+        <div class="section-head section-head--left" style="margin-bottom:24px"><span class="eyebrow">Mechanism</span><h3 class="mt-3" style="font-size:1.5rem">Four ways exosomes support regeneration</h3></div>
+        <div class="grid grid--2 reveal--stagger reveal" style="gap:14px">
+          <div class="card card--hover"><span class="card__icon">{{icon:radio}}</span><h4>Cell-to-cell communication</h4><p>Carry microRNA, proteins, and lipids that turn down inflammatory pathways and turn up repair signals.</p></div>
+          <div class="card card--hover"><span class="card__icon">{{icon:layers}}</span><h4>Paracrine signaling at scale</h4><p>A single MSC secretes thousands of exosomes, saturating the target tissue with regenerative signals.</p></div>
+          <div class="card card--hover"><span class="card__icon">{{icon:target}}</span><h4>Targeted delivery</h4><p>Injected directly into the affected joint or tissue. Nano-scale size reaches intracellular targets.</p></div>
+          <div class="card card--hover"><span class="card__icon">{{icon:trending-up}}</span><h4>Amplifies stem cell protocols</h4><p>Used alongside Wharton's Jelly MSC therapy, exosomes extend the regenerative signal.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -57,7 +76,7 @@ nav: regenerative
 <section class="section section--deep lux-grid">
   <div class="container container--wide">
     <div class="split">
-      <div class="reveal">
+      <div class="reveal reveal--left">
         <span class="eyebrow">Combined Protocol</span>
         <h2 class="mt-4">Exosomes + Wharton's Jelly: why we use both</h2>
         <div class="prose mt-6">
@@ -72,9 +91,7 @@ nav: regenerative
         </ul>
         <a class="btn btn--primary mt-10" href="{{site.bookUrl}}">See if you qualify {{icon:arrow-up-right}}</a>
       </div>
-      <div class="media media--4x3 reveal" data-delay="1">
-        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · protocol</span></div></div>
-      </div>
+      <div class="hero__media reveal reveal--right" style="display:flex">{{> art-flow}}</div>
     </div>
   </div>
 </section>
