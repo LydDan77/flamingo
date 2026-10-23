@@ -1,0 +1,14 @@
+{
+  "name": "flamingo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Regenerative Revival redesign explorations: one static site, three switchable themes.",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --serve 3000",
+    "watch": "node build.js --watch"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

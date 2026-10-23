@@ -1,0 +1,25 @@
+<header class="site-header" id="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="{{site.name}} home">
+      <img class="brand__logo brand__logo--light" src="assets/img/logo-white.png" alt="{{site.name}}" width="160" height="80">
+      <img class="brand__logo brand__logo--dark" src="assets/img/logo-color.png" alt="{{site.name}}" width="160" height="80">
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      {{nav}}
+      <div class="nav__mobile-extras">
+        <a class="nav__provider" href="for-providers.html">{{icon:users}} For Providers / Partners {{icon:arrow-up-right}}</a>
+        <a class="btn btn--primary btn--block" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
+        <a class="nav__phone" href="{{site.phoneTel}}">{{icon:phone}} {{site.phone}}</a>
+      </div>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="btn btn--primary btn--sm site-header__cta" href="{{site.bookUrl}}">{{icon:calendar-check}} <span>Book a Consultation</span></a>
+      <button class="burger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="burger__open">{{icon:menu}}</span>
+        <span class="burger__close">{{icon:x}}</span>
+      </button>
+    </div>
+  </div>
+</header>

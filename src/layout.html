@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page.titleEsc}}</title>
+  <meta name="description" content="{{page.descriptionEsc}}">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{page.titleEsc}}">
+  <meta property="og:description" content="{{page.descriptionEsc}}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{page.ogImage}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B0E16">
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+  <!-- Theme bootstrap: pick the design version before first paint (no flash). ?theme=dark|light|playful -->
+  <script>
+    (function () {
+      var ok = ["dark", "light", "playful"], t = "dark";
+      try {
+        var q = new URLSearchParams(location.search).get("theme");
+        var s = localStorage.getItem("flamingo-theme");
+        t = q || s || "dark";
+        if (ok.indexOf(t) < 0) t = "dark";
+        if (q && ok.indexOf(q) >= 0) localStorage.setItem("flamingo-theme", q);
+      } catch (e) {}
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="page page--{{page.slug}} {{page.bodyClass}}">
+{{> icons}}
+<a class="skip-link" href="#main">Skip to content</a>
+
+{{> header}}
+
+<main id="main">
+{{content}}
+</main>
+
+{{> footer}}
+{{> theme-switch}}
+{{> financing-chip}}
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
