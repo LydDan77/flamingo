@@ -1,35 +1,33 @@
 /*
  * Site-wide values used by build.js and the templates.
- * Edit here once; every page picks it up on the next build.
+ * Everything here is a PLACEHOLDER until the client's details arrive.
+ * Edit once; every page picks it up on the next build.
  */
 module.exports = {
-  name: "Regenerative Revival",
-  tagline: "Stem Cell Therapy, Peptides & Longevity Medicine",
+  // Brand (placeholder)
+  name: "Brand Name",
+  tagline: "Regenerative Medicine & Longevity Care",
   description:
-    "In-home stem cell therapy and nationwide telehealth for peptides, hormones, and NAD+. One physician-led medical team, one patient record, one plan for the best decade of your life.",
-  url: "https://flamingo-regenerative-revival.vercel.app", // update when the custom domain is attached
-  ogImage: "assets/img/og-image.jpg",
+    "In-home regenerative therapy and nationwide telehealth for hormones, peptides, and NAD+. One physician-led medical team, one patient record, one plan.",
+  url: "https://flamingo-regenerative-revival.vercel.app", // update when the client's domain is attached
+  ogImage: "assets/img/og-image.png",
 
-  phone: "612-453-3182",
-  phoneTel: "tel:+16124533182",
-  email: "info@regenerativerevival.com",
-  address: "10000 Hwy 55, Ste 200, Plymouth, MN 55441",
-  hours: "Mon–Fri: 9AM–6PM CST",
+  // Contact (placeholders)
+  phone: "(000) 000-0000",
+  phoneTel: "tel:+10000000000",
+  email: "hello@example.com",
+  address: "123 Street Name, Suite 100, City, ST 00000",
+  hours: "Mon–Fri: 9AM–5PM",
 
-  // Primary conversion action: book a consultation (contact page form + phone).
+  // Primary conversion action: the on-site consultation form.
   bookUrl: "contact.html#book",
   bookLabel: "Book a Free Consultation",
-  // Secondary: the existing 2-minute routing quiz on the live Regenerative Revival site.
-  quizUrl: "https://regenerativerevival.com/consult-router",
-  quizLabel: "Take the 2-Minute Quiz",
-  // Where "View & order" links for telehealth products go (existing product pages).
-  shopBase: "https://regenerativerevival.com",
-  portalUrl: "https://app.wizlo.com",
 
+  // Social (placeholders)
   social: {
-    facebook: "https://www.facebook.com/regenerativerevival",
-    instagram: "https://www.instagram.com/regenerativerevival",
-    linkedin: "https://www.linkedin.com/company/regenerativerevival",
+    facebook: "#",
+    instagram: "#",
+    linkedin: "#",
   },
 
   nav: [
@@ -57,12 +55,11 @@ module.exports = {
       href: "peptides.html",
       match: ["peptides"],
       children: [
-        { label: "BPC-157 / TB-500", href: "peptides.html#pain-recovery", desc: "Recovery, tissue repair & joint support", icon: "flask" },
-        { label: "Semaglutide", href: "peptides.html#metabolic-reset", desc: "GLP-1 weight management, sublingual or injection", icon: "scale" },
-        { label: "Tirzepatide", href: "peptides.html#metabolic-reset", desc: "Dual GIP/GLP-1 support", icon: "scale" },
-        { label: "CJC-1295 / Ipamorelin", href: "peptides.html#sleep-recovery", desc: "Sleep, recovery & body composition", icon: "zap" },
-        { label: "GHK-Cu", href: "peptides.html#longevity-cellular", desc: "Skin rejuvenation & cellular repair", icon: "sparkles" },
-        { label: "All Peptide Programs", href: "peptides.html#programs", desc: "Browse by goal: weight, recovery, longevity", icon: "flask" },
+        { label: "Pain & Recovery", href: "peptides.html#pain-recovery", desc: "Tissue repair & joint support", icon: "activity" },
+        { label: "Weight & Metabolic", href: "peptides.html#metabolic-reset", desc: "GLP-1 programs, sublingual or injection", icon: "scale" },
+        { label: "Sleep & Recovery", href: "peptides.html#sleep-recovery", desc: "Growth hormone support & body composition", icon: "moon" },
+        { label: "Longevity & Cellular", href: "peptides.html#longevity-cellular", desc: "Skin, mitochondria & cellular repair", icon: "sparkles" },
+        { label: "All Peptide Programs", href: "peptides.html#programs", desc: "Browse by goal", icon: "flask" },
       ],
       featured: {
         title: "Not sure which peptide fits?",
@@ -79,13 +76,13 @@ module.exports = {
       match: ["about"],
       children: [
         { label: "About Us", href: "about.html", desc: "Our mission, team & story", icon: "info" },
-        { label: "Founder: Seth Berge", href: "founder.html", desc: "Why Regenerative Revival exists", icon: "user" },
-        { label: "Why We're Different", href: "why-were-different.html", desc: "What sets Regenerative Revival apart", icon: "sparkles" },
+        { label: "Our Founder", href: "founder.html", desc: "Why we exist", icon: "user" },
+        { label: "Why We're Different", href: "why-were-different.html", desc: "What sets us apart", icon: "sparkles" },
         { label: "Testimonials", href: "testimonials.html", desc: "Real results from real patients", icon: "star" },
       ],
       featured: {
         title: "One medical team. One plan.",
-        desc: "Physician-led, NP-delivered care coordinated under Arora Health Group.",
+        desc: "Physician-led, NP-delivered care coordinated under one roof.",
         href: "concierge-care-model.html",
         cta: "How It Works",
       },
@@ -120,9 +117,8 @@ module.exports = {
       links: [
         { label: "How It Works", href: "index.html#how-it-works" },
         { label: "Financing & Payment Plans", href: "financing.html" },
-        { label: "Patient Portal", href: "https://app.wizlo.com" },
         { label: "FAQ", href: "index.html#faq" },
-        { label: "News", href: "https://regenerativerevival.com/news" },
+        { label: "Journal", href: "index.html#journal" },
       ],
     },
     {
@@ -131,7 +127,7 @@ module.exports = {
         { label: "Patient Support", href: "contact.html" },
         { label: "Book a Consultation", href: "contact.html#book" },
         { label: "For Providers", href: "for-providers.html" },
-        { label: "612-453-3182", href: "tel:+16124533182" },
+        { label: "(000) 000-0000", href: "tel:+10000000000" },
       ],
     },
   ],

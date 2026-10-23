@@ -1,28 +1,25 @@
 ---
 title: Regenerative Medicine Services
-description: Stem cells, peptides, NAD+, hormones, and exosome therapy from a physician-led team. In-home or telehealth, available nationwide.
+description: Stem cells, exosomes, peptides, NAD+, and hormone therapy from a physician-led team. In-home or telehealth.
 nav: regenerative
 ---
-<section class="hero hero--page hero__orbs lux-grid">
+<section class="hero hero--page">
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Services</span></nav>
       <p class="eyebrow eyebrow--rule">Our Services</p>
-      <h1>Unlocking the power of Wharton's Jelly, a <em class="hl">breakthrough</em> in chronic pain management</h1>
-      <p class="lead">Chronic pain can cast a long shadow over your life. While traditional pain management often provides temporary relief, there's a new frontier in regenerative medicine offering hope for lasting change. Wharton's Jelly stem cell therapy is emerging as a groundbreaking, non-invasive solution that targets the root causes of chronic pain.</p>
+      <h1>Regenerative medicine for <em class="hl">chronic pain</em>, and longevity care for everything else</h1>
+      <p class="lead">Traditional pain management often provides temporary relief. Regenerative therapy aims at the underlying tissue instead. Pair it with physician-led telehealth for hormones, peptides, and NAD+, and you have one care team for the whole picture.</p>
       <ul class="hero__pills">
-        <li class="pill">{{icon:microscope}} Non-Invasive Therapy</li>
-        <li class="pill">{{icon:shield-check}} FDA Compliant</li>
-        <li class="pill">{{icon:sparkles}} Regenerative Science</li>
+        <li class="pill">{{icon:microscope}} Minimally Invasive</li>
+        <li class="pill">{{icon:shield-check}} Physician-Led</li>
+        <li class="pill">{{icon:sparkles}} Lab-Guided Protocols</li>
       </ul>
       <div class="hero__actions">
-        <a class="btn btn--light btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
+        <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">
-      <img src="assets/img/stem-cell-art.webp" alt="">
-      <div class="hero__scrim"></div>
-    </div>
+    <div class="hero__media" aria-hidden="true">{{> ph-media}}</div>
   </div>
 </section>
 
@@ -31,15 +28,15 @@ nav: regenerative
     <div class="section-head reveal">
       <span class="eyebrow">All Programs</span>
       <h2>Every service, regenerative and telehealth</h2>
-      <p class="lead">In-home regenerative care in select markets. Telehealth programs in all 50 states. One medical team across all of it.</p>
+      <p class="lead">In-home regenerative care in select markets. Telehealth programs nationwide. One medical team across all of it.</p>
     </div>
     <div class="grid grid--3">
-      <a class="card card--hover card--image reveal" href="stem-cell-therapy.html"><div class="card__media"><img src="assets/img/stem-cell-art.webp" alt="" loading="lazy"></div><div class="card__body"><span class="pill pill--accent pill--sm">In-home</span><h3>Stem Cell Therapy</h3><p>Science-backed regenerative therapies that may support the body's natural processes, delivered to your door by a licensed nurse practitioner.</p><span class="link-arrow">Learn more {{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover card--image reveal" data-delay="1" href="whartons-jelly.html"><div class="card__media"><img src="assets/img/whartons-cells.webp" alt="" loading="lazy"></div><div class="card__body"><span class="pill pill--accent pill--sm">In-home</span><h3>Wharton's Jelly</h3><p>Premium umbilical cord-derived MSCs with superior potency for deep tissue regeneration. The gold standard in stem cell sourcing.</p><span class="link-arrow">Learn more {{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover card--image reveal" data-delay="2" href="why-exosomes.html"><div class="card__media"><img src="assets/img/exosome-art.webp" alt="" loading="lazy"></div><div class="card__body"><span class="pill pill--accent pill--sm">In-home</span><h3>Exosome Therapy</h3><p>Next-generation cellular messengers that amplify healing signals and may accelerate recovery at the cellular level.</p><span class="link-arrow">Learn more {{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover card--image reveal" href="hormones.html"><div class="card__media"><img src="assets/img/clinician-consult.webp" alt="" loading="lazy"></div><div class="card__body"><span class="pill pill--accent pill--sm">Telehealth</span><h3>Hormone Optimization</h3><p>TRT, HRT, and bioidentical hormone therapy tailored to your labs. Prescribed online, shipped to your door.</p><span class="link-arrow">Learn more {{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover card--image reveal" data-delay="1" href="peptides.html"><div class="card__media"><img src="assets/img/pillar-peptides.webp" alt="" loading="lazy"></div><div class="card__body"><span class="pill pill--accent pill--sm">Telehealth</span><h3>Peptide Therapy</h3><p>Solution-based peptide programs for recovery, weight, sleep, and longevity, prescribed by a licensed clinician.</p><span class="link-arrow">Learn more {{icon:arrow-up-right}}</span></div></a>
-      <a class="card card--hover card--image reveal" data-delay="2" href="nad.html"><div class="card__media"><img src="assets/img/nad-art.webp" alt="" loading="lazy"></div><div class="card__body"><span class="pill pill--accent pill--sm">Telehealth</span><h3>NAD+ Therapy</h3><p>Cellular energy restoration and longevity protocols powered by NAD+. Feel younger, think sharper, perform better.</p><span class="link-arrow">Learn more {{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover reveal" href="stem-cell-therapy.html"><span class="card__num">01</span><span class="card__icon">{{icon:dna}}</span><span class="pill pill--accent pill--sm" style="align-self:flex-start">In-home</span><h3>Stem Cell Therapy</h3><p>Regenerative therapy that may support the body's natural repair processes, delivered in your home by a licensed nurse practitioner.</p><div class="card__foot"><span>Learn more</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover reveal" data-delay="1" href="whartons-jelly.html"><span class="card__num">02</span><span class="card__icon">{{icon:droplets}}</span><span class="pill pill--accent pill--sm" style="align-self:flex-start">In-home</span><h3>Wharton's Jelly</h3><p>Umbilical cord-derived mesenchymal stem cells from accredited tissue banks: the source material behind our regenerative protocols.</p><div class="card__foot"><span>Learn more</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover reveal" data-delay="2" href="why-exosomes.html"><span class="card__num">03</span><span class="card__icon">{{icon:orbit}}</span><span class="pill pill--accent pill--sm" style="align-self:flex-start">In-home</span><h3>Exosome Therapy</h3><p>Cell-derived signaling vesicles that may amplify repair signals and support recovery at the cellular level.</p><div class="card__foot"><span>Learn more</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover reveal" href="hormones.html"><span class="card__num">04</span><span class="card__icon">{{icon:flask}}</span><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Hormone Optimization</h3><p>Testosterone and bioidentical hormone therapy tailored to your labs. Prescribed online, shipped to your door.</p><div class="card__foot"><span>Learn more</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover reveal" data-delay="1" href="peptides.html"><span class="card__num">05</span><span class="card__icon">{{icon:zap}}</span><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Peptide Therapy</h3><p>Goal-based peptide programs for recovery, weight, sleep, and longevity, prescribed by a licensed clinician.</p><div class="card__foot"><span>Learn more</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
+      <a class="card card--hover reveal" data-delay="2" href="nad.html"><span class="card__num">06</span><span class="card__icon">{{icon:sparkles}}</span><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>NAD+ Therapy</h3><p>Cellular energy and longevity protocols built around NAD+, supervised by your clinician.</p><div class="card__foot"><span>Learn more</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div></a>
     </div>
   </div>
 </section>
@@ -48,20 +45,20 @@ nav: regenerative
   <div class="container container--wide">
     <div class="split">
       <div class="media media--4x3 reveal">
-        <div class="media__frame"><img src="assets/img/hero-poster.webp" alt="Wharton's Jelly stem cells" loading="lazy"></div>
-        <div class="media__float media__float--tl"><strong>100%</strong><span>Non-invasive</span></div>
-        <div class="media__float media__float--br media__float--row"><span class="card__icon">{{icon:dna}}</span><span><b>Stem Cell Rich</b><span>Umbilical cord derived</span></span></div>
+        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · lab or product</span></div></div>
+        <div class="media__float media__float--tl"><strong>100%</strong><span>Non-surgical</span></div>
+        <div class="media__float media__float--br media__float--row"><span class="card__icon">{{icon:dna}}</span><span><b>MSC Rich</b><span>Umbilical cord derived</span></span></div>
       </div>
       <div class="reveal" data-delay="1">
         <span class="eyebrow">The Science</span>
         <h2 class="mt-4">What is <em class="hl">Wharton's Jelly?</em></h2>
-        <p class="lead mt-6">Found within the umbilical cord, Wharton's Jelly is a gel-like substance rich in mesenchymal stem cells. These powerful cells are known for their regenerative capabilities, capable of differentiating into various cell types essential for repairing damaged tissues and reducing inflammation.</p>
-        <p class="mt-4" style="color:var(--text-2)">This unique characteristic makes Wharton's Jelly an innovative option for addressing chronic pain, offering a way to heal the body from within.</p>
+        <p class="lead mt-6">Found within the umbilical cord, Wharton's Jelly is a gel-like tissue rich in mesenchymal stem cells. These cells are known for their regenerative signaling and their ability to differentiate into cell types involved in repairing tissue and calming inflammation.</p>
+        <p class="mt-4" style="color:var(--text-2)">That makes Wharton's Jelly a compelling option for addressing chronic joint and soft-tissue pain, by supporting repair from within rather than masking symptoms.</p>
         <div class="grid grid--2 mt-8" style="gap:12px">
-          <div class="info-row"><span class="card__icon">{{icon:dna}}</span><div><b>Mesenchymal Stem Cells</b><span class="small muted">Rich in powerful stem cells known for their regenerative capabilities.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:flask}}</span><div><b>Cell Differentiation</b><span class="small muted">Capable of differentiating into various cell types essential for repair.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:heart-pulse}}</span><div><b>Tissue Repair</b><span class="small muted">Repairs damaged tissues and reduces inflammation from within.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:leaf}}</span><div><b>Natural Source</b><span class="small muted">Derived from the umbilical cord, a safe, ethically sourced material.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:dna}}</span><div><b>Mesenchymal Stem Cells</b><span class="small muted">A dense source of cells known for regenerative signaling.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:flask}}</span><div><b>Cell Differentiation</b><span class="small muted">Able to differentiate into cell types involved in repair.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:heart-pulse}}</span><div><b>Tissue Support</b><span class="small muted">May support repair of damaged tissue and reduce inflammation.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:leaf}}</span><div><b>Ethical Source</b><span class="small muted">Donated after healthy, full-term births. No harm to mother or child.</span></div></div>
         </div>
       </div>
     </div>
@@ -71,17 +68,17 @@ nav: regenerative
 <section class="section">
   <div class="container container--wide">
     <div class="section-head reveal">
-      <span class="eyebrow">Why Choose This Therapy</span>
+      <span class="eyebrow">Why Consider It</span>
       <h2>Why consider Wharton's Jelly <em class="hl">stem cell therapy?</em></h2>
-      <p class="lead">Unlike traditional options that often focus on masking pain symptoms, Wharton's Jelly stem cell therapy works to restore and rejuvenate the underlying tissues causing discomfort. Whether dealing with joint pain, arthritis, or soft tissue injuries, the regenerative properties of these stem cells can provide long-term relief, improved function, and a better quality of life. Plus, with its minimally invasive application, this therapy offers a safer, quicker recovery compared to surgical alternatives.</p>
+      <p class="lead">Rather than masking pain, regenerative therapy aims to support the underlying tissue causing discomfort. For joint pain, arthritis, and soft-tissue injuries, that can mean longer-lasting relief and better function, with a quicker recovery than surgical alternatives.</p>
     </div>
     <div class="grid grid--3">
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:activity}}</span><h3>Targets Root Causes</h3><p>Works to restore and rejuvenate the underlying tissues causing discomfort, not just mask symptoms.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:bone}}</span><h3>Joint Pain &amp; Arthritis</h3><p>Effective for joint pain, arthritis, and soft tissue injuries with long-term relief.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:trending-up}}</span><h3>Improved Function</h3><p>Provides long-term relief, improved function, and a better quality of life.</p></div>
-      <div class="card card--hover reveal"><span class="card__icon">{{icon:shield-check}}</span><h3>Minimally Invasive</h3><p>Offers a safer, quicker recovery compared to surgical alternatives.</p></div>
-      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:timer}}</span><h3>Quicker Recovery</h3><p>Get back to your daily activities faster with minimal downtime.</p></div>
-      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:stethoscope}}</span><h3>Expert Administration</h3><p>Administered by licensed practitioners, PAs, MDs, and DOs, across all 50 states.</p></div>
+      <div class="card card--hover reveal"><span class="card__icon">{{icon:activity}}</span><h3>Targets Root Causes</h3><p>Works to support the underlying tissue causing discomfort, not just the symptoms.</p></div>
+      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:bone}}</span><h3>Joint Pain &amp; Arthritis</h3><p>Commonly used for joint pain, arthritis, and soft-tissue injuries.</p></div>
+      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:trending-up}}</span><h3>Improved Function</h3><p>Aims at lasting relief, improved function, and a better quality of life.</p></div>
+      <div class="card card--hover reveal"><span class="card__icon">{{icon:shield-check}}</span><h3>Minimally Invasive</h3><p>A targeted injection, not an operating room. No general anesthesia.</p></div>
+      <div class="card card--hover reveal" data-delay="1"><span class="card__icon">{{icon:timer}}</span><h3>Quicker Recovery</h3><p>Most patients return to light activity the same day.</p></div>
+      <div class="card card--hover reveal" data-delay="2"><span class="card__icon">{{icon:stethoscope}}</span><h3>Expert Administration</h3><p>Administered by licensed practitioners under physician oversight.</p></div>
     </div>
     <div class="actions actions--center mt-12 reveal"><a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a><a class="btn btn--secondary btn--lg" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a></div>
   </div>

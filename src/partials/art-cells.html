@@ -1,0 +1,40 @@
+<svg class="art art--cells" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="art-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" class="art__glow-a"/>
+      <stop offset="100%" class="art__glow-b"/>
+    </radialGradient>
+    <linearGradient id="art-sweep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" class="art__sweep-a"/>
+      <stop offset="100%" class="art__sweep-b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="300" cy="300" r="270" fill="url(#art-glow)"/>
+  <g class="art__rings">
+    <circle cx="300" cy="300" r="230" class="art__ring art__ring--dash"/>
+    <circle cx="300" cy="300" r="178" class="art__ring"/>
+    <circle cx="300" cy="300" r="118" class="art__ring art__ring--dash"/>
+  </g>
+  <g class="art__orbit art__orbit--1">
+    <circle cx="300" cy="70" r="16" class="art__cell art__cell--fill"/>
+    <circle cx="300" cy="70" r="30" class="art__cell art__cell--halo"/>
+  </g>
+  <g class="art__orbit art__orbit--2">
+    <circle cx="478" cy="300" r="11" class="art__cell art__cell--fill art__cell--alt"/>
+    <circle cx="478" cy="300" r="22" class="art__cell art__cell--halo"/>
+  </g>
+  <g class="art__orbit art__orbit--3">
+    <circle cx="300" cy="418" r="8" class="art__cell art__cell--fill art__cell--alt2"/>
+  </g>
+  <g class="art__nucleus">
+    <circle cx="300" cy="300" r="58" fill="url(#art-sweep)" class="art__core"/>
+    <circle cx="300" cy="300" r="58" class="art__ring art__ring--strong"/>
+    <circle cx="282" cy="284" r="12" class="art__cell art__cell--light"/>
+    <circle cx="318" cy="316" r="7" class="art__cell art__cell--light"/>
+  </g>
+  <g class="art__dots">
+    <circle cx="140" cy="160" r="3"/><circle cx="470" cy="130" r="4"/><circle cx="520" cy="420" r="3"/>
+    <circle cx="110" cy="440" r="4"/><circle cx="380" cy="520" r="3"/><circle cx="210" cy="520" r="2.5"/>
+    <circle cx="90" cy="300" r="2.5"/><circle cx="540" cy="260" r="2.5"/>
+  </g>
+</svg>

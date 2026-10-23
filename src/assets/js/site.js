@@ -13,7 +13,7 @@
     root.setAttribute("data-theme", t);
     try { localStorage.setItem("flamingo-theme", t); } catch (e) {}
     var meta = doc.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", { dark: "#0B0E16", light: "#FFFFFF", playful: "#FFF8F0" }[t]);
+    if (meta) meta.setAttribute("content", { dark: "#0B0F0E", light: "#FAF8F3", playful: "#FFF8F0" }[t]);
     doc.querySelectorAll("[data-set-theme]").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.getAttribute("data-set-theme") === t));
     });
@@ -99,7 +99,8 @@
 
   /* ---------------------------------------------------- featured service tiles */
   doc.querySelectorAll("[data-tiles]").forEach(function (wrap) {
-    var panelImg = wrap.querySelector(".tiles__img");
+    var panel = wrap.querySelector(".tiles__panel");
+    var panelArt = wrap.querySelector(".tiles__art");
     var panelNum = wrap.querySelector(".tiles__num");
     var panelTitle = wrap.querySelector(".tiles__title");
     var panelText = wrap.querySelector(".tiles__text");
@@ -108,15 +109,8 @@
     var tiles = wrap.querySelectorAll(".tile");
     function activate(tile) {
       tiles.forEach(function (t) { t.classList.toggle("is-active", t === tile); t.setAttribute("aria-selected", String(t === tile)); });
-      if (panelImg) {
-        panelImg.classList.add("is-switching");
-        var src = tile.getAttribute("data-image");
-        if (src && panelImg.getAttribute("src") !== src) {
-          var img = new Image();
-          img.onload = function () { panelImg.src = src; panelImg.style.objectPosition = tile.getAttribute("data-position") || "center"; panelImg.classList.remove("is-switching"); };
-          img.src = src;
-        } else { panelImg.classList.remove("is-switching"); }
-      }
+      if (panel) panel.setAttribute("data-tint", tile.getAttribute("data-tint") || "1");
+      if (panelArt) { panelArt.classList.add("is-switching"); setTimeout(function () { panelArt.classList.remove("is-switching"); }, 250); }
       if (panelNum) panelNum.textContent = tile.getAttribute("data-num") || "";
       if (panelTitle) panelTitle.textContent = tile.getAttribute("data-title") || tile.textContent.trim();
       if (panelText) panelText.textContent = tile.getAttribute("data-text") || "";
@@ -204,6 +198,18 @@
     var clone = track.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");
     track.parentElement.appendChild(clone);
+  });
+
+  /* -------------------------------------------------------- demo contact forms */
+  // Native forms are not wired to a CRM yet. Submitting shows the notice instead
+  // of posting anywhere. Replace this with the client's form handler when ready.
+  doc.querySelectorAll("form[data-demo-form]").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (form.reportValidity && !form.reportValidity()) return;
+      var notice = form.querySelector(".form__notice");
+      if (notice) { notice.classList.add("is-visible"); notice.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" }); }
+    });
   });
 
   /* ------------------------------------------------------------- financing chip */

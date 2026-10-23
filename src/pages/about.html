@@ -1,27 +1,24 @@
 ---
 title: About - Physician-Led Regenerative Medicine
-description: Meet founder Seth Berge and the physician-led team delivering regenerative medicine, peptides, and NAD+ care nationwide.
+description: Meet the physician-led team delivering regenerative medicine, peptides, hormones, and NAD+ care.
 nav: about
 ---
-<section class="hero hero--page hero--center hero__orbs lux-grid">
+<section class="hero hero--page">
   <div class="container hero__inner">
     <div class="hero__content">
-      <p class="eyebrow eyebrow--rule">About Regenerative Revival</p>
-      <h1>Delivering advanced <em class="hl">regenerative therapies</em> for everyone</h1>
-      <p class="lead">Helping you harness the power of stem cell therapy and take the first step towards a healthier and happier life.</p>
+      <p class="eyebrow eyebrow--rule">About {{site.name}}</p>
+      <h1>Advanced <em class="hl">regenerative care</em>, built around the patient</h1>
+      <p class="lead">Helping you take the first step toward a healthier, more mobile life with regenerative therapy and clinician-led longevity medicine.</p>
       <div class="hero__actions">
-        <a class="btn btn--light btn--lg" href="{{site.bookUrl}}">{{icon:sparkles}} Get Started Today {{icon:arrow-up-right}}</a>
+        <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:sparkles}} Get Started Today {{icon:arrow-up-right}}</a>
       </div>
-      <ul class="trust-strip mt-10">
-        <li>{{icon:shield-check}} FDA Compliant</li>
-        <li>{{icon:users}} 10,000+ Patients</li>
-        <li>8+ Years Experience</li>
+      <ul class="trust-strip mt-10" style="justify-content:flex-start">
+        <li>{{icon:shield-check}} Physician-led</li>
+        <li>{{icon:users}} <b class="mono" style="color:var(--brand-2);font-weight:500">X,XXX+</b>&nbsp;patients</li>
+        <li><b class="mono" style="color:var(--brand-2);font-weight:500">XX+</b>&nbsp;years experience</li>
       </ul>
     </div>
-    <div class="hero__media" aria-hidden="true">
-      <img src="assets/img/hero-stem-cell.webp" alt="">
-      <div class="hero__scrim"></div>
-    </div>
+    <div class="hero__media" aria-hidden="true">{{> art-flow}}</div>
   </div>
 </section>
 
@@ -29,14 +26,14 @@ nav: about
   <div class="container container--wide">
     <div class="section-head reveal">
       <span class="eyebrow">How It Works</span>
-      <h2>Your journey to <em class="hl">revival</em></h2>
-      <p class="lead">Four simple steps to a healthier, pain-free life.</p>
+      <h2>Your journey, <em class="hl">step by step</em></h2>
+      <p class="lead">Four simple steps from first conversation to ongoing care.</p>
     </div>
     <div class="grid grid--4">
-      <div class="card card--hover card--image reveal"><div class="card__media"><img src="assets/img/in-home-care.webp" alt="" loading="lazy"><span class="card__media-badge">1</span></div><div class="card__body"><span class="card__icon">{{icon:calendar-check}}</span><h4>Schedule Your Consultation</h4><p>Book an appointment with our experienced team to discuss your health concerns and goals, with flexible scheduling to accommodate your busy lifestyle.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="1"><div class="card__media"><img src="assets/img/journey.webp" alt="" loading="lazy"><span class="card__media-badge">2</span></div><div class="card__body"><span class="card__icon">{{icon:clipboard-list}}</span><h4>Personalized Care Plan</h4><p>During your consultation, we'll review your medical history and assess your specific needs, creating a tailored care plan designed for the best possible outcomes.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="2"><div class="card__media"><img src="assets/img/therapy.webp" alt="" loading="lazy"><span class="card__media-badge">3</span></div><div class="card__body"><span class="card__icon">{{icon:sparkles}}</span><h4>Regenerative Therapy</h4><p>Experience the transformative power of Wharton's Jelly-derived stem cell therapy, providing non-invasive and innovative solutions to enhance your health and well-being.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="3"><div class="card__media"><img src="assets/img/our-guarantee.webp" alt="" loading="lazy"><span class="card__media-badge">4</span></div><div class="card__body"><span class="card__icon">{{icon:heart}}</span><h4>Follow-Up and Support</h4><p>We're committed to your long-term health and well-being, providing ongoing support and follow-up care to ensure optimal results and maintain your improved quality of life.</p></div></div>
+      <div class="card card--hover card--image reveal"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">1</span></div><div class="card__body"><span class="card__icon">{{icon:calendar-check}}</span><h4>Schedule Your Consultation</h4><p>Book a conversation with the care team to discuss your health concerns and goals, with flexible scheduling.</p></div></div>
+      <div class="card card--hover card--image reveal" data-delay="1"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">2</span></div><div class="card__body"><span class="card__icon">{{icon:clipboard-list}}</span><h4>Personalized Care Plan</h4><p>We review your medical history and assess your specific needs, creating a tailored care plan designed for the best possible outcome.</p></div></div>
+      <div class="card card--hover card--image reveal" data-delay="2"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">3</span></div><div class="card__body"><span class="card__icon">{{icon:sparkles}}</span><h4>Therapy Delivered</h4><p>Regenerative therapy in your home, or telehealth prescriptions shipped to your door, delivered by licensed clinicians.</p></div></div>
+      <div class="card card--hover card--image reveal" data-delay="3"><div class="card__media"><div class="ph ph--fill" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image</span></div><span class="card__media-badge">4</span></div><div class="card__body"><span class="card__icon">{{icon:heart}}</span><h4>Follow-Up and Support</h4><p>Ongoing support and follow-up care to track progress and keep your plan on course.</p></div></div>
     </div>
     <div class="actions actions--center mt-12 reveal"><a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">Start Your Journey Today {{icon:arrow-up-right}}</a></div>
   </div>
@@ -48,19 +45,19 @@ nav: about
       <div class="reveal">
         <span class="eyebrow">Our Promise</span>
         <h2 class="mt-4">Our commitment, <em class="hl">your health</em></h2>
-        <p class="lead mt-6">At Regenerative Revival, your health and well-being are our top priorities. We're committed to:</p>
-        <div class="mt-8" style="display:flex;flex-direction:column;gap:18px">
-          <div class="info-row"><span class="card__icon">{{icon:heart}}</span><div><b>Personalized Care</b><span class="small" style="color:var(--text-2)">Every patient receives a customized care plan tailored to their unique needs and goals.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:microscope}}</span><div><b>Advanced Techniques</b><span class="small" style="color:var(--text-2)">We utilize the latest advancements in regenerative medicine to provide the most effective therapies available.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:users}}</span><div><b>Expert Team</b><span class="small" style="color:var(--text-2)">Our team consists of highly trained professionals dedicated to delivering exceptional care.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:graduation-cap}}</span><div><b>Patient Education</b><span class="small" style="color:var(--text-2)">We believe in empowering you with the knowledge and information needed to make informed decisions about your health.</span></div></div>
+        <p class="lead mt-6">Your health and well-being are the priority. We're committed to:</p>
+        <div class="mt-8 stack">
+          <div class="info-row"><span class="card__icon">{{icon:heart}}</span><div><b>Personalized Care</b><span class="small" style="color:var(--text-2)">Every patient receives a care plan tailored to their needs and goals.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:microscope}}</span><div><b>Rigorous Science</b><span class="small" style="color:var(--text-2)">Protocols grounded in current research and rigorously sourced products.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:users}}</span><div><b>Expert Team</b><span class="small" style="color:var(--text-2)">Licensed clinicians under physician oversight, dedicated to exceptional care.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:graduation-cap}}</span><div><b>Patient Education</b><span class="small" style="color:var(--text-2)">The knowledge you need to make informed decisions about your health.</span></div></div>
         </div>
         <a class="btn btn--primary mt-10" href="{{site.bookUrl}}">Connect With Us Today {{icon:arrow-up-right}}</a>
       </div>
       <div class="media media--4x5 reveal" data-delay="1">
-        <div class="media__frame"><img src="assets/img/our-guarantee.webp" alt="Advanced regenerative medicine therapy" loading="lazy"></div>
+        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · care team</span></div></div>
         <div class="media__float media__float--bl media__float--row"><span class="card__icon">{{icon:heart}}</span><span><b>Personalized Care</b><span>Tailored to your needs</span></span></div>
-        <div class="media__float media__float--tl media__float--row" style="left:auto;right:-14px"><span class="card__icon">{{icon:microscope}}</span><span><b>Advanced Techniques</b><span>Latest in regen medicine</span></span></div>
+        <div class="media__float media__float--tr media__float--row"><span class="card__icon">{{icon:microscope}}</span><span><b>Rigorous Science</b><span>Research-grounded protocols</span></span></div>
       </div>
     </div>
   </div>
@@ -70,21 +67,20 @@ nav: about
   <div class="container container--wide">
     <div class="split">
       <div class="media media--4x5 reveal">
-        <div class="media__frame"><img src="assets/img/seth-berge.webp" alt="Seth Berge, Founder of Regenerative Revival" loading="lazy"><div class="media__caption"><small>Founder</small><b>Seth Berge</b></div></div>
-        <div class="media__float media__float--br"><strong>8+</strong><span>Years in<br>Regenerative Medicine</span></div>
-        <div class="media__float media__float--tl gradient-card"><strong style="color:#fff">1000s</strong><span style="color:rgba(255,255,255,.75)">Lives Changed</span></div>
+        <div class="media__frame"><div class="ph" role="img" aria-label="Founder photo placeholder"><span class="ph__icon">{{icon:user-round}}</span><span class="ph__label">Founder photo</span></div><div class="media__caption"><small>Founder</small><b>[Founder Name]</b></div></div>
+        <div class="media__float media__float--br"><strong>XX+</strong><span>Years in<br>Regenerative Medicine</span></div>
+        <div class="media__float media__float--tl gradient-card"><strong style="color:#fff">X,XXX</strong><span style="color:rgba(255,255,255,.75)">Lives Changed</span></div>
       </div>
       <div class="reveal" data-delay="1">
         <span class="eyebrow">Our Founder</span>
-        <h2 class="mt-4">Meet <em class="hl">Seth Berge</em></h2>
-        <p class="mt-2" style="color:var(--brand-2);font-weight:500">Founder of Regenerative Revival</p>
-        <p class="lead mt-6">Seth Berge is a visionary leader in the field of regenerative medicine, dedicated to helping individuals overcome chronic pain. Since 2018, Seth has been at the forefront of connecting thousands of patients with experienced providers offering the best regenerative medicine products on the market.</p>
-        <p class="small mt-4" style="color:var(--text-3)">He has built strong relationships with top tissue manufacturers and has access to over 100 trained and licensed practitioners, including PAs, MDs, and DOs, across the 50 states.</p>
+        <h2 class="mt-4">Meet <em class="hl">[Founder Name]</em></h2>
+        <p class="mt-2" style="color:var(--brand-2);font-weight:500">Founder, {{site.name}}</p>
+        <div class="ph-copy mt-6">{{icon:pen}}<div><b>Founder bio · client to provide</b>Two short paragraphs: why the founder started the practice, their background in regenerative medicine, and what they want every patient to experience. Keep claims specific and verifiable.</div></div>
         <div class="stat-strip mt-8">
-          <div class="stat">{{icon:users}}<div><strong>10,000+</strong><span>Patients Connected</span></div></div>
-          <div class="stat">{{icon:stethoscope}}<div><strong>100+</strong><span>Licensed Practitioners</span></div></div>
-          <div class="stat">{{icon:map-pin}}<div><strong>50</strong><span>States Covered</span></div></div>
-          <div class="stat">{{icon:building}}<div><strong>Since 2018</strong><span>Industry Leader</span></div></div>
+          <div class="stat">{{icon:users}}<div><strong>X,XXX+</strong><span>Patients Connected</span></div></div>
+          <div class="stat">{{icon:stethoscope}}<div><strong>XX+</strong><span>Licensed Practitioners</span></div></div>
+          <div class="stat">{{icon:map-pin}}<div><strong>XX</strong><span>States Covered</span></div></div>
+          <div class="stat">{{icon:building}}<div><strong>Since YYYY</strong><span>Founded</span></div></div>
         </div>
         <div class="actions mt-10">
           <a class="btn btn--primary" href="{{site.bookUrl}}">Schedule A Free Consultation {{icon:arrow-up-right}}</a>
@@ -100,82 +96,51 @@ nav: about
   <div class="container container--wide" data-tabs="team">
     <div class="section-head reveal">
       <span class="eyebrow">Our Team</span>
-      <h2>The people behind <em class="hl">your revival</em></h2>
-      <p class="lead">Our specialized leaders, practitioners, and support staff in regenerative therapy.</p>
+      <h2>The people behind <em class="hl">your care</em></h2>
+      <p class="lead">Leadership, clinicians, and support staff. Cards below are placeholders until the client supplies names, roles, bios, and headshots. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
     </div>
     <div class="tabs__nav" role="tablist" aria-label="Team groups">
-      <button class="tab" role="tab" data-tab="doctors">{{icon:stethoscope}} Doctors <span class="tab__count">2</span></button>
-      <button class="tab" role="tab" data-tab="advocates">{{icon:heart-pulse}} Wellness Advocates &amp; Sales <span class="tab__count">10</span></button>
-      <button class="tab" role="tab" data-tab="nps">{{icon:shield-check}} Nurse Practitioners <span class="tab__count">23</span></button>
-      <button class="tab" role="tab" data-tab="staff">{{icon:users}} Staff <span class="tab__count">10</span></button>
+      <button class="tab" role="tab" data-tab="leadership">{{icon:stethoscope}} Leadership <span class="tab__count">2</span></button>
+      <button class="tab" role="tab" data-tab="clinicians">{{icon:shield-check}} Clinicians <span class="tab__count">6</span></button>
+      <button class="tab" role="tab" data-tab="advocates">{{icon:heart-pulse}} Patient Advocates <span class="tab__count">3</span></button>
+      <button class="tab" role="tab" data-tab="staff">{{icon:users}} Support Staff <span class="tab__count">3</span></button>
     </div>
 
-    <div class="tabs__panel" data-panel="doctors" hidden>
-      <div class="team-banner"><img src="assets/img/why-choose.webp" alt="" loading="lazy"><div><small>{{icon:stethoscope}} Doctors</small><h3>Our physicians in regenerative therapy.</h3></div></div>
+    <div class="tabs__panel" data-panel="leadership" hidden>
+      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:stethoscope}} Leadership</small><h3>The physicians who oversee every protocol.</h3></div></div>
       <div class="team-grid team-grid--2">
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/sean-arora.jpg" alt="" loading="lazy"></span><div><p class="member__name">Dr. Sean Arora</p><p class="member__role">Medical Director</p></div></div><p class="member__bio">Dr. Sean Arora is a board-certified physician whose primary focus lies in wellness and telehealth innovation. As the founder of Arora Health Group, he leads medical oversight and compliance networks in the wellness and telehealth space, offering full-spectrum medical directorship, nationwide telehealth provider networks, EMR integrations, and cutting-edge protocol development. Licensed in all 50 states for telehealth oversight.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/shannon-arora.png" alt="" loading="lazy"></span><div><p class="member__name">Dr. Shannon Arora</p><p class="member__role">Chief Medical Officer</p></div></div><p class="member__bio">As Chief Medical Officer of Regenerative Revival, Dr. Shannon Arora champions an integrated model of care that brings regenerative medicine, hormone therapy, and peptide protocols together under one coordinated team, so the same patient can benefit from all of them without navigating separate clinics.</p></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], MD</p><p class="member__role">Medical Director</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], MD</p><p class="member__role">Chief Medical Officer</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
+      </div>
+    </div>
+
+    <div class="tabs__panel" data-panel="clinicians" hidden>
+      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:shield-check}} Clinicians</small><h3>Nurse practitioners who deliver care in your home.</h3></div></div>
+      <div class="team-grid">
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], PA-C</p><p class="member__role">Physician Assistant · [Region]</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="advocates" hidden>
-      <div class="team-banner"><img src="assets/img/hero-presenter.webp" alt="" loading="lazy"><div><small>{{icon:heart-pulse}} Wellness Advocates &amp; Sales</small><h3>Our specialized leaders and sales team in regenerative therapy.</h3></div></div>
+      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:heart-pulse}} Patient Advocates</small><h3>Your first call, and the people who route you to the right program.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/noah-nelson.webp" alt="" loading="lazy"></span><div><p class="member__name">Noah Nelson</p><p class="member__role">Wellness Advocate</p></div></div><p class="member__bio">Noah Nelson brings more than 20 years of leadership experience in healthcare, spanning pharmaceuticals, biotechnology, and wellness. With a unique blend of clinical insight and strategic expertise, Noah guides individuals toward innovative protocols designed to restore strength, improve quality of life, and build lasting vitality.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/david-chavez.webp" alt="" loading="lazy"></span><div><p class="member__name">David Chavez</p><p class="member__role">Wellness Advocate</p></div></div><p class="member__bio">David Chavez is a Wellness Advocate whose path into regenerative wellness began with his own experiences as an athlete. His personal recovery journey sparked a passion for alternative therapies that restore strength and vitality.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/reggie-lynch-hd.webp" alt="" loading="lazy"></span><div><p class="member__name">Reggie Lynch</p><p class="member__role">Wellness Advocate</p></div></div><p class="member__bio">Reggie Lynch's love for regenerative medicine was sparked by his experiences playing basketball at the professional level, including an eight-year professional career. His firsthand experience drives his passion for helping others overcome pain and improve longevity.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/karl-canniff.webp" alt="" loading="lazy"></span><div><p class="member__name">Karl Canniff</p><p class="member__role">Senior Wellness Advocate</p></div></div><p class="member__bio">As Senior Wellness Advocate, Karl Canniff brings more than two decades of expertise in health, wellness, and regenerative medicine. With a foundation in stem cell sciences, he has guided over 2,000 pain management cases.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/ben-nelson.jpg" alt="" loading="lazy"></span><div><p class="member__name">Ben Nelson</p><p class="member__role">Wellness Advocate</p></div></div><p class="member__bio">Ben Nelson's journey into regenerative medicine began on the baseball field. After receiving a stem cell injection, he returned to the field in just five months. He earned a degree in Kinesiology, dedicating his career to human performance and regenerative medicine.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/adam-berge.webp" alt="" loading="lazy"></span><div><p class="member__name">Adam Berge</p><p class="member__role">Wellness Advocate</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/robert-monroe.webp" alt="" loading="lazy"></span><div><p class="member__name">Robert Monroe</p><p class="member__role">Wellness Advocate</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/ryan-wedekind-hd.webp" alt="" loading="lazy"></span><div><p class="member__name">Ryan Wedekind</p><p class="member__role">Senior Wellness Advocate</p></div></div><p class="member__bio">Ryan is a Senior Wellness Advocate who transitioned from law enforcement into regenerative medicine after a motorsports accident broke his shoulder. His personal recovery experience drives his mission to educate others about regenerative therapies.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/chris-ehrlich.webp" alt="" loading="lazy"></span><div><p class="member__name">Chris Ehrlich</p><p class="member__role">Sales Representative</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/james-rivers.webp" alt="" loading="lazy"></span><div><p class="member__name">James Rivers</p><p class="member__role">Patient Advocate</p></div></div></article>
-      </div>
-    </div>
-
-    <div class="tabs__panel" data-panel="nps" hidden>
-      <div class="team-banner"><img src="assets/img/clinician-consult.webp" alt="" loading="lazy"><div><small>{{icon:shield-check}} Nurse Practitioners</small><h3>Our regenerative therapy nurse practitioners.</h3></div></div>
-      <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/shina-chase.jpg" alt="" loading="lazy"></span><div><p class="member__name">Shina Chase, MSN, APRN, CNP</p><p class="member__role">Minnesota Lead NP</p></div></div><p class="member__bio">Board-certified Adult-Gerontology Nurse Practitioner with a strong clinical background in regenerative, orthopedic, and sports medicine. Specializes in joint and soft-tissue orthobiologic injections and BMAC procedures.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/dana-cook.jpg" alt="" loading="lazy"></span><div><p class="member__name">Dana Cook, FNP</p><p class="member__role">South West Regional Lead NP</p></div></div><p class="member__bio">Family Nurse Practitioner with over 25 years of acute care experience. Since graduating from Grand Canyon University in 2018, she has worked in pain management and alternative and regenerative medicine.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/susan-kelly.jpg" alt="" loading="lazy"></span><div><p class="member__name">Susan Kelly, APRN, FNP-BC, LNC</p><p class="member__role">South Eastern Regional Lead NP</p></div></div><p class="member__bio">Double board-certified Nurse Practitioner with extensive experience in advanced clinical practice and regenerative medicine. Committed to patient education, safety, and excellence in regenerative care delivery.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/nicole-stroop.jpg" alt="" loading="lazy"></span><div><p class="member__name">Nicole Stroop, MSN, APRN, FNP-BC, IFMCP</p><p class="member__role">Tennessee Lead NP</p></div></div><p class="member__bio">Board-certified Nurse Practitioner specializing in functional, regenerative, orthopedic, and aesthetic medicine. Advanced training in peptide therapy, stem cell therapy, and hormone optimization.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/deanna-kaup.jpg" alt="" loading="lazy"></span><div><p class="member__name">Deanna Kaup, DNP, FNP-C</p><p class="member__role">Iowa Lead NP</p></div></div><p class="member__bio">32 years of nursing experience across Med-Surg, Emergency, OB, and ICU. Specializes in joint and trigger point injections. Doctor of Nursing Practice, board certified through the ANCC.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/kefah-mazloum.png" alt="" loading="lazy"></span><div><p class="member__name">Kefah Mazloum, MSN, APRN, FNP-C</p><p class="member__role">Michigan Lead NP</p></div></div><p class="member__bio">Highly skilled Family Nurse Practitioner with extensive experience in emergency and trauma care. Currently practices in a Level I trauma environment. MSN from the University of Michigan-Flint.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/robyn-rafter.jpg" alt="" loading="lazy"></span><div><p class="member__name">Robyn Rafter, APRN, FNP-C</p><p class="member__role">Midwest Regional Lead NP</p></div></div><p class="member__bio">Experienced Nurse Practitioner and co-founder of Element Wellness in Omaha, Nebraska. Passionate about helping patients achieve optimal health through personalized, evidence-based care.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/shayne-yocum.jpg" alt="" loading="lazy"></span><div><p class="member__name">Shayne Yocum, ARNP, FNP-BC</p><p class="member__role">Seattle Lead NP</p></div></div><p class="member__bio">Board-certified Family Nurse Practitioner with over 50 years of nursing experience. Specializes in regenerative and orthobiologic therapies, including ultrasound-guided joint injections, PRP, and cellular tissue procedures.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/danielle-cory.jpg" alt="" loading="lazy"></span><div><p class="member__name">Danielle Cory, DNP, FNP-C</p><p class="member__role">Oklahoma Lead NP</p></div></div><p class="member__bio">Compassionate Family Nurse Practitioner committed to improving access to high-quality care. Doctor of Nursing Practice from Baylor University. Specializes in preventive medicine and chronic disease management.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/natalie-chovan-hahn.png" alt="" loading="lazy"></span><div><p class="member__name">Natalie Chovan-Hahn, FNP</p><p class="member__role">California Lead NP</p></div></div><p class="member__bio">Family Nurse Practitioner with experience in primary care and regenerative medicine. Focuses on stem cell injections, peptide therapy, and hormone optimization. Dedicated to addressing root causes rather than managing symptoms.</p></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/addie-adefuye.jpg" alt="" loading="lazy"></span><div><p class="member__name">Addie Adefuye</p><p class="member__role">Texas Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/maxi-carbonell.jpg" alt="" loading="lazy"></span><div><p class="member__name">Maxi Carbonell</p><p class="member__role">Oklahoma Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/andrea-naegele.jpg" alt="" loading="lazy"></span><div><p class="member__name">Andrea Naegele</p><p class="member__role">Ohio Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/dashiel-wham.jpg" alt="" loading="lazy"></span><div><p class="member__name">Dashiel Wham</p><p class="member__role">Washington Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/diane-craig.jpg" alt="" loading="lazy"></span><div><p class="member__name">Diane Craig</p><p class="member__role">Illinois Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/amina-phangureh.jpg" alt="" loading="lazy"></span><div><p class="member__name">Amina Phangureh</p><p class="member__role">Nevada Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/james-mcgraw.jpeg" alt="" loading="lazy"></span><div><p class="member__name">James McGraw</p><p class="member__role">Florida/Georgia Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/stephanie-thomas.png" alt="" loading="lazy"></span><div><p class="member__name">Stephanie Thomas</p><p class="member__role">Georgia Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/nicole-thompson.jpeg" alt="" loading="lazy"></span><div><p class="member__name">Nicole Thompson</p><p class="member__role">Florida Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/sabina-virk.png" alt="" loading="lazy"></span><div><p class="member__name">Sabina Virk</p><p class="member__role">Nevada Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/rachel-ciota.png" alt="" loading="lazy"></span><div><p class="member__name">Rachel Ciota</p><p class="member__role">New Jersey Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/nick-blevens.jpeg" alt="" loading="lazy"></span><div><p class="member__name">Nick Blevens</p><p class="member__role">Pennsylvania Lead NP</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/john-schuitema.jpeg" alt="" loading="lazy"></span><div><p class="member__name">John Schuitema</p><p class="member__role">Lead NP</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Senior Patient Advocate</p></div></div><p class="member__bio">Short bio placeholder: background, why they joined, and how they help patients navigate options.</p></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="staff" hidden>
-      <div class="team-banner"><img src="assets/img/hero-stem-cell.webp" alt="" loading="lazy"><div><small>{{icon:users}} Staff</small><h3>Our staff in regenerative therapy.</h3></div></div>
+      <div class="team-banner">{{> art-orbit}}<div><small>{{icon:users}} Support Staff</small><h3>Operations, scheduling, and patient support.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/jared-novack.webp" alt="" loading="lazy"></span><div><p class="member__name">Jared Novack</p><p class="member__role">Director of Operations</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/dasan-fant.png" alt="" loading="lazy"></span><div><p class="member__name">Dasa'n Fant</p><p class="member__role">Chief of Staff</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/shannon-lonergan.jpg" alt="" loading="lazy"></span><div><p class="member__name">Shannon Lonergan</p><p class="member__role">Chief of Staff</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/lexi-taylor.jpg" alt="" loading="lazy"></span><div><p class="member__name">Lexi Taylor</p><p class="member__role">Executive Assistant</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/cathy-wandmacher.jpg" alt="" loading="lazy"></span><div><p class="member__name">Cathy Wandmacher</p><p class="member__role">Administrative Assistant</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/danielle-kreienbrink.jpg" alt="" loading="lazy"></span><div><p class="member__name">Danielle Kreienbrink</p><p class="member__role">Support Team Account Manager</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/lydia.webp" alt="" loading="lazy"></span><div><p class="member__name">Lydia D'Antonio</p><p class="member__role">Director of Marketing</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="https://65iosdxq0lyc5cm9.public.blob.vercel-storage.com/team/emma-feddo.jpg" alt="" loading="lazy"></span><div><p class="member__name">Emma Feddo</p><p class="member__role">Assistant</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/michaela-gebert.webp" alt="" loading="lazy"></span><div><p class="member__name">Michaela Gebert</p><p class="member__role">Assistant</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="member__avatar"><img src="assets/img/team/elizabeth-king-rodolf.webp" alt="" loading="lazy"></span><div><p class="member__name">Elizabeth King-Rodolf</p><p class="member__role">Assistant</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Director of Operations</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Care Coordinator</p></div></div></article>
+        <article class="member"><div class="member__head"><span class="ph-avatar" aria-hidden="true">{{icon:user-round}}</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Support</p></div></div></article>
       </div>
     </div>
   </div>

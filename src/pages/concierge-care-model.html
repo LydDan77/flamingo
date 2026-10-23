@@ -1,24 +1,21 @@
 ---
 title: Concierge Care Model - One Medical Team, One Plan
-description: How Regenerative Revival delivers in-home stem cell therapy and telehealth under one physician-led roof. One patient record, one plan, one team that knows you.
+description: How in-home regenerative therapy and telehealth come together under one physician-led team. One patient record, one plan, one team that knows you.
 nav: regenerative
 ---
-<section class="hero hero--page hero__orbs lux-grid">
+<section class="hero hero--page">
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Concierge Care Model</span></nav>
       <p class="eyebrow eyebrow--rule">How We Work</p>
-      <h1>One medical team. <em class="hl">One plan.</em> The best decade of your life.</h1>
-      <p class="lead">Regenerative Revival is a concierge medical brand operating under Arora Health Group. We combine in-home regenerative therapies with physician-led telehealth, under one chart, one plan, and one team that knows you.</p>
+      <h1>One medical team. <em class="hl">One plan.</em> One record that follows you.</h1>
+      <p class="lead">{{site.name}} combines in-home regenerative therapies with physician-led telehealth, under one chart, one plan, and one team that knows you.</p>
       <div class="hero__actions">
-        <a class="btn btn--light btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
-        <a class="btn btn--outline-light btn--lg" href="about.html#team">Meet The Team {{icon:arrow-up-right}}</a>
+        <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
+        <a class="btn btn--secondary btn--lg" href="about.html#team">Meet The Team {{icon:arrow-up-right}}</a>
       </div>
     </div>
-    <div class="hero__media" aria-hidden="true">
-      <img src="assets/img/hero-stem-cell.webp" alt="">
-      <div class="hero__scrim"></div>
-    </div>
+    <div class="hero__media" aria-hidden="true">{{> ph-media}}</div>
   </div>
 </section>
 
@@ -29,13 +26,13 @@ nav: regenerative
         <span class="eyebrow">The Problem We Solve</span>
         <h2 class="mt-4">Most telehealth brands sell you a product. We build you a plan.</h2>
         <div class="prose mt-6">
-          <p>The modern healthcare system is fragmented by design. Your primary care doctor doesn't know what your endocrinologist prescribed. Your telehealth GLP-1 provider has never seen your joint MRI. Your peptide stack was recommended by a Reddit thread, not a clinician who knows your labs.</p>
-          <p>We built Regenerative Revival to be the opposite. Every program, regenerative therapy, GLP-1, peptides, hormone optimization, NAD+, runs through the same clinical team, the same chart, and the same long-term plan.</p>
-          <p>That's how a weight-loss protocol can be coordinated with a joint regeneration plan. How an NAD+ program can plug into a peptide stack. How your hormone optimization can be adjusted when your regenerative therapy changes your inflammatory baseline.</p>
+          <p>Healthcare is fragmented by design. Your primary care doctor doesn't know what your endocrinologist prescribed. Your telehealth GLP-1 provider has never seen your joint MRI. Your peptide stack was recommended by a forum, not a clinician who knows your labs.</p>
+          <p>We built this model to be the opposite. Every program, from regenerative therapy to GLP-1, peptides, hormone optimization, and NAD+, runs through the same clinical team, the same chart, and the same long-term plan.</p>
+          <p>That's how a weight-loss protocol can be coordinated with a joint regeneration plan, how an NAD+ program can plug into a peptide stack, and how hormone dosing can be adjusted when your inflammatory baseline changes.</p>
         </div>
       </div>
       <div class="media media--4x5 reveal" data-delay="1">
-        <div class="media__frame"><img src="assets/img/doctor-patient-2.webp" alt="Physician-led concierge care" loading="lazy" style="object-position:top"></div>
+        <div class="media__frame"><div class="ph" role="img" aria-label="Image placeholder"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Client image · clinician</span></div></div>
       </div>
     </div>
   </div>
@@ -45,13 +42,13 @@ nav: regenerative
   <div class="container container--wide">
     <div class="section-head reveal">
       <span class="eyebrow">The Model</span>
-      <h2>Four pillars of the Regenerative Revival model</h2>
+      <h2>Four pillars of the concierge model</h2>
     </div>
     <div class="grid grid--2">
-      <div class="card card--hover card--image reveal"><div class="card__media"><img src="assets/img/dr-sean-arora.webp" alt="" loading="lazy" style="object-position:center 20%"><span class="card__media-badge">{{icon:stethoscope}}</span></div><div class="card__body"><h3>Physician-led, NP-delivered</h3><p>Dr. Sean Arora and Arora Health Group provide clinical oversight on every patient. Licensed nurse practitioners deliver care in your home. You have a named physician, not a call center.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="1"><div class="card__media"><img src="assets/img/in-home-care.webp" alt="" loading="lazy"><span class="card__media-badge">{{icon:home}}</span></div><div class="card__body"><h3>In-home concierge for regenerative</h3><p>Wharton's Jelly stem cell therapy, exosome protocols, and joint injections, delivered in your home, office, or hotel room. No clinic visit. No waiting room. No surgical prep.</p></div></div>
-      <div class="card card--hover card--image reveal"><div class="card__media"><img src="assets/img/clinician-consult.webp" alt="" loading="lazy"><span class="card__media-badge">{{icon:file-text}}</span></div><div class="card__body"><h3>One plan, one patient record</h3><p>Your regenerative therapy, hormone optimization, peptide stack, and NAD+ protocol all live in one chart. Programs are coordinated, not siloed across four different providers.</p></div></div>
-      <div class="card card--hover card--image reveal" data-delay="1"><div class="card__media"><img src="assets/img/telehealth.webp" alt="" loading="lazy"><span class="card__media-badge">{{icon:users}}</span></div><div class="card__body"><h3>Nationwide telehealth</h3><p>Hormones, peptides, GLP-1, and NAD+ are prescribed via telehealth in all 50 states. Compounded by NABP-accredited pharmacies and shipped to your door.</p></div></div>
+      <div class="card card--hover reveal"><span class="card__icon card__icon--grad">{{icon:stethoscope}}</span><h3>Physician-led, NP-delivered</h3><p>A named Medical Director provides clinical oversight on every patient. Licensed nurse practitioners deliver care in your home. You have a named physician, not a call center.</p></div>
+      <div class="card card--hover reveal" data-delay="1"><span class="card__icon card__icon--grad">{{icon:home}}</span><h3>In-home concierge for regenerative</h3><p>Stem cell therapy, exosome protocols, and joint injections delivered in your home, office, or hotel room. No clinic visit. No waiting room.</p></div>
+      <div class="card card--hover reveal"><span class="card__icon card__icon--grad">{{icon:file-text}}</span><h3>One plan, one patient record</h3><p>Your regenerative therapy, hormone optimization, peptide stack, and NAD+ protocol all live in one chart. Programs are coordinated, not siloed across providers.</p></div>
+      <div class="card card--hover reveal" data-delay="1"><span class="card__icon card__icon--grad">{{icon:radio}}</span><h3>Telehealth, wherever you are</h3><p>Hormones, peptides, GLP-1, and NAD+ are prescribed via telehealth, compounded by accredited pharmacies, and shipped to your door.</p></div>
     </div>
   </div>
 </section>
@@ -63,9 +60,9 @@ nav: regenerative
       <h2>How it works, from consultation to therapy</h2>
     </div>
     <div class="steps">
-      <div class="step reveal"><span class="step__num">01</span><h3>Book a consultation</h3><p>Two questions. We route you to the right program: regen, telehealth, or both.</p></div>
+      <div class="step reveal"><span class="step__num">01</span><h3>Book a consultation</h3><p>Tell us your goals. We route you to the right program: regenerative, telehealth, or both.</p></div>
       <div class="step reveal" data-delay="1"><span class="step__num">02</span><h3>Clinician review</h3><p>A licensed clinician reviews your history and labs. You get a real plan, not a template.</p></div>
-      <div class="step reveal" data-delay="2"><span class="step__num">03</span><h3>Therapy delivered</h3><p>Regen therapy comes to your home. Telehealth prescriptions ship to your door.</p></div>
+      <div class="step reveal" data-delay="2"><span class="step__num">03</span><h3>Therapy delivered</h3><p>Regenerative therapy comes to your home. Telehealth prescriptions ship to your door.</p></div>
       <div class="step reveal" data-delay="3"><span class="step__num">04</span><h3>Ongoing coordination</h3><p>One chart. As your protocols evolve, your team adjusts everything together.</p></div>
     </div>
     <div class="actions actions--center mt-12 reveal"><a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a></div>
@@ -77,11 +74,11 @@ nav: regenerative
     <span class="eyebrow">FAQ</span>
     <h2 class="mt-4 mb-8">Questions about the concierge model</h2>
     <div class="faq reveal">
-      <details class="faq__item"><summary>What is concierge regenerative medicine?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Concierge regenerative medicine means your care is delivered in your home by a licensed clinician. No clinic visit, no waiting room. At Regenerative Revival, it also means one physician-led team coordinates all your protocols: regenerative therapy, hormones, peptides, and NAD+.</div></details>
-      <details class="faq__item"><summary>Who oversees my care at Regenerative Revival?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Every patient is overseen by Dr. Sean Arora, Medical Director and CEO of Arora Health Group. Nurse Practitioners deliver day-to-day care under his clinical supervision. You have a named physician on your case, not an anonymous algorithm.</div></details>
-      <details class="faq__item"><summary>What's the difference between your model and a regular telehealth company?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Most telehealth companies sell one product in a silo. Your GLP-1 provider doesn't know about your testosterone. Your peptide stack isn't reviewed against your NAD+ protocol. We coordinate everything under one chart, so your weight-loss program can be built around your joint regeneration plan, not competing with it.</div></details>
-      <details class="faq__item"><summary>Do I need to visit a clinic?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">No. Regenerative therapies are delivered in your home by a licensed nurse practitioner. Telehealth services (hormones, peptides, NAD+) are handled entirely online: consultation, prescription, and delivery.</div></details>
-      <details class="faq__item"><summary>What states do you serve?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Telehealth services are available in all 50 states. In-home concierge regenerative therapy is available in most major metros. Ask during your consultation about availability in your area.</div></details>
+      <details class="faq__item"><summary>What is concierge regenerative medicine?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Concierge regenerative medicine means your care is delivered in your home by a licensed clinician. No clinic visit, no waiting room. Here, it also means one physician-led team coordinates all your protocols: regenerative therapy, hormones, peptides, and NAD+.</div></details>
+      <details class="faq__item"><summary>Who oversees my care?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Every patient is overseen by a named Medical Director. Nurse practitioners deliver day-to-day care under that clinical supervision. Clinician names and credentials will be listed here once provided by the client.</div></details>
+      <details class="faq__item"><summary>What's the difference between this model and a regular telehealth company?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Most telehealth companies sell one product in a silo. We coordinate everything under one chart, so your weight-loss program can be built around your joint regeneration plan instead of competing with it.</div></details>
+      <details class="faq__item"><summary>Do I need to visit a clinic?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">No. Regenerative therapies are delivered in your home by a licensed nurse practitioner. Telehealth services are handled entirely online: consultation, prescription, and delivery.</div></details>
+      <details class="faq__item"><summary>What areas do you serve?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Service area details will be added once confirmed by the client. Ask during your consultation about availability in your area.</div></details>
     </div>
   </div>
 </section>
