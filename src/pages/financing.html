@@ -1,27 +1,93 @@
 ---
 title: Financing & Payment Plans
-description: Flexible payment options for regenerative medicine, peptides, hormones, and NAD+ programs.
+description: Flexible payment options for regenerative therapy and longevity programs. See the full cost on your consultation, then apply with a third-party financing partner in about a minute.
 nav: resources
 ---
-<section class="hero hero--plain lux-grid">
+<section class="hero hero--image">
+  <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
+    {{img:tablet-coffee-plant|class=hero__img|dark=laptop-stethoscope|warm=hands-tea|elite=notebook-desk|eager|sizes=100vw|pos=center 45%}}
+    <div class="hero__scrim"></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:timer}}</span><div><b>Decisions in minutes</b><span>Apply from your phone</span></div></div>
+  </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Financing</span></nav>
+      <p class="hero__kicker">Financing &amp; Payment Plans</p>
       <h1>Treat now, <em class="hl">pay over time</em></h1>
       <p class="lead">Break the cost of your care into manageable monthly payments. Financing partner details, rates, and terms will be added once confirmed by the client. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
+        <a class="btn btn--secondary btn--lg" href="#apply">Check Payment Options {{icon:arrow-down}}</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container container--wide">
-    <div class="grid grid--3 mb-12 reveal reveal--stagger">
+    <div class="grid grid--3 reveal reveal--stagger">
       <div class="card card--hover"><span class="card__icon">{{icon:credit-card}}</span><h3>Monthly payment plans</h3><p>Split the cost of your program into predictable monthly payments through a third-party financing partner.</p></div>
       <div class="card card--hover"><span class="card__icon">{{icon:shield-check}}</span><h3>Clear pricing first</h3><p>You'll see the full cost of your plan on your consultation before you commit to anything.</p></div>
       <div class="card card--hover"><span class="card__icon">{{icon:timer}}</span><h3>Fast decisions</h3><p>Most financing partners return a decision in minutes from your phone.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="media media--4x3 reveal reveal--left">
+        <div class="media__frame">{{img:living-room-bag|dark=kettlebell-bw|warm=home-hallway|elite=spa-towel-dark|alt=|sizes=(max-width: 899px) 100vw, 50vw}}</div>
+        <div class="media__float media__float--tr"><strong>~1 min</strong><span>to apply, once<br>you have your price</span></div>
+      </div>
+      <div class="reveal reveal--right">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="mt-4">Three steps from consultation to <em class="hl">care</em></h2>
+        <p class="lead mt-6">Nothing is applied for until you know exactly what your program costs.</p>
+        <div class="timeline mt-8">
+          <div class="timeline__item"><span class="timeline__when">Step 1</span><h3>Get your plan and your price</h3><p>Your consultation ends with a written protocol and its full cost. No surprises later.</p></div>
+          <div class="timeline__item"><span class="timeline__when">Step 2</span><h3>Apply with the financing partner</h3><p>A short application through [Financing partner], completed from your phone in about a minute.</p></div>
+          <div class="timeline__item"><span class="timeline__when">Step 3</span><h3>Your coordinator applies it</h3><p>Once you're approved, tell your care coordinator and the plan is attached to your program.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="reveal reveal--left">
+        <span class="eyebrow">What It Covers</span>
+        <h2 class="mt-4">Payment plans for every program</h2>
+        <p class="lead mt-6">Financing applies to the full catalog, in-home and telehealth alike. <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>
+        <ul class="check-list mt-8">
+          <li>{{icon:check-circle}} In-home regenerative therapy (Wharton's Jelly, exosomes)</li>
+          <li>{{icon:check-circle}} Concierge care visits and follow-ups</li>
+          {{#if module:hormones}}<li>{{icon:check-circle}} Hormone optimization programs (TRT, HRT)</li>{{/if}}
+          {{#if module:peptides}}<li>{{icon:check-circle}} Goal-based peptide programs</li>{{/if}}
+          <li>{{icon:check-circle}} NAD+ and clinician-curated supplement protocols</li>
+          <li>{{icon:check-circle}} Multi-month program bundles</li>
+        </ul>
+      </div>
+      <div class="reveal reveal--right">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="mt-4 mb-8">Common questions</h2>
+        <div class="faq">
+          <details class="faq__item"><summary>When do I find out what my program costs?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">On your consultation, before you commit to anything. Your clinician walks through the protocol and its full price, and financing is only discussed once you have that number.</div></details>
+          <details class="faq__item"><summary>Who provides the financing?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">A third-party financing partner, not {{site.name}}. Approval, rates, and terms are set by the partner. <span class="ph-tag">{{icon:pen}} Client to name partner</span></div></details>
+          <details class="faq__item"><summary>Can I pay without financing?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Yes. Financing is optional. Pay-in-full and other accepted payment methods are confirmed on your consultation. <span class="ph-tag">{{icon:pen}} Client to confirm methods</span></div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
     <div class="card reveal" id="apply">
-      <h3>Check your payment options</h3>
+      <span class="eyebrow">Apply</span>
+      <h3 class="mt-4">Check your payment options</h3>
       <p>[Financing partner] is a third-party provider. Applying takes about a minute. Once you're approved, let your care coordinator know and we'll apply it to your plan.</p>
       <div class="actions mt-4">
         <a class="btn btn--primary" href="{{site.bookUrl}}">Ask about financing on your consult {{icon:arrow-right}}</a>
