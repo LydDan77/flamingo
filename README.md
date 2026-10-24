@@ -75,6 +75,7 @@ The contact page uses a native HTML form (`form[data-demo-form]`). It is **not c
 | `src/assets/css/parts/*.css` | The stylesheet in ordered parts: `00` tokens and base, `10` components, `20` layout (header, hero, footer, floating controls), then one part per design version (`30` dark … `34` elite). `build.js` concatenates and minifies them into `dist/assets/css/site.css`. |
 | `src/assets/js/site.js` | Design switcher, theme-specific photo swaps, navigation, tabs, tiles, reveal and stagger, parallax, count-up, financing nudge, demo form handling. No frameworks. |
 | `src/assets/img/photos` | Responsive WebP photos (800 / 1200 / 1920 widths, plus 4:5 portrait crops). |
+| `src/assets/img/products` | Transparent product renders (vials, droppers) as WebP at 400 / 800 widths, placed with `{{img:vial-nad|product|alt=…}}`. Labels currently carry the Regenerative Revival mark and formulation strengths; re-render for a new client. |
 | `site.config.js` | Site-wide values: modules, brand name, contact details, booking link, navigation and footer links. |
 
 Template helpers available inside pages and partials:

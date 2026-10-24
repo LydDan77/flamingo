@@ -163,6 +163,8 @@ em.hl, .hl {
   color: var(--brand);
   background: linear-gradient(90deg, var(--brand) 0%, var(--brand-3) 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  /* background-clip: text paints only inside the box; negative tracking and italics push glyph edges past it, so widen the paint box without moving the text */
+  padding: 0.08em 0.1em; margin: 0 -0.1em;
 }
 
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }

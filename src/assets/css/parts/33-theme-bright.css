@@ -76,7 +76,7 @@
   --ticker-bg: #FF4D6D;
   --ticker-fg: #FFFFFF;
 }
-[data-theme="bright"] em.hl, [data-theme="bright"] .hl { background: linear-gradient(transparent 58%, #FFC53D 58%); -webkit-text-fill-color: currentColor; color: inherit; padding: 0 0.08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+[data-theme="bright"] em.hl, [data-theme="bright"] .hl { background: linear-gradient(transparent 58%, #FFC53D 58%); -webkit-text-fill-color: currentColor; color: inherit; padding: 0 0.08em; margin: 0; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 [data-theme="bright"] .section--deep em.hl { background: linear-gradient(transparent 58%, #6C4CF1 58%); }
 [data-theme="bright"] .hero::before { display: none; }
 [data-theme="bright"] .hero { border-bottom: 2px solid var(--text); }

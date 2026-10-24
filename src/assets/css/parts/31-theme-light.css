@@ -71,7 +71,7 @@
   --ticker-bg: #0F172A;
   --ticker-fg: #FFFFFF;
 }
-[data-theme="light"] em.hl, [data-theme="light"] .hl { background: none; -webkit-text-fill-color: currentColor; color: var(--brand); }
+[data-theme="light"] em.hl, [data-theme="light"] .hl { background: none; -webkit-text-fill-color: currentColor; color: var(--brand); padding: 0; margin: 0; }
 [data-theme="light"] .hero { border-bottom: 1px solid var(--line); background-image: radial-gradient(#DCE3EB 1px, transparent 1px); background-size: 22px 22px; }
 [data-theme="light"] .hero::before { display: none; }
 [data-theme="light"] .btn--primary:hover { box-shadow: none; }

@@ -80,7 +80,7 @@
 }
 [data-theme="warm"] body { line-height: 1.7; }
 [data-theme="warm"] .lead { font-size: clamp(1.08rem, 1.3vw, 1.22rem); line-height: 1.7; }
-[data-theme="warm"] em.hl, [data-theme="warm"] .hl { background: none; -webkit-text-fill-color: currentColor; color: var(--brand); font-style: italic; }
+[data-theme="warm"] em.hl, [data-theme="warm"] .hl { background: none; -webkit-text-fill-color: currentColor; color: var(--brand); font-style: italic; padding: 0; margin: 0; }
 [data-theme="warm"] .eyebrow, [data-theme="warm"] .pill--accent, [data-theme="warm"] .tiles__num, [data-theme="warm"] .tile__num, [data-theme="warm"] .step__num, [data-theme="warm"] .reason__num, [data-theme="warm"] .footer__heading, [data-theme="warm"] .info-row small, [data-theme="warm"] .media__caption small, [data-theme="warm"] .pillar__kicker, [data-theme="warm"] .breadcrumbs, [data-theme="warm"] .compare__head, [data-theme="warm"] .team-banner small, [data-theme="warm"] .post-card__meta, [data-theme="warm"] .field__label, [data-theme="warm"] .timeline__when, [data-theme="warm"] .hero__kicker, [data-theme="warm"] .hero__meta, [data-theme="warm"] .ticker__track span { font-weight: 700; letter-spacing: 0.08em; }
 [data-theme="warm"] .field__label, [data-theme="warm"] .info-row small { font-size: 0.78rem; text-transform: none; letter-spacing: 0.02em; }
 [data-theme="warm"] .btn { min-height: 56px; padding-inline: 28px; }

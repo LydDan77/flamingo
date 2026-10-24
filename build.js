@@ -181,12 +181,14 @@ function icon(name, cls) {
  * Theme swaps for lazy photos are applied by the inline script at the end of <body> and by site.js on every switch.
  */
 const PHOTO_DIR = "assets/img/photos";
+const PRODUCT_DIR = "assets/img/products";
+const PRODUCT_H = 1000; // product renders are trimmed to a 4:5 box (800x1000) so the intrinsic size is known before load
 const THEMES = ["dark", "light", "warm", "bright", "elite"];
 const PHOTO_SET = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
 function imgTag(spec, ctx) {
   const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
   const slug = parts.shift();
-  const opt = { class: "", alt: "", sizes: "(max-width: 899px) 100vw, 50vw", pos: "", eager: false, portrait: false };
+  const opt = { class: "", alt: "", sizes: "(max-width: 899px) 100vw, 50vw", pos: "", eager: false, portrait: false, product: false };
   const themeSrc = {};
   const themePos = {};
   for (const p of parts) {
@@ -196,6 +198,13 @@ function imgTag(spec, ctx) {
     if (THEMES.includes(k)) themeSrc[k] = v;
     else if (k.startsWith("pos-") && THEMES.includes(k.slice(4))) themePos[k.slice(4)] = v;
     else opt[k] = v;
+  }
+  if (opt.product) {
+    // Product render (transparent WebP): src/assets/img/products/<slug>-400.webp and -800.webp. Not themed, not filtered.
+    const f = path.join(ASSETS, "img", "products", `${slug}-800.webp`);
+    if (!fs.existsSync(f)) throw new Error(`Missing product render: ${f}`);
+    const sizes = opt.sizes === "(max-width: 899px) 100vw, 50vw" ? "(max-width: 899px) 40vw, 260px" : opt.sizes;
+    return `<img class="product${opt.class ? " " + opt.class : ""}" src="${PRODUCT_DIR}/${slug}-800.webp" srcset="${PRODUCT_DIR}/${slug}-400.webp 400w, ${PRODUCT_DIR}/${slug}-800.webp 800w" sizes="${sizes}" alt="${escapeHtml(opt.alt)}" loading="${opt.eager ? "eager" : "lazy"}" decoding="async" width="800" height="${PRODUCT_H}">`;
   }
   const check = (s) => {
     const f = path.join(ASSETS, "img", "photos", `${s}-${opt.portrait ? "portrait" : "1200"}.webp`);

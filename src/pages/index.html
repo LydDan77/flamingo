@@ -156,7 +156,7 @@ nav: home
       </a>
       <a class="treat-card" href="{{site.href.telehealth}}">
         <div class="treat-card__top">{{#if any:hormones,peptides}}<h3>Hormones and peptides, prescribed online.</h3><p>Hormone optimization and clinician-led peptide protocols by goal. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless any:hormones,peptides}}<h3>NAD+ and longevity, prescribed online.</h3><p>Clinician-led NAD+ and supplement protocols built around your labs. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/unless}}</div>
-        <div class="treat-card__stage"><svg class="vial" style="--vial-cap:#FF7A3D" aria-hidden="true"><use href="#i-vial"></use></svg></div>
+        <div class="treat-card__stage">{{#if any:hormones,peptides}}{{img:vial-semaglutide|product|alt=Injection vial}}{{/if}}{{#unless any:hormones,peptides}}{{img:vial-nad|product|alt=NAD+ injection vial}}{{/unless}}</div>
       </a>
       <a class="treat-card" href="concierge-care-model.html">
         <div class="treat-card__top"><h3>One medical team. One patient record. One plan.</h3><p>Every service coordinated across in-home regenerative care and virtual longevity programs, under one physician-led team.</p></div>
