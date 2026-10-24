@@ -96,7 +96,7 @@ Rebuild after editing (`node build.js`); with `--serve` or `--watch` it rebuilds
 
 - Only the active design version's web fonts are loaded (two or three families instead of eleven).
 - The hero photo of the active version is preloaded from the `<head>` with `fetchpriority="high"`; every other photo is lazy-loaded and sized with `srcset`/`sizes` (half-width panels fetch the 800/1200 variants, not the 1920).
-- CSS and JS are minified at build time; Vercel serves them compressed with long-lived immutable caching for everything under `/assets/`.
+- CSS and JS are minified at build time and written with a content hash in the file name (`site.<hash>.css`), so Vercel can serve everything under `/assets/` with long-lived immutable caching while every new build is picked up immediately.
 - Film grain, parallax and blur effects are skipped on phones; reduced-motion preferences disable all motion.
 
 ## Deploy

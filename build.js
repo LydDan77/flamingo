@@ -317,6 +317,7 @@ function renderFooterColumns() {
 // rendering
 // ---------------------------------------------------------------------------
 
+const ASSET_URLS = { css: "assets/css/site.css", js: "assets/js/site.js" }; // replaced with fingerprinted names during build()
 const partialCache = new Map();
 function partial(name) {
   if (!partialCache.has(name)) {
@@ -383,6 +384,7 @@ function buildPage(file) {
   page.titleEsc = escapeHtml(page.fullTitle);
   page.descriptionEsc = escapeHtml(page.description);
 
+  page.assets = ASSET_URLS; // {{page.assets.css}} / {{page.assets.js}} in the layout
   const ctx = {
     page,
     navHtml: renderNav(page.nav),
@@ -413,15 +415,20 @@ function build() {
   const siteJs = path.join(ASSETS, "js", "site.js");
   if (fs.existsSync(ASSETS)) copyDir(ASSETS, path.join(DIST, "assets"), (p) => p === partsDir || p === siteJs);
 
-  // Stylesheet: ordered parts (src/assets/css/parts/*.css) -> one minified file.
+  // Stylesheet: ordered parts (src/assets/css/parts/*.css) -> one minified file. The file name carries a content hash
+  // (site.<hash>.css) so browsers and the CDN can cache it forever and still pick up every new build immediately.
+  const hash = (s) => require("crypto").createHash("sha1").update(s).digest("hex").slice(0, 10);
   if (fs.existsSync(partsDir)) {
-    const css = fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n");
+    const css = minifyCss(fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n"));
     fs.mkdirSync(path.join(DIST, "assets", "css"), { recursive: true });
-    fs.writeFileSync(path.join(DIST, "assets", "css", "site.css"), minifyCss(css));
+    ASSET_URLS.css = `assets/css/site.${hash(css)}.css`;
+    fs.writeFileSync(path.join(DIST, ASSET_URLS.css), css);
   }
   if (fs.existsSync(siteJs)) {
+    const js = minifyJs(read(siteJs));
     fs.mkdirSync(path.join(DIST, "assets", "js"), { recursive: true });
-    fs.writeFileSync(path.join(DIST, "assets", "js", "site.js"), minifyJs(read(siteJs)));
+    ASSET_URLS.js = `assets/js/site.${hash(js)}.js`;
+    fs.writeFileSync(path.join(DIST, ASSET_URLS.js), js);
   }
 
   const allPages = fs.readdirSync(PAGES).filter((f) => f.endsWith(".html")).sort();
