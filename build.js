@@ -2,18 +2,18 @@
 /*
  * Flamingo static site builder. Zero dependencies.
  *
- *   node build.js            build src/ -> dist/
+ *   node build.js            build src/ -> dist/ (CSS and JS are minified)
  *   node build.js --watch    rebuild whenever src/ changes
  *   node build.js --serve    build, watch, and serve dist/ on http://localhost:3000
  *
  * Template syntax (used in src/layout.html, src/partials/*.html, src/pages/*.html):
- *   {{> name}}         include src/partials/name.html
- *   {{icon:name}}      inline SVG icon from the sprite (see src/partials/icons.html)
- *   {{site.key}}       value from site.config.js
- *   {{page.key}}       value from the page's front matter
- *   {{nav}}            generated main navigation (from site.config.js)
- *   {{footer}}         generated footer link columns
- *   {{year}}           current year
+ *   {{> name}}                     include src/partials/name.html
+ *   {{icon:name}}                  inline SVG icon from the sprite (see src/partials/icons.html); {{icon:name extra-class}}
+ *   {{img:slug|opt=…|…}}           responsive photo, see imgTag() below
+ *   {{site.key}}                   value from site.config.js
+ *   {{page.key}}                   value from the page's front matter
+ *   {{nav}} {{footer}} {{year}}    generated navigation, footer columns, current year
+ *   {{#if module:x}} … {{/if}}     conditional blocks (also {{#unless …}}, any:a,b and all:a,b)
  */
 "use strict";
 
@@ -42,12 +42,13 @@ function rmrf(dir) {
   fs.rmSync(dir, { recursive: true, force: true });
 }
 
-function copyDir(from, to) {
+function copyDir(from, to, skip) {
   fs.mkdirSync(to, { recursive: true });
   for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
     const a = path.join(from, entry.name);
     const b = path.join(to, entry.name);
-    if (entry.isDirectory()) copyDir(a, b);
+    if (skip && skip(a)) continue;
+    if (entry.isDirectory()) copyDir(a, b, skip);
     else fs.copyFileSync(a, b);
   }
 }
@@ -81,6 +82,87 @@ function getPath(obj, dotted) {
 }
 
 // ---------------------------------------------------------------------------
+// minifiers (conservative, dependency-free)
+// ---------------------------------------------------------------------------
+
+/** Strips comments and collapses whitespace. Strings and url(...) are copied verbatim; spaces inside parentheses are kept (calc, clamp). */
+function minifyCss(css) {
+  let out = "";
+  let i = 0;
+  let paren = 0;
+  const n = css.length;
+  while (i < n) {
+    const c = css[i];
+    if (c === "/" && css[i + 1] === "*") {
+      const e = css.indexOf("*/", i + 2);
+      i = e < 0 ? n : e + 2;
+      continue;
+    }
+    if (c === '"' || c === "'") {
+      let e = css.indexOf(c, i + 1);
+      if (e < 0) e = n - 1;
+      out += css.slice(i, e + 1);
+      i = e + 1;
+      continue;
+    }
+    if (css.startsWith("url(", i)) {
+      // url("…") / url('…') may contain ")" inside the quotes (SVG data URIs); unquoted url(…) ends at the first ")".
+      let j = i + 4;
+      const q = css[j];
+      let e;
+      if (q === '"' || q === "'") {
+        const qe = css.indexOf(q, j + 1);
+        e = qe < 0 ? n - 1 : css.indexOf(")", qe);
+      } else {
+        e = css.indexOf(")", j);
+      }
+      if (e < 0) e = n - 1;
+      out += css.slice(i, e + 1);
+      i = e + 1;
+      continue;
+    }
+    if (/\s/.test(c)) {
+      let j = i;
+      while (j < n && /\s/.test(css[j])) j++;
+      const prev = out[out.length - 1];
+      const next = css[j];
+      if (prev && next) {
+        if (paren > 0) {
+          if (!/[(,]/.test(prev) && next !== ")") out += " ";
+        } else if (!/[{};:,>]/.test(prev) && !/[{};,>]/.test(next)) {
+          out += " ";
+        }
+      }
+      i = j;
+      continue;
+    }
+    if (c === "(") paren++;
+    if (c === ")") paren = Math.max(0, paren - 1);
+    if (c === ";") {
+      let j = i + 1;
+      while (j < n && /\s/.test(css[j])) j++;
+      if (css[j] === "}") {
+        i++;
+        continue;
+      }
+    }
+    out += c;
+    i++;
+  }
+  return out.trim();
+}
+
+/** Drops block comments and whole-line // comments, trims indentation, removes blank lines. Code is otherwise untouched. */
+function minifyJs(js) {
+  return js
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l && !l.startsWith("//"))
+    .join("\n");
+}
+
+// ---------------------------------------------------------------------------
 // navigation + footer generation
 // ---------------------------------------------------------------------------
 
@@ -89,39 +171,79 @@ function icon(name, cls) {
 }
 
 /**
- * {{img:slug|class=hero__img|alt=...|sizes=...|pos=center 30%|eager|portrait|dark=other-slug|warm=...}}
- * Renders a responsive <img> from src/assets/img/photos/<slug>-{800,1200,1920}.webp.
- * Theme overrides (dark/light/warm/bright/elite=slug) are swapped in by site.js.
+ * {{img:slug|class=hero__img|alt=...|sizes=...|pos=center 30%|eager|portrait|dark=other-slug|warm=...|pos-dark=center top}}
+ * Renders a responsive <img> from src/assets/img/photos/<slug>-{800,1200,1920}.webp (or <slug>-portrait.webp).
+ *   dark= light= warm= bright= elite=   photo to show in that design version instead of `slug`
+ *   pos= / pos-<theme>=                 object-position (focal point), overall or per version
+ *   eager                               above-the-fold photo: fetched with high priority for the active version only
+ *                                       (the <img> gets its src from an inline script right after it, plus a <noscript> fallback)
+ *   portrait                            use the 4:5 crop (team portraits)
+ * Theme swaps for lazy photos are applied by the inline script at the end of <body> and by site.js on every switch.
  */
 const PHOTO_DIR = "assets/img/photos";
 const THEMES = ["dark", "light", "warm", "bright", "elite"];
-function imgTag(spec) {
+const PHOTO_SET = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
+function imgTag(spec, ctx) {
   const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
   const slug = parts.shift();
   const opt = { class: "", alt: "", sizes: "(max-width: 899px) 100vw, 50vw", pos: "", eager: false, portrait: false };
   const themeSrc = {};
+  const themePos = {};
   for (const p of parts) {
     const i = p.indexOf("=");
     if (i === -1) { opt[p] = true; continue; }
     const k = p.slice(0, i).trim(), v = p.slice(i + 1).trim();
-    if (THEMES.includes(k)) themeSrc[k] = v; else opt[k] = v;
+    if (THEMES.includes(k)) themeSrc[k] = v;
+    else if (k.startsWith("pos-") && THEMES.includes(k.slice(4))) themePos[k.slice(4)] = v;
+    else opt[k] = v;
   }
-  const check = (s, suffix) => {
-    const f = path.join(ASSETS, "img", "photos", `${s}-${suffix}.webp`);
+  const check = (s) => {
+    const f = path.join(ASSETS, "img", "photos", `${s}-${opt.portrait ? "portrait" : "1200"}.webp`);
     if (!fs.existsSync(f)) throw new Error(`Missing photo: ${f}`);
   };
-  check(slug, opt.portrait ? "portrait" : "1200");
-  Object.values(themeSrc).forEach((s) => check(s, opt.portrait ? "portrait" : "1200"));
+  check(slug);
+  Object.values(themeSrc).forEach(check);
+
   const src = (s) => (opt.portrait ? `${PHOTO_DIR}/${s}-portrait.webp` : `${PHOTO_DIR}/${s}-1200.webp`);
-  const srcset = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
-  let attrs = `class="img${opt.class ? " " + opt.class : ""}" src="${src(slug)}"`;
-  if (!opt.portrait) attrs += ` srcset="${srcset(slug)}" sizes="${opt.sizes}"`;
+  let attrs = `class="img${opt.class ? " " + opt.class : ""}"`;
+  if (!opt.eager) {
+    attrs += ` src="${src(slug)}"`;
+    if (!opt.portrait) attrs += ` srcset="${PHOTO_SET(slug)}" sizes="${opt.sizes}"`;
+  }
   attrs += ` alt="${escapeHtml(opt.alt)}" loading="${opt.eager ? "eager" : "lazy"}" decoding="async" data-img="${slug}"`;
   if (opt.portrait) attrs += ` data-portrait="1"`;
-  if (opt.eager) attrs += ` fetchpriority="high"`;
-  if (opt.pos) attrs += ` style="object-position:${opt.pos}"`;
+  if (opt.eager) attrs += ` fetchpriority="high" data-eager="1"`;
+  if (opt.pos) attrs += ` data-pos="${escapeHtml(opt.pos)}" style="object-position:${escapeHtml(opt.pos)}"`;
   for (const [t, s] of Object.entries(themeSrc)) attrs += ` data-img-${t}="${s}"`;
-  return `<img ${attrs}>`;
+  for (const [t, p] of Object.entries(themePos)) attrs += ` data-pos-${t}="${escapeHtml(p)}"`;
+  let html = `<img ${attrs}>`;
+
+  if (opt.eager) {
+    // Set src for the active version only (no wasted download of the default photo), then a no-JS fallback.
+    const isHero = /\bhero__img\b/.test(opt.class);
+    html +=
+      `<script>(function(i,t){var d="${PHOTO_DIR}/",s=i.getAttribute("data-img-"+t)||i.getAttribute("data-img"),p=i.getAttribute("data-pos-"+t);` +
+      `if(p)i.style.objectPosition=p;` +
+      (isHero ? `i.sizes=/^(light|warm|bright)$/.test(t)?"(max-width: 899px) 100vw, 50vw":"100vw";` : `i.sizes=${JSON.stringify(opt.sizes)};`) +
+      `i.srcset=d+s+"-800.webp 800w, "+d+s+"-1200.webp 1200w, "+d+s+"-1920.webp 1920w";i.src=d+s+"-1200.webp";i.setAttribute("data-img-current",s)})` +
+      `(document.currentScript.previousElementSibling,document.documentElement.getAttribute("data-theme")||"dark")</script>` +
+      `<noscript><img class="img${opt.class ? " " + opt.class : ""}" src="${src(slug)}" srcset="${PHOTO_SET(slug)}" sizes="${opt.sizes}" alt="${escapeHtml(opt.alt)}"></noscript>`;
+    if (ctx && !ctx.heroImage) ctx.heroImage = { slug, themeSrc, isHero, sizes: opt.sizes };
+  }
+  return html;
+}
+
+/** Inline snippet for <head>: preload the hero photo of the active version (uses the same srcset/sizes as the <img>, so it is one download). */
+function heroPreloadScript(hero) {
+  if (!hero) return "";
+  const map = JSON.stringify({ default: hero.slug, ...hero.themeSrc });
+  const sizes = hero.isHero ? `/^(light|warm|bright)$/.test(t)?"(max-width: 899px) 100vw, 50vw":"100vw"` : JSON.stringify(hero.sizes);
+  return (
+    `var H=${map},hs=H[t]||H["default"],hd="${PHOTO_DIR}/";` +
+    `var pl=d.createElement("link");pl.rel="preload";pl.as="image";pl.setAttribute("fetchpriority","high");` +
+    `pl.setAttribute("imagesrcset",hd+hs+"-800.webp 800w, "+hd+hs+"-1200.webp 1200w, "+hd+hs+"-1920.webp 1920w");` +
+    `pl.setAttribute("imagesizes",${sizes});d.head.appendChild(pl);`
+  );
 }
 
 /** Optional modules (site.config.js → modules). Pages, nav items and content blocks tagged with a module are dropped while it is off. */
@@ -222,7 +344,7 @@ function render(template, ctx, depth = 0) {
   out = out.replace(/\{\{icon:([\w-]+)(?:\s+([\w\s-]+))?\}\}/g, (_, name, cls) => icon(name, cls));
 
   // responsive photos
-  out = out.replace(/\{\{img:([^}]+)\}\}/g, (_, spec) => imgTag(spec));
+  out = out.replace(/\{\{img:([^}]+)\}\}/g, (_, spec) => imgTag(spec, ctx));
 
   // special tokens
   out = out.replace(/\{\{nav\}\}/g, () => ctx.navHtml);
@@ -265,10 +387,12 @@ function buildPage(file) {
     page,
     navHtml: renderNav(page.nav),
     footerHtml: renderFooterColumns(),
+    heroImage: null,
   };
 
-  // Render the page body first (so its partials/icons resolve), then slot it into the layout.
+  // Render the page body first (so its partials/icons resolve and the hero photo is known), then slot it into the layout.
   const content = render(body, ctx);
+  page.heroPreload = heroPreloadScript(ctx.heroImage);
   const layout = read(LAYOUT);
   const html = render(layout.replace("{{content}}", () => content), ctx);
 
@@ -283,14 +407,21 @@ function build() {
   partialCache.clear();
   rmrf(DIST);
   fs.mkdirSync(DIST, { recursive: true });
-  if (fs.existsSync(ASSETS)) copyDir(ASSETS, path.join(DIST, "assets"));
 
-  // Stylesheet is authored in ordered parts (src/assets/css/parts/*.css) and concatenated into one file.
+  // Static assets. The stylesheet parts and the script are not copied as-is: they are concatenated / minified below.
   const partsDir = path.join(ASSETS, "css", "parts");
+  const siteJs = path.join(ASSETS, "js", "site.js");
+  if (fs.existsSync(ASSETS)) copyDir(ASSETS, path.join(DIST, "assets"), (p) => p === partsDir || p === siteJs);
+
+  // Stylesheet: ordered parts (src/assets/css/parts/*.css) -> one minified file.
   if (fs.existsSync(partsDir)) {
-    const css = fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n\n");
-    fs.writeFileSync(path.join(DIST, "assets", "css", "site.css"), css);
-    rmrf(path.join(DIST, "assets", "css", "parts"));
+    const css = fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n");
+    fs.mkdirSync(path.join(DIST, "assets", "css"), { recursive: true });
+    fs.writeFileSync(path.join(DIST, "assets", "css", "site.css"), minifyCss(css));
+  }
+  if (fs.existsSync(siteJs)) {
+    fs.mkdirSync(path.join(DIST, "assets", "js"), { recursive: true });
+    fs.writeFileSync(path.join(DIST, "assets", "js", "site.js"), minifyJs(read(siteJs)));
   }
 
   const allPages = fs.readdirSync(PAGES).filter((f) => f.endsWith(".html")).sort();

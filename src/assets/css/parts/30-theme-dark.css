@@ -1,0 +1,33 @@
+/* ===================================================== THEME: DARK extras (biohacker / athlete). Tokens live in 00-tokens-base.css */
+[data-theme="dark"] {
+  --btn-transform: uppercase;
+  --btn-size: 0.8rem;
+}
+[data-theme="dark"] .btn { letter-spacing: 0.1em; font-family: var(--font-mono); }
+@media (min-width: 900px) {
+[data-theme="dark"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+}
+[data-theme="dark"] h1, [data-theme="dark"] h2 { letter-spacing: -0.035em; }
+[data-theme="dark"] .hero__kicker { color: var(--brand); }
+/* HUD corner brackets on cards */
+[data-theme="dark"] .card:not(.card--overlay):not(.card--image)::before, [data-theme="dark"] .card:not(.card--overlay):not(.card--image)::after,
+[data-theme="dark"] .program::before, [data-theme="dark"] .program::after, [data-theme="dark"] .quote-card::before, [data-theme="dark"] .quote-card::after {
+  content: ""; position: absolute; width: 14px; height: 14px; border-color: var(--brand); border-style: solid; opacity: 0.55; pointer-events: none; transition: opacity 0.3s, width 0.3s, height 0.3s;
+}
+[data-theme="dark"] .card:not(.card--overlay):not(.card--image)::before, [data-theme="dark"] .program::before, [data-theme="dark"] .quote-card::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
+[data-theme="dark"] .card:not(.card--overlay):not(.card--image)::after, [data-theme="dark"] .program::after, [data-theme="dark"] .quote-card::after { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
+[data-theme="dark"] .card:hover::before, [data-theme="dark"] .card:hover::after, [data-theme="dark"] .program:hover::before, [data-theme="dark"] .program:hover::after { opacity: 1; width: 22px; height: 22px; }
+[data-theme="dark"] .section--deep { background: linear-gradient(180deg, var(--bg-deep), #0A0E10); }
+[data-theme="dark"] .pillar__media::before { background: linear-gradient(180deg, rgba(7, 9, 11, 0.15) 0%, rgba(7, 9, 11, 0.1) 50%, rgba(7, 9, 11, 0.8) 100%); }
+[data-theme="dark"] .ticker { border-color: transparent; }
+[data-theme="dark"] .ticker__track span::after { background: #0A0F02; }
+[data-theme="dark"] .tab.is-active, [data-theme="dark"] .faq__item[open] .faq__toggle { background: var(--brand); }
+[data-theme="dark"] .stats-band__inner { position: relative; overflow: hidden; }
+[data-theme="dark"] .stats-band__inner::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+[data-theme="dark"] .hero--image .hero__bg .img { filter: var(--img-filter) brightness(1.06); }
+[data-theme="dark"] .theme-switch { --ts-active: #C7FF3D; }
+[data-theme="dark"] .theme-switch__trigger, [data-theme="dark"] .theme-switch__menu { border-color: rgba(199, 255, 61, 0.22); }

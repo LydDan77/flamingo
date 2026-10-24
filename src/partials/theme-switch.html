@@ -1,8 +1,16 @@
-<div class="theme-switch" role="group" aria-label="Design version">
-  <span class="theme-switch__label">Design</span>
-  <button type="button" class="theme-switch__btn" data-set-theme="dark" aria-pressed="false" title="Dark · biohacker &amp; athlete">{{icon:moon}}<span>Dark</span></button>
-  <button type="button" class="theme-switch__btn" data-set-theme="light" aria-pressed="false" title="Light · clean &amp; clinical">{{icon:sun}}<span>Light</span></button>
-  <button type="button" class="theme-switch__btn" data-set-theme="warm" aria-pressed="false" title="Warm · clean &amp; easy to read">{{icon:heart}}<span>Warm</span></button>
-  <button type="button" class="theme-switch__btn" data-set-theme="bright" aria-pressed="false" title="Bright · bold &amp; eccentric">{{icon:palette}}<span>Bright</span></button>
-  <button type="button" class="theme-switch__btn" data-set-theme="elite" aria-pressed="false" title="Elite · premium">{{icon:award}}<span>Elite</span></button>
+<div class="theme-switch" id="theme-switch">
+  <button type="button" class="theme-switch__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="theme-switch-menu" aria-label="Choose a design version" title="Choose a design version">
+    <span class="theme-switch__swatch theme-switch__swatch--dark" data-theme-swatch aria-hidden="true"></span>
+    <span class="theme-switch__label">Design</span>
+    <span class="theme-switch__current" data-theme-current>Dark</span>
+    {{icon:chevron-down theme-switch__caret}}
+  </button>
+  <div class="theme-switch__menu" id="theme-switch-menu" role="group" aria-label="Design version" hidden>
+    <p class="theme-switch__heading">Choose a design version</p>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="dark" data-theme-name="Dark"><span class="theme-switch__swatch theme-switch__swatch--dark" aria-hidden="true"></span><span><b>Dark</b><small>Biohacker &amp; athlete</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="light" data-theme-name="Light"><span class="theme-switch__swatch theme-switch__swatch--light" aria-hidden="true"></span><span><b>Light</b><small>Clean &amp; clinical</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="warm" data-theme-name="Warm"><span class="theme-switch__swatch theme-switch__swatch--warm" aria-hidden="true"></span><span><b>Warm</b><small>Warm, clean &amp; easy to read</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="bright" data-theme-name="Bright"><span class="theme-switch__swatch theme-switch__swatch--bright" aria-hidden="true"></span><span><b>Bright</b><small>Bold &amp; eccentric</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="elite" data-theme-name="Elite"><span class="theme-switch__swatch theme-switch__swatch--elite" aria-hidden="true"></span><span><b>Elite</b><small>Premium, for high-end clients</small></span>{{icon:check theme-switch__check}}</button>
+  </div>
 </div>

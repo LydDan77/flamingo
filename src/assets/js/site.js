@@ -1,23 +1,29 @@
-/* Flamingo site behaviour. No dependencies. */
+/* Flamingo site behaviour. No dependencies. Loaded with `defer`. */
 (function () {
   "use strict";
 
   var doc = document;
   var root = doc.documentElement;
   var THEMES = ["dark", "light", "warm", "bright", "elite"];
+  var SPLIT_HERO = { light: 1, warm: 1, bright: 1 }; // themes whose photo hero is a half-width panel
   var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A" };
   var PHOTOS = "assets/img/photos/";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isMobile = function () { return window.innerWidth < 900; };
 
   /* ------------------------------------------------------------ theme photos */
+  // Every photo carries data-img (default slug) and optional data-img-<theme> / data-pos-<theme> overrides.
   function applyThemeImages(t) {
     doc.querySelectorAll("img[data-img]").forEach(function (img) {
       var base = img.getAttribute("data-img");
       var want = img.getAttribute("data-img-" + t) || base;
-      if ((img.getAttribute("data-img-current") || base) === want) return;
-      if (img.hasAttribute("data-portrait")) { img.src = PHOTOS + want + "-portrait.webp"; }
-      else {
+      var pos = img.getAttribute("data-pos-" + t) || img.getAttribute("data-pos") || "";
+      img.style.objectPosition = pos;
+      if (img.classList.contains("hero__img")) img.sizes = SPLIT_HERO[t] ? "(max-width: 899px) 100vw, 50vw" : "100vw";
+      if (img.getAttribute("data-img-current") === want) return;
+      if (img.hasAttribute("data-portrait")) {
+        img.src = PHOTOS + want + "-portrait.webp";
+      } else {
         img.srcset = PHOTOS + want + "-800.webp 800w, " + PHOTOS + want + "-1200.webp 1200w, " + PHOTOS + want + "-1920.webp 1920w";
         img.src = PHOTOS + want + "-1200.webp";
       }
@@ -26,19 +32,27 @@
   }
 
   /* ------------------------------------------------------------------ theme */
-  function setTheme(t) {
+  var fontLink = doc.querySelector("link[data-theme-fonts]");
+  function setTheme(t, fromUser) {
     if (t === "playful") t = "bright";
     if (THEMES.indexOf(t) < 0) return;
     root.setAttribute("data-theme", t);
     try { localStorage.setItem("flamingo-theme", t); } catch (e) {}
     var meta = doc.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", THEME_COLORS[t]);
+    if (fromUser && fontLink && window.FLAMINGO_FONTS && window.FLAMINGO_FONTS[t]) fontLink.href = window.FLAMINGO_FONTS[t];
     doc.querySelectorAll("[data-set-theme]").forEach(function (b) {
-      b.setAttribute("aria-pressed", String(b.getAttribute("data-set-theme") === t));
+      var on = b.getAttribute("data-set-theme") === t;
+      b.setAttribute("aria-checked", String(on));
+      if (on) {
+        var cur = doc.querySelector("[data-theme-current]"), sw = doc.querySelector("[data-theme-swatch]");
+        if (cur) cur.textContent = b.getAttribute("data-theme-name") || t;
+        if (sw) sw.className = "theme-switch__swatch theme-switch__swatch--" + t;
+      }
     });
     applyThemeImages(t);
     // keep ?theme= on internal links so the chosen version follows you between pages
-    doc.querySelectorAll('a[href]').forEach(function (a) {
+    doc.querySelectorAll("a[href]").forEach(function (a) {
       var href = a.getAttribute("href");
       if (!href || /^(https?:|mailto:|tel:|#)/.test(href)) return;
       var clean = href.replace(/([?&])theme=[^&#]*(&?)/, function (_, p, amp) { return amp ? p : ""; }).replace(/\?(#|$)/, "$1");
@@ -47,10 +61,33 @@
       a.setAttribute("href", base + (base.indexOf("?") >= 0 ? "&" : "?") + "theme=" + t + hash);
     });
   }
-  doc.querySelectorAll("[data-set-theme]").forEach(function (b) {
-    b.addEventListener("click", function () { setTheme(b.getAttribute("data-set-theme")); });
-  });
-  setTheme(root.getAttribute("data-theme") || "dark");
+
+  // Design switcher: compact trigger + upward menu
+  var switcher = doc.getElementById("theme-switch");
+  if (switcher) {
+    var trigger = switcher.querySelector(".theme-switch__trigger");
+    var menu = switcher.querySelector(".theme-switch__menu");
+    var items = Array.prototype.slice.call(menu.querySelectorAll("[data-set-theme]"));
+    function openMenu(open) {
+      menu.hidden = !open;
+      switcher.classList.toggle("is-open", open);
+      trigger.setAttribute("aria-expanded", String(open));
+      if (open) {
+        var current = items.filter(function (b) { return b.getAttribute("aria-checked") === "true"; })[0] || items[0];
+        current.focus();
+      }
+    }
+    trigger.addEventListener("click", function () { openMenu(menu.hidden); });
+    items.forEach(function (b, i) {
+      b.addEventListener("click", function () { setTheme(b.getAttribute("data-set-theme"), true); openMenu(false); trigger.focus(); });
+      b.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); items[(i + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length].focus(); }
+      });
+    });
+    doc.addEventListener("click", function (e) { if (!menu.hidden && !switcher.contains(e.target)) openMenu(false); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) { openMenu(false); trigger.focus(); } });
+  }
+  setTheme(root.getAttribute("data-theme") || "dark", false);
 
   /* ----------------------------------------------------------- external links */
   doc.querySelectorAll('a[href^="http"]').forEach(function (a) {
@@ -133,13 +170,14 @@
   }
 
   /* ---------------------------------------------------------------- parallax */
-  // [data-parallax="0.18"] moves at a fraction of scroll while in view (desktop only).
+  // [data-parallax="0.18"] moves at a fraction of scroll while in view (desktop, full-bleed heroes only).
   var pxEls = Array.prototype.slice.call(doc.querySelectorAll("[data-parallax]"));
   if (pxEls.length && !reduceMotion) {
     var ticking = false;
     function parallax() {
       ticking = false;
-      if (isMobile()) { pxEls.forEach(function (el) { el.style.transform = ""; }); return; }
+      var t = root.getAttribute("data-theme");
+      if (isMobile() || SPLIT_HERO[t]) { pxEls.forEach(function (el) { el.style.transform = ""; }); return; }
       var vh = window.innerHeight;
       pxEls.forEach(function (el) {
         var r = el.getBoundingClientRect();
@@ -151,6 +189,7 @@
     }
     window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(parallax); } }, { passive: true });
     window.addEventListener("resize", parallax);
+    doc.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("[data-set-theme]")) setTimeout(parallax, 0); });
     parallax();
   }
 
@@ -269,8 +308,8 @@
     }
   });
 
-  /* ------------------------------------------------------- marquee + ticker */
-  doc.querySelectorAll(".marquee__track, .ticker__track").forEach(function (track) {
+  /* ------------------------------------------------------------------ ticker */
+  doc.querySelectorAll(".ticker__track").forEach(function (track) {
     if (reduceMotion) { track.classList.add("is-static"); return; }
     var clone = track.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");
@@ -305,21 +344,32 @@
   });
 
   /* ------------------------------------------------------------- financing chip */
+  // Appears once the hero has scrolled away, hides again near the footer. Never on the financing page itself.
   var chip = doc.getElementById("financing-chip");
-  if (chip) {
+  if (chip && !doc.body.classList.contains("page--financing")) {
     var dismissed = false;
     try { dismissed = sessionStorage.getItem("flamingo-financing-dismissed") === "1"; } catch (e) {}
-    if (!dismissed && !doc.body.classList.contains("page--financing")) {
-      var shown = false;
-      function maybeShowChip() {
-        if (shown || window.scrollY < window.innerHeight * 0.6) return;
-        shown = true; chip.hidden = false;
+    if (!dismissed) {
+      var hero = doc.querySelector(".hero");
+      var chipVisible = false, chipTicking = false;
+      function placeChip() {
+        chipTicking = false;
+        var y = window.scrollY, vh = window.innerHeight;
+        var past = hero ? y > hero.offsetTop + hero.offsetHeight - 80 : y > vh * 0.8;
+        var nearEnd = y + vh > doc.documentElement.scrollHeight - 720;
+        var show = past && !nearEnd && window.innerWidth >= 1024;
+        if (show === chipVisible) return;
+        chipVisible = show;
+        if (show) { chip.hidden = false; requestAnimationFrame(function () { chip.classList.add("is-visible"); }); }
+        else { chip.classList.remove("is-visible"); setTimeout(function () { if (!chipVisible) chip.hidden = true; }, 380); }
       }
-      window.addEventListener("scroll", maybeShowChip, { passive: true });
+      window.addEventListener("scroll", function () { if (!chipTicking) { chipTicking = true; requestAnimationFrame(placeChip); } }, { passive: true });
+      window.addEventListener("resize", placeChip);
       chip.querySelector(".financing-chip__close").addEventListener("click", function () {
-        chip.hidden = true;
+        chipVisible = false; chip.classList.remove("is-visible"); chip.hidden = true;
         try { sessionStorage.setItem("flamingo-financing-dismissed", "1"); } catch (e) {}
       });
+      placeChip();
     }
   }
 
