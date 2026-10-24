@@ -162,3 +162,4 @@
 [data-theme="warm"] .theme-switch { --ts-bg: rgba(255, 255, 255, 0.97); --ts-fg: #2A2420; --ts-muted: #76695F; --ts-line: #C9B9A6; --ts-hover: #F6EFE4; --ts-active: #B4532E; --ts-shadow: 0 16px 40px -16px rgba(42, 36, 32, 0.3); }
 [data-theme="warm"] .theme-switch__item b { font-size: 0.9rem; }
 @media (max-width: 767px) { [data-theme="warm"] { --h1-size: clamp(2rem, 7vw, 2.6rem); --hero-split-h1: clamp(1.85rem, 6.6vw, 2.5rem); } }
+@media (max-width: 899px) { [data-theme="warm"] .hero--image .hero__bg { box-shadow: none; } }

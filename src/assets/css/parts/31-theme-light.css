@@ -117,3 +117,4 @@
 [data-theme="light"] .video-card__play span { background: #fff; color: #0F172A; }
 [data-theme="light"] .hero--image .hero__bg { border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
 [data-theme="light"] .theme-switch { --ts-bg: rgba(255, 255, 255, 0.97); --ts-fg: #0F172A; --ts-muted: #64748B; --ts-line: #CBD5E1; --ts-hover: #EEF2F6; --ts-active: #0369A1; --ts-shadow: 0 16px 40px -16px rgba(15, 23, 42, 0.3); }
+@media (max-width: 899px) { [data-theme="light"] .hero--image .hero__bg { border: 0; box-shadow: none; } }

@@ -204,3 +204,4 @@
 [data-theme="bright"] .financing-chip__link { color: #fff; }
 [data-theme="bright"] .financing-chip__link .icon { color: #FFC53D; }
 [data-theme="bright"] .financing-chip__close { color: rgba(255, 255, 255, 0.6); }
+@media (max-width: 899px) { [data-theme="bright"] .hero--image .hero__bg, [data-theme="bright"] .hero--image.hero--home .hero__bg { border: 0; border-bottom: 3px solid var(--text); box-shadow: none; border-radius: 0 0 var(--radius-xl) var(--radius-xl); } }
