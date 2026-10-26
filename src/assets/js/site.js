@@ -404,6 +404,11 @@
     if (pq === "0") sessionStorage.removeItem("flamingo-partner");
     partnerOn = sessionStorage.getItem("flamingo-partner") === "1";
   } catch (e) { partnerOn = pq === "1"; }
+  // "Partner view" switch in the design menu (and any other [data-partner-toggle])
+  doc.querySelectorAll("[data-partner-toggle]").forEach(function (b) {
+    b.setAttribute("aria-checked", String(partnerOn));
+    b.addEventListener("click", function () { location.search = "partner=" + (partnerOn ? "0" : "1"); });
+  });
   if (partnerOn) {
     doc.body.classList.add("partner-mode");
     var PARTNER_PAGE = "partner-overview.html";
