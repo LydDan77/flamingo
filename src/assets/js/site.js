@@ -435,6 +435,17 @@
     });
   }
 
+  // Partner shortcut: type "partner" on any page (outside form fields) to switch the partner view on or off.
+  var typed = "";
+  doc.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target, tag = (t && t.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea" || tag === "select" || (t && t.isContentEditable)) return;
+    if (!/^[a-z]$/i.test(e.key)) return;
+    typed = (typed + e.key.toLowerCase()).slice(-7);
+    if (typed === "partner") { typed = ""; location.search = "partner=" + (partnerOn ? "0" : "1"); }
+  });
+
   /* ------------------------------------------------------------- scrollspy menus */
   // <nav data-spy> with #section links: the link for the section in view is marked .is-active and kept visible in a horizontal bar.
   doc.querySelectorAll("nav[data-spy]").forEach(function (nav) {
@@ -445,7 +456,8 @@
       links.forEach(function (a) {
         var on = a.getAttribute("href") === "#" + id;
         a.classList.toggle("is-active", on);
-        if (on && nav.scrollWidth > nav.clientWidth) a.scrollIntoView({ block: "nearest", inline: "center", behavior: reduceMotion ? "auto" : "smooth" });
+        // keep the active chip centred in the horizontal bar without ever scrolling the page itself (scrollIntoView would)
+        if (on && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a.getBoundingClientRect().left - nav.getBoundingClientRect().left + nav.scrollLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: reduceMotion ? "auto" : "smooth" });
       });
     }
     function spy() {

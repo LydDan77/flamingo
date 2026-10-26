@@ -46,8 +46,8 @@ Under the hood: pages carry `module: hormones` in their front matter, nav and fo
 
 Program partners (buyers) have two things ordinary visitors never see:
 
-- **`partner-overview.html`**: the buyer overview and the technology / marketing stack (offer, purchase scope, the eight platform components, what this site runs on, marketing funnel, optional modules, an illustrative planning tool, launch readiness). It carries `noindex, nofollow`, is left out of the sitemap, and is not linked from any public page. Share it by URL only. Figures live in `site.config.js` under `partner`.
-- **Partner view**: open any page with `?partner=1` and the site gains a "Partner view" pill in the header, numbered pins on the home-page sections that map to the stack, and a bottom bar linking to the overview. It is remembered for the browser session only, follows internal links, and `Hide` (or `?partner=0`) switches it off. Without the link nothing partner-related is rendered or present in the HTML.
+- **`partner-overview.html`**: the buyer overview and the technology / marketing stack (offer, purchase scope, the eight platform components, what this site runs on, marketing funnel, optional modules, an illustrative planning tool, launch readiness). It carries `noindex, nofollow` and is left out of the sitemap. The only way in from the public site is a deliberately faint partner mark at the bottom right of every footer (a small layers glyph, `rel="nofollow"`, labelled "Partners" on hover, focus and in partner view): clients scroll past it, partners are told it is there. Figures live in `site.config.js` under `partner`.
+- **Partner view**: open any page with `?partner=1`, or type the word `partner` on any page (outside a form field), and the site gains a "Partner view" pill in the header, numbered pins on the home-page sections that map to the stack, and a bottom bar linking to the overview. It is remembered for the browser session only, follows internal links, and `Hide`, typing `partner` again or `?partner=0` switches it off. Without it nothing partner-related is rendered beyond the footer mark.
 
 ## Swap in the client's details
 

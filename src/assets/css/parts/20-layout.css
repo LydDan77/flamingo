@@ -242,3 +242,10 @@
   .btn--sm { width: auto; }
   .actions .btn, .hero__actions .btn, .cta-band__actions .btn { width: 100%; }
 }
+
+/* Partner mark in the footer: a faint glyph clients scroll past; the word appears on hover / focus and whenever partner view is on */
+.footer__partner { display: inline-flex; align-items: center; gap: 7px; min-height: 32px; padding: 0 6px; margin-right: -6px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.3); transition: color 0.25s; }
+.footer__partner .icon { width: 14px; height: 14px; }
+.footer__partner span { display: none; }
+.footer__partner:hover, .footer__partner:focus-visible, .partner-mode .footer__partner { color: #FFC53D; }
+.footer__partner:hover span, .footer__partner:focus-visible span, .partner-mode .footer__partner span { display: inline; }
