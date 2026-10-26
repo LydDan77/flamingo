@@ -93,6 +93,8 @@
 [data-theme="bright"] .section--deep .btn--primary, [data-theme="bright"] .section--deep .btn--secondary { border-color: #fff; box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.9); }
 [data-theme="bright"] .section--deep .btn--secondary:hover { color: #15122B; background: #FFC53D; border-color: #FFC53D; }
 [data-theme="bright"] .section--deep .card__icon--grad { background: #FFC53D; color: #15122B; }
+[data-theme="bright"] .section--deep .card { box-shadow: none; }
+[data-theme="bright"] .section--deep .card--hover:hover, [data-theme="bright"] .section--deep a.card:hover { background: rgba(255, 255, 255, 0.08); border-color: #FFC53D; box-shadow: 6px 6px 0 #FFC53D; color: var(--text); }
 [data-theme="bright"] .card { box-shadow: none; }
 [data-theme="bright"] .card--hover:hover, [data-theme="bright"] a.card:hover { border-color: #15122B; box-shadow: 6px 6px 0 #15122B; transform: translate(-2px, -4px); background: #fff; }
 [data-theme="bright"] .card__icon { border-radius: 50%; background: #EEEAFE; color: #6C4CF1; }
