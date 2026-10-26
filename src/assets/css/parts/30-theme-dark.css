@@ -31,3 +31,26 @@
 [data-theme="dark"] .hero--image .hero__bg .img { filter: var(--img-filter) brightness(1.06); }
 [data-theme="dark"] .theme-switch { --ts-active: #C7FF3D; }
 [data-theme="dark"] .theme-switch__trigger, [data-theme="dark"] .theme-switch__menu { border-color: rgba(199, 255, 61, 0.22); }
+
+/* ---- level-up: HUD. Lime cursor with a dashed targeting ring, aurora glow behind headlines, a light sweep across photo heroes, cursor spotlight inside cards, glowing duotone icons. */
+[data-theme="dark"] { --cur-dot: #C7FF3D; --cur-border: 1px solid rgba(199, 255, 61, 0.7); --cur-size: 34px; --cur-size-link: 54px; --btn-gloss: rgba(255, 255, 255, 0.35); }
+[data-theme="dark"] { --cur-dash: rgba(199, 255, 61, 0.9); }
+[data-theme="dark"] .cursor.is-link .cursor__ring { border-color: transparent; }
+[data-theme="dark"] .progress { background: linear-gradient(90deg, #C7FF3D, #3DF2FF); box-shadow: 0 0 12px rgba(199, 255, 61, 0.6); }
+[data-theme="dark"] .icon { --duo: 0.4; --duo-fill: var(--brand-3); }
+[data-theme="dark"] :is(.card__icon, .step__icon, .tile__icon, .menu__icon, .tiles__icon) { background: linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box, linear-gradient(135deg, rgba(199, 255, 61, 0.75), rgba(61, 242, 255, 0.3) 60%, rgba(255, 255, 255, 0.08)) border-box; border: 1px solid transparent; color: var(--brand); box-shadow: inset 0 0 20px rgba(199, 255, 61, 0.05); transition: box-shadow 0.5s var(--ease), transform 0.5s var(--ease); }
+[data-theme="dark"] :is(.card__icon, .step__icon, .tile__icon, .menu__icon, .tiles__icon) .icon { filter: drop-shadow(0 0 7px rgba(199, 255, 61, 0.45)); }
+[data-theme="dark"] .card__icon--grad { background: var(--brand); color: var(--on-brand); border-color: transparent; --duo: 0.25; --duo-fill: currentColor; }
+[data-theme="dark"] .card__icon--grad .icon { filter: none; }
+[data-theme="dark"] .card:hover .card__icon:not(.card__icon--grad), [data-theme="dark"] .step:hover .step__icon, [data-theme="dark"] .menu__link:hover .menu__icon { box-shadow: inset 0 0 24px rgba(199, 255, 61, 0.12), 0 0 28px -6px rgba(199, 255, 61, 0.5); transform: translateY(-2px); }
+[data-theme="dark"] .card:not(.card--overlay):not(.card--image) { --spot-img: radial-gradient(360px circle at var(--cx) var(--cy), rgba(199, 255, 61, calc(0.12 * var(--spot))), transparent 62%); background-image: var(--spot-img); transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.3s, background-color 0.3s, --spot 0.5s; }
+[data-theme="dark"] .card--hover:hover, [data-theme="dark"] a.card:hover, [data-theme="dark"] .card:not(.card--overlay):not(.card--image):hover { --spot: 1; background-color: var(--surface-2); background-image: var(--spot-img); }
+[data-theme="dark"] .hero::before { background: radial-gradient(closest-side, rgba(199, 255, 61, 0.14), transparent 72%); filter: blur(30px); animation: orb-a 18s ease-in-out infinite alternate; }
+[data-theme="dark"] .hero::after { content: ""; position: absolute; z-index: -1; left: -180px; bottom: -220px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(closest-side, rgba(61, 242, 255, 0.1), transparent 72%); filter: blur(24px); animation: orb-b 24s ease-in-out infinite alternate; pointer-events: none; }
+[data-theme="dark"] .hero--image::before, [data-theme="dark"] .hero--image::after { display: none; }
+[data-theme="dark"] .hero--image .hero__scrim::before { content: ""; position: absolute; inset: -30% -60%; background: linear-gradient(112deg, transparent 42%, rgba(199, 255, 61, 0.09) 50%, transparent 58%); animation: light-sweep 11s ease-in-out infinite; pointer-events: none; }
+[data-theme="dark"] em.hl { filter: drop-shadow(0 0 16px rgba(199, 255, 61, 0.28)); }
+[data-theme="dark"] .btn--primary:hover { box-shadow: 0 0 0 1px rgba(199, 255, 61, 0.5), 0 0 34px -4px rgba(199, 255, 61, 0.55); }
+html[data-theme="dark"]::view-transition-old(root) { animation: 0.35s var(--ease) both vt-out-dark; }
+html[data-theme="dark"]::view-transition-new(root) { animation: 0.5s var(--ease) both vt-in-dark; }
+@media (prefers-reduced-motion: reduce) { [data-theme="dark"] .hero::before, [data-theme="dark"] .hero::after, [data-theme="dark"] .hero--image .hero__scrim::before { animation: none; } }

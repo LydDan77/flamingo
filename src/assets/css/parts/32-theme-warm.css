@@ -165,3 +165,20 @@
 @media (max-width: 899px) { [data-theme="warm"] .hero--image .hero__bg { box-shadow: none; } }
 [data-theme="warm"] .footer__note { color: #E8A585; }
 [data-theme="warm"] .section--alt { background: #F3EADF; }
+
+/* ---- level-up: organic. Blob-shaped icon tiles that morph on hover, a slowly breathing blob behind the hero, deep rolling waves between sections, paper grain, a soft peach pool that follows the pointer. Motion stays slow and gentle for older readers. */
+[data-theme="warm"] { --cur-dot: transparent; --cur-border: 0; --cur-size: 42px; --cur-size-link: 66px; --cur-fill: rgba(217, 154, 108, 0.34); --cur-opacity: 1; --edge-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30Q300 0 600 30T1200 30V60H0Z'/%3E%3C/svg%3E"); --edge-w: 1200px; --edge-h: 56px; }
+[data-theme="warm"] .cursor__dot { display: none; }
+[data-theme="warm"] .cursor { mix-blend-mode: multiply; }
+[data-theme="warm"] .cursor__ring { filter: blur(6px); }
+[data-theme="warm"] .progress { height: 3px; background: linear-gradient(90deg, #9E4525, #1F6F78); }
+[data-theme="warm"] .icon { --duo: 0.5; --duo-fill: var(--brand-3); }
+[data-theme="warm"] :is(.card__icon, .step__icon, .tile__icon, .menu__icon) { border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%; background: var(--brand-soft); color: var(--brand); transition: border-radius 0.9s var(--ease), transform 0.6s var(--ease), background-color 0.3s, color 0.3s; }
+[data-theme="warm"] .card:hover .card__icon, [data-theme="warm"] .step:hover .step__icon, [data-theme="warm"] .menu__link:hover .menu__icon { border-radius: 58% 42% 45% 55% / 45% 55% 48% 52%; transform: rotate(-8deg) scale(1.06); }
+[data-theme="warm"] .card__icon--grad { background: var(--brand-2); color: #fff; --duo: 0.3; --duo-fill: currentColor; }
+[data-theme="warm"] .card--hover:hover, [data-theme="warm"] a.card:hover { transform: translateY(-4px) rotate(-0.4deg); }
+[data-theme="warm"] .hero::before { width: 640px; height: 640px; right: -160px; top: -160px; background: radial-gradient(closest-side, rgba(217, 154, 108, 0.28), transparent 74%); border-radius: 42% 58% 60% 40% / 45% 40% 60% 55%; filter: blur(8px); animation: blob 18s ease-in-out infinite; }
+@media (min-width: 900px) { [data-theme="warm"] body::before { content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.045; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 220px 220px; } }
+html[data-theme="warm"]::view-transition-old(root) { animation: 0.5s ease both vt-out; }
+html[data-theme="warm"]::view-transition-new(root) { animation: 0.7s ease both vt-fade; }
+@media (prefers-reduced-motion: reduce) { [data-theme="warm"] .hero::before { animation: none; } }

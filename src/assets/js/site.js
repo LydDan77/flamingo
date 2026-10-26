@@ -477,6 +477,65 @@
     update();
   });
 
+  /* ------------------------------------------------------------- motion layer */
+  // Scroll progress line: --scroll on <html> (0..1), body.has-scrolled once the page has moved.
+  var progress = doc.querySelector(".progress");
+  if (progress) {
+    var progTick = false;
+    function setProgress() {
+      progTick = false;
+      var h = root.scrollHeight - window.innerHeight;
+      root.style.setProperty("--scroll", (h > 0 ? Math.min(1, window.scrollY / h) : 0).toFixed(4));
+      doc.body.classList.toggle("has-scrolled", window.scrollY > 8);
+    }
+    window.addEventListener("scroll", function () { if (!progTick) { progTick = true; requestAnimationFrame(setProgress); } }, { passive: true });
+    window.addEventListener("resize", setProgress);
+    setProgress();
+  }
+
+  // Pointer-aware surfaces (mouse only, motion allowed):
+  //  - cards learn where the pointer is (--cx / --cy) so the spotlight themes can light that spot
+  //  - buttons lean toward the pointer (--mgx / --mgy) in the themes that use a magnetic feel
+  //  - the custom cursor: the dot tracks the pointer, the ring eases behind it and grows over anything clickable
+  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    var MAGNET = { dark: 0.22, elite: 0.2, light: 0.14 };
+    var INTERACTIVE = "a, button, [role='button'], summary, label, input, select, textarea, .tile, [data-tilt]";
+    var cur = doc.querySelector(".cursor");
+    var dot = cur && cur.querySelector(".cursor__dot"), ring = cur && cur.querySelector(".cursor__ring");
+    var mx = -100, my = -100, rx = -100, ry = -100, ringRaf = null, cursorShown = false;
+    function ringLoop() {
+      rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+      ring.style.transform = "translate3d(" + rx.toFixed(1) + "px," + ry.toFixed(1) + "px,0)";
+      if (Math.abs(mx - rx) > 0.2 || Math.abs(my - ry) > 0.2) ringRaf = requestAnimationFrame(ringLoop); else ringRaf = null;
+    }
+    doc.addEventListener("pointermove", function (e) {
+      if (e.pointerType && e.pointerType !== "mouse") return;
+      var t = e.target, closest = t && t.closest ? function (s) { return t.closest(s); } : function () { return null; };
+      var card = closest(".card");
+      if (card) { var r = card.getBoundingClientRect(); card.style.setProperty("--cx", (e.clientX - r.left) + "px"); card.style.setProperty("--cy", (e.clientY - r.top) + "px"); }
+      var btn = closest(".btn"), k = MAGNET[root.getAttribute("data-theme")] || 0;
+      if (btn && k) { var b = btn.getBoundingClientRect(); btn.style.setProperty("--mgx", ((e.clientX - (b.left + b.width / 2)) * k).toFixed(1) + "px"); btn.style.setProperty("--mgy", ((e.clientY - (b.top + b.height / 2)) * k).toFixed(1) + "px"); }
+      if (cur) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = "translate3d(" + mx + "px," + my + "px,0)";
+        if (!cursorShown) { cursorShown = true; rx = mx; ry = my; root.classList.add("has-cursor"); }
+        cur.classList.toggle("is-link", !!closest(INTERACTIVE));
+        cur.classList.toggle("is-text", !!closest("input, textarea, select"));
+        if (!ringRaf) ringRaf = requestAnimationFrame(ringLoop);
+      }
+    }, { passive: true });
+    doc.addEventListener("pointerout", function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest(".btn") : null;
+      if (btn && !(e.relatedTarget && btn.contains(e.relatedTarget))) { btn.style.removeProperty("--mgx"); btn.style.removeProperty("--mgy"); }
+    }, { passive: true });
+    if (cur) {
+      doc.addEventListener("pointerdown", function () { cur.classList.add("is-down"); });
+      doc.addEventListener("pointerup", function () { cur.classList.remove("is-down"); });
+      root.addEventListener("mouseleave", function () { cur.classList.add("is-out"); });
+      root.addEventListener("mouseenter", function () { cur.classList.remove("is-out"); });
+    }
+  }
+
   /* ------------------------------------------------------------- contact path */
   // for-providers links to contact.html?path=provider: preselect the provider tab
   var params = new URLSearchParams(location.search);

@@ -119,3 +119,21 @@
 [data-theme="light"] .theme-switch { --ts-bg: rgba(255, 255, 255, 0.97); --ts-fg: #0F172A; --ts-muted: #64748B; --ts-line: #CBD5E1; --ts-hover: #EEF2F6; --ts-active: #0369A1; --ts-shadow: 0 16px 40px -16px rgba(15, 23, 42, 0.3); }
 @media (max-width: 899px) { [data-theme="light"] .hero--image .hero__bg { border: 0; box-shadow: none; } }
 [data-theme="light"] .footer__note { color: #5EEAD4; }
+
+/* ---- level-up: clinical calm. Soft drifting orbs behind the hero, rolling waves between sections, a thin blue ring that trails the pointer, accent lines that draw across cards. */
+[data-theme="light"] { --cur-dot: transparent; --cur-border: 1.5px solid rgba(3, 105, 161, 0.55); --cur-size: 26px; --cur-size-link: 44px; --btn-gloss: rgba(255, 255, 255, 0.22); --edge-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30Q300 0 600 30T1200 30V60H0Z'/%3E%3C/svg%3E"); --edge-w: 1200px; --edge-h: 30px; }
+[data-theme="light"] .cursor__dot { display: none; }
+[data-theme="light"] .cursor.is-link .cursor__ring { background: rgba(3, 105, 161, 0.08); }
+[data-theme="light"] .progress { height: 3px; background: linear-gradient(90deg, #0369A1, #38BDF8); }
+[data-theme="light"] .icon { --duo: 0.35; --duo-fill: var(--brand-3); }
+[data-theme="light"] :is(.card__icon, .step__icon, .tile__icon, .menu__icon) { background: linear-gradient(160deg, #F2F8FF, #FFFFFF); border: 1px solid #D9E7F5; color: var(--brand); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), inset 0 1px 0 #fff; transition: transform 0.5s var(--ease), box-shadow 0.4s, background-color 0.3s, color 0.3s; }
+[data-theme="light"] .card:hover .card__icon:not(.card__icon--grad), [data-theme="light"] .step:hover .step__icon { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 12px 22px -12px rgba(3, 105, 161, 0.45), inset 0 1px 0 #fff; }
+[data-theme="light"] .card__icon--grad { --duo: 0.3; --duo-fill: currentColor; border-color: transparent; }
+[data-theme="light"] .section--deep :is(.card__icon, .step__icon) { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.14); color: var(--brand); box-shadow: none; }
+[data-theme="light"] .card:not(.card--overlay):not(.card--image):not(.card--soft)::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: linear-gradient(90deg, #0369A1, #38BDF8); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.55s var(--ease); pointer-events: none; }
+[data-theme="light"] .card:not(.card--overlay):not(.card--image):not(.card--soft):hover::before { transform: scaleX(1); }
+[data-theme="light"] .hero::before { display: block; width: 620px; height: 620px; right: -140px; top: -220px; z-index: -3; background: radial-gradient(closest-side, rgba(56, 189, 248, 0.24), transparent 72%); filter: blur(28px); animation: orb-a 20s ease-in-out infinite alternate; }
+[data-theme="light"] .hero::after { content: ""; position: absolute; z-index: -3; left: -140px; bottom: -200px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(closest-side, rgba(94, 234, 212, 0.22), transparent 72%); filter: blur(24px); animation: orb-b 26s ease-in-out infinite alternate; pointer-events: none; }
+[data-theme="light"] .link-arrow { background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1.5px; padding-bottom: 2px; transition: background-size 0.4s var(--ease), gap 0.2s; }
+[data-theme="light"] .link-arrow:hover { background-size: 100% 1.5px; }
+@media (prefers-reduced-motion: reduce) { [data-theme="light"] .hero::before, [data-theme="light"] .hero::after { animation: none; } }

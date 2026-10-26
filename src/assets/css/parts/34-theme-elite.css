@@ -194,3 +194,28 @@
 [data-theme="elite"] .theme-switch__trigger, [data-theme="elite"] .theme-switch__menu { border-radius: 2px; }
 [data-theme="elite"] .theme-switch__item { border-radius: 2px; }
 [data-theme="elite"] .theme-switch__heading, [data-theme="elite"] .theme-switch__label { letter-spacing: 0.26em; }
+
+/* ---- level-up: couture. Gold shimmer through highlighted words, hairlines that draw themselves in, a fine gold ring that trails the pointer, film grain and a soft vignette, a warm spotlight that follows the pointer across cards. */
+[data-theme="elite"] { --cur-dot: #C9A96E; --cur-border: 1px solid rgba(201, 169, 110, 0.8); --cur-size: 38px; --cur-size-link: 60px; --cur-opacity: 0.85; --btn-gloss: rgba(255, 255, 255, 0.45); }
+[data-theme="elite"] .cursor__dot { width: 4px; height: 4px; margin: -2px 0 0 -2px; }
+[data-theme="elite"] { --cur-dash: rgba(201, 169, 110, 0.9); }
+[data-theme="elite"] .cursor.is-link .cursor__ring { border-color: transparent; }
+[data-theme="elite"] .progress { height: 1px; background: linear-gradient(90deg, #C9A96E, #E8D5B0); }
+[data-theme="elite"] .icon { --duo: 0.22; --duo-fill: var(--brand-2); }
+[data-theme="elite"] :is(.card__icon, .step__icon, .tile__icon, .menu__icon) { transition: border-color 0.4s, box-shadow 0.5s var(--ease), transform 0.5s var(--ease); }
+[data-theme="elite"] .card:hover .card__icon:not(.card__icon--grad), [data-theme="elite"] .step:hover .step__icon, [data-theme="elite"] .menu__link:hover .menu__icon { border-color: var(--brand); box-shadow: 0 0 0 5px var(--brand-soft), 0 0 30px -6px rgba(201, 169, 110, 0.5); }
+[data-theme="elite"] em.hl, [data-theme="elite"] .hl { background: linear-gradient(100deg, #E8D5B0 0%, #C9A96E 30%, #FBF1DC 50%, #C9A96E 70%, #E8D5B0 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; animation: shimmer 8s ease-in-out infinite; }
+[data-theme="elite"] .section-head.reveal h2::after { width: 0; transition: width 1.2s var(--ease) 0.35s; }
+[data-theme="elite"] .section-head.reveal.in-view h2::after { width: 56px; }
+[data-theme="elite"] .hero::after { content: ""; position: absolute; left: var(--gutter); right: var(--gutter); bottom: 0; height: 1px; z-index: 2; background: linear-gradient(90deg, transparent, var(--brand) 30%, var(--brand) 70%, transparent); opacity: 0.7; transform-origin: 0 50%; animation: draw-x 1.8s var(--ease) 0.2s both; pointer-events: none; }
+[data-theme="elite"] .card:not(.card--overlay):not(.card--image) { --spot-img: radial-gradient(420px circle at var(--cx) var(--cy), rgba(201, 169, 110, calc(0.1 * var(--spot))), transparent 60%); background-image: var(--spot-img); transition: transform 0.45s var(--ease), border-color 0.4s, background-color 0.3s, --spot 0.6s; }
+[data-theme="elite"] .card--hover:hover, [data-theme="elite"] a.card:hover { --spot: 1; background-color: var(--brand-soft); background-image: var(--spot-img); }
+[data-theme="elite"] .media__frame .img { transition: transform 1.6s var(--ease); }
+[data-theme="elite"] .media__frame:hover .img { transform: scale(1.05); }
+@media (min-width: 900px) {
+  [data-theme="elite"] body::before { content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 220px 220px; }
+  [data-theme="elite"] body::after { content: ""; position: fixed; inset: 0; z-index: 998; pointer-events: none; background: radial-gradient(120% 100% at 50% 40%, transparent 58%, rgba(0, 0, 0, 0.5) 100%); }
+}
+html[data-theme="elite"]::view-transition-old(root) { animation: 0.6s ease both vt-out; }
+html[data-theme="elite"]::view-transition-new(root) { animation: 0.9s ease both vt-fade; }
+@media (prefers-reduced-motion: reduce) { [data-theme="elite"] em.hl, [data-theme="elite"] .hl, [data-theme="elite"] .hero::after { animation: none; } }

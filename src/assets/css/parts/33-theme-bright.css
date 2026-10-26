@@ -211,3 +211,20 @@
 [data-theme="bright"] h1, [data-theme="bright"] h2 { font-variation-settings: "opsz" 96; }
 [data-theme="bright"] .section--deep .eyebrow { color: #FFE08A; }
 [data-theme="bright"] .footer__note { color: #FFC53D; }
+
+/* ---- level-up: pop. A coral blob cursor that inverts whatever it crosses, the highlighter sweeps across the headline on load, zigzag section edges, sticker-style icons that wobble, a slow sunburst behind the hero. */
+[data-theme="bright"] { --cur-dot: transparent; --cur-border: 0; --cur-size: 28px; --cur-size-link: 64px; --cur-fill: #FF4D6D; --cur-opacity: 1; --edge-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24' preserveAspectRatio='none'%3E%3Cpath d='M0 24L24 0L48 24Z'/%3E%3C/svg%3E"); --edge-w: 48px; --edge-h: 22px; }
+[data-theme="bright"] .cursor__dot { display: none; }
+[data-theme="bright"] .cursor { mix-blend-mode: difference; }
+[data-theme="bright"] .cursor.is-link .cursor__ring { background: #FFC53D; }
+[data-theme="bright"] .progress { height: 5px; background: #FF4D6D; border-bottom: 2px solid #15122B; }
+[data-theme="bright"] .icon { --duo: 0.3; }
+[data-theme="bright"] :is(.card__icon, .step__icon, .tile__icon) { border: 2px solid #15122B; box-shadow: 3px 3px 0 #15122B; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background-color 0.3s; }
+[data-theme="bright"] .card:hover .card__icon, [data-theme="bright"] .step:hover .step__icon, [data-theme="bright"] .tile:hover .tile__icon { transform: rotate(-10deg) scale(1.08); box-shadow: 5px 5px 0 #15122B; }
+[data-theme="bright"] .hero em.hl { background-repeat: no-repeat; background-size: 0% 100%; animation: sweep-in 0.8s var(--ease) 0.35s forwards; }
+[data-theme="bright"] .hero::before { display: block; width: 440px; height: 440px; left: 34%; right: auto; top: -140px; width: 540px; height: 540px; z-index: -3; border-radius: 50%; background: repeating-conic-gradient(#FFC53D 0 12deg, transparent 12deg 24deg); opacity: 0.22; -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%); mask-image: radial-gradient(circle, #000 30%, transparent 70%); animation: spin 48s linear infinite; }
+[data-theme="bright"] .pill--accent { transform: rotate(-1.5deg); transition: transform 0.35s var(--ease); }
+[data-theme="bright"] .card:hover .pill--accent { transform: rotate(1.5deg); }
+html[data-theme="bright"]::view-transition-old(root) { animation: 0.3s var(--ease) both vt-out-up; }
+html[data-theme="bright"]::view-transition-new(root) { animation: 0.45s var(--ease) both vt-in-up; }
+@media (prefers-reduced-motion: reduce) { [data-theme="bright"] .hero::before { animation: none; } [data-theme="bright"] .hero em.hl { animation: none; background-size: 100% 100%; } }

@@ -1,0 +1,79 @@
+/* ===================================================== MOTION LAYER (shared plumbing; each theme gives it a different character in its own file)
+   - cross-page transitions (View Transitions API; browsers without it simply navigate)
+   - scroll progress line (.progress, scaled by --scroll from site.js)
+   - custom cursor (.cursor): only with a mouse and only when motion is allowed. site.js adds html.has-cursor on the first pointer move.
+   - pointer-aware cards (--cx / --cy, used by the spotlight themes) and magnetic buttons (--mgx / --mgy)
+   - wave / zigzag section edges for the themes that opt in (mask-image on a pseudo-element, no extra markup)
+   - reveal flavours and image unveils
+   Everything here respects prefers-reduced-motion. */
+
+/* ---- page-to-page transitions */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 0.4s var(--ease) both vt-out; }
+::view-transition-new(root) { animation: 0.5s var(--ease) both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
+@keyframes vt-fade { from { opacity: 0; } }
+@keyframes vt-out-dark { to { opacity: 0; transform: scale(1.02); filter: blur(6px); } }
+@keyframes vt-in-dark { from { opacity: 0; transform: scale(0.985); } }
+@keyframes vt-out-up { to { opacity: 0; transform: translateY(-3%); } }
+@keyframes vt-in-up { from { opacity: 0; transform: translateY(5%); } }
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
+
+/* ---- shared keyframes */
+@keyframes orb-a { to { transform: translate(-120px, 90px) scale(1.15); } }
+@keyframes orb-b { to { transform: translate(140px, -70px) scale(0.9); } }
+@keyframes light-sweep { 0%, 12% { transform: translateX(-45%); } 60%, 100% { transform: translateX(45%); } }
+@keyframes shimmer { from { background-position: 120% 0; } to { background-position: -120% 0; } }
+@keyframes blob { 0%, 100% { border-radius: 42% 58% 60% 40% / 45% 40% 60% 55%; } 33% { border-radius: 58% 42% 45% 55% / 52% 60% 40% 48%; } 66% { border-radius: 45% 55% 52% 48% / 40% 45% 55% 60%; } }
+@keyframes edge-drift { to { -webkit-mask-position: var(--edge-w) 0; mask-position: var(--edge-w) 0; } }
+@keyframes draw-x { from { transform: scaleX(0); } }
+@keyframes sweep-in { to { background-size: 100% 100%; } }
+@property --spot { syntax: "<number>"; inherits: false; initial-value: 0; }
+
+/* ---- scroll progress */
+.progress { position: fixed; top: 0; left: 0; width: 100%; height: 2px; z-index: 1001; pointer-events: none; background: var(--brand); transform-origin: 0 50%; transform: scaleX(var(--scroll, 0)); opacity: 0; transition: opacity 0.3s; }
+.has-scrolled .progress { opacity: 1; }
+
+/* ---- custom cursor */
+.cursor { position: fixed; top: 0; left: 0; z-index: 1002; pointer-events: none; display: none; transition: opacity 0.25s; }
+html.has-cursor .cursor { display: block; }
+.cursor__dot, .cursor__ring { position: fixed; top: 0; left: 0; border-radius: 50%; will-change: transform; }
+.cursor__dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--cur-dot, var(--brand)); }
+.cursor__ring { width: var(--cur-size, 36px); height: var(--cur-size, 36px); margin: calc(var(--cur-size, 36px) / -2) 0 0 calc(var(--cur-size, 36px) / -2); border: var(--cur-border, 1px solid var(--brand)); opacity: var(--cur-opacity, 0.7); background: var(--cur-fill, transparent); transition: width 0.35s var(--ease), height 0.35s var(--ease), margin 0.35s var(--ease), opacity 0.3s, background-color 0.3s, border-color 0.3s; }
+.cursor__ring::before { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px dashed var(--cur-dash, transparent); opacity: 0; transition: opacity 0.3s; }
+.cursor.is-link { --cur-size: var(--cur-size-link, 56px); }
+.cursor.is-link .cursor__ring::before { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) { .cursor.is-link .cursor__ring::before { animation: spin 10s linear infinite; } }
+.cursor.is-down .cursor__ring { opacity: 0.4; }
+.cursor.is-out, .cursor.is-text { opacity: 0; }
+/* themes whose cursor replaces the native pointer (form fields keep theirs) */
+html.has-cursor:is([data-theme="dark"], [data-theme="bright"], [data-theme="elite"]) *:not(input):not(textarea):not(select) { cursor: none; }
+
+/* ---- buttons: lean toward the pointer (site.js sets --mgx / --mgy on hover in the themes that use it) and a gloss sweep on primary */
+.btn { position: relative; overflow: hidden; isolation: isolate; transform: translate(var(--mgx, 0px), var(--mgy, 0px)); transition: transform 0.4s var(--ease), box-shadow 0.3s var(--ease), background-color 0.25s, color 0.25s, border-color 0.25s; }
+.btn:hover { transform: translate(var(--mgx, 0px), calc(var(--mgy, 0px) - 2px)); }
+.btn:active { transform: translate(var(--mgx, 0px), var(--mgy, 0px)) scale(0.98); }
+.btn--primary::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 35%, var(--btn-gloss, rgba(255, 255, 255, 0.28)) 50%, transparent 65%); transform: translateX(-130%); pointer-events: none; }
+.btn--primary:hover::after { transform: translateX(130%); transition: transform 0.9s var(--ease); }
+:is([data-theme="bright"], [data-theme="warm"]) .btn--primary::after { display: none; }
+
+/* ---- section edges (opt-in per theme through --edge-mask / --edge-w / --edge-h): the section's own colour rises into the section above it */
+:is([data-theme="light"], [data-theme="warm"], [data-theme="bright"]) :is(.section--alt, .section--deep, .section--alt + .section, .section--deep + .section)::before {
+  content: ""; position: absolute; left: 0; right: 0; top: calc(1px - var(--edge-h)); height: var(--edge-h); pointer-events: none;
+  -webkit-mask-image: var(--edge-mask); mask-image: var(--edge-mask); -webkit-mask-size: var(--edge-w) var(--edge-h); mask-size: var(--edge-w) var(--edge-h); -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; -webkit-mask-position: 0 0; mask-position: 0 0;
+}
+:is([data-theme="light"], [data-theme="warm"], [data-theme="bright"]) .section--alt::before { background: var(--bg-alt); }
+:is([data-theme="light"], [data-theme="warm"], [data-theme="bright"]) .section--deep::before { background: var(--bg-deep); }
+:is([data-theme="light"], [data-theme="warm"], [data-theme="bright"]) :is(.section--alt, .section--deep) + .section:not(.section--alt):not(.section--deep)::before { background: var(--bg); }
+:is([data-theme="light"], [data-theme="warm"], [data-theme="bright"]) :is(.section--alt + .section--alt, .section--deep + .section--deep, .hero--image + .section, .ticker + .section, .stats-band + .section, .partner-main .section)::before { display: none; }
+@media (prefers-reduced-motion: no-preference) { :is([data-theme="light"], [data-theme="warm"]) :is(.section--alt, .section--deep, .section--alt + .section, .section--deep + .section)::before { animation: edge-drift 70s linear infinite; } }
+
+/* ---- reveal flavours */
+@media (prefers-reduced-motion: no-preference) {
+  :is([data-theme="dark"], [data-theme="elite"]) .reveal:not(.reveal--stagger) { filter: blur(10px); transition: opacity 0.8s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease); }
+  :is([data-theme="dark"], [data-theme="elite"]) .reveal.in-view { filter: none; }
+  .reveal .media__frame .img, .reveal .pillar__media .img { transform: scale(1.08); transition: transform 1.4s var(--ease); }
+  .reveal.in-view .media__frame .img, .reveal.in-view .pillar__media .img { transform: none; }
+  .reveal.in-view .media__frame:hover .img { transform: scale(1.04); }
+}
