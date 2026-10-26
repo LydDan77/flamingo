@@ -414,6 +414,31 @@
     });
   }
 
+  /* ------------------------------------------------------------- scrollspy menus */
+  // <nav data-spy> with #section links: the link for the section in view is marked .is-active and kept visible in a horizontal bar.
+  doc.querySelectorAll("nav[data-spy]").forEach(function (nav) {
+    var links = Array.prototype.slice.call(nav.querySelectorAll("a[href^='#']"));
+    var targets = links.map(function (a) { return doc.getElementById(a.getAttribute("href").slice(1)); }).filter(Boolean);
+    if (!targets.length) return;
+    function setActive(id) {
+      links.forEach(function (a) {
+        var on = a.getAttribute("href") === "#" + id;
+        a.classList.toggle("is-active", on);
+        if (on && nav.scrollWidth > nav.clientWidth) a.scrollIntoView({ block: "nearest", inline: "center", behavior: reduceMotion ? "auto" : "smooth" });
+      });
+    }
+    function spy() {
+      var line = window.innerHeight * 0.35, current = targets[0];
+      targets.forEach(function (t) { if (t.getBoundingClientRect().top <= line) current = t; });
+      if (window.innerHeight + window.scrollY >= doc.documentElement.scrollHeight - 2) current = targets[targets.length - 1];
+      setActive(current.id);
+    }
+    var spyTick = false;
+    window.addEventListener("scroll", function () { if (!spyTick) { spyTick = true; requestAnimationFrame(function () { spyTick = false; spy(); }); } }, { passive: true });
+    links.forEach(function (a) { a.addEventListener("click", function () { setActive(a.getAttribute("href").slice(1)); }); });
+    spy();
+  });
+
   /* ------------------------------------------------------------- planning tool */
   doc.querySelectorAll("[data-calc]").forEach(function (calc) {
     var fee = parseFloat(calc.getAttribute("data-fee")) || 0;

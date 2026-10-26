@@ -7,7 +7,7 @@ bodyClass: page--partner
 ---
 <section class="hero hero--plain partner-hero">
   <div class="container">
-    <div class="partner-hero__grid">
+    <div class="partner-hero__inner">
       <div>
         <p class="hero__kicker">{{site.partner.program}} · Partner overview</p>
         <h1>What a partner gets, <em class="hl">and what it runs on</em></h1>
@@ -18,7 +18,13 @@ bodyClass: page--partner
         </div>
         <p class="small muted mt-6">Discussion draft. Final package scope, pricing and terms are subject to written agreement. <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>
       </div>
-      <nav class="partner-toc" aria-label="On this page">
+    </div>
+  </div>
+</section>
+
+<div class="partner-layout container container--wide">
+  <aside class="partner-rail">
+      <nav class="partner-toc" aria-label="On this page" data-spy>
         <p class="partner-toc__title">On this page</p>
         <a href="#offer">01 · The offer</a>
         <a href="#scope">02 · Purchase scope</a>
@@ -29,9 +35,8 @@ bodyClass: page--partner
         <a href="#planning">07 · Planning tool</a>
         <a href="#readiness">08 · Launch readiness</a>
       </nav>
-    </div>
-  </div>
-</section>
+  </aside>
+  <div class="partner-main">
 
 <section class="section" id="offer">
   <div class="container container--wide">
@@ -209,3 +214,5 @@ bodyClass: page--partner
     <p class="small muted mt-6 reveal">This overview is for discussion and does not replace purchase or service agreements. Availability, scope, pricing, product terms and launch requirements must be confirmed in signed documents.</p>
   </div>
 </section>
+  </div>
+</div>
