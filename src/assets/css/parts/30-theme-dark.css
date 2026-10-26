@@ -20,7 +20,7 @@
 }
 [data-theme="dark"] .card:not(.card--overlay):not(.card--image)::before, [data-theme="dark"] .program::before, [data-theme="dark"] .quote-card::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
 [data-theme="dark"] .card:not(.card--overlay):not(.card--image)::after, [data-theme="dark"] .program::after, [data-theme="dark"] .quote-card::after { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
-[data-theme="dark"] .card:hover::before, [data-theme="dark"] .card:hover::after, [data-theme="dark"] .program:hover::before, [data-theme="dark"] .program:hover::after { opacity: 1; width: 22px; height: 22px; }
+[data-theme="dark"] .card:not(.card--overlay):not(.card--image):hover::before, [data-theme="dark"] .card:not(.card--overlay):not(.card--image):hover::after, [data-theme="dark"] .program:hover::before, [data-theme="dark"] .program:hover::after { opacity: 1; width: 22px; height: 22px; }
 [data-theme="dark"] .section--deep { background: linear-gradient(180deg, var(--bg-deep), #0A0E10); }
 [data-theme="dark"] .pillar__media::before { background: linear-gradient(180deg, rgba(7, 9, 11, 0.15) 0%, rgba(7, 9, 11, 0.1) 50%, rgba(7, 9, 11, 0.8) 100%); }
 [data-theme="dark"] .ticker { border-color: transparent; }

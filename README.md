@@ -126,4 +126,5 @@ Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 fo
 ## Notes
 
 - There is no analytics, cookie banner or tracking on this site yet.
+- Icons are the Lucide set (ISC licence) inlined as an SVG sprite in `src/partials/icons.html`; the product vial and the three social marks are custom symbols in the same file.
 - Product vials and the orbit illustrations are inline SVG (`src/partials/icons.html` `#i-vial`, `src/partials/art-*.html`) and recolor automatically per version.

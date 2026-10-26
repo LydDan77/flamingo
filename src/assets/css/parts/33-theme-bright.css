@@ -191,7 +191,8 @@
 [data-theme="bright"] .timeline::after { background: #FF4D6D; width: 2px; }
 [data-theme="bright"] .timeline__item::before { border-width: 2px; background: #fff; border-color: #15122B; }
 [data-theme="bright"] .timeline.in-view .timeline__item::before { background: #FF4D6D; }
-[data-theme="bright"] .card--overlay::before { background: linear-gradient(180deg, rgba(21, 18, 43, 0.05) 30%, rgba(21, 18, 43, 0.88) 100%); }
+[data-theme="bright"] .timeline .timeline__item.timeline__item--cta::before { border-color: #FF4D6D; }
+[data-theme="bright"] .card--overlay::before { background: linear-gradient(180deg, rgba(21, 18, 43, 0.16) 0%, rgba(21, 18, 43, 0.36) 34%, rgba(21, 18, 43, 0.8) 62%, rgba(21, 18, 43, 0.96) 100%); }
 [data-theme="bright"] .card--overlay { border: 2px solid #15122B; }
 [data-theme="bright"] .hero__kicker { color: #CC2447; }
 [data-theme="bright"] .hero--image .hero__bg { border: 2px solid var(--text); box-shadow: -12px 12px 0 #6C4CF1; }

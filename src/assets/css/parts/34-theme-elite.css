@@ -68,7 +68,7 @@
   --vial-neck: rgba(201, 169, 110, 0.5);
 
   --img-filter: saturate(0.72) sepia(0.18) contrast(1.06) brightness(0.96);
-  --img-tint: rgba(201, 169, 110, 0.14);
+  --img-tint: rgba(201, 169, 110, 0.08);
   --scrim: linear-gradient(90deg, rgba(12, 11, 10, 0.95) 0%, rgba(12, 11, 10, 0.84) 36%, rgba(12, 11, 10, 0.5) 62%, rgba(12, 11, 10, 0.12) 100%);
   --scrim-bottom: linear-gradient(180deg, rgba(12, 11, 10, 0) 50%, rgba(12, 11, 10, 0.95) 100%);
   --header-bg: rgba(12, 11, 10, 0.8);
@@ -188,7 +188,7 @@
 [data-theme="elite"] .form .btn { width: auto; }
 [data-theme="elite"] .field input, [data-theme="elite"] .field select, [data-theme="elite"] .field textarea { border-radius: 0; background: transparent; border-color: var(--line-strong); }
 [data-theme="elite"] .hero--simple .hero__art .vial { filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)); }
-[data-theme="elite"] .card--overlay::before { background: linear-gradient(180deg, rgba(12, 11, 10, 0.1) 30%, rgba(12, 11, 10, 0.92) 100%); }
+[data-theme="elite"] .card--overlay::before { background: linear-gradient(180deg, rgba(12, 11, 10, 0.16) 0%, rgba(12, 11, 10, 0.36) 34%, rgba(12, 11, 10, 0.8) 62%, rgba(12, 11, 10, 0.96) 100%); }
 [data-theme="elite"] .card--overlay { background: transparent; }
 [data-theme="elite"] .theme-switch { --ts-bg: rgba(12, 11, 10, 0.95); --ts-fg: #F4EFE6; --ts-muted: rgba(244, 239, 230, 0.55); --ts-line: rgba(201, 169, 110, 0.35); --ts-hover: rgba(201, 169, 110, 0.1); --ts-active: #C9A96E; }
 [data-theme="elite"] .theme-switch__trigger, [data-theme="elite"] .theme-switch__menu { border-radius: 2px; }

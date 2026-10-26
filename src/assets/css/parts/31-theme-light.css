@@ -113,7 +113,7 @@
 [data-theme="light"] .chart { background: #fff; box-shadow: var(--shadow-sm); }
 [data-theme="light"] .timeline__item::before { background: #fff; }
 [data-theme="light"] .timeline.in-view .timeline__item::before { background: var(--brand); }
-[data-theme="light"] .card--overlay::before { background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 30%, rgba(15, 23, 42, 0.88) 100%); }
+[data-theme="light"] .card--overlay::before { background: linear-gradient(180deg, rgba(15, 23, 42, 0.16) 0%, rgba(15, 23, 42, 0.36) 34%, rgba(15, 23, 42, 0.8) 62%, rgba(15, 23, 42, 0.96) 100%); }
 [data-theme="light"] .video-card__play span { background: #fff; color: #0F172A; }
 [data-theme="light"] .hero--image .hero__bg { border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
 [data-theme="light"] .theme-switch { --ts-bg: rgba(255, 255, 255, 0.97); --ts-fg: #0F172A; --ts-muted: #64748B; --ts-line: #CBD5E1; --ts-hover: #EEF2F6; --ts-active: #0369A1; --ts-shadow: 0 16px 40px -16px rgba(15, 23, 42, 0.3); }

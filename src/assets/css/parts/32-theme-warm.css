@@ -104,7 +104,7 @@
 [data-theme="warm"] .hero--plain h1::after { display: none; }
 [data-theme="warm"] .card { box-shadow: var(--shadow-sm); }
 [data-theme="warm"] .card--hover:hover, [data-theme="warm"] a.card:hover { background: #fff; border-color: var(--brand-3); transform: translateY(-3px); }
-[data-theme="warm"] .card__icon { border-radius: 50%; width: 54px; height: 54px; }
+[data-theme="warm"] .card__icon { border-radius: 50%; width: 60px; height: 60px; }
 [data-theme="warm"] .card__icon--grad { background: var(--brand-2); color: #fff; }
 [data-theme="warm"] .media__frame { border: 0; box-shadow: var(--shadow); }
 [data-theme="warm"] .media__float { border-color: var(--line); }
@@ -148,7 +148,7 @@
 [data-theme="warm"] .chart { background: #fff; }
 [data-theme="warm"] .timeline__item::before { background: #fff; }
 [data-theme="warm"] .timeline.in-view .timeline__item::before { background: var(--brand); }
-[data-theme="warm"] .card--overlay::before { background: linear-gradient(180deg, rgba(42, 36, 32, 0.05) 30%, rgba(42, 36, 32, 0.86) 100%); }
+[data-theme="warm"] .card--overlay::before { background: linear-gradient(180deg, rgba(42, 36, 32, 0.16) 0%, rgba(42, 36, 32, 0.36) 34%, rgba(42, 36, 32, 0.8) 62%, rgba(42, 36, 32, 0.96) 100%); }
 [data-theme="warm"] .program__price b { font-size: 1rem; }
 [data-theme="warm"] .field input, [data-theme="warm"] .field select, [data-theme="warm"] .field textarea { min-height: 54px; font-size: 1.05rem; border-width: 2px; }
 /* calmer motion */
