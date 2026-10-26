@@ -68,6 +68,14 @@ The logo is a generic SVG mark in `src/partials/logo.html`. Replace it with the 
 - **Legal pages:** generic templates with a "Template legal copy" notice. Have counsel review before launch.
 - **Pricing:** program cards say "Pricing on consultation". Add prices only once the client confirms the catalog.
 
+### Compliance notes
+
+- **California stem cell notice.** `notices.californiaStemCell` in `site.config.js` (on by default) prints the statutory notice required by Cal. Health & Safety Code § 24185 on the regenerative therapy pages and the disclaimer page. Switch it off for practices outside California; counsel confirms applicability either way. The same notice must be posted in the clinic.
+- **Claims.** Service copy describes what therapies are *studied for* and *aimed at*; it does not promise relief, repair or cures. Keep it that way when editing: no "treats", "cures", "heals", "restores", "guaranteed", "proven" or "#1".
+- **Testimonials.** Every slot carries an "individual experience, results vary" line. Publish only verified reviews with written consent; material connections (discounts, free services) must be disclosed next to the quote.
+- **Forms.** The consent checkbox carries TCPA language (frequency, rates, Reply STOP, privacy link). Keep it when connecting the form to a CRM.
+- **Footer.** FDA, off-label, telehealth and compounding statements appear on every page; the disclaimer, privacy and terms pages are templates for counsel.
+
 ### Contact form
 
 The contact page uses a native HTML form (`form[data-demo-form]`). It is **not connected** to anything yet: submitting shows a notice instead of posting. Point it at the client's CRM, form service or email handler before launch (`src/assets/js/site.js`, "demo contact forms" section).

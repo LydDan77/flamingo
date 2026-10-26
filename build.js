@@ -261,10 +261,11 @@ function moduleOn(name) {
   return !!MODULES[name];
 }
 function evalCondition(expr) {
-  // module:x | any:x,y | all:x,y
+  // module:x | notice:x | any:x,y | all:x,y
   const [kind, list = ""] = expr.split(":");
   const names = list.split(",").map((s) => s.trim()).filter(Boolean);
   if (kind === "module") return moduleOn(names[0]);
+  if (kind === "notice") return !!(site.notices || {})[names[0]];
   if (kind === "any") return names.some(moduleOn);
   if (kind === "all") return names.every(moduleOn);
   throw new Error(`Unknown condition: ${expr}`);

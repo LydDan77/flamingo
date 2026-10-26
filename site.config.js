@@ -14,6 +14,12 @@ const modules = {
   peptides: false, // peptides.html (goal-based peptide programs)
 };
 
+// Legal notices. californiaStemCell prints the statutory notice (Cal. Health & Safety Code § 24185) on the regenerative
+// therapy pages and the disclaimer page. Required for practices offering non-FDA-approved stem cell therapy in California.
+const notices = {
+  californiaStemCell: true,
+};
+
 const telehealth = modules.hormones || modules.peptides;
 const pad = (n) => String(n).padStart(2, "0");
 const num = {
@@ -24,6 +30,7 @@ const num = {
 
 module.exports = {
   modules,
+  notices,
   num, // service numbering that shifts when modules are off (used by the home tiles and services cards)
 
   // Copy fragments that change with the modules, so generic sentences stay true either way.
