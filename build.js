@@ -390,6 +390,7 @@ function buildPage(file) {
     ogImage: data.ogImage || site.ogImage,
     ...data,
   };
+  page.robotsMeta = data.noindex ? '<meta name="robots" content="noindex, nofollow">' : "";
   page.titleEsc = escapeHtml(page.fullTitle);
   page.descriptionEsc = escapeHtml(page.description);
 
@@ -441,13 +442,15 @@ function build() {
   }
 
   const allPages = fs.readdirSync(PAGES).filter((f) => f.endsWith(".html")).sort();
-  const pages = allPages.filter((file) => buildPage(file) !== null);
+  const built = allPages.map((file) => ({ file, out: buildPage(file) })).filter((b) => b.out !== null);
+  const pages = built.map((b) => b.file);
+  const noindex = allPages.filter((f) => /^noindex:\s*true/m.test(read(path.join(PAGES, f))));
   const skipped = allPages.filter((f) => !pages.includes(f));
 
   // Simple sitemap so the deployed site has one.
   const urls = pages
     .map((f) => f.replace(/\.html$/, ""))
-    .filter((s) => s !== "404")
+    .filter((s) => s !== "404" && !noindex.includes(s + ".html"))
     .map((s) => `  <url><loc>${site.url}/${s === "index" ? "" : s}</loc></url>`)
     .join("\n");
   fs.writeFileSync(

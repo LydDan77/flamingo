@@ -39,6 +39,19 @@ module.exports = {
     telehealth: modules.peptides ? "peptides.html" : modules.hormones ? "hormones.html" : "nad.html",
   },
 
+  // Partner (buyer) overview. Shown only on partner-overview.html and in "partner view" (?partner=1). Never linked from the public site.
+  partner: {
+    program: "Business in a Box",
+    purchase: "$100,000",
+    purchaseNote: "One-time purchase price for the single-location business opportunity.",
+    subscription: "$2,497",
+    subscriptionTerm: "12-month term beginning at signing",
+    productCredit: "$10,000",
+    subscriptionFee: 2497, // used by the planning tool
+    walkthroughUrl: "contact.html?path=provider#book",
+    walkthroughLabel: "Book a 30-minute partner walkthrough",
+  },
+
   // Brand (placeholder)
   name: "Brand Name",
   tagline: "Regenerative Medicine & Longevity Care",

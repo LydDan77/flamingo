@@ -373,6 +373,64 @@
     }
   }
 
+  /* ------------------------------------------------------------- partner view */
+  // ?partner=1 switches on a partner-facing layer (header pill, numbered pins on sections tagged data-pin, a bottom bar).
+  // It is remembered for the session only and never appears for ordinary visitors. ?partner=0 switches it off.
+  var pq = new URLSearchParams(location.search).get("partner");
+  var partnerOn = false;
+  try {
+    if (pq === "1") sessionStorage.setItem("flamingo-partner", "1");
+    if (pq === "0") sessionStorage.removeItem("flamingo-partner");
+    partnerOn = sessionStorage.getItem("flamingo-partner") === "1";
+  } catch (e) { partnerOn = pq === "1"; }
+  if (partnerOn) {
+    doc.body.classList.add("partner-mode");
+    var PARTNER_PAGE = "partner-overview.html";
+    var pill = doc.querySelector(".partner-pill"); if (pill) { pill.hidden = false; pill.href = PARTNER_PAGE; }
+    doc.querySelectorAll("[data-pin]").forEach(function (el) {
+      var a = doc.createElement("a");
+      a.className = "partner-pin";
+      a.href = PARTNER_PAGE + (el.getAttribute("data-pin-target") ? "#" + el.getAttribute("data-pin-target") : "");
+      a.innerHTML = "<b>" + el.getAttribute("data-pin") + "</b><span>" + (el.getAttribute("data-pin-label") || "") + "</span>";
+      el.appendChild(a);
+    });
+    if (!doc.body.classList.contains("page--partner")) {
+      var bar = doc.createElement("div");
+      bar.className = "partner-bar";
+      bar.innerHTML = "<span>Partner view</span><a href=\"" + PARTNER_PAGE + "\">Buyer overview &amp; stack</a><button type=\"button\">Hide</button>";
+      bar.querySelector("button").addEventListener("click", function () {
+        try { sessionStorage.removeItem("flamingo-partner"); } catch (e) {}
+        doc.body.classList.remove("partner-mode"); bar.remove();
+        doc.querySelectorAll(".partner-pin").forEach(function (p) { p.remove(); });
+      });
+      doc.body.appendChild(bar);
+    }
+    // keep partner=1 on internal links so the layer follows the tour
+    doc.querySelectorAll("a[href]").forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (!href || /^(https?:|mailto:|tel:|#)/.test(href) || /[?&]partner=/.test(href)) return;
+      var parts = href.split("#");
+      a.setAttribute("href", parts[0] + (parts[0].indexOf("?") >= 0 ? "&" : "?") + "partner=1" + (parts[1] ? "#" + parts[1] : ""));
+    });
+  }
+
+  /* ------------------------------------------------------------- planning tool */
+  doc.querySelectorAll("[data-calc]").forEach(function (calc) {
+    var fee = parseFloat(calc.getAttribute("data-fee")) || 0;
+    var $ = function (k) { return calc.querySelector("[data-in='" + k + "']"); };
+    var out = function (k, v) { var el = calc.querySelector("[data-out='" + k + "']"); if (el) el.textContent = v; };
+    var money = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+    function update() {
+      var clients = parseFloat($("clients").value) || 0, value = parseFloat($("value").value) || 0, costs = parseFloat($("costs").value) || 0;
+      var revenue = clients * value, fees = fee + costs, net = revenue - fees;
+      out("clientsLabel", clients); out("valueLabel", money(value));
+      out("revenue", money(revenue)); out("fees", money(fees)); out("net", money(net)); out("annual", money(net * 12));
+      out("formula", money(revenue) + " modeled revenue \u2212 " + money(fee) + " platform fee \u2212 " + money(costs) + " entered costs = " + money(net) + " before product and clinical costs");
+    }
+    calc.querySelectorAll("[data-in]").forEach(function (i) { i.addEventListener("input", update); });
+    update();
+  });
+
   /* ------------------------------------------------------------- contact path */
   // for-providers links to contact.html?path=provider: preselect the provider tab
   var params = new URLSearchParams(location.search);

@@ -1,0 +1,211 @@
+---
+title: Partner Overview
+description: Buyer overview and technology / marketing stack for program partners. Not indexed and not linked from the public site.
+nav: partner
+noindex: true
+bodyClass: page--partner
+---
+<section class="hero hero--plain partner-hero">
+  <div class="container">
+    <div class="partner-hero__grid">
+      <div>
+        <p class="hero__kicker">{{site.partner.program}} · Partner overview</p>
+        <h1>What a partner gets, <em class="hl">and what it runs on</em></h1>
+        <p class="lead">This page is for prospective and current program partners. It summarizes the business opportunity, the platform that comes with it, and the technology and marketing stack behind this website. It is not linked from the patient-facing site and is excluded from search engines.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="{{site.partner.walkthroughUrl}}">{{icon:calendar-check}} {{site.partner.walkthroughLabel}}</a>
+          <a class="btn btn--secondary btn--lg" href="index.html?partner=1">See the site in partner view {{icon:arrow-up-right}}</a>
+        </div>
+        <p class="small muted mt-6">Discussion draft. Final package scope, pricing and terms are subject to written agreement. <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>
+      </div>
+      <nav class="partner-toc" aria-label="On this page">
+        <p class="partner-toc__title">On this page</p>
+        <a href="#offer">01 · The offer</a>
+        <a href="#scope">02 · Purchase scope</a>
+        <a href="#platform">03 · Platform subscription</a>
+        <a href="#stack">04 · Website &amp; tech stack</a>
+        <a href="#marketing">05 · Marketing stack</a>
+        <a href="#modules">06 · Optional modules</a>
+        <a href="#planning">07 · Planning tool</a>
+        <a href="#readiness">08 · Launch readiness</a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="offer">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">01 · The offer</span>
+      <h2>A standardized path to launch a regenerative medicine practice</h2>
+      <p class="lead">A single-location business opportunity with a structured implementation path and a required technology and operating-support subscription.</p>
+    </div>
+    <div class="grid grid--2 reveal reveal--stagger">
+      <div class="card partner-offer">
+        <span class="eyebrow">Combined offer · one-time purchase</span>
+        <p class="partner-offer__price">{{site.partner.purchase}}</p>
+        <p>{{site.partner.purchaseNote}}</p>
+        <ul class="check-list mt-4">
+          <li>{{icon:check-circle}} Standardized single-location launch model</li>
+          <li>{{icon:check-circle}} Clinical provider connection coordinated through the agreed professional-corporation arrangement</li>
+          <li>{{icon:check-circle}} Product allocation structured as purchasing credit or an agreed product package</li>
+        </ul>
+        <div class="notice mt-6">{{icon:info}}<span>Final inclusions, provider arrangement, product selection, delivery terms and acceptance milestones must be written into the purchase documents.</span></div>
+      </div>
+      <div class="card partner-offer">
+        <span class="eyebrow">Required platform subscription</span>
+        <p class="partner-offer__price">{{site.partner.subscription}} <small>/ month</small></p>
+        <p>Required component of the combined offer, {{site.partner.subscriptionTerm}}.</p>
+        <ul class="check-list mt-4">
+          <li>{{icon:check-circle}} Eight standard digital and operating-support components (section 03)</li>
+          <li>{{icon:check-circle}} This website, in all five design versions, hosted and maintained</li>
+          <li>{{icon:check-circle}} Activation milestones, service availability, support limits and billing protections defined in the agreement</li>
+        </ul>
+        <div class="notice mt-6">{{icon:info}}<span>Scope, activation milestones, service availability, support limits and billing protections must be defined in the signed agreement.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="scope">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">02 · Purchase scope at a glance</span>
+      <h2>What the purchase price is intended to cover</h2>
+      <p class="lead">A proposed business-opportunity package. The final agreement should itemize the exact inclusions and delivery milestones.</p>
+    </div>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card"><span class="card__icon">{{icon:layers}}</span><h3>Business opportunity &amp; launch framework</h3><p>Standardized single-location model, onboarding path and agreed launch support. Specific deliverables and milestones require written confirmation.</p></div>
+      <div class="card"><span class="card__icon">{{icon:package}}</span><h3>Initial product package</h3><p>{{site.partner.productCredit}} purchasing credit is the working default. Immediate product delivery may be an option; selection, timing and terms remain pending.</p></div>
+      <div class="card"><span class="card__icon">{{icon:stethoscope}}</span><h3>Clinical &amp; operating readiness</h3><p>Provider arrangement, buyer MSO structure, premises, staffing and other operating costs must be confirmed. Office and staffing are buyer responsibilities.</p></div>
+    </div>
+    <div class="notice mt-8 reveal">{{icon:info}}<span><b>Not an itemized cost allocation or earnings promise.</b> Final purchase documents should define what is delivered, what the buyer must fund separately, and when each item is provided.</span></div>
+  </div>
+</section>
+
+<section class="section" id="platform">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">03 · Required platform subscription</span>
+      <h2>What the standard platform is designed to include</h2>
+      <p class="lead">One location, standard configuration, approved templates and defined usage limits.</p>
+    </div>
+    <div class="grid grid--4 reveal reveal--stagger partner-grid">
+      <div class="card"><span class="card__num">01</span><span class="card__icon">{{icon:layers}}</span><h3>Managed website &amp; CMS</h3><p>Approved branded template (this site), hosting, maintenance and self-service content updates.</p></div>
+      <div class="card"><span class="card__num">02</span><span class="card__icon">{{icon:users}}</span><h3>Dedicated CRM workspace</h3><p>CRM, pipeline, contact records, forms, calendars and standard configuration.</p></div>
+      <div class="card"><span class="card__num">03</span><span class="card__icon">{{icon:message-circle}}</span><h3>Website assistant</h3><p>Approved educational content and a tested website assistant, with inquiries routed as configured.</p></div>
+      <div class="card"><span class="card__num">04</span><span class="card__icon">{{icon:zap}}</span><h3>Core automations</h3><p>Inquiry acknowledgment, staff notifications, appointment reminders and follow-up.</p></div>
+      <div class="card"><span class="card__num">05</span><span class="card__icon">{{icon:send}}</span><h3>Database reactivation toolkit</h3><p>Prebuilt self-service templates; campaigns require eligible contacts and appropriate permissions.</p></div>
+      <div class="card"><span class="card__num">06</span><span class="card__icon">{{icon:book-open}}</span><h3>Education &amp; training library</h3><p>Approved clinical, product, sales and partner learning resources.</p></div>
+      <div class="card"><span class="card__num">07</span><span class="card__icon">{{icon:clipboard-check}}</span><h3>Operator onboarding portal</h3><p>Business profile, activation checklist, training access and support documentation.</p></div>
+      <div class="card"><span class="card__num">08</span><span class="card__icon">{{icon:gauge}}</span><h3>Maintenance &amp; reporting</h3><p>Hosting, workflow monitoring, standard technical support, updates and monthly usage reporting.</p></div>
+    </div>
+    <p class="small muted mt-6 reveal">Outside the standard definition unless separately agreed: office sourcing, staffing, custom development, extra locations, manually managed marketing campaigns, ongoing SEO, paid advertising, webinars, and clinical or business outcome guarantees.</p>
+  </div>
+</section>
+
+<section class="section section--alt" id="stack">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">04 · Website &amp; technology stack</span>
+      <h2>What this website is built on</h2>
+      <p class="lead">A fast static site with no frameworks to maintain, five switchable design versions, and every client-specific detail in one configuration file.</p>
+    </div>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card"><span class="card__icon card__icon--grad">{{icon:palette}}</span><h3>Five design versions</h3><p>Dark (athlete), Light (clinical), Warm (older adults), Bright (bold) and Elite (premium). Switchable per visitor; photos, fonts and motion adapt per version.</p><div class="card__foot"><span>Switch with the Design control</span></div></div>
+      <div class="card"><span class="card__icon card__icon--grad">{{icon:zap}}</span><h3>Static build, zero dependencies</h3><p>Plain HTML, CSS and JavaScript generated by a small Node build. No framework upgrades, no plugins, no database to patch.</p><div class="card__foot"><span>Hosting: Vercel, global CDN</span></div></div>
+      <div class="card"><span class="card__icon card__icon--grad">{{icon:gauge}}</span><h3>Performance</h3><p>Only the active version's fonts load, the hero photo is preloaded, images are responsive WebP, assets are minified and cached for a year with fingerprinted names.</p><div class="card__foot"><span>Typical page: under 300 KB</span></div></div>
+      <div class="card"><span class="card__icon card__icon--grad">{{icon:file-text}}</span><h3>One configuration file</h3><p>Brand name, contact details, hours, booking link, navigation, footer and optional modules live in a single file. Edit once; every page updates on the next build.</p><div class="card__foot"><span>site.config.js</span></div></div>
+      <div class="card"><span class="card__icon card__icon--grad">{{icon:image}}</span><h3>Photography &amp; product renders</h3><p>Licensed stock processed into responsive sets with per-version swaps, plus transparent product renders for vials and droppers.</p><div class="card__foot"><span>Replace by dropping files in one folder</span></div></div>
+      <div class="card"><span class="card__icon card__icon--grad">{{icon:shield-check}}</span><h3>Compliance-aware copy</h3><p>No claims, no fabricated testimonials or figures: every client-pending item is a labelled placeholder with FDA, telehealth and compounding disclaimers in place.</p><div class="card__foot"><span>Counsel review before launch</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="marketing">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="reveal reveal--left">
+        <span class="eyebrow">05 · Marketing stack</span>
+        <h2 class="mt-4">Built to convert consultations, not just to look good</h2>
+        <p class="lead mt-6">Every page funnels to one action: the free consultation. The pieces below ship with the site; the CRM, assistant and automations arrive with the platform subscription.</p>
+        <ul class="check-list mt-8">
+          <li>{{icon:check-circle}} Consultation request form with patient / provider paths, ready to connect to the CRM</li>
+          <li>{{icon:check-circle}} Persistent booking call-to-action in the header, hero, every section and the footer</li>
+          <li>{{icon:check-circle}} Financing nudge that appears after the hero and a dedicated payment-plans page</li>
+          <li>{{icon:check-circle}} Provider partnership page with its own application path</li>
+          <li>{{icon:check-circle}} Testimonials and journal modules with consent and review rules built into the placeholders</li>
+          <li>{{icon:check-circle}} Search basics: per-page titles and descriptions, sitemap, robots file, Open Graph tags</li>
+        </ul>
+      </div>
+      <div class="reveal reveal--right">
+        <div class="timeline">
+          <div class="timeline__item"><span class="timeline__when">Visitor</span><h3>Lands on a version that fits their audience</h3><p>Athlete, clinical, older adult, bold or premium: the design version is chosen per partner (or per campaign link).</p></div>
+          <div class="timeline__item"><span class="timeline__when">Education</span><h3>Reads the science, the model and the FAQ</h3><p>Stem cells, Wharton's Jelly, exosomes, concierge model and NAD+ pages answer objections before the consult.</p></div>
+          <div class="timeline__item"><span class="timeline__when">Request</span><h3>Books a free consultation</h3><p>The form captures goals, state and program interest and hands off to the CRM pipeline and automations.</p></div>
+          <div class="timeline__item"><span class="timeline__when">Follow-up</span><h3>Automations and reactivation</h3><p>Acknowledgment, reminders, follow-ups and database reactivation run from the platform workspace.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="modules">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">06 · Optional modules</span>
+      <h2>Switch programs on when the partner is ready</h2>
+      <p class="lead">Hormone and peptide programs are fully built but hidden by default. One flag publishes the page, its navigation and footer links, service cards, tiles, form options, sitemap entry and every sentence that lists the programs.</p>
+    </div>
+    <div class="grid grid--3 reveal reveal--stagger">
+      <div class="card"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Live</span><h3>Regenerative therapy</h3><p>Stem cell, Wharton's Jelly and exosome pages, concierge care model, services catalog.</p></div>
+      <div class="card"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Live</span><h3>NAD+ &amp; longevity</h3><p>NAD+ therapy page with product renders, injection and sublingual programs, supplement protocols.</p></div>
+      <div class="card"><span class="pill pill--sm" style="align-self:flex-start">Hidden · ready</span><h3>Hormones &amp; peptides</h3><p>TRT / HRT telehealth page and 19 peptide programs with product renders. Enable in the configuration file.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planning">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">07 · Illustrative planning tool</span>
+      <h2>Explore a path to break-even</h2>
+      <p class="lead">Editable assumptions estimate gross modeled revenue less the platform fee and entered monthly costs. Product and clinical costs are not included, so this is not take-home cash or a payback forecast.</p>
+    </div>
+    <div class="partner-calc reveal" data-calc data-fee="{{site.partner.subscriptionFee}}">
+      <div class="partner-calc__inputs">
+        <label class="partner-calc__field"><span>New clients per month <b data-out="clientsLabel">10</b></span><input type="range" min="0" max="30" step="1" value="10" data-in="clients"></label>
+        <label class="partner-calc__field"><span>Average treatment value per client <b data-out="valueLabel">$7,500</b></span><input type="range" min="0" max="50000" step="250" value="7500" data-in="value"></label>
+        <label class="partner-calc__field"><span>Other monthly operating costs</span><input type="number" min="0" step="100" value="0" placeholder="Rent, staffing, etc." data-in="costs"></label>
+      </div>
+      <p class="partner-calc__formula"><span data-out="formula">$75,000 modeled revenue − $2,497 platform fee − $0 entered costs = $72,503 before product and clinical costs</span></p>
+      <div class="grid grid--4 partner-calc__out">
+        <div class="stat stat--card"><strong data-out="revenue">$75,000</strong><span>Gross modeled revenue, before product / clinical costs</span></div>
+        <div class="stat stat--card"><strong data-out="fees">$2,497</strong><span>Platform fee + entered overhead</span></div>
+        <div class="stat stat--card"><strong data-out="net">$72,503</strong><span>Modeled amount after fee + overhead, before product / clinical costs</span></div>
+        <div class="stat stat--card"><strong data-out="annual">$870,036</strong><span>Annualized, before product / clinical costs</span></div>
+      </div>
+      <p class="small muted mt-4">This simplified model treats treatment value as gross modeled revenue and subtracts the required monthly platform fee and entered overhead. It does not subtract product or clinical costs and does not represent net cash, profit or a reliable payback estimate. Treatment value is a planning input, not a guarantee of collections. Additional product purchases, launch costs, financing, taxes, ramp-up, retention, collection timing, regulatory requirements and unentered operating costs are excluded.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="readiness">
+  <div class="container container--wide">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">08 · Launch readiness</span>
+      <h2>What the partner needs to provide or resolve</h2>
+    </div>
+    <div class="steps steps--line">
+      <div class="step"><span class="step__icon">{{icon:building}}</span><span class="step__num">01</span><h3>Buyer responsibilities</h3><p>Secure the office; identify business / MSO structure and operating staff; provide approved business details and content; complete required onboarding.</p></div>
+      <div class="step"><span class="step__icon">{{icon:stethoscope}}</span><span class="step__num">02</span><h3>Provider readiness</h3><p>Confirm the provider arrangement and the professional-corporation-to-MSO connection. Acceptance before premises and provider arrangements are identified is case by case.</p></div>
+      <div class="step"><span class="step__icon">{{icon:file-text}}</span><span class="step__num">03</span><h3>Website handoff</h3><p>Brand name, logo, contact details, team names and credentials, verified testimonials, statistics, financing partner and reviewed legal copy replace the labelled placeholders.</p></div>
+      <div class="step"><span class="step__icon">{{icon:check-circle}}</span><span class="step__num">04</span><h3>Activation</h3><p>Go-live follows completion of agreed buyer, provider and digital checklists. A launch date is not guaranteed before readiness criteria are met.</p></div>
+    </div>
+    <div class="actions mt-12 reveal">
+      <a class="btn btn--primary btn--lg" href="{{site.partner.walkthroughUrl}}">{{icon:calendar-check}} {{site.partner.walkthroughLabel}}</a>
+      <a class="btn btn--secondary btn--lg" href="index.html?partner=1">Tour the site in partner view {{icon:arrow-up-right}}</a>
+    </div>
+    <p class="small muted mt-6 reveal">This overview is for discussion and does not replace purchase or service agreements. Availability, scope, pricing, product terms and launch requirements must be confirmed in signed documents.</p>
+  </div>
+</section>

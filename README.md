@@ -42,6 +42,13 @@ Rebuild, and everything appears at once: the page itself, its navigation and foo
 
 Under the hood: pages carry `module: hormones` in their front matter, nav and footer links carry `module: "..."`, and templates wrap optional content in `{{#if module:peptides}} … {{/if}}`, `{{#unless module:hormones}} … {{/unless}}` or `{{#if any:hormones,peptides}} … {{/if}}`. Shared copy fragments such as `{{site.programsPhrase}}` change wording automatically.
 
+## Partner overview and partner view
+
+Program partners (buyers) have two things ordinary visitors never see:
+
+- **`partner-overview.html`**: the buyer overview and the technology / marketing stack (offer, purchase scope, the eight platform components, what this site runs on, marketing funnel, optional modules, an illustrative planning tool, launch readiness). It carries `noindex, nofollow`, is left out of the sitemap, and is not linked from any public page. Share it by URL only. Figures live in `site.config.js` under `partner`.
+- **Partner view**: open any page with `?partner=1` and the site gains a "Partner view" pill in the header, numbered pins on the home-page sections that map to the stack, and a bottom bar linking to the overview. It is remembered for the browser session only, follows internal links, and `Hide` (or `?partner=0`) switches it off. Without the link nothing partner-related is rendered or present in the HTML.
+
 ## Swap in the client's details
 
 Everything that is waiting on the client is marked in one of three ways:
