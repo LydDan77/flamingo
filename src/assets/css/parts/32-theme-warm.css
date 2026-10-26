@@ -15,7 +15,7 @@
   --bg: #FBF6EE;
   --bg-alt: #F3EADF;
   --bg-deep: #2A2420;
-  --bg-hero: #FBF6EE;
+  --bg-hero: #F4EBDF;
   --surface: #FFFFFF;
   --surface-2: #F6EFE4;
   --surface-solid: #FFFFFF;
@@ -23,10 +23,10 @@
 
   --text: #2A2420;
   --text-2: #5A4F47;
-  --text-3: #76695F;
+  --text-3: #6B5E55;
 
-  --brand: #B4532E;
-  --brand-strong: #9A4424;
+  --brand: #9E4525;
+  --brand-strong: #87391D;
   --brand-2: #1F6F78;
   --brand-3: #D99A6C;
   --brand-deep: #7A3418;
@@ -49,9 +49,9 @@
   --shadow: 0 28px 60px -30px rgba(42, 36, 32, 0.3);
   --shadow-glow: 0 24px 48px -26px rgba(180, 83, 46, 0.35);
 
-  --btn-primary-bg: #B4532E;
+  --btn-primary-bg: #9E4525;
   --btn-primary-fg: #FFFFFF;
-  --btn-primary-hover: #9A4424;
+  --btn-primary-hover: #87391D;
   --btn-secondary-bg: #FFFFFF;
   --btn-secondary-fg: #2A2420;
   --btn-secondary-line: #C9B9A6;
@@ -97,7 +97,7 @@
 [data-theme="warm"] .faq__toggle { width: 42px; height: 42px; border-color: var(--text); color: var(--text); }
 [data-theme="warm"] .faq__item[open] .faq__toggle { background: var(--brand-2); color: #fff; }
 [data-theme="warm"] .prose a, [data-theme="warm"] .faq__a a, [data-theme="warm"] .link-arrow { text-decoration: underline; text-underline-offset: 3px; }
-[data-theme="warm"] .hero { border-bottom: 1px solid var(--line); }
+[data-theme="warm"] .hero { border-bottom: 0; }
 [data-theme="warm"] .hero::before { background: radial-gradient(closest-side, rgba(217, 154, 108, 0.18), transparent); }
 [data-theme="warm"] .hero h1::after { content: ""; display: block; width: 64px; height: 4px; border-radius: 999px; background: var(--brand-3); margin-top: 24px; }
 [data-theme="warm"] .hero--center h1::after { margin-inline: auto; }
@@ -163,3 +163,5 @@
 [data-theme="warm"] .theme-switch__item b { font-size: 0.9rem; }
 @media (max-width: 767px) { [data-theme="warm"] { --h1-size: clamp(2rem, 7vw, 2.6rem); --hero-split-h1: clamp(1.85rem, 6.6vw, 2.5rem); } }
 @media (max-width: 899px) { [data-theme="warm"] .hero--image .hero__bg { box-shadow: none; } }
+[data-theme="warm"] .footer__note { color: #E8A585; }
+[data-theme="warm"] .section--alt { background: #F3EADF; }

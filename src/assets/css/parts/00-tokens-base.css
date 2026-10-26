@@ -4,7 +4,7 @@
      dark    Biohacker / athlete: near-black, acid lime + signal orange, HUD details, Space Grotesk
      light   Clinical: white, cool grays, teal-blue, hairline rules, Manrope + Inter
      warm    Warm & clean, easy to read: cream, terracotta + deep teal, 18px base, Lora + Atkinson Hyperlegible
-     bright  Bold & eccentric: white with violet / coral / citrus blocks, Syne + DM Sans
+     bright  Bold & eccentric: white with violet / coral / citrus blocks, Bricolage Grotesque + DM Sans
      elite   Premium: warm black, champagne gold, serif numerals, Cormorant Garamond + Jost
    Parts: 00 tokens+base · 10 components · 20 layout (header, hero, footer, floating controls) · 30–34 one file per theme
    ============================================================================= */
@@ -35,7 +35,7 @@
 
   --text: #F3F6F2;
   --text-2: rgba(243, 246, 242, 0.7);
-  --text-3: rgba(243, 246, 242, 0.48);
+  --text-3: rgba(243, 246, 242, 0.58);
 
   --brand: #C7FF3D;
   --brand-strong: #A6E31F;
@@ -175,7 +175,7 @@ em.hl, .hl {
 .section--tight { padding-block: clamp(44px, 6vw, 80px); }
 .section--alt { background: var(--bg-alt); }
 .section--deep {
-  --text: #F3F6F2; --text-2: rgba(243, 246, 242, 0.72); --text-3: rgba(243, 246, 242, 0.5);
+  --text: #F3F6F2; --text-2: rgba(243, 246, 242, 0.74); --text-3: rgba(243, 246, 242, 0.62);
   --surface: rgba(255, 255, 255, 0.045); --surface-2: rgba(255, 255, 255, 0.08); --surface-solid: rgba(255, 255, 255, 0.06);
   --line: rgba(255, 255, 255, 0.1); --line-strong: rgba(255, 255, 255, 0.22);
   --chip-bg: rgba(255, 255, 255, 0.08); --chip-fg: #fff; --chip-line: rgba(255, 255, 255, 0.14);
@@ -197,7 +197,7 @@ em.hl, .hl {
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: var(--font-mono); font-size: 0.72rem; font-weight: var(--eyebrow-weight); letter-spacing: var(--eyebrow-track); text-transform: uppercase; color: var(--eyebrow);
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: var(--eyebrow-weight); letter-spacing: var(--eyebrow-track); text-transform: uppercase; color: var(--eyebrow);
 }
 
 .grid { display: grid; gap: var(--gap); }

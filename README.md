@@ -7,7 +7,7 @@ A white-label website for a concierge regenerative medicine and longevity practi
 | `dark` (default) | Biohacker / athlete: near-black, acid lime and signal orange, HUD corner brackets, film grain, cinematic full-bleed photo heroes | Space Grotesk + Inter + JetBrains Mono |
 | `light` | Clean and clinical: white, cool grays, teal-blue accents, hairline rules, graph-paper hero, split photo heroes | Manrope + Inter + DM Mono |
 | `warm` | Warm and easy to read, for older adults: cream, terracotta and deep teal, 18px base type, larger buttons, calmer motion | Lora + Atkinson Hyperlegible |
-| `bright` | Bold and eccentric, not goofy: white with violet, coral, citrus and aqua, marker highlights, hard offset shadows | Syne + DM Sans + DM Mono |
+| `bright` | Bold and eccentric, not goofy: white with violet, coral, citrus and aqua, marker highlights, hard offset shadows | Bricolage Grotesque + DM Sans + DM Mono |
 | `elite` | Premium: warm black, champagne gold, serif numerals, wide-tracked labels, vignetted photography | Cormorant Garamond + Jost + DM Mono |
 
 Switch versions with the floating **Design** control (bottom right; a compact menu that works on phones) or by adding `?theme=dark|light|warm|bright|elite` to any URL. The choice is remembered in the browser. Photos swap per version (for example the home hero shows a sprinter in `dark`, a nurse practitioner with a patient in `light`, a couple on an autumn hike in `warm`).
@@ -106,6 +106,10 @@ Rebuild after editing (`node build.js`); with `--serve` or `--watch` it rebuilds
 - The hero photo of the active version is preloaded from the `<head>` with `fetchpriority="high"`; every other photo is lazy-loaded and sized with `srcset`/`sizes` (half-width panels fetch the 800/1200 variants, not the 1920).
 - CSS and JS are minified at build time and written with a content hash in the file name (`site.<hash>.css`), so Vercel can serve everything under `/assets/` with long-lived immutable caching while every new build is picked up immediately.
 - Film grain, parallax and blur effects are skipped on phones; reduced-motion preferences disable all motion.
+
+## Accessibility
+
+Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 for body text, 3:1 for large text), checked with a headless-browser audit across the main pages; no text is set below 12px. Keyboard focus is visible in all versions, the design switcher and FAQ are keyboard operable, and all motion honours `prefers-reduced-motion`.
 
 ## Deploy
 

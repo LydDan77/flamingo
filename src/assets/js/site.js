@@ -87,6 +87,16 @@
     doc.addEventListener("click", function (e) { if (!menu.hidden && !switcher.contains(e.target)) openMenu(false); });
     doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) { openMenu(false); trigger.focus(); } });
   }
+  // On phones the switcher lives in the header bar; on larger screens it floats bottom-right.
+  var headerActions = doc.querySelector(".site-header__actions");
+  function placeSwitcher() {
+    if (!switcher || !headerActions) return;
+    var inHeader = switcher.parentElement === headerActions;
+    if (window.innerWidth < 768 && !inHeader) headerActions.insertBefore(switcher, headerActions.firstChild);
+    else if (window.innerWidth >= 768 && inHeader) doc.body.appendChild(switcher);
+  }
+  placeSwitcher();
+  window.addEventListener("resize", placeSwitcher);
   setTheme(root.getAttribute("data-theme") || "dark", false);
 
   /* ----------------------------------------------------------- external links */
@@ -290,6 +300,17 @@
     });
   });
   window.addEventListener("hashchange", function () { openTabForHash(location.hash, false); });
+
+  /* --------------------------------------------------------------- FAQ groups */
+  // One answer open at a time within a .faq group (opening the next closes the previous).
+  doc.querySelectorAll(".faq").forEach(function (group) {
+    group.querySelectorAll("details").forEach(function (d) {
+      d.addEventListener("toggle", function () {
+        if (!d.open) return;
+        group.querySelectorAll("details[open]").forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
+  });
 
   /* ------------------------------------------------------------ bio clamping */
   doc.querySelectorAll(".member__bio").forEach(function (bio) {
