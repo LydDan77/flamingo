@@ -7,8 +7,8 @@ Collection One is the five design versions shipped in Round 1 (Dark, Light, Warm
 | What | Where |
 | --- | --- |
 | Commit | `0ec4f91` on `main` |
-| Tag | `v1.0-collection-one` |
-| Locked branch | `collection-one-locked` (never receives Round 2 work) |
+| Locked branch | `collection-one-locked` on GitHub (never receives Round 2 work); this is the server-side lock |
+| Tag | `v1.0-collection-one` at the same commit. Tags cannot be pushed from the automated session, so create it once on GitHub: Releases → "Draft a new release" → tag `v1.0-collection-one`, target `collection-one-locked`. The lock file pins the commit either way. |
 | Frozen live build | https://flamingo-foruxo8dw-regenerative-revival.vercel.app (immutable deployment of that commit; `?theme=dark|light|warm|bright|elite`) |
 | Moving live build | https://flamingo-regenerative-revival.vercel.app (follows `main`, will gain Collection Two) |
 | Template archive | `git archive --format=zip --prefix=flamingo-v1.0-template/ -o flamingo-v1.0-template.zip v1.0-collection-one` |
@@ -40,7 +40,7 @@ Steps 2 to 4 are list extensions inside locked files. That is the one sanctioned
 ## Restoring Collection One exactly
 
 ```
-git checkout v1.0-collection-one          # inspect
+git checkout collection-one-locked        # inspect
 git checkout -b hotfix collection-one-locked
 ```
 

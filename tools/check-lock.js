@@ -17,9 +17,9 @@ if (process.argv.includes("--update")) {
 }
 const changed = Object.entries(lock.files).filter(([f, h]) => !fs.existsSync(path.join(root, f)) || sha1(f) !== h);
 if (changed.length) {
-  console.error("Collection One lock: " + changed.length + " locked file(s) changed since " + lock.tag + ":");
+  console.error("Collection One lock: " + changed.length + " locked file(s) changed since " + lock.commit.slice(0, 7) + " (" + lock.tag + "):");
   changed.forEach(([f]) => console.error("  " + f));
-  console.error("Compare with: git diff " + lock.tag + " -- <file>. If the change is intended, run the Collection One QA and then: node tools/check-lock.js --update");
+  console.error("Compare with: git diff " + lock.commit.slice(0, 7) + " -- <file>. If the change is intended, run the Collection One QA and then: node tools/check-lock.js --update");
   process.exit(1);
 }
 console.log("Collection One lock intact (" + Object.keys(lock.files).length + " files, " + lock.tag + ")");
