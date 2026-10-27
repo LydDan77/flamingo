@@ -140,6 +140,10 @@ Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 fo
 
 `vercel.json` tells Vercel to run `node build.js` and serve `dist/`. Every push to `main` deploys automatically once the repo is linked to a Vercel project. Update `url` in `site.config.js` when the client's domain is attached so the sitemap and robots file point at it.
 
+## Collections
+
+Collection One (Dark, Light, Warm, Bright, Elite) is locked at tag `v1.0-collection-one`; see `docs/COLLECTION-ONE-LOCK.md` for what that covers, the frozen preview URL and how Round 2 plugs in without touching it. `node tools/check-lock.js` verifies the locked files. The Round 2 creative brief for Collection Two lives in `docs/ROUND-2-BRIEF.md`.
+
 ## Notes
 
 - There is no analytics, cookie banner or tracking on this site yet.

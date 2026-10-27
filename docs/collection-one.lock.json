@@ -1,0 +1,22 @@
+{
+  "collection": "one",
+  "tag": "v1.0-collection-one",
+  "commit": "0ec4f9188034ac7c2e7c0a2a472f03782bfca521",
+  "files": {
+    "build.js": "ffbb7c3a4499f8f7441ad2ca4b88c777959d6965",
+    "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
+    "src/assets/css/parts/10-components.css": "a80570ac5b52bd3fbe1be2cd921dedd7ce12c933",
+    "src/assets/css/parts/12-partner.css": "ef431cf5da3971204d29ab6624ff54c4986f35bc",
+    "src/assets/css/parts/15-motion.css": "7e0e99e9bba372f915848edd5c1d7e0aa6c9071a",
+    "src/assets/css/parts/20-layout.css": "b45cc22021844c133831610146e6e5a97011d4b1",
+    "src/assets/css/parts/30-theme-dark.css": "1ae8435e6bad320c6e3143788fdfa81b7bc39ea3",
+    "src/assets/css/parts/31-theme-light.css": "87e69918724eb2b57e347224fc2e2b990470908c",
+    "src/assets/css/parts/32-theme-warm.css": "f6a01cc8e885d372579a7a68a5f1a8bd6cdd218e",
+    "src/assets/css/parts/33-theme-bright.css": "18643f6fd00c006d2255e6f31e7b7eacaf6ac695",
+    "src/assets/css/parts/34-theme-elite.css": "b42e3c061ef776db21ee95c085b7aff27963218e",
+    "src/assets/js/site.js": "5c239c5d707a65af3c273ba3487dbf966dae5640",
+    "src/layout.html": "a26ff2d163f3fc087df1beee8dcd4930de975801",
+    "src/partials/icons.html": "64cc8f0f41b014cb6d81c5dd6946aa38b3ad18b5",
+    "src/partials/theme-switch.html": "d31e6a8244a7140766340b74edc5c528dbd40ab9"
+  }
+}
