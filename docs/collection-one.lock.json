@@ -1,22 +1,22 @@
 {
   "collection": "one",
   "tag": "v1.0-collection-one",
-  "commit": "71ad81765f19f9bd3d58cfa6afdc78cc9808bf21",
+  "commit": "7a80307298bb0a28f1c9b1aab4e469afd4cc3173",
   "files": {
-    "build.js": "9cb3cd6223a3227d5a1a78d9d59e3abaafbaad8b",
+    "build.js": "6440b1831378bf458e7bb6370d2e23917109e89c",
     "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
     "src/assets/css/parts/10-components.css": "a80570ac5b52bd3fbe1be2cd921dedd7ce12c933",
     "src/assets/css/parts/12-partner.css": "ef431cf5da3971204d29ab6624ff54c4986f35bc",
     "src/assets/css/parts/15-motion.css": "7e0e99e9bba372f915848edd5c1d7e0aa6c9071a",
-    "src/assets/css/parts/20-layout.css": "89ca75878fa8f765fad81784e3d517aed53e34a0",
+    "src/assets/css/parts/20-layout.css": "2bb3b8e859f2464f2328d7ab6331db1b7730e159",
     "src/assets/css/parts/30-theme-dark.css": "1ae8435e6bad320c6e3143788fdfa81b7bc39ea3",
     "src/assets/css/parts/31-theme-light.css": "87e69918724eb2b57e347224fc2e2b990470908c",
     "src/assets/css/parts/32-theme-warm.css": "f6a01cc8e885d372579a7a68a5f1a8bd6cdd218e",
     "src/assets/css/parts/33-theme-bright.css": "18643f6fd00c006d2255e6f31e7b7eacaf6ac695",
     "src/assets/css/parts/34-theme-elite.css": "b42e3c061ef776db21ee95c085b7aff27963218e",
-    "src/assets/js/site.js": "7c0c6c10247a5b72d3f1d0f8d7e216a17493bf19",
-    "src/layout.html": "6100fc6525b72d2f7b77dc0f1b40a5178e27c0b7",
+    "src/assets/js/site.js": "99494515c19e0ce30f74886c79461f607b53d4c5",
+    "src/layout.html": "ffbacd922654da343eb4a6441ab96ad29dec53ff",
     "src/partials/icons.html": "64cc8f0f41b014cb6d81c5dd6946aa38b3ad18b5",
-    "src/partials/theme-switch.html": "e3a4b09336ddbda2cdc0f356582f983db3f0f957"
+    "src/partials/theme-switch.html": "c4135a5e36ea00099a814674341463c5fce2d0be"
   }
 }
