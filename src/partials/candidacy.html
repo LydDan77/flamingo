@@ -1,0 +1,53 @@
+<!-- Candidacy checker: four questions, no score, no diagnosis. Each question appears once the previous one is answered (CSS :has(), no JavaScript); browsers without :has() show all four at once. Answers never leave the browser. -->
+<section class="section" id="candidacy">
+  <div class="container container--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">Two Minutes</p>
+      <h2>See if you are <em class="hl">a fit</em></h2>
+      <p class="lead">Four quick questions. There is no score and no diagnosis here, just a clearer conversation when you book.</p>
+    </div>
+    <div class="candidacy reveal">
+      <fieldset>
+        <legend><small>Question 1 of 4</small>What brings you here?</legend>
+        <div class="candidacy__opts">
+          <label><input type="radio" name="c-goal" value="pain"><span>Joint or soft-tissue pain</span></label>
+          <label><input type="radio" name="c-goal" value="surgery"><span>Avoiding or delaying surgery</span></label>
+          <label><input type="radio" name="c-goal" value="performance"><span>Recovery and performance</span></label>
+          <label><input type="radio" name="c-goal" value="energy"><span>Energy, sleep and aging well</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><small>Question 2 of 4</small>How long has it been going on?</legend>
+        <div class="candidacy__opts">
+          <label><input type="radio" name="c-time" value="new"><span>Under three months</span></label>
+          <label><input type="radio" name="c-time" value="year"><span>Three months to a year</span></label>
+          <label><input type="radio" name="c-time" value="long"><span>More than a year</span></label>
+          <label><input type="radio" name="c-time" value="varies"><span>It comes and goes</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><small>Question 3 of 4</small>What have you tried so far?</legend>
+        <div class="candidacy__opts">
+          <label><input type="radio" name="c-tried" value="physio"><span>Rest, physio or exercise</span></label>
+          <label><input type="radio" name="c-tried" value="meds"><span>Injections or medication</span></label>
+          <label><input type="radio" name="c-tried" value="surgery"><span>Surgery has been suggested</span></label>
+          <label><input type="radio" name="c-tried" value="none"><span>Nothing yet</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><small>Question 4 of 4</small>How would you like care delivered?</legend>
+        <div class="candidacy__opts">
+          <label><input type="radio" name="c-mode" value="home"><span>At home</span></label>
+          <label><input type="radio" name="c-mode" value="tele"><span>By telehealth</span></label>
+          <label><input type="radio" name="c-mode" value="both"><span>Both</span></label>
+          <label><input type="radio" name="c-mode" value="unsure"><span>Not sure yet</span></label>
+        </div>
+      </fieldset>
+      <div class="candidacy__result">
+        <p><b>Thank you. That is exactly what the first consultation is for.</b>A clinician reviews your history and, where it matters, your labs, then tells you plainly whether regenerative care, a longevity protocol, both, or neither is the right next step.</p>
+        <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
+      </div>
+      <p class="candidacy__privacy">Your answers stay in your browser and are not sent anywhere. Share them at your consultation if you like.</p>
+    </div>
+  </div>
+</section>

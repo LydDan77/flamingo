@@ -142,7 +142,21 @@ Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 fo
 
 ## Collections
 
-Collection One (Dark, Light, Warm, Bright, Elite) is locked at tag `v1.0-collection-one`; see `docs/COLLECTION-ONE-LOCK.md` for what that covers, the frozen preview URL and how Round 2 plugs in without touching it. `node tools/check-lock.js` verifies the locked files. The Round 2 creative brief for Collection Two lives in `docs/ROUND-2-BRIEF.md`.
+**Collection One** (Dark, Light, Warm, Bright, Elite) is locked at tag `v1.0-collection-one`; see `docs/COLLECTION-ONE-LOCK.md` for what that covers, the frozen preview URL and how Round 2 plugs in without touching it. `node tools/check-lock.js` verifies the locked files.
+
+**Collection Two** (brief in `docs/ROUND-2-BRIEF.md`) adds five versions with a different look and feel, each in its own part (`src/assets/css/parts/40-44-theme-*.css`), grouped under its own heading in the design switcher:
+
+| Version | Feel | Type |
+| --- | --- | --- |
+| Atelier | Editorial luxury: bone paper, ink, one oxblood accent, hairline grid, chapter numerals behind headings, duotone photography that resolves to colour on hover, cover lines that run over the photograph | Fraunces + Instrument Sans + Geist Mono |
+| Obsidian | Glass and depth: midnight mesh lit by violet and ice, frosted panels, specular highlights that follow the pointer, orbs that rise with scroll | Clash Display + Satoshi + Geist Mono |
+| Sanctuary | Botanical calm: sage, moss, stone and clay, arch-shaped imagery, grain, pictures that fade into the page, leaf line art | Gambetta + Switzer + Geist Mono |
+| Monolith | Swiss precision: black with white sections cutting in, one signal red, expanded uppercase display, black-and-white photography, hover states that invert | Archivo + Inter Tight + Geist Mono |
+| Aurora | Luminous: pearl over a drifting lavender, mint, peach and sky mesh, frosted panels, iridescent borders on hover | Plus Jakarta Sans + Instrument Serif + Geist Mono |
+
+Fontshare families (Clash Display, Satoshi, Gambetta, Switzer; ITF Free Font Licence) are self-hosted from `src/assets/fonts/` through `src/assets/css/parts/05-fonts.css`, because the Fontshare CSS API only serves one family per request. Google families still load per version from the bootstrap in `src/layout.html`.
+
+Round 2 also added content modules that every version renders (`src/assets/css/parts/25-collection-two.css`): the honesty block (`honesty.html`: what we will not promise, who this is not for), the candidacy checker (`candidacy.html`: four questions, CSS-only progression, no score, nothing sent anywhere), cost and financing (`cost.html`), the before-you-book cards on the regenerative therapy pages (`objections.html`), and a phone-only book / call bar (`sticky-cta.html`).
 
 ## Notes
 

@@ -4,9 +4,9 @@
 
   var doc = document;
   var root = doc.documentElement;
-  var THEMES = ["dark", "light", "warm", "bright", "elite"];
-  var SPLIT_HERO = { light: 1, warm: 1, bright: 1 }; // themes whose photo hero is a half-width panel
-  var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A" };
+  var THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora"];
+  var SPLIT_HERO = { light: 1, warm: 1, bright: 1, atelier: 1, sanctuary: 1, monolith: 1, aurora: 1 }; // themes whose photo hero is a half-width panel
+  var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD" };
   var PHOTOS = "assets/img/photos/";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isMobile = function () { return window.innerWidth < 900; };

@@ -37,6 +37,16 @@ Round 2 adds files and extends lists; it does not rewrite. A new theme is:
 
 Steps 2 to 4 are list extensions inside locked files. That is the one sanctioned kind of edit: append-only, verified by re-running the Collection One QA sheet, then `node tools/check-lock.js --update` with the change called out in the commit message.
 
+## Round 2 edits to locked files (sanctioned list extensions)
+
+Collection Two touched five locked files, append-only, and the Collection One regression and contrast audit were re-run before the lock was updated:
+
+- `build.js`, `src/assets/js/site.js`, `src/layout.html`: the five new names added to the theme lists, their fonts and page colours added to the bootstrap maps, `SPLIT_HERO` / `THEME_COLORS` extended.
+- `src/partials/theme-switch.html`: "Collection One" / "Collection Two" headings and the five new entries.
+- `src/assets/css/parts/20-layout.css`: the four new split-hero versions added to the existing `:is([data-theme=…])` selector lists (no rule bodies changed).
+
+Everything else in Round 2 is new files: `05-fonts.css`, `25-collection-two.css`, `40-44-theme-*.css`, the content-module partials and `src/assets/fonts/`.
+
 ## Restoring Collection One exactly
 
 ```

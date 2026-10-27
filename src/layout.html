@@ -19,13 +19,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!--
     Theme bootstrap, before first paint:
-      1. pick the design version (?theme=dark|light|warm|bright|elite, else the remembered one, else dark)
+      1. pick the design version (?theme=dark|light|warm|bright|elite or a Collection Two name, else the remembered one, else dark)
       2. load only that version's web fonts (not all five sets)
       3. preload this page's hero photo for that version, so the largest image starts downloading from the <head>
   -->
   <script>
     (function () {
-      var ok = ["dark", "light", "warm", "bright", "elite"], t = "dark", d = document, h = d.documentElement;
+      var ok = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora"], t = "dark", d = document, h = d.documentElement;
       try {
         var q = new URLSearchParams(location.search).get("theme");
         var s = localStorage.getItem("flamingo-theme");
@@ -42,10 +42,15 @@
         light: G + "Manrope:wght@600;700;800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500",
         warm: G + "Lora:ital,wght@0,500;0,600;1,500&family=Atkinson+Hyperlegible:wght@400;700",
         bright: G + "Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500",
-        elite: G + "Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500"
+        elite: G + "Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500",
+        atelier: G + "Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Instrument+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500",
+        obsidian: G + "Geist+Mono:wght@400;500",
+        sanctuary: G + "Geist+Mono:wght@400;500",
+        monolith: G + "Archivo:wdth,wght@125,700;125,800&family=Inter+Tight:wght@400;500;600&family=Geist+Mono:wght@400;500",
+        aurora: G + "Plus+Jakarta+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500"
       };
       var l = d.createElement("link"); l.rel = "stylesheet"; l.href = F[t]; l.setAttribute("data-theme-fonts", ""); d.head.appendChild(l);
-      var C = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A" };
+      var C = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD" };
       var m = d.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", C[t]);
       {{page.heroPreload}}
     })();

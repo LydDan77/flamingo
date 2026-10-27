@@ -1,0 +1,13 @@
+/* ===================================================== SELF-HOSTED FONTS (Collection Two). Fontshare families under the ITF Free Font Licence, served from assets/fonts so there is no third-party request. Google families still load per version from the bootstrap in layout.html. */
+@font-face { font-family: "Clash Display"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/clash-display-500.woff2") format("woff2"); }
+@font-face { font-family: "Clash Display"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/clash-display-600.woff2") format("woff2"); }
+@font-face { font-family: "Clash Display"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/clash-display-700.woff2") format("woff2"); }
+@font-face { font-family: "Satoshi"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/satoshi-400.woff2") format("woff2"); }
+@font-face { font-family: "Satoshi"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/satoshi-500.woff2") format("woff2"); }
+@font-face { font-family: "Satoshi"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/satoshi-700.woff2") format("woff2"); }
+@font-face { font-family: "Gambetta"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/gambetta-400.woff2") format("woff2"); }
+@font-face { font-family: "Gambetta"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/gambetta-500.woff2") format("woff2"); }
+@font-face { font-family: "Gambetta"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/gambetta-600.woff2") format("woff2"); }
+@font-face { font-family: "Switzer"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/switzer-400.woff2") format("woff2"); }
+@font-face { font-family: "Switzer"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/switzer-500.woff2") format("woff2"); }
+@font-face { font-family: "Switzer"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/switzer-600.woff2") format("woff2"); }

@@ -183,7 +183,7 @@ function icon(name, cls) {
 const PHOTO_DIR = "assets/img/photos";
 const PRODUCT_DIR = "assets/img/products";
 const PRODUCT_H = 1000; // product renders are trimmed to a 4:5 box (800x1000) so the intrinsic size is known before load
-const THEMES = ["dark", "light", "warm", "bright", "elite"];
+const THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora"];
 const PHOTO_SET = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
 function imgTag(spec, ctx) {
   const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
