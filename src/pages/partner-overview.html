@@ -147,7 +147,7 @@ bodyClass: page--partner
       <div class="reveal reveal--right">
         <div class="timeline">
           <div class="timeline__item"><span class="timeline__when">Visitor</span><h3>Lands on a version that fits their audience</h3><p>Athlete, clinical, older adult, bold or premium: the design version is chosen per partner (or per campaign link).</p></div>
-          <div class="timeline__item"><span class="timeline__when">Education</span><h3>Reads the science, the model and the FAQ</h3><p>Stem cells, Wharton's Jelly, exosomes, concierge model and NAD+ pages answer objections before the consult.</p></div>
+          <div class="timeline__item"><span class="timeline__when">Education</span><h3>Reads the science, the model and the FAQ</h3><p>Stem cells, Wharton's Jelly, exosomes{{#if module:nad}}, NAD+{{/if}} and concierge model pages answer objections before the consult.</p></div>
           <div class="timeline__item"><span class="timeline__when">Request</span><h3>Books a free consultation</h3><p>The form captures goals, state and program interest and hands off to the CRM pipeline and automations.</p></div>
           <div class="timeline__item"><span class="timeline__when">Follow-up</span><h3>Automations and reactivation</h3><p>Acknowledgment, reminders, follow-ups and database reactivation run from the platform workspace.</p></div>
         </div>
@@ -161,11 +161,11 @@ bodyClass: page--partner
     <div class="section-head section-head--left reveal">
       <span class="eyebrow">06 · Optional modules</span>
       <h2>Switch programs on when the partner is ready</h2>
-      <p class="lead">Hormone and peptide programs are fully built but hidden by default. One flag publishes the page, its navigation and footer links, service cards, tiles, form options, sitemap entry and every sentence that lists the programs.</p>
+      <p class="lead">Hormone, peptide and NAD+ programs are each a module; hormones and peptides are fully built but hidden by default. One flag publishes the page, its navigation and footer links, service cards, tiles, form options, sitemap entry and every sentence that lists the programs.</p>
     </div>
     <div class="grid grid--3 reveal reveal--stagger">
       <div class="card"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Live</span><h3>Regenerative therapy</h3><p>Stem cell, Wharton's Jelly and exosome pages, concierge care model, services catalog.</p></div>
-      <div class="card"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Live</span><h3>NAD+ &amp; longevity</h3><p>NAD+ therapy page with product renders, injection and sublingual programs, supplement protocols.</p></div>
+      <div class="card">{{#if module:nad}}<span class="pill pill--accent pill--sm" style="align-self:flex-start">Live</span>{{/if}}{{#unless module:nad}}<span class="pill pill--sm" style="align-self:flex-start">Hidden · ready</span>{{/unless}}<h3>NAD+ &amp; longevity</h3><p>NAD+ therapy page with product renders, injection and sublingual programs, supplement protocols.</p></div>
       <div class="card"><span class="pill pill--sm" style="align-self:flex-start">Hidden · ready</span><h3>Hormones &amp; peptides</h3><p>TRT / HRT telehealth page and 19 peptide programs with product renders. Enable in the configuration file.</p></div>
     </div>
   </div>

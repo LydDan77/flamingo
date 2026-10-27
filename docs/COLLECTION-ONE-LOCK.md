@@ -47,6 +47,17 @@ Collection Two touched five locked files, append-only, and the Collection One re
 
 Everything else in Round 2 is new files: `05-fonts.css`, `25-collection-two.css`, `40-44-theme-*.css`, the content-module partials and `src/assets/fonts/`.
 
+## Round 3 edits to locked files (Blush and the regenerative-only build)
+
+Round 3 touched the same five files again, and the Collection One regression and contrast audit were re-run before the lock was updated:
+
+- `build.js`: `blush` added to `THEMES`; the build now loops over the site variants in `site.config.js` (root plus `dist/regen/`), renders `{{variantSwitch}}` / `{{variantBadge}}` for the design switcher, and renders `{{site.x}}` and conditionals inside front-matter titles and descriptions. Collection One pages build exactly as before at the root.
+- `src/assets/js/site.js`, `src/layout.html`: `blush` added to the theme lists, fonts and page-colour maps (and to `MAGNET`).
+- `src/partials/theme-switch.html`: the Blush entry and the "Programs" group.
+- `src/assets/css/parts/20-layout.css`: `blush` added to the split-hero selector lists (no rule bodies changed).
+
+New files: `45-theme-blush.css`. `site.config.js` (not locked) became a factory so each variant gets its own module set.
+
 ## Restoring Collection One exactly
 
 ```

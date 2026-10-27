@@ -9,7 +9,13 @@
 .theme-switch__swatch--sanctuary { --sw-a: #F7F4EE; --sw-b: #4B5B47; }
 .theme-switch__swatch--monolith { --sw-a: #0A0A0A; --sw-b: #E63312; }
 .theme-switch__swatch--aurora { --sw-a: #FBFBFD; --sw-b: #5B4BFF; }
-.theme-switch__menu { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.theme-switch__swatch--blush { --sw-a: #FFFDFB; --sw-b: #B2495E; }
+/* ---- programs switch (site variants): a tag on the trigger when a variant is open, link items in the menu */
+.theme-switch__variant { display: inline-flex; align-items: center; min-height: 20px; padding: 0 8px; border-radius: 999px; background: var(--ts-active); color: var(--ts-bg); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+@media (max-width: 767px) { .theme-switch__variant { display: none; } }
+a.theme-switch__item { text-decoration: none; }
+a.theme-switch__item:hover b { color: var(--ts-active); }
+.theme-switch__menu { max-height: calc(100vh - 90px); max-height: calc(100dvh - 90px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .theme-switch__item { padding: 7px 10px; }
 .theme-switch__heading + .theme-switch__heading { margin-top: 2px; }
 @media (max-width: 767px) { .theme-switch__menu { max-height: calc(100dvh - var(--header-h) - 24px); } }
@@ -18,8 +24,8 @@
 html.has-cursor:is([data-theme="obsidian"], [data-theme="monolith"]) *:not(input):not(textarea):not(select) { cursor: none; }
 
 /* ---- hero proof chips: the three facts of the scan layer */
-:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"]) .hero__meta { border-top: 0; padding-top: 0; margin-top: 30px; gap: 10px; letter-spacing: 0.04em; }
-:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"]) .hero__meta li { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: var(--radius-chip); background: var(--chip-bg); border: 1px solid var(--chip-line); color: var(--chip-fg); }
+:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"], [data-theme="blush"]) .hero__meta { border-top: 0; padding-top: 0; margin-top: 30px; gap: 10px; letter-spacing: 0.04em; }
+:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"], [data-theme="blush"]) .hero__meta li { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: var(--radius-chip); background: var(--chip-bg); border: 1px solid var(--chip-line); color: var(--chip-fg); }
 
 /* ---- honesty block */
 .honesty { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }

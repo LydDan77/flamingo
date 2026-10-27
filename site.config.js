@@ -9,18 +9,36 @@
 // and every cross-reference on other pages. Off = fully hidden (not built,
 // not in the sitemap, not linked anywhere).
 // ---------------------------------------------------------------------------
-const modules = {
+const DEFAULT_MODULES = {
   hormones: false, // hormones.html (TRT / HRT telehealth)
   peptides: false, // peptides.html (goal-based peptide programs)
+  nad: true, // nad.html (NAD+ therapy and supplement protocols)
 };
 
-// Legal notices. californiaStemCell prints the statutory notice (Cal. Health & Safety Code § 24185) on the regenerative
-// therapy pages and the disclaimer page. Required for practices offering non-FDA-approved stem cell therapy in California.
+// ---------------------------------------------------------------------------
+// Site variants. The root build (dist/) uses DEFAULT_MODULES. Every variant
+// below is a complete second build of the whole site, every design version
+// included, written to dist/<path>/ with its own module set. The design
+// switcher lists them under "Programs" so a reviewer can flip between them
+// on any page.
+// ---------------------------------------------------------------------------
+const rootVariant = { path: "", label: "Regenerative + NAD+", desc: "The full catalog: in-home regenerative care plus NAD+ & longevity" };
+const variants = {
+  regen: {
+    path: "regen",
+    label: "Regenerative only",
+    desc: "No NAD+ or peptide programs anywhere on the site",
+    modules: { hormones: false, peptides: false, nad: false },
+  },
+};
+
+function make(modules) {
 const notices = {
   californiaStemCell: true,
 };
 
-const telehealth = modules.hormones || modules.peptides;
+const telehealth = modules.hormones || modules.peptides; // prescription programs (compounded, shipped)
+const virtual = telehealth || modules.nad; // any program delivered through telehealth at all
 const pad = (n) => String(n).padStart(2, "0");
 const num = {
   hormones: pad(4),
@@ -28,22 +46,39 @@ const num = {
   nad: pad(4 + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0)),
 };
 
-module.exports = {
+return {
   modules,
   notices,
   num, // service numbering that shifts when modules are off (used by the home tiles and services cards)
 
   // Copy fragments that change with the modules, so generic sentences stay true either way.
-  programsPhrase: telehealth ? "hormones, peptides, and NAD+" : "NAD+ and longevity protocols",
-  programsPhraseShort: telehealth ? "hormones · peptides · NAD+" : "NAD+ · longevity",
-  telehealthSentence: telehealth ? "Hormones, peptides, and NAD+ through telehealth." : "NAD+ and longevity protocols through telehealth.",
-  teamScope: telehealth ? "hormones, peptides, and regenerative care" : "longevity protocols and regenerative care",
-  programCount: ["Three", "Four", "Five", "Six"][1 + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0)],
-  pillarCount: 3 + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0),
+  // Three states: prescription programs on (hormones / peptides), NAD+ only, or regenerative care alone.
+  programsPhrase: telehealth ? "hormones, peptides, and NAD+" : modules.nad ? "NAD+ and longevity protocols" : "regenerative therapy",
+  programsPhraseShort: telehealth ? "hormones · peptides · NAD+" : modules.nad ? "NAD+ · longevity" : "in your home",
+  telehealthSentence: telehealth
+    ? "Hormones, peptides, and NAD+ through telehealth."
+    : modules.nad
+      ? "NAD+ and longevity protocols through telehealth."
+      : "Consultations by telehealth, treatment in your home.",
+  teamScope: telehealth ? "hormones, peptides, and regenerative care" : modules.nad ? "longevity protocols and regenerative care" : "regenerative care",
+  quoteScope: telehealth
+    ? "regenerative therapy and hormones, peptides, and NAD+"
+    : modules.nad
+      ? "regenerative therapy and NAD+ protocols"
+      : "in-home regenerative therapy and physician oversight",
+  protocolScope: telehealth
+    ? "regenerative medicine and hormones, peptides, and NAD+"
+    : modules.nad
+      ? "regenerative medicine and NAD+ protocols"
+      : "stem cell, Wharton's Jelly and exosome protocols",
+  programCount: ["Three", "Four", "Five", "Six"][(modules.nad ? 1 : 0) + (modules.hormones ? 1 : 0) + (modules.peptides ? 1 : 0)],
+  programScope: virtual ? "Regenerative and telehealth" : "In-home regenerative care",
+  pillarCount: 3, // the home page always shows three pillars; which three depends on the modules
+  virtual,
   href: {
-    performance: modules.peptides ? "peptides.html" : "nad.html",
+    performance: modules.peptides ? "peptides.html" : modules.nad ? "nad.html" : "stem-cell-therapy.html",
     after40: modules.hormones ? "hormones.html" : "concierge-care-model.html",
-    telehealth: modules.peptides ? "peptides.html" : modules.hormones ? "hormones.html" : "nad.html",
+    telehealth: modules.peptides ? "peptides.html" : modules.hormones ? "hormones.html" : modules.nad ? "nad.html" : "why-exosomes.html",
   },
 
   // Partner (buyer) overview. Shown only on partner-overview.html and in "partner view" (?partner=1). Never linked from the public site.
@@ -61,9 +96,10 @@ module.exports = {
 
   // Brand (placeholder)
   name: "Brand Name",
-  tagline: "Regenerative Medicine & Longevity Care",
-  description:
-    "In-home regenerative therapy and nationwide telehealth for longevity care. One physician-led medical team, one patient record, one plan.",
+  tagline: virtual ? "Regenerative Medicine & Longevity Care" : "Regenerative Medicine, In Your Home",
+  description: virtual
+    ? "In-home regenerative therapy and nationwide telehealth for longevity care. One physician-led medical team, one patient record, one plan."
+    : "In-home regenerative therapy from one physician-led medical team: stem cells, Wharton's Jelly and exosomes, delivered by a licensed nurse practitioner. One patient record, one plan.",
   url: "https://flamingo-regenerative-revival.vercel.app", // update when the client's domain is attached
   ogImage: "assets/img/og-image.png",
 
@@ -95,7 +131,7 @@ module.exports = {
         { label: "Wharton's Jelly", href: "whartons-jelly.html", desc: "Source, science, and how it's delivered", icon: "droplets" },
         { label: "Why Exosomes", href: "why-exosomes.html", desc: "The signaling layer that drives repair", icon: "orbit" },
         { label: "Concierge Care Model", href: "concierge-care-model.html", desc: "NP-led, physician-overseen, in your home", icon: "stethoscope" },
-        { label: "All Services", href: "services.html", desc: "Every program, regenerative and telehealth", icon: "layers" },
+        { label: "All Services", href: "services.html", desc: virtual ? "Every program, regenerative and telehealth" : "Every program, in one place", icon: "layers" },
       ],
       featured: {
         title: "Not sure which therapy fits?",
@@ -124,7 +160,7 @@ module.exports = {
         cta: "Browse Programs",
       },
     },
-    { label: "NAD+", href: "nad.html", match: ["nad"] },
+    { label: "NAD+", href: "nad.html", match: ["nad"], module: "nad" },
     { label: "For Providers", href: "for-providers.html", match: ["providers"] },
     {
       label: "About",
@@ -155,7 +191,7 @@ module.exports = {
         { label: "Exosomes", href: "why-exosomes.html" },
         { label: "Hormones", href: "hormones.html", module: "hormones" },
         { label: "Peptides", href: "peptides.html", module: "peptides" },
-        { label: "NAD+ & Supplements", href: "nad.html" },
+        { label: "NAD+ & Supplements", href: "nad.html", module: "nad" },
       ],
     },
     {
@@ -188,3 +224,6 @@ module.exports = {
     },
   ],
 };
+}
+
+module.exports = Object.assign(make(DEFAULT_MODULES), { make, variants, rootVariant });

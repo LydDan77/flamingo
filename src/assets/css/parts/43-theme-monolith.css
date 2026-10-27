@@ -8,7 +8,7 @@
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --h-weight: 800; --h-track: -0.02em; --h-lh: 0.96;
   --h1-size: clamp(2.2rem, 4.2vw, 3.6rem); --h2-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  --hero-split-h1: clamp(1.8rem, 2.6vw, 2.4rem);
+  --hero-split-h1: clamp(1.8rem, 2.35vw, 2.2rem);
   --eyebrow-weight: 500; --eyebrow-track: 0.2em;
 
   --bg: #0A0A0A; --bg-alt: #FFFFFF; --bg-deep: #0A0A0A; --bg-hero: #0A0A0A;

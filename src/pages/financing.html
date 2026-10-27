@@ -1,6 +1,6 @@
 ---
 title: Financing & Payment Plans
-description: Flexible payment options for regenerative therapy and longevity programs. See the full cost on your consultation, then apply with a third-party financing partner in about a minute.
+description: Flexible payment options for regenerative therapy{{#if any:hormones,peptides,nad}} and longevity programs{{/if}}. See the full cost on your consultation, then apply with a third-party financing partner in about a minute.
 nav: resources
 ---
 <section class="hero hero--image">
@@ -66,7 +66,7 @@ nav: resources
           <li>{{icon:check-circle}} Concierge care visits and follow-ups</li>
           {{#if module:hormones}}<li>{{icon:check-circle}} Hormone optimization programs (TRT, HRT)</li>{{/if}}
           {{#if module:peptides}}<li>{{icon:check-circle}} Goal-based peptide programs</li>{{/if}}
-          <li>{{icon:check-circle}} NAD+ and clinician-curated supplement protocols</li>
+          {{#if module:nad}}<li>{{icon:check-circle}} NAD+ and clinician-curated supplement protocols</li>{{/if}}
           <li>{{icon:check-circle}} Multi-month program bundles</li>
         </ul>
       </div>

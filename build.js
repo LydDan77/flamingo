@@ -13,7 +13,11 @@
  *   {{site.key}}                   value from site.config.js
  *   {{page.key}}                   value from the page's front matter
  *   {{nav}} {{footer}} {{year}}    generated navigation, footer columns, current year
+ *   {{variantSwitch}} {{variantBadge}}  the "Programs" items of the design switcher (site variants, see site.config.js)
  *   {{#if module:x}} … {{/if}}     conditional blocks (also {{#unless …}}, any:a,b and all:a,b)
+ *
+ * Variants: besides the root build, every variant in site.config.js (`variants`) is a complete second build of the
+ * site with its own module set, written to dist/<path>/ (for example dist/regen/ = no NAD+ or peptide programs).
  */
 "use strict";
 
@@ -28,7 +32,8 @@ const PARTIALS = path.join(SRC, "partials");
 const ASSETS = path.join(SRC, "assets");
 const LAYOUT = path.join(SRC, "layout.html");
 
-const site = require("./site.config.js");
+const SITE = require("./site.config.js");
+let site = SITE; // the configuration of the variant being built (reassigned per variant in build())
 
 // ---------------------------------------------------------------------------
 // helpers
@@ -183,7 +188,7 @@ function icon(name, cls) {
 const PHOTO_DIR = "assets/img/photos";
 const PRODUCT_DIR = "assets/img/products";
 const PRODUCT_H = 1000; // product renders are trimmed to a 4:5 box (800x1000) so the intrinsic size is known before load
-const THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora"];
+const THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush"];
 const PHOTO_SET = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
 function imgTag(spec, ctx) {
   const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
@@ -256,7 +261,7 @@ function heroPreloadScript(hero) {
 }
 
 /** Optional modules (site.config.js → modules). Pages, nav items and content blocks tagged with a module are dropped while it is off. */
-const MODULES = site.modules || {};
+let MODULES = site.modules || {};
 function moduleOn(name) {
   return !!MODULES[name];
 }
@@ -323,6 +328,29 @@ function renderFooterColumns() {
     .join("");
 }
 
+/** Site variants (site.config.js → variants): the root build plus one complete extra build per entry. */
+function variantList() {
+  return [{ key: "", ...SITE.rootVariant, modules: SITE.modules }].concat(
+    Object.entries(SITE.variants || {}).map(([key, v]) => ({ key, ...v }))
+  );
+}
+
+/** "Programs" items of the design switcher: one entry per variant, linking to the same page in the other build. */
+function renderVariantSwitch(slug, current) {
+  const file = slug === "index" ? "" : `${slug}.html`;
+  return variantList()
+    .map((v) => {
+      const on = v.path === current.path;
+      const inner =
+        `<span class="theme-switch__glyph">${icon(v.path ? "dna" : "layers")}</span>` +
+        `<span><b>${escapeHtml(v.label)}</b><small>${escapeHtml(v.desc)}</small></span>${icon("check", "theme-switch__check")}`;
+      if (on) return `<span class="theme-switch__item" role="menuitemradio" aria-checked="true">${inner}</span>`;
+      const href = (current.path ? "../" : "") + (v.path ? `${v.path}/` : "") + file;
+      return `<a class="theme-switch__item" role="menuitemradio" aria-checked="false" href="${href}">${inner}</a>`;
+    })
+    .join("");
+}
+
 // ---------------------------------------------------------------------------
 // rendering
 // ---------------------------------------------------------------------------
@@ -361,6 +389,8 @@ function render(template, ctx, depth = 0) {
   out = out.replace(/\{\{nav\}\}/g, () => ctx.navHtml);
   out = out.replace(/\{\{footer\}\}/g, () => ctx.footerHtml);
   out = out.replace(/\{\{year\}\}/g, String(new Date().getFullYear()));
+  out = out.replace(/\{\{variantSwitch\}\}/g, () => ctx.variantSwitch || "");
+  out = out.replace(/\{\{variantBadge\}\}/g, () => ctx.variantBadge || "");
 
   // variables: {{site.x.y}} and {{page.x}}
   out = out.replace(/\{\{(site|page)\.([\w.]+)\}\}/g, (m, scope, key) => {
@@ -375,11 +405,14 @@ function render(template, ctx, depth = 0) {
   return out;
 }
 
-function buildPage(file) {
+function buildPage(file, outDir, variant) {
   const raw = read(path.join(PAGES, file));
   const { data, body } = parseFrontMatter(raw);
   const slug = file.replace(/\.html$/, "");
   if (data.module && !moduleOn(data.module)) return null; // page belongs to a module that is switched off
+  // Titles and descriptions may use {{site.x}} and {{#if …}} so they follow the modules too.
+  const lite = { page: {}, navHtml: "", footerHtml: "", heroImage: null };
+  for (const k of ["title", "description"]) if (data[k] && data[k].includes("{{")) data[k] = render(data[k], lite);
   const page = {
     slug,
     url: slug === "index" ? "./" : `${slug}.html`,
@@ -401,6 +434,8 @@ function buildPage(file) {
     navHtml: renderNav(page.nav),
     footerHtml: renderFooterColumns(),
     heroImage: null,
+    variantSwitch: renderVariantSwitch(slug, variant),
+    variantBadge: variant.path ? `<span class="theme-switch__variant">${escapeHtml(variant.short || variant.label)}</span>` : "",
   };
 
   // Render the page body first (so its partials/icons resolve and the hero photo is known), then slot it into the layout.
@@ -409,7 +444,7 @@ function buildPage(file) {
   const layout = read(LAYOUT);
   const html = render(layout.replace("{{content}}", () => content), ctx);
 
-  const outFile = path.join(DIST, file);
+  const outFile = path.join(outDir, file);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
   return outFile;
@@ -424,43 +459,65 @@ function build() {
   // Static assets. The stylesheet parts and the script are not copied as-is: they are concatenated / minified below.
   const partsDir = path.join(ASSETS, "css", "parts");
   const siteJs = path.join(ASSETS, "js", "site.js");
-  if (fs.existsSync(ASSETS)) copyDir(ASSETS, path.join(DIST, "assets"), (p) => p === partsDir || p === siteJs);
 
   // Stylesheet: ordered parts (src/assets/css/parts/*.css) -> one minified file. The file name carries a content hash
   // (site.<hash>.css) so browsers and the CDN can cache it forever and still pick up every new build immediately.
   const hash = (s) => require("crypto").createHash("sha1").update(s).digest("hex").slice(0, 10);
+  let css = null;
+  let js = null;
   if (fs.existsSync(partsDir)) {
-    const css = minifyCss(fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n"));
-    fs.mkdirSync(path.join(DIST, "assets", "css"), { recursive: true });
+    css = minifyCss(fs.readdirSync(partsDir).filter((f) => f.endsWith(".css")).sort().map((f) => read(path.join(partsDir, f))).join("\n"));
     ASSET_URLS.css = `assets/css/site.${hash(css)}.css`;
-    fs.writeFileSync(path.join(DIST, ASSET_URLS.css), css);
   }
   if (fs.existsSync(siteJs)) {
-    const js = minifyJs(read(siteJs));
-    fs.mkdirSync(path.join(DIST, "assets", "js"), { recursive: true });
+    js = minifyJs(read(siteJs));
     ASSET_URLS.js = `assets/js/site.${hash(js)}.js`;
-    fs.writeFileSync(path.join(DIST, ASSET_URLS.js), js);
   }
 
   const allPages = fs.readdirSync(PAGES).filter((f) => f.endsWith(".html")).sort();
-  const built = allPages.map((file) => ({ file, out: buildPage(file) })).filter((b) => b.out !== null);
-  const pages = built.map((b) => b.file);
   const noindex = allPages.filter((f) => /^noindex:\s*true/m.test(read(path.join(PAGES, f))));
-  const skipped = allPages.filter((f) => !pages.includes(f));
+  const log = [];
 
-  // Simple sitemap so the deployed site has one.
-  const urls = pages
-    .map((f) => f.replace(/\.html$/, ""))
-    .filter((s) => s !== "404" && !noindex.includes(s + ".html"))
-    .map((s) => `  <url><loc>${site.url}/${s === "index" ? "" : s}</loc></url>`)
-    .join("\n");
-  fs.writeFileSync(
-    path.join(DIST, "sitemap.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
-  );
-  fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
+  // The root build, then one complete build per variant (same assets, its own module set) in dist/<path>/.
+  for (const variant of variantList()) {
+    site = variant.key ? SITE.make(variant.modules) : SITE;
+    MODULES = site.modules || {};
+    const outDir = variant.path ? path.join(DIST, variant.path) : DIST;
+    const baseUrl = variant.path ? `${site.url}/${variant.path}` : site.url;
+    fs.mkdirSync(outDir, { recursive: true });
 
-  console.log(`built ${pages.length} pages -> dist/ in ${Date.now() - started}ms${skipped.length ? ` (modules off, skipped: ${skipped.join(", ")})` : ""}`);
+    if (fs.existsSync(ASSETS)) copyDir(ASSETS, path.join(outDir, "assets"), (p) => p === partsDir || p === siteJs);
+    if (css !== null) {
+      fs.mkdirSync(path.join(outDir, "assets", "css"), { recursive: true });
+      fs.writeFileSync(path.join(outDir, ASSET_URLS.css), css);
+    }
+    if (js !== null) {
+      fs.mkdirSync(path.join(outDir, "assets", "js"), { recursive: true });
+      fs.writeFileSync(path.join(outDir, ASSET_URLS.js), js);
+    }
+
+    const built = allPages.map((file) => ({ file, out: buildPage(file, outDir, variant) })).filter((b) => b.out !== null);
+    const pages = built.map((b) => b.file);
+    const skipped = allPages.filter((f) => !pages.includes(f));
+
+    // Simple sitemap so the deployed site has one (one per build; robots.txt only at the root).
+    const urls = pages
+      .map((f) => f.replace(/\.html$/, ""))
+      .filter((s) => s !== "404" && !noindex.includes(s + ".html"))
+      .map((s) => `  <url><loc>${baseUrl}/${s === "index" ? "" : s}</loc></url>`)
+      .join("\n");
+    fs.writeFileSync(
+      path.join(outDir, "sitemap.xml"),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+    );
+    if (!variant.path) fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
+
+    log.push(`${variant.path ? variant.path + "/" : "root"}: ${pages.length} pages${skipped.length ? ` (modules off, skipped: ${skipped.join(", ")})` : ""}`);
+  }
+  site = SITE;
+  MODULES = SITE.modules || {};
+
+  console.log(`built ${log.join("; ")} -> dist/ in ${Date.now() - started}ms`);
 }
 
 // ---------------------------------------------------------------------------

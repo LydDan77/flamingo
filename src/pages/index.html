@@ -1,19 +1,17 @@
 ---
-title: Regenerative Medicine, Peptides & Longevity Care
-description: In-home regenerative therapy and nationwide telehealth for longevity care. One physician-led medical team, one patient record, one plan.
 nav: home
 ---
 <!-- ============================================================ HERO -->
 <section class="hero hero--image hero--home" data-pin="1" data-pin-label="Branded landing page &amp; consult funnel" data-pin-target="stack">
   <div class="hero__bg" aria-hidden="true" data-parallax="0.12">
-    {{img:np-patient-consult|class=hero__img|dark=kettlebell-bw|warm=seniors-autumn-hike|bright=jogging-morning|elite=dna-gold|eager|sizes=100vw|pos=center 40%|pos-dark=center 60%|pos-bright=center 30%|pos-warm=center 35%|atelier=atelier-portrait-man|obsidian=obsidian-athlete-silhouette|sanctuary=sanctuary-woman-stretching|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 18%|pos-obsidian=center 45%|pos-sanctuary=center 35%|pos-monolith=center 22%|pos-aurora=center 40%}}
+    {{img:np-patient-consult|class=hero__img|dark=kettlebell-bw|warm=seniors-autumn-hike|bright=jogging-morning|elite=dna-gold|eager|sizes=100vw|pos=center 40%|pos-dark=center 60%|pos-bright=center 30%|pos-warm=center 35%|atelier=atelier-portrait-man|obsidian=obsidian-athlete-silhouette|sanctuary=sanctuary-woman-stretching|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 18%|pos-obsidian=center 45%|pos-sanctuary=center 35%|pos-monolith=center 22%|pos-aurora=center 40%|blush=atelier-portrait-woman|pos-blush=center 12%}}
     <div class="hero__scrim"></div>
     <div class="hero__aside"><span class="card__icon">{{icon:shield-check}}</span><div><b>Physician-led care</b><span>In your home, or by telehealth</span></div></div>
   </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <p class="hero__kicker">Regenerative Medicine · Telehealth · Longevity</p>
-      <h1>Regenerative care and <em class="hl">longevity medicine</em>, on your terms</h1>
+      <h1>{{#if any:hormones,peptides,nad}}Regenerative care and <em class="hl">longevity medicine</em>, on your terms{{/if}}{{#unless any:hormones,peptides,nad}}Regenerative care, <em class="hl">in your home</em>, on your terms{{/unless}}</h1>
       <p class="lead">Regenerative therapy delivered in your home. {{site.telehealthSentence}} One physician-led medical team, one patient record, one plan built around your labs.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
@@ -21,7 +19,7 @@ nav: home
       </div>
       <ul class="hero__meta">
         <li><b>In-home</b> regenerative therapy</li>
-        <li><b>Telehealth</b> {{site.programsPhraseShort}}</li>
+        {{#if any:hormones,peptides,nad}}<li><b>Telehealth</b> {{site.programsPhraseShort}}</li>{{/if}}{{#unless any:hormones,peptides,nad}}<li><b>NP-delivered</b>, physician-overseen</li>{{/unless}}
         <li><b>Lab-guided</b> protocols</li>
       </ul>
     </div>
@@ -29,7 +27,7 @@ nav: home
 </section>
 <div class="ticker" aria-hidden="true">
   <div class="ticker__inner">
-    <div class="ticker__track"><span>Joint pain</span><span>Sports injury</span><span>Osteoarthritis</span>{{#if module:hormones}}<span>Hormone optimization</span>{{/if}}{{#if module:peptides}}<span>GLP-1 weight programs</span><span>Peptide therapy</span>{{/if}}<span>NAD+ &amp; longevity</span><span>Recovery</span><span>Energy &amp; sleep</span><span>In-home care</span><span>Telehealth</span></div>
+    <div class="ticker__track"><span>Joint pain</span><span>Sports injury</span><span>Osteoarthritis</span>{{#if module:hormones}}<span>Hormone optimization</span>{{/if}}{{#if module:peptides}}<span>GLP-1 weight programs</span><span>Peptide therapy</span>{{/if}}{{#if module:nad}}<span>NAD+ &amp; longevity</span>{{/if}}{{#unless any:hormones,peptides,nad}}<span>Exosome therapy</span><span>Wharton's Jelly</span>{{/unless}}<span>Recovery</span>{{#if module:nad}}<span>Energy &amp; sleep</span>{{/if}}<span>In-home care</span><span>Telehealth</span></div>
   </div>
 </div>
 
@@ -43,8 +41,8 @@ nav: home
     <div class="pillars">
       <article class="pillar reveal">
         <div class="pillar__media">
-          {{img:physio-knee|dark=athlete-knee|warm=senior-golf|bright=athlete-yellow|elite=joint-glow|alt=Clinician treating a patient's knee|sizes=(max-width: 899px) 100vw, 45vw}}
-          <div class="pillar__counter"><b>01</b><small>of 0{{site.pillarCount}}</small></div>
+          {{img:physio-knee|dark=athlete-knee|warm=senior-golf|bright=athlete-yellow|elite=joint-glow|blush=therapist-shoulder|alt=Clinician treating a patient's knee|sizes=(max-width: 899px) 100vw, 45vw}}
+          <div class="pillar__counter"><b>01</b><small>of 03</small></div>
           <div class="pillar__chips"><span>Knee</span><span>Hip</span><span>Shoulder</span><span>Back</span><span>Elbow</span><span>Neck</span><span>Ankle</span><span>Wrist</span></div>
         </div>
         <div>
@@ -65,8 +63,8 @@ nav: home
       {{#if any:hormones,peptides}}
       <article class="pillar pillar--reverse reveal">
         <div class="pillar__media">
-          {{img:telehealth-tablet-hand|dark=kettlebell-bw|warm=tablet-coffee-plant|elite=laptop-stethoscope|alt=Telehealth consultation on a tablet|sizes=(max-width: 899px) 100vw, 45vw|atelier=atelier-hands-cup|obsidian=obsidian-executive-window|sanctuary=sanctuary-spa-arch|monolith=monolith-cyclist-road|aurora=aurora-woman-laughing}}
-          <div class="pillar__counter"><b>02</b><small>of 0{{site.pillarCount}}</small></div>
+          {{img:telehealth-tablet-hand|dark=kettlebell-bw|warm=tablet-coffee-plant|elite=laptop-stethoscope|alt=Telehealth consultation on a tablet|sizes=(max-width: 899px) 100vw, 45vw|atelier=atelier-hands-cup|obsidian=obsidian-executive-window|sanctuary=sanctuary-spa-arch|monolith=monolith-cyclist-road|aurora=aurora-woman-laughing|blush=atelier-hands-cup}}
+          <div class="pillar__counter"><b>02</b><small>of 03</small></div>
           <div class="pillar__chips"><span>Energy</span><span>Sleep</span><span>Libido</span><span>Strength</span><span>Cognitive</span></div>
         </div>
         <div>
@@ -84,11 +82,34 @@ nav: home
         </div>
       </article>
       {{/if}}
+      {{#unless any:hormones,peptides}}
+      <article class="pillar pillar--reverse reveal">
+        <div class="pillar__media">
+          {{img:cells-blue|light=cells-blue-white|warm=cells-violet-white|dark=cells-wireframe|bright=dna-violet|elite=cells-macro|alt=Exosomes and cell signaling illustration|sizes=(max-width: 899px) 100vw, 45vw|atelier=atelier-plaster-wall|obsidian=obsidian-glass-abstract|sanctuary=sanctuary-eucalyptus-shadow|monolith=monolith-concrete-architecture|aurora=aurora-friends-sunrise|blush=cells-violet-white}}
+          <div class="pillar__counter"><b>02</b><small>of 03</small></div>
+          <div class="pillar__chips"><span>Signaling</span><span>Soft tissue</span><span>Recovery</span><span>Resilience</span></div>
+        </div>
+        <div>
+          <p class="pillar__kicker">Exosome Therapy · Cellular Signaling</p>
+          <h3>Recovery that starts at the <em class="hl">cellular</em> level</h3>
+          <p class="pillar__body">Exosomes are the signaling vesicles cells use to coordinate repair. On their own or paired with Wharton's Jelly-derived cells, they may support the body's own recovery processes, delivered in your home by the same licensed team.</p>
+          <ul class="dot-list">
+            <li>Soft-tissue recovery and post-injury support</li>
+            <li>Protocols for recovery, resilience, and healthy aging</li>
+            <li>Combined with stem cell therapy in a single visit</li>
+            <li>Lab-guided, physician-overseen, one patient record</li>
+          </ul>
+          <p class="pillar__note">Exosome therapy is investigational for most applications. Candidacy is assessed case by case, and we say so up front.</p>
+          <a class="btn btn--brand" href="why-exosomes.html">Get Started {{icon:arrow-up-right}}</a>
+        </div>
+      </article>
+      {{/unless}}
 
+      {{#if module:nad}}
       <article class="pillar reveal">
         <div class="pillar__media">
-          {{img:dna-blue|dark=cells-wireframe|warm=seniors-gardening|bright=dna-violet|elite=dna-gold|alt=DNA helix illustration|sizes=(max-width: 899px) 100vw, 45vw}}
-          <div class="pillar__counter"><b>{{#if any:hormones,peptides}}03{{/if}}{{#unless any:hormones,peptides}}02{{/unless}}</b><small>of 0{{site.pillarCount}}</small></div>
+          {{img:dna-blue|dark=cells-wireframe|warm=seniors-gardening|bright=dna-violet|elite=dna-gold|blush=aurora-woman-laughing|alt=DNA helix illustration|sizes=(max-width: 899px) 100vw, 45vw}}
+          <div class="pillar__counter"><b>03</b><small>of 03</small></div>
           <div class="pillar__chips"><span>Cellular energy</span><span>Cognitive</span><span>Recovery</span><span>Resilience</span></div>
         </div>
         <div>
@@ -105,6 +126,29 @@ nav: home
           <a class="btn btn--brand" href="nad.html">Get Started {{icon:arrow-up-right}}</a>
         </div>
       </article>
+      {{/if}}
+      {{#unless module:nad}}
+      <article class="pillar reveal">
+        <div class="pillar__media">
+          {{img:clinician-home-visit|dark=consult-athlete-imaging|warm=reassuring-hand|bright=jogging-morning|elite=spa-towel-dark|alt=Clinician visiting a patient at home|sizes=(max-width: 899px) 100vw, 45vw|atelier=atelier-hands-cup|obsidian=obsidian-executive-window|sanctuary=sanctuary-spa-arch|monolith=monolith-concrete-architecture|aurora=aurora-woman-laughing|blush=aurora-woman-laughing}}
+          <div class="pillar__counter"><b>03</b><small>of 03</small></div>
+          <div class="pillar__chips"><span>Video consult</span><span>Home visit</span><span>One record</span><span>Follow-up</span></div>
+        </div>
+        <div>
+          <p class="pillar__kicker">Concierge Care Model · In Your Home</p>
+          <h3>One medical team, in your <em class="hl">living room</em></h3>
+          <p class="pillar__body">A licensed nurse practitioner delivers your protocol at home, a named physician oversees it, and everything lives in one patient record. No clinic queues, no fragmented care, no chasing results between offices.</p>
+          <ul class="dot-list">
+            <li>Consultation by video, treatment at home</li>
+            <li>Physician oversight on every protocol</li>
+            <li>One patient record, one coordinated plan</li>
+            <li>Ongoing check-ins with the same team</li>
+          </ul>
+          <p class="pillar__note">Service areas and visit availability vary by state and are confirmed on your consultation. <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>
+          <a class="btn btn--brand" href="concierge-care-model.html">Get Started {{icon:arrow-up-right}}</a>
+        </div>
+      </article>
+      {{/unless}}
     </div>
   </div>
 </section>
@@ -135,7 +179,7 @@ nav: home
         <button class="tile" role="tab" data-num="(03)" data-tint="3" data-icon="orbit" data-image="cells-blue" data-title="Exosome Therapy" data-href="why-exosomes.html" data-text="Cell-derived signaling vesicles that may amplify repair signals and support recovery at the cellular level."><span class="tile__icon">{{icon:orbit}}</span><span><span class="tile__num">03</span><span class="tile__label">Exosome Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
         {{#if module:hormones}}<button class="tile" role="tab" data-num="({{site.num.hormones}})" data-tint="4" data-icon="flask" data-image="laptop-stethoscope" data-title="Hormone Optimization" data-href="hormones.html" data-text="Testosterone and bioidentical hormone therapy tailored to your labs. Prescribed online, shipped to your door."><span class="tile__icon">{{icon:flask}}</span><span><span class="tile__num">{{site.num.hormones}}</span><span class="tile__label">Hormone Optimization</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>{{/if}}
         {{#if module:peptides}}<button class="tile" role="tab" data-num="({{site.num.peptides}})" data-tint="5" data-icon="zap" data-image="telehealth-tablet-hand" data-title="Peptide Therapy" data-href="peptides.html" data-text="Goal-based peptide programs for recovery, weight, sleep, and longevity, prescribed by a licensed clinician."><span class="tile__icon">{{icon:zap}}</span><span><span class="tile__num">{{site.num.peptides}}</span><span class="tile__label">Peptide Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>{{/if}}
-        <button class="tile" role="tab" data-num="({{site.num.nad}})" data-tint="6" data-icon="sparkles" data-image="dna-blue" data-title="NAD+ Therapy" data-href="nad.html" data-text="Cellular energy and longevity protocols built around NAD+, supervised by your clinician."><span class="tile__icon">{{icon:sparkles}}</span><span><span class="tile__num">{{site.num.nad}}</span><span class="tile__label">NAD+ Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>
+        {{#if module:nad}}<button class="tile" role="tab" data-num="({{site.num.nad}})" data-tint="6" data-icon="sparkles" data-image="dna-blue" data-title="NAD+ Therapy" data-href="nad.html" data-text="Cellular energy and longevity protocols built around NAD+, supervised by your clinician."><span class="tile__icon">{{icon:sparkles}}</span><span><span class="tile__num">{{site.num.nad}}</span><span class="tile__label">NAD+ Therapy</span></span><span class="tile__arrow">{{icon:arrow-up-right}}</span></button>{{/if}}
       </div>
     </div>
   </div>
@@ -147,7 +191,7 @@ nav: home
     <div class="section-head reveal">
       <span class="eyebrow">Coordinated Care</span>
       <h2>One medical team that holds the whole picture</h2>
-      <p class="lead">{{#if any:hormones,peptides}}A GLP-1 program shouldn't live in a silo. Our clinicians coordinate it with peptide protocols, hormone optimization, NAD+ programs, and regenerative therapy, so each plan plugs into your bigger longevity strategy instead of competing with it.{{/if}}{{#unless any:hormones,peptides}}A longevity protocol shouldn't live in a silo. Our clinicians coordinate NAD+ programs with your regenerative therapy, so each plan plugs into one bigger strategy instead of competing with it.{{/unless}}</p>
+      <p class="lead">{{#if any:hormones,peptides}}A GLP-1 program shouldn't live in a silo. Our clinicians coordinate it with peptide protocols, hormone optimization, NAD+ programs, and regenerative therapy, so each plan plugs into your bigger longevity strategy instead of competing with it.{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}A longevity protocol shouldn't live in a silo. Our clinicians coordinate NAD+ programs with your regenerative therapy, so each plan plugs into one bigger strategy instead of competing with it.{{/if}}{{#unless module:nad}}Regenerative care shouldn't live in a silo. Our clinicians coordinate stem cell, Wharton's Jelly and exosome protocols under one record, so every visit plugs into one plan instead of competing with it.{{/unless}}{{/unless}}</p>
     </div>
     <div class="grid grid--3 reveal--stagger reveal">
       <a class="treat-card" href="stem-cell-therapy.html">
@@ -155,11 +199,11 @@ nav: home
         <div class="treat-card__stage">{{> art-orbit}}</div>
       </a>
       <a class="treat-card" href="{{site.href.telehealth}}">
-        <div class="treat-card__top">{{#if any:hormones,peptides}}<h3>Hormones and peptides, prescribed online.</h3><p>Hormone optimization and clinician-led peptide protocols by goal. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless any:hormones,peptides}}<h3>NAD+ and longevity, prescribed online.</h3><p>Clinician-led NAD+ and supplement protocols built around your labs. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/unless}}</div>
-        <div class="treat-card__stage">{{#if any:hormones,peptides}}{{img:vial-semaglutide|product|alt=Injection vial}}{{/if}}{{#unless any:hormones,peptides}}{{img:vial-nad|product|alt=NAD+ injection vial}}{{/unless}}</div>
+        <div class="treat-card__top">{{#if any:hormones,peptides}}<h3>Hormones and peptides, prescribed online.</h3><p>Hormone optimization and clinician-led peptide protocols by goal. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}<h3>NAD+ and longevity, prescribed online.</h3><p>Clinician-led NAD+ and supplement protocols built around your labs. Prescribed through telehealth, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless module:nad}}<h3>Exosomes, the signaling layer.</h3><p>Cell-derived vesicles that may amplify the repair signals your tissue already sends. Offered on their own or alongside stem cell therapy, in the same home visit.</p>{{/unless}}{{/unless}}</div>
+        <div class="treat-card__stage">{{#if any:hormones,peptides}}{{img:vial-semaglutide|product|alt=Injection vial}}{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}{{img:vial-nad|product|alt=NAD+ injection vial}}{{/if}}{{#unless module:nad}}{{> art-cells}}{{/unless}}{{/unless}}</div>
       </a>
       <a class="treat-card" href="concierge-care-model.html">
-        <div class="treat-card__top"><h3>One medical team. One patient record. One plan.</h3><p>Every service coordinated across in-home regenerative care and virtual longevity programs, under one physician-led team.</p></div>
+        <div class="treat-card__top"><h3>One medical team. One patient record. One plan.</h3><p>{{#if any:hormones,peptides,nad}}Every service coordinated across in-home regenerative care and virtual longevity programs, under one physician-led team.{{/if}}{{#unless any:hormones,peptides,nad}}Every visit, every lab and every follow-up coordinated under one physician-led team, in one patient record.{{/unless}}</p></div>
         <div class="treat-card__stage"><div class="media"><div class="media__frame">{{img:laptop-stethoscope|alt=Telehealth setup with laptop and stethoscope|sizes=(max-width: 1023px) 50vw, 30vw}}</div></div></div>
       </a>
     </div>
@@ -181,7 +225,7 @@ nav: home
       <div class="step"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">01</span><h3>Book a free consultation</h3><p>Tell us your goals, symptoms, and state. We route you to the right program and the right clinician on our team.</p></div>
       <div class="step"><span class="step__icon">{{icon:stethoscope}}</span><span class="step__num">02</span><h3>Meet your medical team</h3><p>Connect with a licensed clinician via telehealth. Labs are ordered if needed.</p></div>
       <div class="step"><span class="step__icon">{{icon:clipboard-list}}</span><span class="step__num">03</span><h3>Get a personalized plan</h3><p>Your provider builds a dosing protocol around your labs and goals, not a template.</p></div>
-      <div class="step"><span class="step__icon">{{icon:package-check}}</span><span class="step__num">04</span><h3>Therapy delivered</h3><p>In-home visits or shipped prescriptions, with ongoing check-ins and dosing adjustments.</p></div>
+      <div class="step"><span class="step__icon">{{icon:package-check}}</span><span class="step__num">04</span><h3>Therapy delivered</h3><p>{{#if any:hormones,peptides,nad}}In-home visits or shipped prescriptions, with ongoing check-ins and dosing adjustments.{{/if}}{{#unless any:hormones,peptides,nad}}In-home visits by a licensed nurse practitioner, with ongoing check-ins and follow-up from the same team.{{/unless}}</p></div>
     </div>
     <div class="actions actions--center mt-12 reveal">
       <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
@@ -205,8 +249,8 @@ nav: home
         <span class="card__icon card__icon--grad">{{icon:activity}}</span>
         <span class="eyebrow">Performance Mindset</span>
         <h3>You're optimizing, not catching up.</h3>
-        <p>{{#if any:hormones,peptides}}Peptides, NAD+, and hormone support{{/if}}{{#unless any:hormones,peptides}}NAD+ and longevity protocols{{/unless}} for professionals and athletes chasing energy, body composition, recovery, and cognitive edge.</p>
-        <div class="card__foot"><span>{{#if any:hormones,peptides}}Peptides &amp; NAD+{{/if}}{{#unless any:hormones,peptides}}NAD+ &amp; Longevity{{/unless}}</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
+        <p>{{#if any:hormones,peptides}}Peptides, NAD+, and hormone support for professionals and athletes chasing energy, body composition, recovery, and cognitive edge.{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}NAD+ and longevity protocols for professionals and athletes chasing energy, body composition, recovery, and cognitive edge.{{/if}}{{#unless module:nad}}Regenerative and exosome protocols for professionals and athletes chasing recovery, mobility, and the ability to keep training.{{/unless}}{{/unless}}</p>
+        <div class="card__foot"><span>{{#if any:hormones,peptides}}Peptides &amp; NAD+{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}NAD+ &amp; Longevity{{/if}}{{#unless module:nad}}Regenerative Therapy{{/unless}}{{/unless}}</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
       <a class="card card--hover persona-card" href="stem-cell-therapy.html">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-heart-pulse"></use></svg>
@@ -229,8 +273,8 @@ nav: home
         <span class="card__icon card__icon--grad">{{icon:gauge}}</span>
         <span class="eyebrow">Optimizing After 40</span>
         <h3>Your labs look different than they used to. So does the mirror.</h3>
-        <p>{{#if module:hormones}}Hormone optimization for men and women, with{{/if}}{{#unless module:hormones}}Clinician-led longevity planning for men and women, with{{/unless}} coordinated care built around real labs, not guesses.</p>
-        <div class="card__foot"><span>{{#if module:hormones}}Hormone Optimization{{/if}}{{#unless module:hormones}}Longevity Planning{{/unless}}</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
+        <p>{{#if module:hormones}}Hormone optimization for men and women, with{{/if}}{{#unless module:hormones}}{{#if module:nad}}Clinician-led longevity planning{{/if}}{{#unless module:nad}}Physician-led regenerative planning{{/unless}} for men and women, with{{/unless}} coordinated care built around real labs, not guesses.</p>
+        <div class="card__foot"><span>{{#if module:hormones}}Hormone Optimization{{/if}}{{#unless module:hormones}}{{#if module:nad}}Longevity Planning{{/if}}{{#unless module:nad}}Regenerative Planning{{/unless}}{{/unless}}</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
     </div>
   </div>
@@ -253,7 +297,7 @@ nav: home
         </div>
         <blockquote>
           <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
-          <p>A short quote from the medical director goes here: two or three sentences on why regenerative therapy and {{site.programsPhrase}} belong under one coordinated team.</p>
+          <p>A short quote from the medical director goes here: two or three sentences on why {{site.quoteScope}} belong under one coordinated team.</p>
           <cite>[Name] · Medical Director</cite>
         </blockquote>
       </article>
@@ -321,7 +365,7 @@ nav: home
     </div>
     <div class="grid grid--3 reveal reveal--stagger">
       <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Regenerative Therapy patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
-      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:hormones}}Hormone Therapy{{/if}}{{#unless module:hormones}}NAD+ Therapy{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
+      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:hormones}}Hormone Therapy{{/if}}{{#unless module:hormones}}{{#if module:nad}}NAD+ Therapy{{/if}}{{#unless module:nad}}Exosome Therapy{{/unless}}{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
       <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:peptides}}Peptide Therapy{{/if}}{{#unless module:peptides}}Concierge Care{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
     </div>
     <div class="mt-10 reveal"><a class="link-arrow" href="testimonials.html">See the testimonials page {{icon:arrow-right}}</a></div>
@@ -336,7 +380,7 @@ nav: home
         <span class="eyebrow">Why Us</span>
         <h2 class="mt-4">Why choose <em class="hl">{{site.name}}</em></h2>
         <p class="lead mt-6">Expertise and rigor in regenerative medicine, delivered in a patient-centered way under one physician-led medical team.</p>
-        <div class="media media--4x3 mt-8"><div class="media__frame">{{img:clinic-lounge|dark=consult-athlete-imaging|warm=reassuring-hand|elite=spa-towel-dark|bright=jump-yellow|alt=Clinician with a patient|sizes=(max-width: 899px) 100vw, 33vw|atelier=atelier-plaster-wall|obsidian=obsidian-executive-window|sanctuary=sanctuary-spa-arch|monolith=monolith-concrete-architecture|aurora=aurora-friends-sunrise}}</div></div>
+        <div class="media media--4x3 mt-8"><div class="media__frame">{{img:clinic-lounge|dark=consult-athlete-imaging|warm=reassuring-hand|elite=spa-towel-dark|bright=jump-yellow|alt=Clinician with a patient|sizes=(max-width: 899px) 100vw, 33vw|atelier=atelier-plaster-wall|obsidian=obsidian-executive-window|sanctuary=sanctuary-spa-arch|monolith=monolith-concrete-architecture|aurora=aurora-friends-sunrise|blush=hands-tea}}</div></div>
       </div>
       <div class="reasons reveal" data-delay="1">
         <div class="reason"><span class="reason__num">01</span><div><h3>Expertise in regenerative medicine</h3><p>A clinical team with deep experience in regenerative protocols, staying current with the research.</p></div></div>

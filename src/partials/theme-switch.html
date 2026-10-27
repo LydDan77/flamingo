@@ -3,6 +3,7 @@
     <span class="theme-switch__swatch theme-switch__swatch--dark" data-theme-swatch aria-hidden="true"></span>
     <span class="theme-switch__label">Design</span>
     <span class="theme-switch__current" data-theme-current>Dark</span>
+    {{variantBadge}}
     {{icon:chevron-down theme-switch__caret}}
   </button>
   <div class="theme-switch__menu" id="theme-switch-menu" role="group" aria-label="Design version" hidden>
@@ -18,6 +19,10 @@
     <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="sanctuary" data-theme-name="Sanctuary"><span class="theme-switch__swatch theme-switch__swatch--sanctuary" aria-hidden="true"></span><span><b>Sanctuary</b><small>Botanical calm</small></span>{{icon:check theme-switch__check}}</button>
     <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="monolith" data-theme-name="Monolith"><span class="theme-switch__swatch theme-switch__swatch--monolith" aria-hidden="true"></span><span><b>Monolith</b><small>Swiss precision</small></span>{{icon:check theme-switch__check}}</button>
     <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="aurora" data-theme-name="Aurora"><span class="theme-switch__swatch theme-switch__swatch--aurora" aria-hidden="true"></span><span><b>Aurora</b><small>Luminous</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="blush" data-theme-name="Blush"><span class="theme-switch__swatch theme-switch__swatch--blush" aria-hidden="true"></span><span><b>Blush</b><small>Soft, feminine &amp; warm</small></span>{{icon:check theme-switch__check}}</button>
+    <div class="theme-switch__divider" role="separator"></div>
+    <p class="theme-switch__heading">Programs</p>
+    {{variantSwitch}}
     <div class="theme-switch__divider" role="separator"></div>
     <p class="theme-switch__heading">For partners</p>
     <button type="button" class="theme-switch__item theme-switch__item--partner" role="switch" aria-checked="false" data-partner-toggle><span class="theme-switch__glyph">{{icon:layers}}</span><span><b>Partner view</b><small>Numbered pins and stack links on this site</small></span>{{icon:check theme-switch__check}}</button>

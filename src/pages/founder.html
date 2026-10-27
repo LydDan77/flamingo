@@ -5,7 +5,7 @@ nav: about
 ---
 <section class="hero hero--image">
   <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
-    {{img:clinician-home-visit|class=hero__img|dark=chalk-hands|warm=grandparents-picnic|elite=notebook-desk|eager|sizes=100vw|pos=center 30%|pos-warm=center 45%|pos-dark=center 50%|pos-elite=center 50%|atelier=atelier-portrait-woman|obsidian=obsidian-executive-window|sanctuary=sanctuary-couple-garden|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 25%|pos-monolith=center 22%}}
+    {{img:clinician-home-visit|class=hero__img|dark=chalk-hands|warm=grandparents-picnic|elite=notebook-desk|eager|sizes=100vw|pos=center 30%|pos-warm=center 45%|pos-dark=center 50%|pos-elite=center 50%|atelier=atelier-portrait-woman|obsidian=obsidian-executive-window|sanctuary=sanctuary-couple-garden|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 25%|pos-monolith=center 22%|blush=reassuring-hand|pos-blush=center 45%}}
     <div class="hero__scrim"></div>
     <div class="hero__aside"><span class="card__icon">{{icon:user-round}}</span><div><b>[Founder Name]</b><span>Founder, {{site.name}}</span></div></div>
   </div>
@@ -61,7 +61,7 @@ nav: about
       <div class="timeline reveal" data-delay="1">
         <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>The first patients</h3><p>How the founder began connecting patients with regenerative care, and what they learned in the first year.</p></div>
         <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>A physician-led team</h3><p>When clinical oversight, protocols, and a nurse practitioner network came together.</p></div>
-        <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>Telehealth joins in-home care</h3><p>Longevity programs added under the same chart as regenerative therapy.</p></div>
+        {{#if any:hormones,peptides,nad}}<div class="timeline__item"><span class="timeline__when">YYYY</span><h3>Telehealth joins in-home care</h3><p>Longevity programs added under the same chart as regenerative therapy.</p></div>{{/if}}
         <div class="timeline__item"><span class="timeline__when">Today</span><h3>One team, one plan</h3><p>Where the practice is now, and what it's building next.</p></div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 # Flamingo
 
-A white-label website for a concierge regenerative medicine and longevity practice, built as a plain static site with **five switchable design versions**. Brand details, team members, testimonials, pricing, and legal copy are **placeholders** until the client provides them. Photography is licensed stock supplied by the client, processed into responsive WebP.
+A white-label website for a concierge regenerative medicine and longevity practice, built as a plain static site with **eleven switchable design versions** in two collections, each also available as a **regenerative-only** build with no NAD+ or peptide programs (see **Programs**). Brand details, team members, testimonials, pricing, and legal copy are **placeholders** until the client provides them. Photography is licensed stock supplied by the client, processed into responsive WebP.
 
 | Version | Look | Fonts |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ Switch versions with the floating **Design** control (bottom right; a compact me
 
 Home · Services · Stem Cell Therapy · Wharton's Jelly · Why Exosomes · Concierge Care Model · NAD+ · For Providers · About · Founder · Why We're Different · Testimonials · Contact · Financing · Privacy · Terms · Disclaimer · 404
 
-Optional (hidden by default): Hormones · Peptides. See **Optional modules** below.
+Optional: NAD+ (on by default) · Hormones · Peptides (hidden by default). See **Optional modules** and **Programs** below.
 
 ## Run it locally
 
@@ -27,20 +27,25 @@ node build.js            # builds src/ into dist/ (CSS and JS minified)
 node build.js --serve    # builds, watches for changes, serves at http://localhost:3000
 ```
 
-## Optional modules (Hormones, Peptides)
+## Optional modules (NAD+, Hormones, Peptides)
 
-The hormone and peptide pages are fully built but switched off. To publish one, open `site.config.js` and flip the flag:
+The NAD+, hormone and peptide programs are each a module. NAD+ is on by default; hormones and peptides are fully built but switched off. To change one, open `site.config.js` and flip the flag:
 
 ```js
-const modules = {
+const DEFAULT_MODULES = {
   hormones: false, // → true publishes hormones.html
   peptides: false, // → true publishes peptides.html
+  nad: true, // → false removes nad.html and every NAD+ mention
 };
 ```
 
 Rebuild, and everything appears at once: the page itself, its navigation and footer links, the service cards and tiles on Home and Services, the contact form options, the financing coverage list, the sitemap entry, and every sentence that lists the programs. While a module is off, none of that exists in the built site, so nothing points at a missing page.
 
-Under the hood: pages carry `module: hormones` in their front matter, nav and footer links carry `module: "..."`, and templates wrap optional content in `{{#if module:peptides}} … {{/if}}`, `{{#unless module:hormones}} … {{/unless}}` or `{{#if any:hormones,peptides}} … {{/if}}`. Shared copy fragments such as `{{site.programsPhrase}}` change wording automatically.
+Under the hood: pages carry `module: hormones` in their front matter, nav and footer links carry `module: "..."`, and templates wrap optional content in `{{#if module:peptides}} … {{/if}}`, `{{#unless module:hormones}} … {{/unless}}` or `{{#if any:hormones,peptides}} … {{/if}}`. Shared copy fragments such as `{{site.programsPhrase}}` change wording automatically, with three states: prescription programs on, NAD+ only, or regenerative care alone (the home page then leads with in-home care, the third pillar becomes the concierge model, and the exosome pillar takes the place of hormones and peptides). Page titles and descriptions may use the same tags.
+
+## Programs: the regenerative-only build
+
+Every build produces the site twice: the root (`dist/`, the default modules) and `dist/regen/`, a complete copy of all eleven design versions with `hormones`, `peptides` and `nad` all off, so no NAD+ or peptide program exists anywhere on it. Live it is the same site under `/regen/` (for example `/regen/services?theme=blush`). The design switcher has a **Programs** group that flips between the two on the current page, and the switcher shows a `Regenerative only` tag while the regen build is open. Variants are declared in `site.config.js` under `variants` (path, label, modules); `vercel.json` redirects `/regen` to `/regen/` so relative links inside the copy resolve correctly.
 
 ## Partner overview and partner view
 
@@ -138,13 +143,13 @@ Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 fo
 
 ## Deploy
 
-`vercel.json` tells Vercel to run `node build.js` and serve `dist/`. Every push to `main` deploys automatically once the repo is linked to a Vercel project. Update `url` in `site.config.js` when the client's domain is attached so the sitemap and robots file point at it.
+`vercel.json` tells Vercel to run `node build.js` and serve `dist/`. Every push to `main` deploys automatically once the repo is linked to a Vercel project. Update `url` in `site.config.js` when the client's domain is attached so the sitemap and robots file point at it. The regenerative-only build ships inside the same deployment under `/regen/` with its own sitemap.
 
 ## Collections
 
 **Collection One** (Dark, Light, Warm, Bright, Elite) is locked at tag `v1.0-collection-one`; see `docs/COLLECTION-ONE-LOCK.md` for what that covers, the frozen preview URL and how Round 2 plugs in without touching it. `node tools/check-lock.js` verifies the locked files.
 
-**Collection Two** (brief in `docs/ROUND-2-BRIEF.md`) adds five versions with a different look and feel, each in its own part (`src/assets/css/parts/40-44-theme-*.css`), grouped under its own heading in the design switcher:
+**Collection Two** (brief in `docs/ROUND-2-BRIEF.md`) adds six versions with a different look and feel, each in its own part (`src/assets/css/parts/40-45-theme-*.css`), grouped under its own heading in the design switcher:
 
 | Version | Feel | Type |
 | --- | --- | --- |
@@ -153,6 +158,7 @@ Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 fo
 | Sanctuary | Botanical calm: sage, moss, stone and clay, arch-shaped imagery, grain, pictures that fade into the page, leaf line art | Gambetta + Switzer + Geist Mono |
 | Monolith | Swiss precision: black with white sections cutting in, one signal red, expanded uppercase display, black-and-white photography, hover states that invert | Archivo + Inter Tight + Geist Mono |
 | Aurora | Luminous: pearl over a drifting lavender, mint, peach and sky mesh, frosted panels, iridescent borders on hover | Plus Jakarta Sans + Instrument Serif + Geist Mono |
+| Blush | Soft, feminine and warm, after the Manon Mathews campaign page: warm white and blush with one rose accent, a slow rose aura turning behind the hero photo, blush blobs that breathe behind alternate sections, gradient hairlines that flow around cards, pill buttons, numerals set in the display face | Italiana + Lato |
 
 Fontshare families (Clash Display, Satoshi, Gambetta, Switzer; ITF Free Font Licence) are self-hosted from `src/assets/fonts/` through `src/assets/css/parts/05-fonts.css`, because the Fontshare CSS API only serves one family per request. Google families still load per version from the bootstrap in `src/layout.html`.
 

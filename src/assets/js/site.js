@@ -4,9 +4,9 @@
 
   var doc = document;
   var root = doc.documentElement;
-  var THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora"];
-  var SPLIT_HERO = { light: 1, warm: 1, bright: 1, atelier: 1, sanctuary: 1, monolith: 1, aurora: 1 }; // themes whose photo hero is a half-width panel
-  var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD" };
+  var THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush"];
+  var SPLIT_HERO = { light: 1, warm: 1, bright: 1, atelier: 1, sanctuary: 1, monolith: 1, aurora: 1, blush: 1 }; // themes whose photo hero is a half-width panel
+  var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD", blush: "#FFFDFB" };
   var PHOTOS = "assets/img/photos/";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isMobile = function () { return window.innerWidth < 900; };
@@ -515,7 +515,7 @@
   //  - buttons lean toward the pointer (--mgx / --mgy) in the themes that use a magnetic feel
   //  - the custom cursor: the dot tracks the pointer, the ring eases behind it and grows over anything clickable
   if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    var MAGNET = { dark: 0.22, elite: 0.2, light: 0.14 };
+    var MAGNET = { dark: 0.22, elite: 0.2, light: 0.14, blush: 0.12 };
     var INTERACTIVE = "a, button, [role='button'], summary, label, input, select, textarea, .tile, [data-tilt]";
     var cur = doc.querySelector(".cursor");
     var dot = cur && cur.querySelector(".cursor__dot"), ring = cur && cur.querySelector(".cursor__ring");

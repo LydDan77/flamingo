@@ -1,0 +1,179 @@
+/* ===================================================== COLLECTION TWO · BLUSH
+   Soft, feminine and warm, after the Manon Mathews campaign page: warm white and blush with one rose accent, ink text.
+   Italiana display (thin, high-contrast) over Lato. A slow rose aura turns behind the hero photo, blush blobs breathe
+   behind alternate sections, gradient hairlines flow around cards, buttons are pills, numerals sit in the display face. */
+[data-theme="blush"] {
+  --font-display: "Italiana", "Didot", "Bodoni MT", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --h-weight: 400; --h-track: 0.005em; --h-lh: 1;
+  --h1-size: clamp(2.9rem, 6.2vw, 5.4rem); --h2-size: clamp(2.3rem, 4.4vw, 3.9rem);
+  --hero-split-h1: clamp(2.5rem, 4.4vw, 4.2rem);
+  --eyebrow-weight: 700; --eyebrow-track: 0.26em;
+
+  --bg: #FFFDFB; --bg-alt: #FBF1EE; --bg-deep: #151210; --bg-hero: transparent;
+  --surface: #FFFFFF; --surface-2: #F8E1DE; --surface-solid: #FFFFFF; --input-bg: #FFFFFF;
+  --text: #151210; --text-2: #6B5F5A; --text-3: #75685F;
+  --brand: #B2495E; --brand-strong: #8F3448; --brand-2: #8F3448; --brand-3: #F1CFCB; --brand-deep: #6E2537; --brand-soft: #F8E1DE; --on-brand: #FFFFFF; --eyebrow: #B2495E;
+  --line: #EADFDB; --line-strong: #DCC7C2;
+  --radius-sm: 16px; --radius: 22px; --radius-lg: 26px; --radius-xl: 32px; --radius-img: 28px; --radius-btn: 999px; --radius-chip: 999px; --card-border: 1px;
+  --shadow-sm: 0 12px 28px -20px rgba(178, 73, 94, 0.35); --shadow: 0 34px 70px -34px rgba(178, 73, 94, 0.45); --shadow-glow: 0 18px 44px -18px rgba(178, 73, 94, 0.55);
+  --btn-primary-bg: #B2495E; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #8F3448;
+  --btn-secondary-bg: #FFFFFF; --btn-secondary-fg: #151210; --btn-secondary-line: #EADFDB;
+  --btn-weight: 700; --btn-transform: none; --btn-size: 0.98rem;
+  --chip-bg: rgba(255, 255, 255, 0.8); --chip-fg: #151210; --chip-line: #EADFDB;
+  --vial-glass: rgba(21, 18, 16, 0.04); --vial-stroke: rgba(21, 18, 16, 0.35); --vial-label: #FFFFFF; --vial-text: rgba(21, 18, 16, 0.3); --vial-neck: #DCC7C2;
+  --img-filter: saturate(1.04) sepia(0.06) brightness(1.02); --img-tint: rgba(241, 207, 203, 0.14);
+  --header-bg: rgba(255, 253, 251, 0.84); --header-line: #EADFDB; --footer-bg: #151210;
+  --cta-gradient: linear-gradient(120deg, #8F3448 0%, #B2495E 55%, #D97A8C 100%); --number-gradient: linear-gradient(180deg, #B2495E, #F1CFCB);
+  --ticker-bg: #151210; --ticker-fg: #F6EFEA;
+  --cur-dot: #B2495E; --cur-border: 1.5px solid rgba(178, 73, 94, 0.55); --cur-size: 30px; --cur-size-link: 54px; --cur-fill: rgba(241, 207, 203, 0.4); --btn-gloss: rgba(255, 255, 255, 0.35);
+  --ts-bg: rgba(255, 255, 255, 0.94); --ts-fg: #151210; --ts-muted: #75685F; --ts-line: #DCC7C2; --ts-hover: #FBF1EE; --ts-active: #B2495E; --ts-shadow: 0 16px 40px -16px rgba(178, 73, 94, 0.35);
+  --fade-to: #FFFDFB;
+}
+@keyframes blush-aura { to { transform: rotate(360deg); } }
+@keyframes blush-breathe { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 0.95; transform: scale(1.08); } }
+@keyframes blush-flow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+/* page: warm white with a faint blush wash at the top, ink footer */
+[data-theme="blush"] body { background-color: #FFFDFB; background-image: linear-gradient(180deg, #FFF7F5 0%, #FFFDFB 420px); line-height: 1.6; }
+[data-theme="blush"] .section--alt { position: relative; isolation: isolate; overflow: hidden; background: #FBF1EE; }
+[data-theme="blush"] .section--alt::before, [data-theme="blush"] .section--alt::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(40px); animation: blush-breathe 7s ease-in-out infinite; }
+[data-theme="blush"] .section--alt::before { width: 60vw; height: 60vw; max-width: 760px; max-height: 760px; left: -18%; top: -30%; background: radial-gradient(closest-side, rgba(248, 225, 222, 0.95), rgba(241, 207, 203, 0.5) 50%, transparent 72%); }
+[data-theme="blush"] .section--alt::after { width: 50vw; height: 50vw; max-width: 640px; max-height: 640px; right: -14%; bottom: -26%; background: radial-gradient(closest-side, rgba(178, 73, 94, 0.14), rgba(248, 225, 222, 0.6) 48%, transparent 72%); animation-delay: -3.5s; }
+[data-theme="blush"] .section--deep { border: 0; }
+[data-theme="blush"] .lux-grid { background-image: none; }
+[data-theme="blush"] .site-header { -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2); }
+/* type: thin display face, rose for the highlighted words (Italiana has no italic, so colour does the work) */
+[data-theme="blush"] h1, [data-theme="blush"] h2 { text-wrap: balance; }
+[data-theme="blush"] h3 { font-size: clamp(1.45rem, 2vw, 1.9rem); line-height: 1.08; }
+[data-theme="blush"] h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: 0; }
+[data-theme="blush"] em.hl, [data-theme="blush"] .hl { background: none; -webkit-text-fill-color: currentColor; color: var(--brand); font-style: normal; font-weight: 400; padding: 0; margin: 0; }
+[data-theme="blush"] .lead { font-size: clamp(1rem, 1.2vw, 1.1rem); line-height: 1.7; }
+[data-theme="blush"] .eyebrow, [data-theme="blush"] .hero__kicker, [data-theme="blush"] .pillar__kicker, [data-theme="blush"] .footer__heading { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; }
+[data-theme="blush"] .hero__kicker { color: var(--brand); }
+[data-theme="blush"] .hero__kicker::before { background: var(--brand); box-shadow: 0 0 0 4px rgba(178, 73, 94, 0.16); }
+[data-theme="blush"] .btn { min-height: 54px; padding-inline: 28px; font-size: 1rem; }
+[data-theme="blush"] .btn--primary { box-shadow: 0 16px 36px -16px rgba(178, 73, 94, 0.65); }
+[data-theme="blush"] .btn--primary:hover { box-shadow: 0 22px 44px -16px rgba(178, 73, 94, 0.75); }
+[data-theme="blush"] .btn--secondary:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-soft); }
+[data-theme="blush"] .btn--brand { background: var(--brand-soft); color: var(--brand-strong); border-color: transparent; }
+[data-theme="blush"] .btn--brand:hover { background: var(--brand); color: #fff; }
+[data-theme="blush"] .link-arrow { color: var(--brand); font-weight: 700; }
+[data-theme="blush"] .nav__item.is-active > .nav__link { box-shadow: none; color: var(--brand); background: var(--brand-soft); border-radius: 999px; }
+[data-theme="blush"] .nav__link:hover { color: var(--brand); }
+/* hero: the photo in a rounded card, a slow rose aura turning behind it, caption pill like the campaign page */
+[data-theme="blush"] .hero::before { display: block; width: min(62vw, 820px); height: min(62vw, 820px); right: -12%; top: -14%; left: auto; z-index: -3; border-radius: 50%; background: conic-gradient(from 0deg, rgba(178, 73, 94, 0) 0%, rgba(178, 73, 94, 0.32) 18%, rgba(241, 207, 203, 0.75) 36%, rgba(178, 73, 94, 0) 52%, rgba(248, 225, 222, 0.9) 70%, rgba(178, 73, 94, 0.26) 86%, rgba(178, 73, 94, 0) 100%); filter: blur(46px); animation: blush-aura 22s linear infinite; will-change: transform; }
+[data-theme="blush"] .hero::after { content: ""; position: absolute; z-index: -3; left: -14%; bottom: -24%; width: 46vw; height: 46vw; max-width: 600px; max-height: 600px; border-radius: 50%; background: radial-gradient(closest-side, rgba(248, 225, 222, 0.9), transparent 72%); filter: blur(30px); animation: blush-breathe 9s ease-in-out infinite; pointer-events: none; }
+[data-theme="blush"] .hero--image .hero__bg { border-radius: var(--radius-img); border: 1px solid #FFFFFF; box-shadow: 0 40px 90px -36px rgba(178, 73, 94, 0.5), 0 0 0 10px rgba(255, 255, 255, 0.55); }
+[data-theme="blush"] .hero--image .hero__aside { left: 18px; bottom: 18px; padding: 10px 16px 10px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.94); border: 1px solid var(--line); box-shadow: 0 18px 40px -20px rgba(178, 73, 94, 0.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+[data-theme="blush"] .hero__aside b { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+[data-theme="blush"] .hero__aside .card__icon { width: 40px; height: 40px; }
+@media (max-width: 899px) { [data-theme="blush"] .hero--image .hero__bg { border-radius: 0 0 var(--radius-img) var(--radius-img); border: 0; box-shadow: none; } [data-theme="blush"] .hero::before { width: 120vw; height: 120vw; right: -40%; top: -30%; } }
+[data-theme="blush"] .hero__meta li { font-family: var(--font-body); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; background: #FFFFFF; box-shadow: 0 10px 24px -18px rgba(178, 73, 94, 0.5); }
+[data-theme="blush"] .hero__meta li b { color: var(--brand); font-weight: 700; }
+[data-theme="blush"] .hero--simple { background: transparent; }
+/* cards: white, blush hairline, rose glow; on hover the hairline flows */
+[data-theme="blush"] :is(.card, .honesty__col, .candidacy, .cost__price, .media__float, .quote-card, .member, .program, .treat-card, .chart, .pullquote, .notice, .goal-tile, .tile, .financing-chip, .form__notice, .doctor-card) { background: #FFFFFF; border: 1px solid var(--line); box-shadow: 0 1px 0 #fff inset, 0 24px 48px -36px rgba(178, 73, 94, 0.35); }
+[data-theme="blush"] .story-card { background: #FFFFFF; border-color: var(--line); }
+[data-theme="blush"] .card--hover, [data-theme="blush"] a.card, [data-theme="blush"] .treat-card { position: relative; isolation: isolate; }
+[data-theme="blush"] .card--hover::before, [data-theme="blush"] a.card::before, [data-theme="blush"] .treat-card::before { content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; padding: 1.5px; background: linear-gradient(120deg, rgba(178, 73, 94, 0) 0%, rgba(178, 73, 94, 0.75) 30%, #F1CFCB 50%, rgba(178, 73, 94, 0.75) 70%, rgba(178, 73, 94, 0) 100%); background-size: 300% 300%; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.5s var(--ease); pointer-events: none; }
+[data-theme="blush"] .card--hover:hover, [data-theme="blush"] a.card:hover, [data-theme="blush"] .treat-card:hover { background: #FFFFFF; border-color: transparent; box-shadow: 0 1px 0 #fff inset, 0 34px 64px -34px rgba(178, 73, 94, 0.5); transform: translateY(-5px); }
+[data-theme="blush"] .card--hover:hover::before, [data-theme="blush"] a.card:hover::before, [data-theme="blush"] .treat-card:hover::before { opacity: 1; animation: blush-flow 4s ease-in-out infinite; }
+[data-theme="blush"] .card--overlay, [data-theme="blush"] .card--image { background: #FFFFFF; }
+[data-theme="blush"] .card--overlay::before { background: linear-gradient(180deg, rgba(21, 18, 16, 0.06) 0%, rgba(21, 18, 16, 0.3) 36%, rgba(21, 18, 16, 0.82) 64%, rgba(21, 18, 16, 0.94) 100%); }
+[data-theme="blush"] .card--soft { background: var(--brand-soft); --brand: #8F3448; }
+[data-theme="blush"] .card__arrow { background: var(--brand-soft); color: var(--brand); }
+[data-theme="blush"] .card__num { background: #FFFFFF; color: var(--brand); border: 1px solid var(--line); font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0; }
+/* the candidacy card wears the flowing hairline all the time, like the eligibility card on the campaign page */
+[data-theme="blush"] .candidacy { position: relative; isolation: isolate; border-color: transparent; }
+[data-theme="blush"] .candidacy::before { content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: inherit; padding: 1.5px; background: linear-gradient(120deg, rgba(178, 73, 94, 0) 0%, rgba(178, 73, 94, 0.75) 30%, #F1CFCB 50%, rgba(178, 73, 94, 0.75) 70%, rgba(178, 73, 94, 0) 100%); background-size: 300% 300%; animation: blush-flow 7s ease-in-out infinite; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+/* icons: white discs with a blush ring, duotone fill in blush */
+[data-theme="blush"] .icon { --duo: 0.95; --duo-fill: #F8E1DE; }
+[data-theme="blush"] :is(.card__icon, .step__icon, .tile__icon, .menu__icon, .tiles__icon) { background: #FFFFFF; border: 1px solid var(--line); color: var(--brand); box-shadow: 0 10px 22px -14px rgba(178, 73, 94, 0.45); transition: transform 0.5s var(--ease), box-shadow 0.4s, background-color 0.4s; }
+[data-theme="blush"] .card:hover .card__icon, [data-theme="blush"] .step:hover .step__icon, [data-theme="blush"] .menu__link:hover .menu__icon { transform: translateY(-3px); background: var(--brand-soft); box-shadow: 0 16px 28px -14px rgba(178, 73, 94, 0.55); }
+[data-theme="blush"] .card__icon--grad { background: linear-gradient(135deg, #B2495E, #8F3448); color: #fff; border-color: transparent; --duo: 0.35; --duo-fill: currentColor; }
+/* photography: rounded, white edge, rose glow, warm tint that lifts on hover */
+[data-theme="blush"] .media__frame, [data-theme="blush"] .pillar__media, [data-theme="blush"] .tiles__panel, [data-theme="blush"] .team-banner { border: 1px solid #FFFFFF; box-shadow: var(--shadow); }
+[data-theme="blush"] .media__frame::after { background: linear-gradient(180deg, rgba(248, 225, 222, 0.08), transparent 40%, rgba(178, 73, 94, 0.12) 100%); }
+[data-theme="blush"] .media__float strong { font-family: var(--font-display); font-weight: 400; color: var(--brand); letter-spacing: 0; }
+[data-theme="blush"] .pillar__counter b { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.02em; }
+[data-theme="blush"] .pillar__chips span { background: rgba(255, 255, 255, 0.9); color: var(--text); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+/* numerals in the display face, with a soft rose halo on the big figures */
+[data-theme="blush"] .step__num, [data-theme="blush"] .reason__num, [data-theme="blush"] .tiles__num, [data-theme="blush"] .tile__num, [data-theme="blush"] .card__media-badge { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.02em; color: var(--brand); }
+[data-theme="blush"] .step__num { font-size: 1.9rem; line-height: 1; }
+[data-theme="blush"] .card__media-badge { background: #FFFFFF; color: var(--brand); border: 1px solid var(--line); }
+[data-theme="blush"] .partner-calc__field b { color: var(--brand-strong); }
+[data-theme="blush"] .reason__num { font-size: 1.6rem; line-height: 1; padding-top: 0; }
+[data-theme="blush"] .stat strong { font-weight: 400; letter-spacing: 0; background: none; -webkit-text-fill-color: currentColor; color: var(--brand); text-shadow: 0 0 28px rgba(178, 73, 94, 0.28), 0 14px 44px rgba(178, 73, 94, 0.18); }
+[data-theme="blush"] .stat span { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-2); }
+[data-theme="blush"] .cost__price strong, [data-theme="blush"] .program__price b { font-family: var(--font-display); font-weight: 400; color: var(--brand); }
+/* components */
+[data-theme="blush"] .pill { background: #FFFFFF; border-color: var(--line); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; }
+[data-theme="blush"] .pill--accent { background: var(--brand-soft); color: var(--brand-strong); border-color: transparent; }
+[data-theme="blush"] .step { border-top-color: var(--line); background: #FFFFFF; border-radius: var(--radius-lg); padding: 26px; border: 1px solid var(--line); box-shadow: 0 24px 48px -36px rgba(178, 73, 94, 0.35); }
+[data-theme="blush"] .steps--line .step::before, [data-theme="blush"] .steps--line .step::after { background: linear-gradient(90deg, #B2495E, #F1CFCB); }
+[data-theme="blush"] .stats-band { background: transparent; }
+[data-theme="blush"] .stats-band__inner { color: var(--text); background: #FFFFFF; border: 1px solid var(--line); box-shadow: 0 34px 70px -40px rgba(178, 73, 94, 0.4); }
+[data-theme="blush"] .stats-band__inner .eyebrow { color: var(--eyebrow); }
+[data-theme="blush"] .stats-band__note { color: var(--text-2); }
+[data-theme="blush"] .faq__toggle { border-color: var(--line); color: var(--brand); background: #FFFFFF; }
+[data-theme="blush"] .faq__item[open] .faq__toggle { background: var(--brand); color: #fff; border-color: transparent; }
+[data-theme="blush"] .faq__item summary { font-family: var(--font-body); font-weight: 700; }
+[data-theme="blush"] .tab { background: #FFFFFF; }
+[data-theme="blush"] .tab.is-active { background: var(--brand); color: #fff; }
+[data-theme="blush"] .tile.is-active { border-color: var(--brand); background: #FFFFFF; }
+[data-theme="blush"] .tile::before { background: linear-gradient(90deg, #B2495E, #F1CFCB); }
+[data-theme="blush"] .tile.is-active .tile__icon { background: var(--brand); color: #fff; border-color: transparent; }
+[data-theme="blush"] .treat-card__stage::before { background: linear-gradient(165deg, #F8E1DE 0%, #F1CFCB 100%); }
+[data-theme="blush"] .timeline__item::before { background: #FFFFFF; border-color: var(--line-strong); }
+[data-theme="blush"] .timeline.in-view .timeline__item::before { background: var(--brand); }
+[data-theme="blush"] .timeline::after { background: linear-gradient(180deg, #B2495E, #F1CFCB); }
+[data-theme="blush"] .timeline__when { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.02em; color: var(--brand); }
+[data-theme="blush"] .bar__fill { background: linear-gradient(90deg, #B2495E, #F1CFCB); }
+[data-theme="blush"] .quote-card .stars { color: #B2495E; }
+[data-theme="blush"] .quote-mark { color: var(--brand-3); }
+[data-theme="blush"] .pullquote { border-left-color: var(--brand); }
+[data-theme="blush"] .avatar { background: var(--brand-soft); color: var(--brand-strong); border-color: #fff; }
+[data-theme="blush"] .compare__us { background: var(--brand-soft); border-color: #fff; }
+[data-theme="blush"] .gradient-card { background: linear-gradient(135deg, #B2495E, #8F3448); }
+[data-theme="blush"] .doctor-card cite { font-family: var(--font-body); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; }
+/* the ticker is the one ink band on the page, blush type with rose dots */
+[data-theme="blush"] .ticker { border: 0; }
+[data-theme="blush"] .ticker__track span { font-weight: 700; letter-spacing: 0.22em; }
+[data-theme="blush"] .ticker__track span::after { background: #B2495E; }
+/* dark bands: ink with blush type */
+[data-theme="blush"] .section--deep { --brand: #F1CFCB; --brand-strong: #F8E1DE; --brand-2: #F1CFCB; --brand-3: #F8E1DE; --eyebrow: #F1CFCB; --brand-soft: rgba(241, 207, 203, 0.14); --on-brand: #151210; --btn-primary-bg: #FFFFFF; --btn-primary-fg: #151210; --btn-primary-hover: #F8E1DE; --btn-secondary-bg: transparent; --btn-secondary-fg: #fff; --btn-secondary-line: rgba(255, 255, 255, 0.4); background: radial-gradient(60% 50% at 18% 0%, rgba(178, 73, 94, 0.35), transparent 60%), radial-gradient(50% 40% at 92% 100%, rgba(241, 207, 203, 0.18), transparent 60%), #151210; }
+[data-theme="blush"] .section--deep :is(.card, .honesty__col) { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.14); box-shadow: none; }
+[data-theme="blush"] .section--deep .card--hover:hover, [data-theme="blush"] .section--deep a.card:hover { background: rgba(255, 255, 255, 0.09); border-color: rgba(241, 207, 203, 0.5); }
+[data-theme="blush"] .section--deep .card--hover::before, [data-theme="blush"] .section--deep a.card::before { display: none; }
+[data-theme="blush"] .section--deep .card__icon { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.14); color: #F1CFCB; box-shadow: none; }
+[data-theme="blush"] .section--deep .card__icon--grad { background: #FFFFFF; color: #151210; }
+[data-theme="blush"] .section--deep em.hl { color: #F1CFCB; }
+[data-theme="blush"] .section--deep .doctor-card { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.14); color: #F6EFEA; box-shadow: none; }
+[data-theme="blush"] .section--deep .doctor-card__name { color: #FFFFFF; }
+[data-theme="blush"] .cta-band__art { opacity: 0.22; }
+[data-theme="blush"] .cta-band .eyebrow { color: #F8E1DE; }
+[data-theme="blush"] .site-footer { border-top: 0; }
+[data-theme="blush"] .footer__heading, [data-theme="blush"] .footer__note { color: #F1CFCB; }
+/* chrome, forms, modules */
+[data-theme="blush"] .menu__inner { border: 1px solid #FFFFFF; box-shadow: 0 32px 80px -24px rgba(178, 73, 94, 0.4); background: rgba(255, 255, 255, 0.96); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+[data-theme="blush"] .menu__inner::before { background: linear-gradient(90deg, #B2495E, #F1CFCB, #F8E1DE); }
+[data-theme="blush"] .menu__featured { background: linear-gradient(135deg, #B2495E, #8F3448 90%); }
+[data-theme="blush"] .menu__featured-cta { background: #FFFFFF; color: #151210; }
+[data-theme="blush"] .theme-switch__trigger, [data-theme="blush"] .theme-switch__menu { -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+[data-theme="blush"] .progress { height: 3px; background: linear-gradient(90deg, #8F3448, #B2495E, #F1CFCB); }
+[data-theme="blush"] .cursor.is-link .cursor__ring { background: rgba(178, 73, 94, 0.1); }
+[data-theme="blush"] .field input, [data-theme="blush"] .field select, [data-theme="blush"] .field textarea { border-radius: 14px; border-color: var(--line); }
+[data-theme="blush"] .field input:focus, [data-theme="blush"] .field select:focus, [data-theme="blush"] .field textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 4px rgba(178, 73, 94, 0.14); }
+[data-theme="blush"] .field__label { font-family: var(--font-body); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; }
+[data-theme="blush"] .candidacy__opts span { background: #FFFFFF; border-color: var(--line); box-shadow: 0 6px 14px -10px rgba(178, 73, 94, 0.35); }
+[data-theme="blush"] .candidacy__opts input:checked + span { background: var(--brand); color: #fff; border-color: transparent; }
+[data-theme="blush"] .candidacy__result { background: var(--brand-soft); }
+[data-theme="blush"] .honesty__col--no { border-color: var(--line); }
+[data-theme="blush"] .sticky-cta { border-top: 1px solid var(--line); background: rgba(255, 253, 251, 0.94); }
+[data-theme="blush"] .art__ring { stroke: #B2495E; }
+[data-theme="blush"] .art__dots circle { fill: #B2495E; }
+[data-theme="blush"] .vial { filter: drop-shadow(0 20px 30px rgba(178, 73, 94, 0.25)); }
+[data-theme="blush"] .ph-tag { background: #FFFFFF; color: var(--brand); border: 1px solid var(--line); }
+[data-theme="blush"] .legal-notice { background: #FFFFFF; border-color: var(--line); }
+@media (prefers-reduced-motion: reduce) { [data-theme="blush"] .hero::before, [data-theme="blush"] .hero::after, [data-theme="blush"] .section--alt::before, [data-theme="blush"] .section--alt::after, [data-theme="blush"] .candidacy::before, [data-theme="blush"] .card--hover:hover::before, [data-theme="blush"] a.card:hover::before, [data-theme="blush"] .treat-card:hover::before { animation: none; } }
