@@ -192,7 +192,9 @@ Round 2 also added content modules that every version renders (`src/assets/css/p
 | Meridian | Clinical precision: ice white, navy ink, electric blue-to-violet gradient, a faint dot grid under the page | Source Serif 4 + Geist |
 | Ivory | Quiet luxury: ivory paper, graphite, a deep plum accent with champagne numerals and hairlines | Playfair Display + Albert Sans |
 
-Photography for this collection adds the four GSC Originals lifestyle scenes (`gsc-scene-park`, `-cafe`, `-waterfront`, `-clinic`; 976 px originals, so the 1920 size is an upscale) to the licensed pool.
+Photography for this collection adds the four GSC Originals lifestyle scenes (`gsc-scene-park`, `-cafe`, `-waterfront`, `-clinic`). The files served on the shop site carry the store's price tags and card edges, and are only 976 px wide; they were cleaned with a learned inpainting model (LaMa) on the tag areas, cropped past the card edge, and run through EDSR 2x super-resolution so the 1200 and 1920 tiers carry real detail on retina screens. The clean renders from whoever built the shop would still be better; drop them in the Drive folder and they can be swapped in.
+
+Legibility for older readers (Collection Three): 18px base type, larger leads and list text, sentence-case buttons and links, calmer labels (0.8rem, lighter tracking), small numerals in the sans face and optically centred, the hero caption and proof row in plain words, no marquee ticker, and every version passing the AA contrast audit with zero failures.
 
 ## Notes
 
