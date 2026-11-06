@@ -23,12 +23,23 @@ const DEFAULT_MODULES = {
 // on any page.
 // ---------------------------------------------------------------------------
 const rootVariant = { path: "", label: "Regenerative + NAD+", desc: "The full catalog: in-home regenerative care plus NAD+ & longevity" };
+// A showcase build at dist/three/: the same site, with the design switcher limited to Collection Three (and the partner
+// entries). `hidden` keeps it out of the "Programs" list; `collections` is read by the {{#if collection:x}} tag.
 const variants = {
   regen: {
     path: "regen",
     label: "Regenerative only",
     desc: "No NAD+ or peptide programs anywhere on the site",
     modules: { hormones: false, peptides: false, nad: false },
+  },
+  three: {
+    path: "three",
+    label: "Collection Three",
+    short: "Collection Three",
+    desc: "The five premium versions on their own link",
+    modules: DEFAULT_MODULES,
+    collections: ["three", "partners"],
+    hidden: true,
   },
 };
 
@@ -94,8 +105,10 @@ return {
     walkthroughLabel: "Book a 30-minute partner walkthrough",
   },
 
-  // Brand (placeholder)
+  // Brand (placeholder). While the name is still the placeholder, every page carries noindex and robots.txt disallows
+  // crawling, so a demo deployment never shows up in Google as "Brand Name".
   name: "Brand Name",
+  indexable: false, // set to true once the client's brand, legal copy and reviews are in place
   tagline: virtual ? "Regenerative Medicine & Longevity Care" : "Regenerative Medicine, In Your Home",
   description: virtual
     ? "In-home regenerative therapy and nationwide telehealth for longevity care. One physician-led medical team, one patient record, one plan."
@@ -165,12 +178,13 @@ return {
     {
       label: "About",
       href: "about.html",
-      match: ["about"],
+      match: ["about", "journal"],
       children: [
         { label: "About Us", href: "about.html", desc: "Our mission, team & story", icon: "info" },
         { label: "Our Founder", href: "founder.html", desc: "Why we exist", icon: "user" },
         { label: "Why We're Different", href: "why-were-different.html", desc: "What sets us apart", icon: "sparkles" },
         { label: "Testimonials", href: "testimonials.html", desc: "Real results from real patients", icon: "star" },
+        { label: "Journal", href: "journal.html", desc: "Plain-language guides to regenerative care", icon: "book-open" },
       ],
       featured: {
         title: "One medical team. One plan.",
@@ -210,7 +224,7 @@ return {
         { label: "How It Works", href: "index.html#how-it-works" },
         { label: "Financing & Payment Plans", href: "financing.html" },
         { label: "FAQ", href: "index.html#faq" },
-        { label: "Journal", href: "index.html#journal" },
+        { label: "Journal", href: "journal.html" },
       ],
     },
     {

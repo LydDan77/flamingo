@@ -1,0 +1,55 @@
+/* ===================================================== TRUST & BOOKING (after the Nov 2026 scorecard)
+   Tap-to-call in the header, a reviews strip on the home page, journal articles, the demo thank-you on the booking
+   form, and SAMPLE stamps on placeholder content. Every version renders these; tokens do the styling. */
+
+/* ---- tap-to-call in the header: number on desktop, a round phone button on phones */
+.site-header__call { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; border-radius: 999px; font-size: 0.88rem; font-weight: 600; color: var(--text); white-space: nowrap; transition: color 0.2s, background-color 0.2s; }
+.site-header__call .icon { width: 18px; height: 18px; color: var(--brand); flex: none; }
+.site-header__call:hover { color: var(--brand); background: var(--brand-soft); }
+@media (max-width: 1099px) { .site-header__call { width: 42px; height: 42px; min-height: 0; padding: 0; justify-content: center; border: 1px solid var(--line); } .site-header__call span { display: none; } }
+
+/* ---- reviews strip under the hero */
+.reviews { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface-solid); }
+.reviews__inner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding-block: 16px; }
+.reviews__score { display: inline-flex; align-items: center; gap: 10px; }
+.reviews__stars { color: var(--brand-2); letter-spacing: 0.1em; font-size: 1.05rem; }
+.reviews__score b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 500; line-height: 1; }
+.reviews__score small { font-size: 0.85rem; color: var(--text-2); }
+.reviews__note { flex: 1 1 320px; font-size: 0.9rem; color: var(--text-2); }
+.reviews .link-arrow { font-size: 0.88rem; }
+
+/* ---- journal */
+.journal-grid .post-card h3 { font-size: 1.15rem; line-height: 1.3; }
+.journal-grid .post-card p { margin-top: 8px; }
+.journal-grid .post-card .link-arrow { margin-top: 14px; }
+.article__head { max-width: 780px; }
+.article__meta { display: flex; align-items: center; gap: 14px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--text-2); }
+.article__meta b { display: block; color: var(--text); }
+.article__meta .ph-tag { margin-left: 6px; }
+.article__hero { aspect-ratio: 16/9; border-radius: var(--radius-img); overflow: hidden; margin-bottom: clamp(28px, 4vw, 48px); }
+.article__body { font-size: 1.08rem; line-height: 1.75; color: var(--text); }
+.article__body > p { color: var(--text-2); }
+.article__body h2 { font-size: clamp(1.45rem, 2.2vw, 1.9rem); margin-top: 2.2em; margin-bottom: 0.6em; }
+.article__body .article__hero + h2, .article__body .article__hero + p { margin-top: 0; }
+.article__body > p + p { margin-top: 1em; }
+.article__body ul { margin: 1em 0 1em 1.3em; display: grid; gap: 0.55em; list-style: disc; color: var(--text-2); }
+.article__body li b { color: var(--text); }
+.article__body a:not(.btn) { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+.article__body .callout { margin: 1.8em 0; padding: 18px 22px; border-left: 3px solid var(--brand); background: var(--surface-2); border-radius: 0 var(--radius) var(--radius) 0; font-size: 1rem; color: var(--text); }
+.article__sources { margin-top: 2.6em; padding: 22px 26px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); font-size: 0.92rem; }
+.article__sources h3 { font-size: 1rem; margin-bottom: 8px; }
+.article__sources ul { margin: 0; list-style: none; display: block; }
+.article__sources li { padding: 8px 0; border-top: 1px solid var(--line); color: var(--text-2); }
+.article__cta { margin-top: 2.4em; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 22px 26px; border-radius: var(--radius-lg); background: var(--brand-soft); color: var(--text); font-size: 1rem; }
+
+/* ---- booking form: demo thank-you */
+.form__thanks { padding: clamp(28px, 4vw, 44px); border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--line); text-align: center; }
+.form__thanks-icon { display: inline-flex; width: 56px; height: 56px; border-radius: 50%; align-items: center; justify-content: center; background: var(--brand-soft); color: var(--brand); margin-bottom: 14px; }
+.form__thanks-icon .icon { width: 28px; height: 28px; }
+.form__thanks h3 { font-size: 1.6rem; }
+.form__thanks p { margin-top: 10px; color: var(--text-2); }
+.form__thanks a { color: var(--brand); font-weight: 600; }
+.form__thanks .small { margin-top: 18px; }
+
+/* ---- SAMPLE stamp on placeholder content that must not ship */
+.sample { display: inline-flex; align-items: center; align-self: flex-start; padding: 3px 8px; border-radius: 4px; border: 1px dashed var(--line-strong); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }

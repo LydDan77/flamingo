@@ -123,7 +123,7 @@ nav: contact
           <ul class="badges">
             <li>{{icon:shield-check}} [Accreditation]</li>
             <li>{{icon:award}} [Certification]</li>
-            <li>{{icon:lock}} HIPAA Secure</li>
+            <li>{{icon:lock}} Encrypted connection</li>
             <li>{{icon:award}} [Board Certified]</li>
           </ul>
           <p class="small muted">Badges are placeholders. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
@@ -141,3 +141,23 @@ nav: contact
     <div class="actions actions--center mt-8"><a class="btn btn--primary btn--lg" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a></div>
   </div>
 </section>
+
+<!-- Demo thank-you: the form is not connected yet, so a submit shows what the patient will see, stamped as a sample. -->
+<script>
+  (function () {
+    document.querySelectorAll("[data-demo-form]").forEach(function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var first = (form.querySelector('input[name="first_name"]') || { value: "" }).value.trim().replace(/[<>&"]/g, "");
+        var box = document.createElement("div");
+        box.className = "form__thanks"; box.setAttribute("role", "status"); box.tabIndex = -1;
+        box.innerHTML = '<span class="form__thanks-icon">{{icon:check-circle}}</span>' +
+          '<h3>Thank you' + (first ? ", " + first : "") + '.</h3>' +
+          '<p>A member of the care team will call you within one business day to confirm a time. If it is urgent, call <a href="{{site.phoneTel}}">{{site.phone}}</a>.</p>' +
+          '<p class="small"><span class="sample">Sample</span> &nbsp;Demo only: nothing was sent. Connect the client\'s form handler before launch.</p>';
+        form.replaceWith(box);
+        box.scrollIntoView({ block: "center", behavior: "smooth" }); box.focus({ preventScroll: true });
+      });
+    });
+  })();
+</script>

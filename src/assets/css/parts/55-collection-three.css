@@ -28,6 +28,7 @@
   --h1-size: clamp(2.7rem, 5.6vw, 4.9rem); --h2-size: clamp(2.1rem, 3.8vw, 3.4rem);
   --hero-split-h1: clamp(2.3rem, 4vw, 3.8rem);
   --eyebrow-weight: 500; --eyebrow-track: 0.2em;
+  --fs-base: 17px;
   --radius-sm: 12px; --radius: 18px; --radius-lg: 18px; --radius-xl: 22px; --radius-img: 18px; --radius-btn: 999px; --radius-chip: 999px; --card-border: 1px;
   --btn-weight: 600; --btn-transform: uppercase; --btn-size: 0.76rem;
 }
@@ -38,8 +39,8 @@
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(h1, h2) { text-wrap: balance; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) h3 { font-size: clamp(1.25rem, 1.7vw, 1.55rem); line-height: 1.2; letter-spacing: -0.01em; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) h4 { font-family: var(--font-body); font-weight: 600; letter-spacing: 0; }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(em.hl, .hl) { font-family: var(--font-display); font-style: italic; font-weight: 400; background: var(--hl-bg); -webkit-text-fill-color: currentColor; color: var(--hl-fg); box-shadow: inset 0 0 0 1px var(--hl-line); border-radius: 3px; padding: 0 0.14em; margin: 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .lead { font-size: clamp(0.98rem, 1.15vw, 1.08rem); line-height: 1.7; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(em.hl, .hl) { font-family: var(--font-display); font-style: italic; font-weight: 400; background: none; -webkit-text-fill-color: currentColor; color: var(--hl-fg); box-shadow: none; padding: 0; margin: 0; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .lead { font-size: clamp(1.02rem, 1.2vw, 1.12rem); line-height: 1.7; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(.eyebrow, .hero__kicker, .pillar__kicker, .footer__heading, .hero__meta, .timeline__when, .ticker__track span, .field__label, .card__foot, .breadcrumbs) { font-family: var(--font-body); font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(.eyebrow, .hero__kicker, .pillar__kicker, .footer__heading) { font-size: 0.75rem; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__kicker::before { display: none; }

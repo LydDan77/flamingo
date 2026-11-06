@@ -69,6 +69,13 @@ List extensions only, re-verified with the Collection One regression before the 
 
 New files: `55-collection-three.css`, `60-64-theme-*.css`, `src/partials/short-version.html` (rendered on the home page by every version).
 
+## Round 5 edits to locked files (scorecard feedback and the showcase link)
+
+- `build.js`: the `{{#if collection:x}}` condition, hidden variants left out of the Programs list, `noindex` and `Disallow: /` while `site.indexable` is false, and a placeholder count after every build.
+- `src/partials/theme-switch.html`: the collection groups wrapped in `{{#if collection:…}}` so the `/three/` build lists only Collection Three and the partner entries.
+
+New files: `26-trust.css`, `src/partials/reviews.html`, `journal.html` and six `journal-*.html` articles. The header partial (not locked) gained the tap-to-call link.
+
 ## Restoring Collection One exactly
 
 ```

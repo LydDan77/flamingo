@@ -1,9 +1,9 @@
 {
   "collection": "one",
   "tag": "v1.0-collection-one",
-  "commit": "ecff2422e8d6633b24161b03eda966c41ad64159",
+  "commit": "033bcac7df381d48785feeb35590866934d082f9",
   "files": {
-    "build.js": "9780cc9a7906a9f4b8e5449627e35a23022818f1",
+    "build.js": "f6978b58645d165d28e46c95922b93b2c65feed7",
     "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
     "src/assets/css/parts/10-components.css": "a80570ac5b52bd3fbe1be2cd921dedd7ce12c933",
     "src/assets/css/parts/12-partner.css": "ef431cf5da3971204d29ab6624ff54c4986f35bc",
@@ -17,6 +17,6 @@
     "src/assets/js/site.js": "1777d5658769b147978340637226e3b8250fdcdb",
     "src/layout.html": "298739062a6a0dcd509b5464529a524254dd8171",
     "src/partials/icons.html": "64cc8f0f41b014cb6d81c5dd6946aa38b3ad18b5",
-    "src/partials/theme-switch.html": "88eb0c02bff2e7bac30579a61ae2baec99ea8806"
+    "src/partials/theme-switch.html": "7d934ee13223c8b5267685696d40fd98668fd2d8"
   }
 }

@@ -14,7 +14,7 @@ Switch versions with the floating **Design** control (bottom right; a compact me
 
 ## Pages
 
-Home · Services · Stem Cell Therapy · Wharton's Jelly · Why Exosomes · Concierge Care Model · NAD+ · For Providers · About · Founder · Why We're Different · Testimonials · Contact · Financing · Privacy · Terms · Disclaimer · 404
+Home · Services · Stem Cell Therapy · Wharton's Jelly · Why Exosomes · Concierge Care Model · NAD+ · For Providers · About · Founder · Why We're Different · Testimonials · Journal (six plain-language articles) · Contact · Financing · Privacy · Terms · Disclaimer · 404
 
 Optional: NAD+ (on by default) · Hormones · Peptides (hidden by default). See **Optional modules** and **Programs** below.
 
@@ -42,6 +42,24 @@ const DEFAULT_MODULES = {
 Rebuild, and everything appears at once: the page itself, its navigation and footer links, the service cards and tiles on Home and Services, the contact form options, the financing coverage list, the sitemap entry, and every sentence that lists the programs. While a module is off, none of that exists in the built site, so nothing points at a missing page.
 
 Under the hood: pages carry `module: hormones` in their front matter, nav and footer links carry `module: "..."`, and templates wrap optional content in `{{#if module:peptides}} … {{/if}}`, `{{#unless module:hormones}} … {{/unless}}` or `{{#if any:hormones,peptides}} … {{/if}}`. Shared copy fragments such as `{{site.programsPhrase}}` change wording automatically, with three states: prescription programs on, NAD+ only, or regenerative care alone (the home page then leads with in-home care, the third pillar becomes the concierge model, and the exosome pillar takes the place of hormones and peptides). Page titles and descriptions may use the same tags.
+
+## Trust and booking (after the November 2026 scorecard)
+
+Chris Kulbaba's page-by-page scorecard (Nov 5–6, 2026) marked the first Flamingo build down for opening in a dark look, having no articles, being indexable as "Brand Name", carrying a HIPAA promise, and reading small on a phone, and credited the other template for tap-to-call on every page, a review section up front, a demo thank-you on the form and a plainer first sentence. All of it is in now:
+
+- **Articles.** `journal.html` and six reviewed, compliant guides (`journal-*.html`): Wharton's Jelly, surgery questions, exosomes, the in-home visit, reading a clinic's claims, candidacy. Each carries a review byline placeholder, a sources box (FDA consumer pages, FTC review rule) and no outcome claims. The home page links three of them; "Journal" sits under About and in the footer.
+- **Tap-to-call** in the header on every page (number on desktop, a round phone button on phones), on top of the phone-only book / call bar.
+- **Reviews strip** under the home hero (`reviews.html`), figures tagged "Client to provide", with the rule that only consented reviews from real patients are published.
+- **Demo thank-you** on both contact forms: a submit shows the patient's confirmation, stamped SAMPLE, and sends nothing.
+- **No indexing while the brand is a placeholder.** `indexable: false` in `site.config.js` puts `noindex, nofollow` on every page and `Disallow: /` in robots.txt; flip it when the client's brand is in.
+- **No HIPAA promise.** The contact page badge now says "Encrypted connection".
+- **Plainer first sentence.** The home hero reads "Physician-led regenerative care, in your own home." and the short version says "not FDA-approved, and investigational for most uses" in its second line.
+- **Bigger type** in Collection Three (17px base, larger leads) and every micro-label at 12px or more.
+- **SAMPLE stamps** on placeholder testimonials, and the build prints how many placeholder / sample spots remain.
+
+## Collection Three on its own link
+
+`dist/three/` is the same site with the design switcher limited to the five Collection Three versions (plus the partner entries): https://flamingo-regenerative-revival.vercel.app/three/ . It is a variant in `site.config.js` with `collections: ["three", "partners"]` and `hidden: true`, read by the `{{#if collection:x}}` tag in `theme-switch.html`.
 
 ## Programs: the regenerative-only build
 

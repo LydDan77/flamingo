@@ -11,7 +11,7 @@ nav: home
   <div class="container hero__inner">
     <div class="hero__content">
       <p class="hero__kicker">Regenerative Medicine · Telehealth · Longevity</p>
-      <h1>{{#if any:hormones,peptides,nad}}Regenerative care and <em class="hl">longevity medicine</em>, on your terms{{/if}}{{#unless any:hormones,peptides,nad}}Regenerative care, <em class="hl">in your home</em>, on your terms{{/unless}}</h1>
+      <h1>Physician-led <em class="hl">regenerative care</em>, in your own home.</h1>
       <p class="lead">Regenerative therapy delivered in your home. {{site.telehealthSentence}} One physician-led medical team, one patient record, one plan built around your labs.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
@@ -30,6 +30,8 @@ nav: home
     <div class="ticker__track"><span>Joint pain</span><span>Sports injury</span><span>Osteoarthritis</span>{{#if module:hormones}}<span>Hormone optimization</span>{{/if}}{{#if module:peptides}}<span>GLP-1 weight programs</span><span>Peptide therapy</span>{{/if}}{{#if module:nad}}<span>NAD+ &amp; longevity</span>{{/if}}{{#unless any:hormones,peptides,nad}}<span>Exosome therapy</span><span>Wharton's Jelly</span>{{/unless}}<span>Recovery</span>{{#if module:nad}}<span>Energy &amp; sleep</span>{{/if}}<span>In-home care</span><span>Telehealth</span></div>
   </div>
 </div>
+
+{{> reviews}}
 
 {{> short-version}}
 
@@ -366,9 +368,9 @@ nav: home
       <p class="lead">Testimonial slots below are placeholders. Only publish verified reviews with written patient consent. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
     </div>
     <div class="grid grid--3 reveal reveal--stagger">
-      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Regenerative Therapy patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
-      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:hormones}}Hormone Therapy{{/if}}{{#unless module:hormones}}{{#if module:nad}}NAD+ Therapy{{/if}}{{#unless module:nad}}Exosome Therapy{{/unless}}{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
-      <article class="story-card"><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:peptides}}Peptide Therapy{{/if}}{{#unless module:peptides}}Concierge Care{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
+      <article class="story-card"><span class="sample">Sample</span><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>Regenerative Therapy patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
+      <article class="story-card"><span class="sample">Sample</span><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:hormones}}Hormone Therapy{{/if}}{{#unless module:hormones}}{{#if module:nad}}NAD+ Therapy{{/if}}{{#unless module:nad}}Exosome Therapy{{/unless}}{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
+      <article class="story-card"><span class="sample">Sample</span><svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg><p>Patient testimonial placeholder. Three to five sentences in the patient's own words about their experience, outcome, and what changed day to day.</p><footer><b>Patient Name | State</b>{{#if module:peptides}}Peptide Therapy{{/if}}{{#unless module:peptides}}Concierge Care{{/unless}} patient</footer><small class="quote-note">Individual experience. Results vary and are not typical or guaranteed.</small></article>
     </div>
     <div class="mt-10 reveal"><a class="link-arrow" href="testimonials.html">See the testimonials page {{icon:arrow-right}}</a></div>
   </div>
@@ -425,21 +427,21 @@ nav: home
   <div class="container container--wide">
     <div class="section-head section-head--row reveal">
       <div><span class="eyebrow">News &amp; Education</span><h2>From the journal</h2></div>
-      <p class="small muted">Article cards are placeholders for the client's first three posts. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <p class="small muted">Six plain-language guides, reviewed before publishing. <a class="link-arrow" href="journal.html">All articles {{icon:arrow-right}}</a></p>
     </div>
     <div class="grid grid--3 reveal reveal--stagger">
-      <article class="card card--hover card--image post-card">
-        <div class="card__media">{{img:dna-blue-2|dark=dna-orange-blue|elite=dna-gold|bright=dna-violet|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
-        <div class="card__body"><div class="post-card__meta"><b>Science</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
-      </article>
-      <article class="card card--hover card--image post-card">
-        <div class="card__media">{{img:hands-tea|dark=hiker-rail|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
-        <div class="card__body"><div class="post-card__meta"><b>Lifestyle</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
-      </article>
-      <article class="card card--hover card--image post-card">
-        <div class="card__media">{{img:certificates-check|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
-        <div class="card__body"><div class="post-card__meta"><b>Quality</b><span>Month DD, YYYY</span></div><h3>Article title goes here: a clear, specific headline</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
-      </article>
+      <a class="card card--hover card--image post-card" href="journal-whartons-jelly.html">
+        <div class="card__media">{{img:cells-macro|light=cells-blue-white|warm=cells-violet-white|bright=dna-violet|elite=dna-gold|alt=|sizes=(max-width: 1023px) 50vw, 33vw|ecosystem=cells-blue-white|sandstone=cells-violet-white|meridian=cells-blue-white|ivory=cells-violet-white|blush=cells-violet-white}}</div>
+        <div class="card__body"><div class="post-card__meta"><b>Science</b><span>5 min read</span></div><h3>What Wharton's Jelly is, and why clinics use it</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
+      </a>
+      <a class="card card--hover card--image post-card" href="journal-surgery-questions.html">
+        <div class="card__media">{{img:physio-knee|dark=athlete-knee|alt=|sizes=(max-width: 1023px) 50vw, 33vw}}</div>
+        <div class="card__body"><div class="post-card__meta"><b>Decisions</b><span>6 min read</span></div><h3>Stem cell therapy or surgery? Seven questions to ask first</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
+      </a>
+      <a class="card card--hover card--image post-card" href="journal-reading-claims.html">
+        <div class="card__media">{{img:certificates-check|dark=kettlebell-bw|alt=|sizes=(max-width: 1023px) 50vw, 33vw|atelier=atelier-plaster-wall|obsidian=obsidian-glass-abstract|sanctuary=sanctuary-eucalyptus-shadow|monolith=monolith-concrete-architecture|aurora=aurora-friends-sunrise|blush=hands-tea|ecosystem=np-patient-consult|onyx=laptop-stethoscope|sandstone=tablet-coffee-plant|meridian=office-desk-light|ivory=notebook-desk}}</div>
+        <div class="card__body"><div class="post-card__meta"><b>Trust</b><span>5 min read</span></div><h3>How to read a regenerative clinic's claims</h3><span class="link-arrow">Read article {{icon:arrow-up-right}}</span></div>
+      </a>
     </div>
   </div>
 </section>

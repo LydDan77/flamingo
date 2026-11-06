@@ -271,6 +271,7 @@ function evalCondition(expr) {
   const names = list.split(",").map((s) => s.trim()).filter(Boolean);
   if (kind === "module") return moduleOn(names[0]);
   if (kind === "notice") return !!(site.notices || {})[names[0]];
+  if (kind === "collection") return !site.collections || site.collections.includes(names[0]); // which switcher groups a variant lists
   if (kind === "any") return names.some(moduleOn);
   if (kind === "all") return names.every(moduleOn);
   throw new Error(`Unknown condition: ${expr}`);
@@ -339,6 +340,7 @@ function variantList() {
 function renderVariantSwitch(slug, current) {
   const file = slug === "index" ? "" : `${slug}.html`;
   return variantList()
+    .filter((v) => !v.hidden)
     .map((v) => {
       const on = v.path === current.path;
       const inner =
@@ -357,6 +359,7 @@ function renderVariantSwitch(slug, current) {
 
 const ASSET_URLS = { css: "assets/css/site.css", js: "assets/js/site.js" }; // replaced with fingerprinted names during build()
 const partialCache = new Map();
+let PLACEHOLDERS = 0; // placeholder and sample spots in the root build, reported after every build
 function partial(name) {
   if (!partialCache.has(name)) {
     const file = path.join(PARTIALS, `${name}.html`);
@@ -424,7 +427,7 @@ function buildPage(file, outDir, variant) {
     ogImage: data.ogImage || site.ogImage,
     ...data,
   };
-  page.robotsMeta = data.noindex ? '<meta name="robots" content="noindex, nofollow">' : "";
+  page.robotsMeta = data.noindex || site.indexable === false ? '<meta name="robots" content="noindex, nofollow">' : "";
   page.titleEsc = escapeHtml(page.fullTitle);
   page.descriptionEsc = escapeHtml(page.description);
 
@@ -447,6 +450,7 @@ function buildPage(file, outDir, variant) {
   const outFile = path.join(outDir, file);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
+  if (!variant.path) PLACEHOLDERS += (html.match(/class="ph-tag"/g) || []).length + (html.match(/class="sample"/g) || []).length;
   return outFile;
 }
 
@@ -480,7 +484,7 @@ function build() {
 
   // The root build, then one complete build per variant (same assets, its own module set) in dist/<path>/.
   for (const variant of variantList()) {
-    site = variant.key ? SITE.make(variant.modules) : SITE;
+    site = variant.key ? Object.assign(SITE.make(variant.modules), { collections: variant.collections }) : SITE;
     MODULES = site.modules || {};
     const outDir = variant.path ? path.join(DIST, variant.path) : DIST;
     const baseUrl = variant.path ? `${site.url}/${variant.path}` : site.url;
@@ -510,7 +514,7 @@ function build() {
       path.join(outDir, "sitemap.xml"),
       `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
     );
-    if (!variant.path) fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
+    if (!variant.path) fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\n${site.indexable === false ? "Disallow: /" : "Allow: /"}\nSitemap: ${site.url}/sitemap.xml\n`);
 
     log.push(`${variant.path ? variant.path + "/" : "root"}: ${pages.length} pages${skipped.length ? ` (modules off, skipped: ${skipped.join(", ")})` : ""}`);
   }
@@ -518,6 +522,8 @@ function build() {
   MODULES = SITE.modules || {};
 
   console.log(`built ${log.join("; ")} -> dist/ in ${Date.now() - started}ms`);
+  console.log(`${PLACEHOLDERS} placeholder / sample spots still tagged across the site${site.indexable === false ? "; indexing is off (site.indexable)" : ""}`);
+  PLACEHOLDERS = 0;
 }
 
 // ---------------------------------------------------------------------------

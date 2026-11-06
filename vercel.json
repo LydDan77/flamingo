@@ -3,7 +3,10 @@
   "buildCommand": "node build.js",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "redirects": [{ "source": "/regen", "destination": "/regen/", "permanent": false }],
+  "redirects": [
+    { "source": "/regen", "destination": "/regen/", "permanent": false },
+    { "source": "/three", "destination": "/three/", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -11,6 +14,10 @@
     },
     {
       "source": "/regen/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/three/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ]
