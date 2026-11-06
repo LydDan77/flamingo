@@ -11,7 +11,7 @@
   --surface: #FFFFFF; --surface-2: #F3F2FA; --surface-solid: #FFFFFF; --input-bg: #FFFFFF;
   --text: #14122A; --text-2: #3F3B5E; --text-3: #66628A;
   --brand: #5A4A9C; --brand-strong: #4B3C88; --brand-2: #4E72D8; --brand-3: #C9BDF7; --brand-deep: #2B2468; --brand-soft: #ECE9F8; --on-brand: #FFFFFF; --eyebrow: #5A4A9C;
-  --grad: linear-gradient(95deg, #6A4FA8 0%, #4E72D8 100%); --grad-hover: linear-gradient(95deg, #5B3F99 0%, #3F63C9 100%); --on-grad: #FFFFFF; --grad-shadow: rgba(90, 74, 156, 0.55);
+  --grad: linear-gradient(95deg, #6A4FA8 0%, #4E72D8 100%); --grad-hover: linear-gradient(95deg, #5B3F99 0%, #3F63C9 100%); --on-grad: #FFFFFF; --grad-base: #5A4A9C; --grad-shadow: rgba(90, 74, 156, 0.55);
   --hl-fg: #5A4A9C; --hl-bg: #ECE9F8; --hl-line: rgba(90, 74, 156, 0.28);
   --deep-accent: #C9BDF7; --deep-glow: rgba(106, 79, 168, 0.55);
   --stage: linear-gradient(165deg, #ECE9F8 0%, #DCE4FB 100%);

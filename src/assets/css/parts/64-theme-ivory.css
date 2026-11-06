@@ -11,7 +11,7 @@
   --surface: #FFFFFF; --surface-2: #F3EFE6; --surface-solid: #FFFFFF; --input-bg: #FFFFFF;
   --text: #1C1A1A; --text-2: #4A4646; --text-3: #6B6565;
   --brand: #5B2A4E; --brand-strong: #431D39; --brand-2: #B08D57; --brand-3: #D9C3A5; --brand-deep: #2E1427; --brand-soft: #F1E6EE; --on-brand: #FFFFFF; --eyebrow: #5B2A4E;
-  --grad: linear-gradient(95deg, #5B2A4E 0%, #8E4A7C 100%); --grad-hover: linear-gradient(95deg, #431D39 0%, #7A3C69 100%); --on-grad: #FFFFFF; --grad-shadow: rgba(91, 42, 78, 0.5);
+  --grad: linear-gradient(95deg, #5B2A4E 0%, #8E4A7C 100%); --grad-hover: linear-gradient(95deg, #431D39 0%, #7A3C69 100%); --on-grad: #FFFFFF; --grad-base: #5B2A4E; --grad-shadow: rgba(91, 42, 78, 0.5);
   --hl-fg: #5B2A4E; --hl-bg: #F1E6EE; --hl-line: rgba(91, 42, 78, 0.3);
   --deep-accent: #D9C3A5; --deep-glow: rgba(142, 74, 124, 0.45);
   --stage: linear-gradient(165deg, #F1E6EE 0%, #F3EFE6 100%);
@@ -33,8 +33,8 @@
 [data-theme="ivory"] .ticker__track span::after { background: #B08D57; }
 [data-theme="ivory"] .hero::before { display: block; width: 720px; height: 720px; right: -220px; top: -240px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(217, 195, 165, 0.5), transparent 72%); filter: blur(30px); }
 /* champagne numerals and hairlines */
-[data-theme="ivory"] :is(.step__num, .reason__num, .card__num, .tiles__num, .tile__num, .dot-list li::before, .pillar__counter b) { color: #B08D57; }
-[data-theme="ivory"] .eyebrow::before { color: #B08D57; }
+[data-theme="ivory"] :is(.step__num, .reason__num, .card__num, .tiles__num, .tile__num, .dot-list li::before) { color: #7F5F2B; }
+[data-theme="ivory"] .eyebrow::before { color: #7F5F2B; }
 [data-theme="ivory"] .stat strong { background: var(--number-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 [data-theme="ivory"] .pillars__bars span { background: #5B2A4E; } [data-theme="ivory"] .pillars__bars span:nth-child(2) { background: #B08D57; } [data-theme="ivory"] .pillars__bars span:nth-child(3) { background: #D9C3A5; }
 [data-theme="ivory"] .hero--image .hero__bg { box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 9px rgba(217, 195, 165, 0.35), var(--shadow); }

@@ -10,14 +10,14 @@
   --bg: #F2F5FB; --bg-alt: #E8EDF7; --bg-deep: #0B1026; --bg-hero: transparent;
   --surface: #FFFFFF; --surface-2: #E8EDF7; --surface-solid: #FFFFFF; --input-bg: #FFFFFF;
   --text: #0B1026; --text-2: #3A4160; --text-3: #5B627F;
-  --brand: #2F5BFF; --brand-strong: #1E43D6; --brand-2: #7A5CFF; --brand-3: #A7B8FF; --brand-deep: #16246E; --brand-soft: #E6ECFF; --on-brand: #FFFFFF; --eyebrow: #1E43D6;
-  --grad: linear-gradient(95deg, #2F5BFF 0%, #7A5CFF 100%); --grad-hover: linear-gradient(95deg, #1E43D6 0%, #6646E6 100%); --on-grad: #FFFFFF; --grad-shadow: rgba(47, 91, 255, 0.5);
+  --brand: #2650F0; --brand-strong: #1E43D6; --brand-2: #7A5CFF; --brand-3: #A7B8FF; --brand-deep: #16246E; --brand-soft: #E6ECFF; --on-brand: #FFFFFF; --eyebrow: #1E43D6;
+  --grad: linear-gradient(95deg, #2650F0 0%, #7A5CFF 100%); --grad-hover: linear-gradient(95deg, #1E43D6 0%, #6646E6 100%); --on-grad: #FFFFFF; --grad-base: #2650F0; --grad-shadow: rgba(38, 80, 240, 0.5);
   --hl-fg: #1E43D6; --hl-bg: #E6ECFF; --hl-line: rgba(47, 91, 255, 0.3);
   --deep-accent: #A7B8FF; --deep-glow: rgba(47, 91, 255, 0.5);
   --stage: linear-gradient(165deg, #E6ECFF 0%, #EEE8FF 100%);
   --line: #D6DCEB; --line-strong: #B5BED6;
   --shadow-sm: 0 10px 24px -20px rgba(11, 16, 38, 0.25); --shadow: 0 30px 60px -36px rgba(11, 16, 38, 0.35); --shadow-glow: 0 18px 40px -18px rgba(47, 91, 255, 0.45);
-  --btn-primary-bg: #2F5BFF; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #1E43D6;
+  --btn-primary-bg: #2650F0; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #1E43D6;
   --btn-secondary-bg: transparent; --btn-secondary-fg: #0B1026; --btn-secondary-line: #B5BED6;
   --chip-bg: #FFFFFF; --chip-fg: #0B1026; --chip-line: #D6DCEB;
   --vial-glass: rgba(11, 16, 38, 0.04); --vial-stroke: rgba(11, 16, 38, 0.35); --vial-label: #FFFFFF; --vial-text: rgba(11, 16, 38, 0.3); --vial-neck: #B5BED6;
@@ -26,7 +26,7 @@
   --cta-gradient: linear-gradient(120deg, #0B1026 0%, #16246E 100%); --number-gradient: linear-gradient(180deg, #2F5BFF, #7A5CFF);
   --ticker-bg: #0B1026; --ticker-fg: #C9D2F2;
   --cur-dot: transparent; --cur-border: 1.5px solid rgba(47, 91, 255, 0.55); --cur-size: 28px; --cur-size-link: 48px; --cur-fill: rgba(167, 184, 255, 0.25); --btn-gloss: rgba(255, 255, 255, 0.3);
-  --ts-bg: rgba(255, 255, 255, 0.96); --ts-fg: #0B1026; --ts-muted: #5B627F; --ts-line: #B5BED6; --ts-hover: #E8EDF7; --ts-active: #2F5BFF; --ts-shadow: 0 16px 40px -16px rgba(11, 16, 38, 0.3);
+  --ts-bg: rgba(255, 255, 255, 0.96); --ts-fg: #0B1026; --ts-muted: #5B627F; --ts-line: #B5BED6; --ts-hover: #E8EDF7; --ts-active: #2650F0; --ts-shadow: 0 16px 40px -16px rgba(11, 16, 38, 0.3);
   --fade-to: #F2F5FB;
 }
 [data-theme="meridian"] body { background-color: #F2F5FB; background-image: radial-gradient(rgba(11, 16, 38, 0.1) 1px, transparent 1px); background-size: 28px 28px; }

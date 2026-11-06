@@ -1,22 +1,22 @@
 {
   "collection": "one",
   "tag": "v1.0-collection-one",
-  "commit": "7a80307298bb0a28f1c9b1aab4e469afd4cc3173",
+  "commit": "ecff2422e8d6633b24161b03eda966c41ad64159",
   "files": {
-    "build.js": "6440b1831378bf458e7bb6370d2e23917109e89c",
+    "build.js": "9780cc9a7906a9f4b8e5449627e35a23022818f1",
     "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
     "src/assets/css/parts/10-components.css": "a80570ac5b52bd3fbe1be2cd921dedd7ce12c933",
     "src/assets/css/parts/12-partner.css": "ef431cf5da3971204d29ab6624ff54c4986f35bc",
     "src/assets/css/parts/15-motion.css": "7e0e99e9bba372f915848edd5c1d7e0aa6c9071a",
-    "src/assets/css/parts/20-layout.css": "2bb3b8e859f2464f2328d7ab6331db1b7730e159",
+    "src/assets/css/parts/20-layout.css": "f630f1d99efa5176b670734f9c382de443a07d53",
     "src/assets/css/parts/30-theme-dark.css": "1ae8435e6bad320c6e3143788fdfa81b7bc39ea3",
     "src/assets/css/parts/31-theme-light.css": "87e69918724eb2b57e347224fc2e2b990470908c",
     "src/assets/css/parts/32-theme-warm.css": "f6a01cc8e885d372579a7a68a5f1a8bd6cdd218e",
     "src/assets/css/parts/33-theme-bright.css": "18643f6fd00c006d2255e6f31e7b7eacaf6ac695",
     "src/assets/css/parts/34-theme-elite.css": "b42e3c061ef776db21ee95c085b7aff27963218e",
-    "src/assets/js/site.js": "99494515c19e0ce30f74886c79461f607b53d4c5",
-    "src/layout.html": "ffbacd922654da343eb4a6441ab96ad29dec53ff",
+    "src/assets/js/site.js": "1777d5658769b147978340637226e3b8250fdcdb",
+    "src/layout.html": "298739062a6a0dcd509b5464529a524254dd8171",
     "src/partials/icons.html": "64cc8f0f41b014cb6d81c5dd6946aa38b3ad18b5",
-    "src/partials/theme-switch.html": "c4135a5e36ea00099a814674341463c5fce2d0be"
+    "src/partials/theme-switch.html": "88eb0c02bff2e7bac30579a61ae2baec99ea8806"
   }
 }
