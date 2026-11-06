@@ -1,0 +1,56 @@
+/* ===================================================== COLLECTION THREE · ONYX
+   The GSC Originals look turned into a clinic site: near-black, warm sand type, gold gradient pills, sand-coloured
+   product surfaces. DM Serif Display with Inter. */
+[data-theme="onyx"] {
+  --font-display: "DM Serif Display", "Didot", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Inter", system-ui, sans-serif;
+  --h-track: -0.01em;
+
+  --bg: #0B0A08; --bg-alt: #12100C; --bg-deep: #000000; --bg-hero: transparent;
+  --surface: #15130F; --surface-2: #1C1915; --surface-solid: #15130F; --input-bg: #15130F;
+  --text: #F5EFE3; --text-2: #B4AB9C; --text-3: #948B7D;
+  --brand: #E2C275; --brand-strong: #F1D88D; --brand-2: #D1A447; --brand-3: #F3E3BB; --brand-deep: #8A6A1F; --brand-soft: rgba(226, 194, 117, 0.12); --on-brand: #0B0A08; --eyebrow: #D1A447;
+  --grad: linear-gradient(100deg, #F3E3BB 0%, #E2C275 45%, #C99A3E 100%); --grad-hover: linear-gradient(100deg, #F8ECCB 0%, #E9CC86 45%, #D1A447 100%); --on-grad: #0B0A08; --grad-shadow: rgba(209, 164, 71, 0.45);
+  --hl-fg: #F1D88D; --hl-bg: rgba(241, 216, 141, 0.08); --hl-line: rgba(241, 216, 141, 0.35);
+  --deep-accent: #E2C275; --deep-glow: rgba(209, 164, 71, 0.28);
+  --stage: radial-gradient(90% 80% at 50% 38%, #F8F3EB 0%, #E7DED0 60%, #D3C7B4 100%);
+  --line: rgba(245, 239, 227, 0.12); --line-strong: rgba(245, 239, 227, 0.26);
+  --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8); --shadow-glow: 0 18px 44px -18px rgba(209, 164, 71, 0.4);
+  --btn-primary-bg: #E2C275; --btn-primary-fg: #0B0A08; --btn-primary-hover: #F1D88D;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #F5EFE3; --btn-secondary-line: rgba(245, 239, 227, 0.3);
+  --chip-bg: #15130F; --chip-fg: #F5EFE3; --chip-line: rgba(245, 239, 227, 0.14);
+  --vial-glass: rgba(245, 239, 227, 0.06); --vial-stroke: rgba(245, 239, 227, 0.4); --vial-label: rgba(245, 239, 227, 0.14); --vial-text: rgba(245, 239, 227, 0.45); --vial-neck: rgba(245, 239, 227, 0.28);
+  --img-filter: saturate(0.95) contrast(1.05); --img-tint: rgba(11, 10, 8, 0.25);
+  --header-bg: rgba(11, 10, 8, 0.82); --header-line: rgba(245, 239, 227, 0.1); --footer-bg: #000000;
+  --cta-gradient: linear-gradient(120deg, #000000 0%, #1C1915 100%); --number-gradient: linear-gradient(180deg, #F3E3BB, #C99A3E);
+  --ticker-bg: #15130F; --ticker-fg: #B4AB9C;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(226, 194, 117, 0.6); --cur-size: 28px; --cur-size-link: 48px; --cur-fill: rgba(226, 194, 117, 0.14); --btn-gloss: rgba(255, 255, 255, 0.45);
+  --ts-bg: rgba(21, 19, 15, 0.97); --ts-fg: #F5EFE3; --ts-muted: #948B7D; --ts-line: rgba(245, 239, 227, 0.2); --ts-hover: rgba(245, 239, 227, 0.08); --ts-active: #E2C275; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
+  --scrim: linear-gradient(90deg, rgba(11, 10, 8, 0.7), rgba(11, 10, 8, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #0B0A08 100%);
+  --fade-to: #0B0A08;
+}
+[data-theme="onyx"] .section--alt { background: #12100C; }
+[data-theme="onyx"] .hero::before { display: block; width: 760px; height: 760px; right: -240px; top: -260px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(209, 164, 71, 0.22), transparent 72%); filter: blur(30px); }
+[data-theme="onyx"] .hero--image .hero__bg { border-color: rgba(245, 239, 227, 0.14); }
+[data-theme="onyx"] .hero__aside { background: #15130F; }
+[data-theme="onyx"] .btn--primary::after { background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%); }
+[data-theme="onyx"] .pillars__bars span { background: #F3E3BB; } [data-theme="onyx"] .pillars__bars span:nth-child(2) { background: #E2C275; } [data-theme="onyx"] .pillars__bars span:nth-child(3) { background: #C99A3E; }
+/* sand product surfaces, as on the shop tiles */
+[data-theme="onyx"] .treat-card__stage { color: #0B0A08; }
+[data-theme="onyx"] .media__float { background: #F5EFE3; color: #0B0A08; border-color: transparent; }
+[data-theme="onyx"] .media__float strong { background: none; -webkit-text-fill-color: currentColor; color: #0B0A08; }
+[data-theme="onyx"] .media__float b, [data-theme="onyx"] .media__float span { color: #0B0A08; }
+[data-theme="onyx"] .media__float .card__icon { background: #0B0A08; color: #E2C275; border-color: transparent; }
+[data-theme="onyx"] .pillar__chips span { background: rgba(245, 239, 227, 0.92); color: #0B0A08; }
+[data-theme="onyx"] .card--overlay::before { background: linear-gradient(180deg, rgba(11, 10, 8, 0.1) 0%, rgba(11, 10, 8, 0.45) 40%, rgba(11, 10, 8, 0.92) 100%); }
+[data-theme="onyx"] .stats-band__inner { background: radial-gradient(60% 80% at 10% 0%, rgba(209, 164, 71, 0.22), transparent 60%), #15130F; border: 1px solid rgba(245, 239, 227, 0.12); }
+[data-theme="onyx"] .section--deep::before { opacity: 0.22; }
+[data-theme="onyx"] .section--deep { --surface: rgba(245, 239, 227, 0.04); --line: rgba(245, 239, 227, 0.12); }
+[data-theme="onyx"] .cta-band__bg { background: linear-gradient(120deg, #000000 0%, rgba(28, 25, 21, 0.9) 100%); }
+[data-theme="onyx"] .cta-band__photo { opacity: 0.4; }
+[data-theme="onyx"] .btn--light { background: #E2C275; color: #0B0A08; }
+[data-theme="onyx"] .menu__featured-cta { background: #0B0A08; color: #F5EFE3; }
+[data-theme="onyx"] .tab.is-active { background: #E2C275; color: #0B0A08; }
+[data-theme="onyx"] .field input, [data-theme="onyx"] .field select, [data-theme="onyx"] .field textarea { background: #15130F; color: #F5EFE3; }
+[data-theme="onyx"] .cursor.is-link .cursor__ring { background: rgba(226, 194, 117, 0.1); }

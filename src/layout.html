@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="ecosystem">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,7 @@
   <meta property="og:image" content="{{page.ogImage}}">
   <meta name="twitter:card" content="summary_large_image">
   {{page.robotsMeta}}
-  <meta name="theme-color" content="#07090B">
+  <meta name="theme-color" content="#F7F7FB">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,14 +25,14 @@
   -->
   <script>
     (function () {
-      var ok = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush"], t = "dark", d = document, h = d.documentElement;
+      var ok = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush", "ecosystem", "onyx", "sandstone", "meridian", "ivory"], t = "ecosystem", d = document, h = d.documentElement;
       try {
         var q = new URLSearchParams(location.search).get("theme");
         var s = localStorage.getItem("flamingo-theme");
         if (q === "playful") q = "bright";
         if (s === "playful") s = "bright";
-        t = q || s || "dark";
-        if (ok.indexOf(t) < 0) t = "dark";
+        t = q || s || "ecosystem";
+        if (ok.indexOf(t) < 0) t = "ecosystem";
         if (q && ok.indexOf(q) >= 0) localStorage.setItem("flamingo-theme", q);
       } catch (e) {}
       h.setAttribute("data-theme", t);
@@ -48,15 +48,20 @@
         sanctuary: G + "Geist+Mono:wght@400;500",
         monolith: G + "Archivo:wdth,wght@125,700;125,800&family=Inter+Tight:wght@400;500;600&family=Geist+Mono:wght@400;500",
         aurora: G + "Plus+Jakarta+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500",
-        blush: G + "Italiana&family=Lato:wght@400;700;900"
+        blush: G + "Italiana&family=Lato:wght@400;700;900",
+        ecosystem: G + "Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600",
+        onyx: G + "DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700",
+        sandstone: G + "Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Figtree:wght@400;500;600;700",
+        meridian: G + "Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Geist:wght@400;500;600",
+        ivory: G + "Playfair+Display:ital,wght@0,400;0,500;1,400&family=Albert+Sans:wght@400;500;600"
       };
       var l = d.createElement("link"); l.rel = "stylesheet"; l.href = F[t]; l.setAttribute("data-theme-fonts", ""); d.head.appendChild(l);
-      var C = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD", blush: "#FFFDFB" };
+      var C = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD", blush: "#FFFDFB", ecosystem: "#F7F7FB", onyx: "#0B0A08", sandstone: "#F5EFE3", meridian: "#F2F5FB", ivory: "#FBF9F4" };
       var m = d.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", C[t]);
       {{page.heroPreload}}
     })();
   </script>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500"></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600"></noscript>
   <link rel="stylesheet" href="{{page.assets.css}}">
 </head>
 <body class="page page--{{page.slug}} {{page.bodyClass}}">
@@ -78,7 +83,7 @@
 <!-- Point lazy-loaded photos at this version's variant before they start loading (site.js repeats this on every switch). -->
 <script>
   (function () {
-    var t = document.documentElement.getAttribute("data-theme") || "dark", dir = "assets/img/photos/";
+    var t = document.documentElement.getAttribute("data-theme") || "ecosystem", dir = "assets/img/photos/";
     document.querySelectorAll("img[data-img]:not([data-eager])").forEach(function (img) {
       var want = img.getAttribute("data-img-" + t), pos = img.getAttribute("data-pos-" + t);
       if (pos) img.style.objectPosition = pos;

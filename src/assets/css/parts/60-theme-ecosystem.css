@@ -1,0 +1,36 @@
+/* ===================================================== COLLECTION THREE · ECOSYSTEM
+   The closest reading of the Precision Growth System page: lavender white, deep indigo ink, violet-to-blue gradient.
+   Libre Baskerville with Poppins. Lavender highlight boxes, indigo bands lit from one corner. */
+[data-theme="ecosystem"] {
+  --font-display: "Libre Baskerville", "Iowan Old Style", Georgia, serif;
+  --font-body: "Poppins", "Inter", system-ui, sans-serif;
+  --font-mono: "Poppins", "Inter", system-ui, sans-serif;
+  --hero-split-h1: clamp(2.2rem, 3.8vw, 3.6rem);
+
+  --bg: #F7F7FB; --bg-alt: #EFEEF6; --bg-deep: #14122A; --bg-hero: transparent;
+  --surface: #FFFFFF; --surface-2: #F3F2FA; --surface-solid: #FFFFFF; --input-bg: #FFFFFF;
+  --text: #14122A; --text-2: #3F3B5E; --text-3: #66628A;
+  --brand: #5A4A9C; --brand-strong: #4B3C88; --brand-2: #4E72D8; --brand-3: #C9BDF7; --brand-deep: #2B2468; --brand-soft: #ECE9F8; --on-brand: #FFFFFF; --eyebrow: #5A4A9C;
+  --grad: linear-gradient(95deg, #6A4FA8 0%, #4E72D8 100%); --grad-hover: linear-gradient(95deg, #5B3F99 0%, #3F63C9 100%); --on-grad: #FFFFFF; --grad-shadow: rgba(90, 74, 156, 0.55);
+  --hl-fg: #5A4A9C; --hl-bg: #ECE9F8; --hl-line: rgba(90, 74, 156, 0.28);
+  --deep-accent: #C9BDF7; --deep-glow: rgba(106, 79, 168, 0.55);
+  --stage: linear-gradient(165deg, #ECE9F8 0%, #DCE4FB 100%);
+  --line: #DEDCEA; --line-strong: #B6B2D0;
+  --shadow-sm: 0 10px 24px -20px rgba(20, 18, 42, 0.25); --shadow: 0 30px 60px -36px rgba(20, 18, 42, 0.35); --shadow-glow: 0 18px 40px -18px rgba(90, 74, 156, 0.45);
+  --btn-primary-bg: #5A4A9C; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #4B3C88;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #14122A; --btn-secondary-line: #B6B2D0;
+  --chip-bg: #FFFFFF; --chip-fg: #14122A; --chip-line: #DEDCEA;
+  --vial-glass: rgba(20, 18, 42, 0.04); --vial-stroke: rgba(20, 18, 42, 0.35); --vial-label: #FFFFFF; --vial-text: rgba(20, 18, 42, 0.3); --vial-neck: #B6B2D0;
+  --img-filter: saturate(1.02); --img-tint: rgba(90, 74, 156, 0.12);
+  --header-bg: rgba(247, 247, 251, 0.86); --header-line: #DEDCEA; --footer-bg: #14122A;
+  --cta-gradient: linear-gradient(120deg, #14122A 0%, #2B2468 100%); --number-gradient: linear-gradient(180deg, #6A4FA8, #4E72D8);
+  --ticker-bg: #EFEEF6; --ticker-fg: #3F3B5E;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(90, 74, 156, 0.55); --cur-size: 28px; --cur-size-link: 48px; --cur-fill: rgba(201, 189, 247, 0.3); --btn-gloss: rgba(255, 255, 255, 0.3);
+  --ts-bg: rgba(255, 255, 255, 0.96); --ts-fg: #14122A; --ts-muted: #66628A; --ts-line: #B6B2D0; --ts-hover: #F3F2FA; --ts-active: #5A4A9C; --ts-shadow: 0 16px 40px -16px rgba(20, 18, 42, 0.3);
+  --fade-to: #F7F7FB;
+}
+[data-theme="ecosystem"] .section--alt { background: #FFFFFF; }
+[data-theme="ecosystem"] .hero::before { display: block; width: 720px; height: 720px; right: -200px; top: -240px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(201, 189, 247, 0.55), transparent 72%); filter: blur(30px); }
+[data-theme="ecosystem"] .pillars__bars span { background: #6A4FA8; } [data-theme="ecosystem"] .pillars__bars span:nth-child(2) { background: #4E72D8; } [data-theme="ecosystem"] .pillars__bars span:nth-child(3) { background: #C9BDF7; }
+[data-theme="ecosystem"] .cta-band__bg { background: linear-gradient(120deg, #14122A 0%, rgba(43, 36, 104, 0.9) 100%); }
+[data-theme="ecosystem"] .cursor.is-link .cursor__ring { background: rgba(90, 74, 156, 0.08); }

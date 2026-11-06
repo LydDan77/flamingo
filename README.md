@@ -1,6 +1,6 @@
 # Flamingo
 
-A white-label website for a concierge regenerative medicine and longevity practice, built as a plain static site with **eleven switchable design versions** in two collections, each also available as a **regenerative-only** build with no NAD+ or peptide programs (see **Programs**). Brand details, team members, testimonials, pricing, and legal copy are **placeholders** until the client provides them. Photography is licensed stock supplied by the client, processed into responsive WebP.
+A white-label website for a concierge regenerative medicine and longevity practice, built as a plain static site with **sixteen switchable design versions** in three collections (Collection Three, the premium set, is the default), each also available as a **regenerative-only** build with no NAD+ or peptide programs (see **Programs**). Brand details, team members, testimonials, pricing, and legal copy are **placeholders** until the client provides them. Photography is licensed stock supplied by the client, processed into responsive WebP.
 
 | Version | Look | Fonts |
 | --- | --- | --- |
@@ -10,7 +10,7 @@ A white-label website for a concierge regenerative medicine and longevity practi
 | `bright` | Bold and eccentric, not goofy: white with violet, coral, citrus and aqua, marker highlights, hard offset shadows | Bricolage Grotesque + DM Sans + DM Mono |
 | `elite` | Premium: warm black, champagne gold, serif numerals, wide-tracked labels, vignetted photography | Cormorant Garamond + Jost + DM Mono |
 
-Switch versions with the floating **Design** control (bottom right; a compact menu that works on phones) or by adding `?theme=dark|light|warm|bright|elite` to any URL. The choice is remembered in the browser. Photos swap per version (for example the home hero shows a sprinter in `dark`, a nurse practitioner with a patient in `light`, a couple on an autumn hike in `warm`).
+Switch versions with the floating **Design** control (bottom right; a compact menu that works on phones) or by adding `?theme=<name>` to any URL. The choice is remembered in the browser; without one the site opens in `ecosystem`. Photos swap per version (for example the home hero shows a sprinter in `dark`, a nurse practitioner with a patient in `light`, a couple on an autumn hike in `warm`).
 
 ## Pages
 
@@ -163,6 +163,18 @@ Every text/background pair in every version meets WCAG 2.1 AA contrast (4.5:1 fo
 Fontshare families (Clash Display, Satoshi, Gambetta, Switzer; ITF Free Font Licence) are self-hosted from `src/assets/fonts/` through `src/assets/css/parts/05-fonts.css`, because the Fontshare CSS API only serves one family per request. Google families still load per version from the bootstrap in `src/layout.html`.
 
 Round 2 also added content modules that every version renders (`src/assets/css/parts/25-collection-two.css`): the honesty block (`honesty.html`: what we will not promise, who this is not for), the candidacy checker (`candidacy.html`: four questions, CSS-only progression, no score, nothing sent anywhere), cost and financing (`cost.html`), the before-you-book cards on the regenerative therapy pages (`objections.html`), and a phone-only book / call bar (`sticky-cta.html`).
+
+**Collection Three** (the default set, five versions) is the premium, elevated system built after the Precision Growth System page: an editorial, numbered structure shared by all five (`src/assets/css/parts/55-collection-three.css`) with a palette, type pair and signature touches per version (`60-64-theme-*.css`). Serif display with italic phrases set in soft outlined highlight boxes, a geometric sans for everything else, chapter numerals on section labels ("02 | What we do"), rounded photo cards with a caption card, hairline numbered lists, big serif step numerals, gradient pill buttons, an ink stats card and deep bands over cell imagery. It also added the "short version" module to the home page (`short-version.html`: the offer in five lines), which every version renders.
+
+| Version | Look | Type |
+| --- | --- | --- |
+| Ecosystem (default) | The closest reading of the reference: lavender white, deep indigo, a violet-to-blue gradient, lavender highlight boxes | Libre Baskerville + Poppins |
+| Onyx | The GSC Originals shop look turned into a clinic site: near-black, warm sand type, gold gradient pills, sand product surfaces | DM Serif Display + Inter |
+| Sandstone | The shop's sand and ink in daylight: sand page, bronze accent, deep teal second voice, sand photo frames | Newsreader + Figtree |
+| Meridian | Clinical precision: ice white, navy ink, electric blue-to-violet gradient, a faint dot grid under the page | Source Serif 4 + Geist |
+| Ivory | Quiet luxury: ivory paper, graphite, a deep plum accent with champagne numerals and hairlines | Playfair Display + Albert Sans |
+
+Photography for this collection adds the four GSC Originals lifestyle scenes (`gsc-scene-park`, `-cafe`, `-waterfront`, `-clinic`; 976 px originals, so the 1920 size is an upscale) to the licensed pool.
 
 ## Notes
 

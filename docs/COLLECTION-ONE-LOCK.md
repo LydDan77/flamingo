@@ -58,6 +58,17 @@ Round 3 touched the same five files again, and the Collection One regression and
 
 New files: `45-theme-blush.css`. `site.config.js` (not locked) became a factory so each variant gets its own module set.
 
+## Round 4 edits to locked files (Collection Three, new default)
+
+List extensions only, re-verified with the Collection One regression before the lock was updated:
+
+- `build.js`, `src/assets/js/site.js`, `src/layout.html`: the five Collection Three names added to the theme lists, fonts and page-colour maps, `SPLIT_HERO` and `MAGNET`.
+- `src/layout.html`, `src/assets/js/site.js`, `src/partials/theme-switch.html`: the default version is now `ecosystem` (the `<html data-theme>` attribute, the bootstrap fallbacks, the no-script font link, the switcher's default swatch and label). Collection One still renders identically when selected or when a stored preference points at it.
+- `src/partials/theme-switch.html`: the "Collection Three" group, listed first.
+- `src/assets/css/parts/20-layout.css`: the five names added to the split-hero selector lists (no rule bodies changed).
+
+New files: `55-collection-three.css`, `60-64-theme-*.css`, `src/partials/short-version.html` (rendered on the home page by every version).
+
 ## Restoring Collection One exactly
 
 ```

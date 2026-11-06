@@ -1,12 +1,18 @@
 <div class="theme-switch" id="theme-switch">
   <button type="button" class="theme-switch__trigger" aria-haspopup="true" aria-expanded="false" aria-controls="theme-switch-menu" aria-label="Choose a design version" title="Choose a design version">
-    <span class="theme-switch__swatch theme-switch__swatch--dark" data-theme-swatch aria-hidden="true"></span>
+    <span class="theme-switch__swatch theme-switch__swatch--ecosystem" data-theme-swatch aria-hidden="true"></span>
     <span class="theme-switch__label">Design</span>
-    <span class="theme-switch__current" data-theme-current>Dark</span>
+    <span class="theme-switch__current" data-theme-current>Ecosystem</span>
     {{variantBadge}}
     {{icon:chevron-down theme-switch__caret}}
   </button>
   <div class="theme-switch__menu" id="theme-switch-menu" role="group" aria-label="Design version" hidden>
+    <p class="theme-switch__heading">Collection Three</p>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="ecosystem" data-theme-name="Ecosystem"><span class="theme-switch__swatch theme-switch__swatch--ecosystem" aria-hidden="true"></span><span><b>Ecosystem</b><small>Lavender, indigo &amp; a violet gradient</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="onyx" data-theme-name="Onyx"><span class="theme-switch__swatch theme-switch__swatch--onyx" aria-hidden="true"></span><span><b>Onyx</b><small>Near-black, sand &amp; gold</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="sandstone" data-theme-name="Sandstone"><span class="theme-switch__swatch theme-switch__swatch--sandstone" aria-hidden="true"></span><span><b>Sandstone</b><small>Sand, ink &amp; bronze</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="meridian" data-theme-name="Meridian"><span class="theme-switch__swatch theme-switch__swatch--meridian" aria-hidden="true"></span><span><b>Meridian</b><small>Ice, navy &amp; electric blue</small></span>{{icon:check theme-switch__check}}</button>
+    <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="ivory" data-theme-name="Ivory"><span class="theme-switch__swatch theme-switch__swatch--ivory" aria-hidden="true"></span><span><b>Ivory</b><small>Ivory, graphite &amp; plum</small></span>{{icon:check theme-switch__check}}</button>
     <p class="theme-switch__heading">Collection One</p>
     <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="dark" data-theme-name="Dark"><span class="theme-switch__swatch theme-switch__swatch--dark" aria-hidden="true"></span><span><b>Dark</b><small>Biohacker &amp; athlete</small></span>{{icon:check theme-switch__check}}</button>
     <button type="button" class="theme-switch__item" role="menuitemradio" aria-checked="false" data-set-theme="light" data-theme-name="Light"><span class="theme-switch__swatch theme-switch__swatch--light" aria-hidden="true"></span><span><b>Light</b><small>Clean &amp; clinical</small></span>{{icon:check theme-switch__check}}</button>

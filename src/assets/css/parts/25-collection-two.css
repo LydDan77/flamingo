@@ -24,8 +24,8 @@ a.theme-switch__item:hover b { color: var(--ts-active); }
 html.has-cursor:is([data-theme="obsidian"], [data-theme="monolith"]) *:not(input):not(textarea):not(select) { cursor: none; }
 
 /* ---- hero proof chips: the three facts of the scan layer */
-:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"], [data-theme="blush"]) .hero__meta { border-top: 0; padding-top: 0; margin-top: 30px; gap: 10px; letter-spacing: 0.04em; }
-:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"], [data-theme="blush"]) .hero__meta li { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: var(--radius-chip); background: var(--chip-bg); border: 1px solid var(--chip-line); color: var(--chip-fg); }
+:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"], [data-theme="blush"], [data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta { border-top: 0; padding-top: 0; margin-top: 30px; gap: 10px; letter-spacing: 0.04em; }
+:is([data-theme="atelier"], [data-theme="obsidian"], [data-theme="sanctuary"], [data-theme="monolith"], [data-theme="aurora"], [data-theme="blush"], [data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: var(--radius-chip); background: var(--chip-bg); border: 1px solid var(--chip-line); color: var(--chip-fg); }
 
 /* ---- honesty block */
 .honesty { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }

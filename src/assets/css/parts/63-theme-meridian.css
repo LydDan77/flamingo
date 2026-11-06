@@ -1,0 +1,39 @@
+/* ===================================================== COLLECTION THREE · MERIDIAN
+   Clinical precision: ice white, navy ink, an electric blue-to-violet gradient, a faint dot grid under the page.
+   Source Serif 4 with Geist. */
+[data-theme="meridian"] {
+  --font-display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-body: "Geist", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist", "Inter", system-ui, sans-serif;
+  --h-track: -0.02em;
+
+  --bg: #F2F5FB; --bg-alt: #E8EDF7; --bg-deep: #0B1026; --bg-hero: transparent;
+  --surface: #FFFFFF; --surface-2: #E8EDF7; --surface-solid: #FFFFFF; --input-bg: #FFFFFF;
+  --text: #0B1026; --text-2: #3A4160; --text-3: #5B627F;
+  --brand: #2F5BFF; --brand-strong: #1E43D6; --brand-2: #7A5CFF; --brand-3: #A7B8FF; --brand-deep: #16246E; --brand-soft: #E6ECFF; --on-brand: #FFFFFF; --eyebrow: #1E43D6;
+  --grad: linear-gradient(95deg, #2F5BFF 0%, #7A5CFF 100%); --grad-hover: linear-gradient(95deg, #1E43D6 0%, #6646E6 100%); --on-grad: #FFFFFF; --grad-shadow: rgba(47, 91, 255, 0.5);
+  --hl-fg: #1E43D6; --hl-bg: #E6ECFF; --hl-line: rgba(47, 91, 255, 0.3);
+  --deep-accent: #A7B8FF; --deep-glow: rgba(47, 91, 255, 0.5);
+  --stage: linear-gradient(165deg, #E6ECFF 0%, #EEE8FF 100%);
+  --line: #D6DCEB; --line-strong: #B5BED6;
+  --shadow-sm: 0 10px 24px -20px rgba(11, 16, 38, 0.25); --shadow: 0 30px 60px -36px rgba(11, 16, 38, 0.35); --shadow-glow: 0 18px 40px -18px rgba(47, 91, 255, 0.45);
+  --btn-primary-bg: #2F5BFF; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #1E43D6;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #0B1026; --btn-secondary-line: #B5BED6;
+  --chip-bg: #FFFFFF; --chip-fg: #0B1026; --chip-line: #D6DCEB;
+  --vial-glass: rgba(11, 16, 38, 0.04); --vial-stroke: rgba(11, 16, 38, 0.35); --vial-label: #FFFFFF; --vial-text: rgba(11, 16, 38, 0.3); --vial-neck: #B5BED6;
+  --img-filter: saturate(0.9) contrast(1.04); --img-tint: rgba(47, 91, 255, 0.1);
+  --header-bg: rgba(242, 245, 251, 0.86); --header-line: #D6DCEB; --footer-bg: #0B1026;
+  --cta-gradient: linear-gradient(120deg, #0B1026 0%, #16246E 100%); --number-gradient: linear-gradient(180deg, #2F5BFF, #7A5CFF);
+  --ticker-bg: #0B1026; --ticker-fg: #C9D2F2;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(47, 91, 255, 0.55); --cur-size: 28px; --cur-size-link: 48px; --cur-fill: rgba(167, 184, 255, 0.25); --btn-gloss: rgba(255, 255, 255, 0.3);
+  --ts-bg: rgba(255, 255, 255, 0.96); --ts-fg: #0B1026; --ts-muted: #5B627F; --ts-line: #B5BED6; --ts-hover: #E8EDF7; --ts-active: #2F5BFF; --ts-shadow: 0 16px 40px -16px rgba(11, 16, 38, 0.3);
+  --fade-to: #F2F5FB;
+}
+[data-theme="meridian"] body { background-color: #F2F5FB; background-image: radial-gradient(rgba(11, 16, 38, 0.1) 1px, transparent 1px); background-size: 28px 28px; }
+[data-theme="meridian"] .section--alt { background: #E8EDF7; }
+[data-theme="meridian"] .ticker { background: #0B1026; color: #C9D2F2; border: 0; }
+[data-theme="meridian"] .ticker__track span::after { background: #7A5CFF; }
+[data-theme="meridian"] .hero::before { display: block; width: 720px; height: 720px; right: -220px; top: -240px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(167, 184, 255, 0.55), transparent 72%); filter: blur(30px); }
+[data-theme="meridian"] .pillars__bars span { background: #2F5BFF; } [data-theme="meridian"] .pillars__bars span:nth-child(2) { background: #7A5CFF; } [data-theme="meridian"] .pillars__bars span:nth-child(3) { background: #A7B8FF; }
+[data-theme="meridian"] .cta-band__bg { background: linear-gradient(120deg, #0B1026 0%, rgba(22, 36, 110, 0.92) 100%); }
+[data-theme="meridian"] .cursor.is-link .cursor__ring { background: rgba(47, 91, 255, 0.08); }
