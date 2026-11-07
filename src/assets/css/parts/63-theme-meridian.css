@@ -33,7 +33,6 @@
 [data-theme="meridian"] .section--alt { background: #E8EDF7; }
 [data-theme="meridian"] .ticker { background: #0B1026; color: #C9D2F2; border: 0; }
 [data-theme="meridian"] .ticker__track span::after { background: #7A5CFF; }
-[data-theme="meridian"] .hero::before { display: block; width: 720px; height: 720px; right: -220px; top: -240px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(167, 184, 255, 0.55), transparent 72%); filter: blur(30px); }
 [data-theme="meridian"] .pillars__bars span { background: #2F5BFF; } [data-theme="meridian"] .pillars__bars span:nth-child(2) { background: #7A5CFF; } [data-theme="meridian"] .pillars__bars span:nth-child(3) { background: #A7B8FF; }
 [data-theme="meridian"] .cta-band__bg { background: linear-gradient(120deg, #0B1026 0%, rgba(22, 36, 110, 0.92) 100%); }
 [data-theme="meridian"] .cursor.is-link .cursor__ring { background: rgba(47, 91, 255, 0.08); }

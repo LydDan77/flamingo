@@ -30,7 +30,6 @@
   --fade-to: #F7F7FB;
 }
 [data-theme="ecosystem"] .section--alt { background: #FFFFFF; }
-[data-theme="ecosystem"] .hero::before { display: block; width: 720px; height: 720px; right: -200px; top: -240px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(201, 189, 247, 0.55), transparent 72%); filter: blur(30px); }
 [data-theme="ecosystem"] .pillars__bars span { background: #6A4FA8; } [data-theme="ecosystem"] .pillars__bars span:nth-child(2) { background: #4E72D8; } [data-theme="ecosystem"] .pillars__bars span:nth-child(3) { background: #C9BDF7; }
 [data-theme="ecosystem"] .cta-band__bg { background: linear-gradient(120deg, #14122A 0%, rgba(43, 36, 104, 0.9) 100%); }
 [data-theme="ecosystem"] .cursor.is-link .cursor__ring { background: rgba(90, 74, 156, 0.08); }

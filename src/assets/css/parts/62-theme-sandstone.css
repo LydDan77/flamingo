@@ -31,7 +31,6 @@
 }
 [data-theme="sandstone"] .ticker { background: #1B1712; color: #D9B98A; border: 0; }
 [data-theme="sandstone"] .ticker__track span::after { background: #A8793A; }
-[data-theme="sandstone"] .hero::before { display: block; width: 720px; height: 720px; right: -220px; top: -240px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(217, 185, 138, 0.5), transparent 72%); filter: blur(30px); }
 [data-theme="sandstone"] .hero--image .hero__bg { box-shadow: 0 0 0 8px rgba(251, 248, 241, 0.6), var(--shadow); }
 [data-theme="sandstone"] .media__frame { box-shadow: 0 0 0 6px rgba(251, 248, 241, 0.7), var(--shadow); }
 [data-theme="sandstone"] .pillars__bars span { background: #7E5822; } [data-theme="sandstone"] .pillars__bars span:nth-child(2) { background: #2F6B5E; } [data-theme="sandstone"] .pillars__bars span:nth-child(3) { background: #D9B98A; }

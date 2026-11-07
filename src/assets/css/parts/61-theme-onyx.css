@@ -31,7 +31,6 @@
   --fade-to: #0B0A08;
 }
 [data-theme="onyx"] .section--alt { background: #12100C; }
-[data-theme="onyx"] .hero::before { display: block; width: 760px; height: 760px; right: -240px; top: -260px; z-index: -3; border-radius: 50%; background: radial-gradient(closest-side, rgba(209, 164, 71, 0.22), transparent 72%); filter: blur(30px); }
 [data-theme="onyx"] .hero--image .hero__bg { border-color: rgba(245, 239, 227, 0.14); }
 [data-theme="onyx"] .hero__aside { background: #15130F; }
 [data-theme="onyx"] .btn--primary::after { background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%); }
