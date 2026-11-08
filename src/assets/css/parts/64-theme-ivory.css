@@ -36,8 +36,6 @@
 [data-theme="ivory"] .eyebrow::before { color: #7F5F2B; }
 [data-theme="ivory"] .stat strong { background: var(--number-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 [data-theme="ivory"] .pillars__bars span { background: #5B2A4E; } [data-theme="ivory"] .pillars__bars span:nth-child(2) { background: #B08D57; } [data-theme="ivory"] .pillars__bars span:nth-child(3) { background: #D9C3A5; }
-[data-theme="ivory"] .hero--image .hero__bg { box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 9px rgba(217, 195, 165, 0.35), var(--shadow); }
-[data-theme="ivory"] .media__frame { box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 7px rgba(217, 195, 165, 0.35), var(--shadow); }
 [data-theme="ivory"] .quote-card .stars { color: #B08D57; }
 [data-theme="ivory"] .cta-band__bg { background: linear-gradient(120deg, #1C1A1A 0%, rgba(46, 20, 39, 0.92) 100%); }
 [data-theme="ivory"] .cursor.is-link .cursor__ring { background: rgba(91, 42, 78, 0.08); }
