@@ -1,9 +1,9 @@
 {
   "collection": "one",
   "tag": "v1.0-collection-one",
-  "commit": "6d46e581af05b212bc14499256a4fe5b8a491c6b",
+  "commit": "87ca64eee7a776ef9f0318320e609ff6a35119ce",
   "files": {
-    "build.js": "db530737a01b7b429fd2592479bb046d1cfa6773",
+    "build.js": "f57188794c74259bcfc0b5f68ea9fa43909c8bad",
     "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
     "src/assets/css/parts/10-components.css": "a80570ac5b52bd3fbe1be2cd921dedd7ce12c933",
     "src/assets/css/parts/12-partner.css": "ef431cf5da3971204d29ab6624ff54c4986f35bc",

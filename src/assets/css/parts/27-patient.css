@@ -68,28 +68,33 @@
 @media (max-width: 1023px) { .footer__top { grid-template-columns: repeat(3, minmax(0, 1fr)); } .footer__brand { grid-column: 1 / -1; } }
 @media (max-width: 639px) { .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* ---- header: six nav items now. Labels never wrap, the phone number collapses to its icon below 1440px, and a
-   long practice name truncates instead of pushing the actions off-screen. */
+/* ---- header: four items. The menu never shrinks below its labels; a long practice name wraps to two lines instead
+   (and to any number in the footer). The phone number shows as text from 1440px up, as its icon on phones and tablets, and gives way to the
+   booking button between 1024px and 1279px where there is no room for both. */
 .nav__link { white-space: nowrap; }
 .site-header .brand { flex: 0 1 auto; min-width: 0; }
-.site-header .brand__name { overflow: hidden; text-overflow: ellipsis; max-width: 300px; }
-.site-header .nav { min-width: 0; }
+.site-header .brand__name { max-width: 300px; white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.15; }
+.site-header .nav { flex: none; }
 .site-header__actions { flex: none; }
+.nav__list { gap: 6px; }
 @media (max-width: 1439px) {
   .site-header__call { width: 42px; height: 42px; min-height: 0; padding: 0; justify-content: center; border: 1px solid var(--line); }
   .site-header__call span { display: none; }
-  .site-header .brand__name { max-width: 200px; }
-  .site-header__inner { gap: 14px; }
-  .nav__list { gap: 0; }
-  html[data-theme] .site-header .nav__link { padding-inline: 7px; font-size: 0.82rem; }
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .site-header__cta span { font-size: 0; }
-  .site-header__cta span::after { content: "Book"; font-size: 0.86rem; }
+  .site-header__call { display: none; }
+  .site-header .brand__name { max-width: 240px; font-size: 0.95rem; }
+  .site-header__inner { gap: 14px; }
+  .nav__list { gap: 0; }
+  .nav__link { padding: 9px 8px; font-size: 0.84rem; }
+  .site-header__cta { padding: 0 14px; }
 }
-@media (min-width: 1024px) and (max-width: 1199px) { .nav__item:has(> .nav__link[href^="for-providers.html"]) { display: none; } }
 @media (max-width: 1023px) { .site-header .brand__name { max-width: 44vw; } }
-@media (max-width: 479px) { .site-header .brand__name { max-width: 40vw; font-size: 0.98rem; } }
+@media (max-width: 479px) {
+  .site-header .brand__name { max-width: calc(100vw - 236px); font-size: 0.92rem; }
+  .site-header .brand--long .brand__mark { display: none; }
+  .site-header .brand--long .brand__name { max-width: calc(100vw - 192px); font-size: 0.84rem; -webkit-line-clamp: 3; letter-spacing: -0.01em; }
+}
 /* footer: the name may wrap */
 .site-footer .brand { align-items: flex-start; }
 .site-footer .brand__name { white-space: normal; line-height: 1.2; }

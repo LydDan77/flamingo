@@ -491,6 +491,7 @@ function build() {
   // The root build, then one complete build per variant (same assets, its own module set) in dist/<path>/.
   for (const variant of variantList()) {
     site = variant.key ? Object.assign(SITE.make(variant.modules, variant.brand), { collections: variant.collections, sample: !!variant.sample }) : SITE;
+    site.brandClass = (site.name || "").length > 18 ? " brand--long" : ""; // long names drop the mark on phones (27-patient.css)
     MODULES = site.modules || {};
     const outDir = variant.path ? path.join(DIST, variant.path) : DIST;
     const baseUrl = variant.path ? `${site.url}/${variant.path}` : site.url;

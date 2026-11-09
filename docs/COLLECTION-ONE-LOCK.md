@@ -82,6 +82,12 @@ New files: `26-trust.css`, `src/partials/reviews.html`, `journal.html` and six `
 
 New files: `27-patient.css`, `src/templates/referral.html`, `src/partials/where-it-hurts.html`, `src/partials/cost-line.html`, the six condition pages, `tools/patient-words.js`, `docs/PATIENT-WORDS.md`, `docs/PATIENT-TEST-KIT.md`.
 
+## Round 7 edits to locked files (a calmer header)
+
+- `build.js`: one line after the variant's config is made: `site.brandClass` is `brand--long` when the practice name is longer than eighteen characters, so phones can drop the logo mark and give the name the room (`27-patient.css`). Nothing else in the build changed.
+
+The nav itself lives in `site.config.js` (not locked): four items now, "Where it hurts", "Treatments", "About", "Contact", with NAD+, hormones, peptides and "How care works" inside Treatments and the journal and provider pages inside About.
+
 ## Restoring Collection One exactly
 
 ```
