@@ -7,13 +7,13 @@ nav: about
   <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
     {{img:clinician-home-visit|class=hero__img|dark=chalk-hands|warm=grandparents-picnic|elite=notebook-desk|eager|sizes=100vw|pos=center 30%|pos-warm=center 45%|pos-dark=center 50%|pos-elite=center 50%|atelier=atelier-portrait-woman|obsidian=obsidian-executive-window|sanctuary=sanctuary-couple-garden|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 25%|pos-monolith=center 22%|blush=reassuring-hand|pos-blush=center 45%|ecosystem=clinician-home-visit|onyx=chalk-hands|sandstone=hands-tea|meridian=nurse-portrait|ivory=reassuring-hand|pos-meridian=center 20%|pos-ivory=center 50%}}
     <div class="hero__scrim"></div>
-    <div class="hero__aside"><span class="card__icon">{{icon:user-round}}</span><div><b>[Founder Name]</b><span>Founder, {{site.name}}</span></div></div>
+    <div class="hero__aside"><span class="card__icon">{{icon:user-round}}</span><div><b>{{site.founder.name}}</b><span>Founder, {{site.name}}</span></div></div>
   </div>
   <div class="container hero__inner">
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="about.html">About</a>{{icon:chevron-down}}<span>Founder</span></nav>
       <p class="hero__kicker">Founder</p>
-      <h1>[Founder <em class="hl">Name</em>]</h1>
+      <h1><em class="hl">{{site.founder.name}}</em></h1>
       <p class="lead">Founder, {{site.name}}. One-line positioning statement about the founder and the mission goes here. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
@@ -39,7 +39,7 @@ nav: about
     <blockquote class="pullquote reveal">
       <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
       <p>"A signature line from the founder goes here: one sentence that captures why the practice exists and the standard it holds itself to."</p>
-      <footer>[Founder Name] · Founder</footer>
+      <footer>{{site.founder.name}} · Founder</footer>
     </blockquote>
     <div class="reveal mt-12">
       <span class="eyebrow">Why {{site.name}} Exists</span>

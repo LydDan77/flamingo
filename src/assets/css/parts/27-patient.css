@@ -1,0 +1,73 @@
+/* ===================================================== PATIENT PATH (Nov 2026)
+   The patient's map of the site: the "where it hurts" strip, the six condition pages, the private referral pages and
+   the dressed sample practice. Every version renders these; tokens do the styling, Collection Three gets rule-topped
+   variants at the end. */
+
+/* ---- where it hurts */
+.hurts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.hurts__item { display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 20px 20px 18px; border-radius: var(--radius-lg); background: var(--surface); border: var(--card-border) solid var(--line); color: var(--text); transition: transform 0.3s var(--ease), border-color 0.3s, background-color 0.3s; }
+.hurts__item:hover { transform: translateY(-3px); border-color: var(--line-strong); background: var(--surface-2); }
+.hurts__item b { font-size: 1.12rem; font-weight: 600; line-height: 1.25; }
+.hurts__item > span:last-child { font-size: 0.92rem; color: var(--text-2); line-height: 1.5; }
+.hurts__icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin-bottom: 6px; border-radius: var(--radius-sm); background: var(--brand-soft); color: var(--brand); }
+.hurts__icon .icon { width: 20px; height: 20px; }
+.hurts__item--ref { background: var(--brand-soft); border-color: transparent; }
+.hurts__item--ref .hurts__icon { background: var(--brand); color: var(--on-brand); }
+@media (max-width: 1023px) { .hurts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 479px) { .hurts { grid-template-columns: 1fr; } }
+
+/* ---- condition pages */
+.is-you { display: grid; gap: 0; counter-reset: you; }
+.is-you li { position: relative; padding: 16px 0 16px 48px; border-top: 1px solid var(--line); font-size: 1.05rem; line-height: 1.55; color: var(--text); }
+.is-you li:last-child { border-bottom: 1px solid var(--line); }
+.is-you li::before { counter-increment: you; content: counter(you, decimal-leading-zero); position: absolute; left: 0; top: 17px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; color: var(--brand); line-height: 1.5; }
+.plain-card h3 { font-size: 1.2rem; }
+.plain-card p { margin-top: 10px; color: var(--text-2); line-height: 1.65; }
+.plain-card--line { border-left: 3px solid var(--brand-2); }
+
+/* ---- referral pages */
+.referral__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+.referral .hero__content { max-width: none; }
+.referral__card { padding: 24px; border-radius: var(--radius-lg); background: var(--surface); border: var(--card-border) solid var(--line); box-shadow: var(--shadow-sm); }
+.referral__card .sample { margin-bottom: 14px; }
+.referral__portrait { width: 112px; height: 112px; border-radius: 50%; overflow: hidden; border: 3px solid var(--surface-solid); box-shadow: var(--shadow-sm); }
+.referral__portrait .img { width: 100%; height: 100%; object-fit: cover; }
+.referral__name { margin-top: 16px; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.15; }
+.referral__role { margin-top: 4px; color: var(--text-2); font-size: 0.95rem; text-transform: capitalize; }
+.referral__note { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.referral__note p { margin-top: 8px; color: var(--text-2); font-size: 0.98rem; line-height: 1.6; }
+.who-answers { padding: clamp(22px, 3vw, 32px); border-radius: var(--radius-lg); background: var(--surface); border: var(--card-border) solid var(--line); }
+.who-answers__name { margin-top: 10px; font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1; }
+.who-answers p + p, .who-answers .btn { margin-top: 16px; }
+.who-answers > p { color: var(--text-2); line-height: 1.65; margin-top: 12px; }
+.honest-line ul { display: grid; gap: 12px; margin-top: 18px; }
+.honest-line li { display: flex; gap: 12px; align-items: flex-start; font-size: 1.05rem; line-height: 1.55; }
+.honest-line li .icon { flex: none; margin-top: 4px; width: 20px; height: 20px; color: var(--brand); }
+.honest-line .hero__actions { margin-top: 28px; }
+@media (max-width: 899px) { .referral__grid { grid-template-columns: 1fr; } .referral__portrait { width: 88px; height: 88px; } }
+
+/* ---- the sample practice banner: a small note pinned under the header */
+.sample-banner { position: fixed; top: calc(var(--header-h) + 8px); left: 50%; transform: translateX(-50%); z-index: 89; display: inline-flex; align-items: center; gap: 8px; max-width: calc(100vw - 32px); padding: 6px 12px; border-radius: var(--radius-chip); background: var(--text); color: var(--bg); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.5); pointer-events: none; }
+.sample-banner .icon { width: 14px; height: 14px; flex: none; }
+@media (max-width: 767px) { .sample-banner { font-size: 0.72rem; } }
+
+/* ---- Collection Three: rules, not boxes */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hurts__item { background: transparent; border: 0; border-top: 2px solid var(--text); border-radius: 0; padding: 18px 0 8px; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hurts__item:hover { transform: none; background: transparent; border-top-color: var(--brand); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hurts__icon { display: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hurts__item--ref { border-top-color: var(--brand); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hurts__item--ref b { color: var(--brand-strong); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .is-you li::before { font-family: var(--font-body); font-weight: 700; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(.referral__card, .who-answers) { background: var(--surface-solid); border: 1px solid var(--line); border-top: 3px solid var(--brand); border-radius: var(--radius); box-shadow: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .referral__portrait { border-radius: var(--radius); border: 0; box-shadow: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .plain-card--line { border-left: 0; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .sample-banner { border-radius: var(--radius-chip); }
+
+/* ---- footer: five columns now that "Where it hurts" has one */
+.footer__top { grid-template-columns: 220px repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1023px) { .footer__top { grid-template-columns: repeat(3, minmax(0, 1fr)); } .footer__brand { grid-column: 1 / -1; } }
+@media (max-width: 639px) { .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---- header: six nav items now, so labels never wrap */
+.nav__link { white-space: nowrap; }
+@media (min-width: 1024px) and (max-width: 1279px) { .nav__list { gap: 0; } .nav__link { padding-inline: 9px; font-size: 0.84rem; } }

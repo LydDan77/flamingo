@@ -14,7 +14,8 @@
  *   {{page.key}}                   value from the page's front matter
  *   {{nav}} {{footer}} {{year}}    generated navigation, footer columns, current year
  *   {{variantSwitch}} {{variantBadge}}  the "Programs" items of the design switcher (site variants, see site.config.js)
- *   {{#if module:x}} … {{/if}}     conditional blocks (also {{#unless …}}, any:a,b and all:a,b)
+ *   {{#if module:x}} … {{/if}}     conditional blocks (also {{#unless …}}, any:a,b, all:a,b, collection:x, sample)
+ *   src/templates/*.html           page templates rendered once per data record (referral pages from site.referrers)
  *
  * Variants: besides the root build, every variant in site.config.js (`variants`) is a complete second build of the
  * site with its own module set, written to dist/<path>/ (for example dist/regen/ = no NAD+ or peptide programs).
@@ -272,6 +273,7 @@ function evalCondition(expr) {
   if (kind === "module") return moduleOn(names[0]);
   if (kind === "notice") return !!(site.notices || {})[names[0]];
   if (kind === "collection") return !site.collections || site.collections.includes(names[0]); // which switcher groups a variant lists
+  if (kind === "sample") return !!site.sample; // the dressed sample practice (variants.demo)
   if (kind === "any") return names.some(moduleOn);
   if (kind === "all") return names.every(moduleOn);
   throw new Error(`Unknown condition: ${expr}`);
@@ -408,13 +410,16 @@ function render(template, ctx, depth = 0) {
   return out;
 }
 
-function buildPage(file, outDir, variant) {
-  const raw = read(path.join(PAGES, file));
-  const { data, body } = parseFrontMatter(raw);
-  const slug = file.replace(/\.html$/, "");
+/** Builds src/pages/<file>; or, with `gen`, a generated page from a template ({ raw, slug, out, extra } where extra lands on page.*). */
+function buildPage(file, outDir, variant, gen) {
+  const raw = gen ? gen.raw : read(path.join(PAGES, file));
+  const parsed = parseFrontMatter(raw);
+  const data = parsed.data;
+  const body = gen ? parsed.body.replace(/\{\{page\.([\w.]+)\}\}/g, (m, k) => { const v = getPath(gen.extra, k); return v == null ? m : String(v); }) : parsed.body;
+  const slug = gen ? gen.slug : file.replace(/\.html$/, "");
   if (data.module && !moduleOn(data.module)) return null; // page belongs to a module that is switched off
-  // Titles and descriptions may use {{site.x}} and {{#if …}} so they follow the modules too.
-  const lite = { page: {}, navHtml: "", footerHtml: "", heroImage: null };
+  // Titles and descriptions may use {{site.x}}, {{page.x}} and {{#if …}} so they follow the modules too.
+  const lite = { page: { ...(gen ? gen.extra : {}) }, navHtml: "", footerHtml: "", heroImage: null };
   for (const k of ["title", "description"]) if (data[k] && data[k].includes("{{")) data[k] = render(data[k], lite);
   const page = {
     slug,
@@ -426,6 +431,7 @@ function buildPage(file, outDir, variant) {
     bodyClass: data.bodyClass || "",
     ogImage: data.ogImage || site.ogImage,
     ...data,
+    ...(gen ? gen.extra : {}),
   };
   page.robotsMeta = data.noindex || site.indexable === false ? '<meta name="robots" content="noindex, nofollow">' : "";
   page.titleEsc = escapeHtml(page.fullTitle);
@@ -447,7 +453,7 @@ function buildPage(file, outDir, variant) {
   const layout = read(LAYOUT);
   const html = render(layout.replace("{{content}}", () => content), ctx);
 
-  const outFile = path.join(outDir, file);
+  const outFile = path.join(outDir, gen ? gen.out : file);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
   if (!variant.path) PLACEHOLDERS += (html.match(/class="ph-tag"/g) || []).length + (html.match(/class="sample"/g) || []).length;
@@ -484,7 +490,7 @@ function build() {
 
   // The root build, then one complete build per variant (same assets, its own module set) in dist/<path>/.
   for (const variant of variantList()) {
-    site = variant.key ? Object.assign(SITE.make(variant.modules), { collections: variant.collections }) : SITE;
+    site = variant.key ? Object.assign(SITE.make(variant.modules, variant.brand), { collections: variant.collections, sample: !!variant.sample }) : SITE;
     MODULES = site.modules || {};
     const outDir = variant.path ? path.join(DIST, variant.path) : DIST;
     const baseUrl = variant.path ? `${site.url}/${variant.path}` : site.url;
@@ -502,6 +508,9 @@ function build() {
 
     const built = allPages.map((file) => ({ file, out: buildPage(file, outDir, variant) })).filter((b) => b.out !== null);
     const pages = built.map((b) => b.file);
+    // Generated pages: one private referral page per referring clinician (from-<slug>.html; noindex, not in the sitemap).
+    const refTpl = read(path.join(SRC, "templates", "referral.html"));
+    for (const ref of site.referrers || []) buildPage(null, outDir, variant, { raw: refTpl, slug: `from-${ref.slug}`, out: `from-${ref.slug}.html`, extra: { ref } });
     const skipped = allPages.filter((f) => !pages.includes(f));
 
     // Simple sitemap so the deployed site has one (one per build; robots.txt only at the root).
@@ -523,6 +532,7 @@ function build() {
 
   console.log(`built ${log.join("; ")} -> dist/ in ${Date.now() - started}ms`);
   console.log(`${PLACEHOLDERS} placeholder / sample spots still tagged across the site${site.indexable === false ? "; indexing is off (site.indexable)" : ""}`);
+  try { require("./tools/patient-words.js").report(DIST, { summary: true }); } catch (e) { console.log("patient words: " + e.message); }
   PLACEHOLDERS = 0;
 }
 

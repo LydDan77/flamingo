@@ -76,6 +76,12 @@ New files: `55-collection-three.css`, `60-64-theme-*.css`, `src/partials/short-v
 
 New files: `26-trust.css`, `src/partials/reviews.html`, `journal.html` and six `journal-*.html` articles. The header partial (not locked) gained the tap-to-call link.
 
+## Round 6 edits to locked files (the patient path)
+
+- `build.js`: generated pages from `src/templates/*.html` (one referral page per entry in `site.referrers`), the `sample` condition for the dressed demo variant, brand overrides passed to the config factory, and the patient-words summary after every build. Regular pages build exactly as before.
+
+New files: `27-patient.css`, `src/templates/referral.html`, `src/partials/where-it-hurts.html`, `src/partials/cost-line.html`, the six condition pages, `tools/patient-words.js`, `docs/PATIENT-WORDS.md`, `docs/PATIENT-TEST-KIT.md`.
+
 ## Restoring Collection One exactly
 
 ```

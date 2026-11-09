@@ -1,0 +1,97 @@
+---
+title: Sent here by {{page.ref.short}}: what happens next
+description: A private page for {{page.ref.short}}'s patients: what happens next, what it costs, and who you will talk to. No sales pitch, no promises.
+nav: conditions
+noindex: true
+bodyClass: page--referral
+---
+<section class="hero hero--simple hero--short referral">
+  <div class="container hero__inner">
+    <div class="referral__grid">
+      <div class="hero__content">
+        <p class="hero__kicker">Sent here by {{page.ref.short}}</p>
+        <h1>{{page.ref.short}} asked us to look after <em class="hl">your {{page.ref.focusWord}}</em>.</h1>
+        <p class="lead">Here is exactly what happens next, what it costs, and who you will talk to. Nothing on this page is a sales pitch, and nothing is a promise.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} Book a free video call</a>
+          <a class="btn btn--secondary btn--lg" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
+        </div>
+      </div>
+      <aside class="referral__card reveal" data-delay="1">
+        <span class="sample">Sample referrer</span>
+        <div class="referral__portrait">{{img:{{page.ref.photo}}|alt=Portrait of {{page.ref.name}}|pos={{page.ref.pos}}|sizes=112px}}</div>
+        <p class="referral__name">{{page.ref.name}}</p>
+        <p class="referral__role">{{page.ref.role}} · {{page.ref.practice}}</p>
+        <div class="referral__note"><span class="eyebrow">What {{page.ref.short}} told us</span><p>{{page.ref.note}}</p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">What happens next</span>
+      <h2>Three steps, in plain words</h2>
+    </div>
+    <div class="steps steps--3 steps--line reveal" data-reveal-steps>
+      <div class="step"><span class="step__icon">{{icon:phone}}</span><span class="step__num">01</span><h3>A video call with a licensed clinician</h3><p>About thirty minutes, free. Bring your imaging if you have it and tell us what {{page.ref.short}} said. We ask about your {{page.ref.focusWord}}, your health and what you want back.</p></div>
+      <div class="step"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">02</span><h3>An honest answer, in writing</h3><p>Yes, no, or we need more information. If yes, you get a written plan with the full price. If no, you get a clearer picture to take back to {{page.ref.short}}. Nobody calls to push.</p></div>
+      <div class="step"><span class="step__icon">{{icon:home}}</span><span class="step__num">03</span><h3>Treatment at home, follow-ups by the same team</h3><p>A licensed nurse practitioner comes to you. A physician oversees the plan. With your permission, {{page.ref.short}} gets a note at each step so your care stays joined up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="reveal">
+        <span class="eyebrow">Three questions</span>
+        <h2 class="mt-4">What {{page.ref.short}}'s patients usually ask first</h2>
+        <p class="lead mt-6">Short answers here. Longer ones on the call, from a clinician, not a salesperson.</p>
+        <a class="link-arrow mt-6" href="{{page.ref.focus}}.html">Read about {{page.ref.focusWord}} care first {{icon:arrow-right}}</a>
+      </div>
+      <div class="faq reveal" data-delay="1">
+        <details class="faq__item" open><summary>Is this approved?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">No. Stem cell and exosome products are not FDA-approved to treat joints and are considered investigational for most uses. We say so up front, and we will not tell you otherwise. What we can say is who tends to be a candidate, what the treatment involves, and what the research does and does not show.</div></details>
+        <details class="faq__item"><summary>Will it hurt, and how long does it take?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">The visit is about an hour, most of it preparation and aftercare instructions. The injection itself takes a few minutes and feels like any injection into a joint. Mild soreness for a day or two is common. You can usually go about a light day afterward.</div></details>
+        <details class="faq__item"><summary>What if I am not a candidate?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Then we tell you, on the call, and we send a note to {{page.ref.short}} with your permission. A meaningful share of the people we talk to are better served by their specialist, and we would rather say so than treat someone who is unlikely to benefit.</div></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="cost">
+  <div class="container">
+    <div class="split split--top">
+      <div class="reveal">
+        <span class="eyebrow">What it costs</span>
+        <h2 class="mt-4">The number, before you decide</h2>
+        <p class="lead mt-6">Regenerative care is paid out of pocket. Plans for a single joint run from <b>{{site.pricing.from}}</b> to <b>{{site.pricing.to}}</b>, with the visit, the product and the follow-ups in one price. Your exact quote is written down on the call, and a quote is never a commitment. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
+        <p class="mt-4" style="color:var(--text-2)">Monthly payment plans are available through a financing partner, subject to approval, with the terms shown in full before you sign anything. <a href="financing.html">How financing works</a>.</p>
+      </div>
+      <div class="who-answers reveal" data-delay="1">
+        <span class="eyebrow">Who answers the phone</span>
+        <p class="who-answers__name">{{site.coordinator.first}}</p>
+        <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. Say {{page.ref.short}} sent you and {{site.coordinator.first}} will book your call, answer the practical questions, and stay your point of contact throughout. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
+        <a class="btn btn--primary" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
+        <p class="small muted mt-4">{{site.hours}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <div class="honest-line reveal">
+      <span class="eyebrow">In one breath</span>
+      <ul>
+        <li>{{icon:check}} A licensed nurse practitioner at home, a physician overseeing every plan.</li>
+        <li>{{icon:check}} Not FDA-approved and investigational for most uses. Results vary and we never promise one.</li>
+        <li>{{icon:check}} If you are not a candidate, we say so and send you back to {{page.ref.short}} with notes.</li>
+      </ul>
+      <div class="hero__actions"><a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} Book a free video call</a><a class="btn btn--secondary btn--lg" href="index.html">See the whole site {{icon:arrow-right}}</a></div>
+    </div>
+  </div>
+</section>
+
+{{> disclaimer-regen}}

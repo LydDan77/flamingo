@@ -1,8 +1,8 @@
 <!-- Reviews strip: the trust signal right under the hero. Figures are placeholders until the client supplies verified reviews. -->
 <div class="reviews reveal" aria-label="Patient reviews">
   <div class="container reviews__inner">
-    <div class="reviews__score"><span class="reviews__stars" aria-hidden="true">★★★★★</span><b>X.X</b><small>on Google</small></div>
-    <p class="reviews__note">XXX verified patient reviews. Only reviews from real patients, published with written consent, appear on this site. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+    <div class="reviews__score"><span class="reviews__stars" aria-hidden="true">★★★★★</span><b>{{site.reviews.score}}</b><small>on Google</small></div>
+    <p class="reviews__note">{{site.reviews.count}} verified patient reviews. Only reviews from real patients, published with written consent, appear on this site. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
     <a class="link-arrow" href="testimonials.html">Read patient stories {{icon:arrow-right}}</a>
   </div>
 </div>
