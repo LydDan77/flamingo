@@ -26,8 +26,8 @@
 /* ---- the collection: tokens */
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) {
   --h-weight: 400; --h-track: -0.015em; --h-lh: 1.04;
-  --h1-size: clamp(3rem, 6.2vw, 5.4rem); --h2-size: clamp(2.2rem, 4vw, 3.5rem);
-  --hero-split-h1: clamp(2.7rem, 4.8vw, 4.6rem);
+  --h1-size: clamp(2.4rem, 5vw, 4.4rem); --h2-size: clamp(2.1rem, 3.8vw, 3.4rem);
+  --hero-split-h1: clamp(2.1rem, 4vw, 3.9rem);
   --eyebrow-weight: 600; --eyebrow-track: 0.14em;
   --fs-base: 18px;
   --radius-sm: 4px; --radius: 6px; --radius-lg: 8px; --radius-xl: 10px; --radius-img: 6px; --radius-btn: 6px; --radius-chip: 4px; --card-border: 0px;
@@ -77,11 +77,14 @@
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .btn--block { text-decoration: none; }
 
 /* ---- hero: serif headline beside a square photograph that bleeds off the right edge */
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 72px); min-height: min(78svh, 760px); align-items: center; }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image.hero--home .hero__inner { min-height: min(86svh, 820px); }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__content { max-width: 46ch; }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__bg { left: 46%; right: 0; top: var(--header-h); bottom: 0; border-radius: 0; border: 0; box-shadow: none; }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__aside { left: 0; right: auto; bottom: 0; gap: 10px; padding: 12px 18px; border-radius: 0 var(--radius) 0 0; background: rgba(12, 12, 14, 0.78); color: #FFFFFF; border: 0; box-shadow: none; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__aside { gap: 10px; padding: 12px 18px; border-radius: 0 var(--radius) 0 0; background: rgba(12, 12, 14, 0.78); color: #FFFFFF; border: 0; box-shadow: none; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+@media (min-width: 900px) {
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); min-height: min(78svh, 760px); align-items: center; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image.hero--home .hero__inner { min-height: min(86svh, 820px); }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__content { max-width: 50ch; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__bg { left: 50%; right: 0; top: var(--header-h); bottom: 0; border-radius: 0; border: 0; box-shadow: none; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__aside { left: 0; right: auto; bottom: 0; }
+}
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__aside .card__icon { display: none; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__aside div { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__aside b { display: inline; font-size: 0.92rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: #FFFFFF; margin: 0; }
@@ -92,9 +95,11 @@
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li b { font-family: var(--font-body); font-size: 1rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--text); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--simple { background: transparent; }
 @media (max-width: 899px) {
-  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__bg { border-radius: 0; margin: 0; aspect-ratio: 4 / 3; max-height: 60svh; border: 0; box-shadow: none; }
-  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__aside { left: 0; bottom: 0; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) { --hero-split-h1: clamp(1.9rem, 8.2vw, 2.4rem); --h1-size: clamp(2rem, 8.6vw, 2.6rem); }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__bg { border-radius: 0; margin: 0; aspect-ratio: 3 / 2; max-height: 40svh; border: 0; box-shadow: none; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__aside { left: 0; right: 0; bottom: 0; border-radius: 0; padding: 10px var(--gutter); }
   :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__content { max-width: none; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image h1 { margin-top: 10px; }
 }
 
 /* ---- photography: square corners, no frames, no tint */
