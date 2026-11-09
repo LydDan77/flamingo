@@ -195,7 +195,7 @@ return {
 
   // Primary conversion action: the on-site consultation form.
   bookUrl: "contact.html#book",
-  bookLabel: "Book a Free Consultation",
+  bookLabel: "Book a Consultation",
 
   // Social (placeholders)
   social: {
@@ -241,9 +241,9 @@ return {
       ],
       featured: {
         title: "Not sure which treatment fits?",
-        desc: "Book a free video call and a clinician will tell you honestly, including if none of them do.",
+        desc: "Book a video call and a clinician will tell you honestly, including if none of them do.",
         href: "contact.html#book",
-        cta: "Book a free video call",
+        cta: "Book a video call",
       },
     },
     {

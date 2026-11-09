@@ -31,7 +31,7 @@ Stairs. Chairs. Socks. The garden. Sleeping on that side. Reversing the car. Gra
 1. See yourself first: situations in her words, before any science.
 2. Feel safe second: a named clinician, "what we will not promise", not FDA-approved said plainly.
 3. The truthful cost of waiting, which for wear is simply that it does not reverse on its own.
-4. One small step: a free video call, with a first name attached.
+4. One small step: a video call, with a first name attached.
 5. Exactly what happens after: steps, price in writing, follow-ups with the same team.
 
 ## Where the science goes

@@ -36,7 +36,7 @@ Then two follow-ups:
 | --- | --- |
 | What is this? | They say "stem cell treatment for joints, at home, from a nurse" or close to it, without the word "protocol" |
 | Is it for you? | They name their own knee, hip or shoulder, or say honestly that they are not the type it describes |
-| What next? | "Book the free call" or "call the number", and they can find the button in under ten seconds |
+| What next? | "Book the call" or "call the number", and they can find the button in under ten seconds |
 | What does it cost? | They quote the range, or say "they tell you on the call, in writing" |
 | Word they did not understand | None, or one that is already on the banned list in `docs/PATIENT-WORDS.md` |
 | Trust | They mention the "what we will not promise" section, the named clinician, or the price in writing |
