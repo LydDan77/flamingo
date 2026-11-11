@@ -7,10 +7,10 @@ nav: contact
   <div class="container hero__inner">
     <div class="hero__content">
       <p class="hero__kicker">Contact Us</p>
-      <h1>Expert guidance on your <em class="hl">regenerative health journey</em></h1>
-      <p class="lead">Have questions about our therapies? Ready to schedule your consultation? We're here to help.</p>
+      <h1>Talk to a licensed clinician about <em class="hl">your knee, hip, shoulder or back</em></h1>
+      <p class="lead">Questions first, or ready to book a video call? Either is fine. A clinician answers, not a salesperson.</p>
       <ul class="hero__pills">
-        <li><a class="pill" href="#book">{{icon:calendar-check}} Book a Consultation</a></li>
+        <li><a class="pill" href="{{site.bookUrl}}">{{icon:calendar-check}} Book a video call</a></li>
         <li><a class="pill" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a></li>
         <li><a class="pill" href="mailto:{{site.email}}">{{icon:mail}} Email Us</a></li>
       </ul>
@@ -22,8 +22,8 @@ nav: contact
   <div class="container container--wide">
     <div class="section-head reveal">
       <span class="eyebrow">Get in Touch</span>
-      <h2>Book your consultation with <em class="hl">{{site.name}}</em></h2>
-      <p class="lead">Tell us a little about yourself and a member of the care team will reach out to schedule your consultation.</p>
+      <h2>Send a message to <em class="hl">{{site.name}}</em></h2>
+      <p class="lead">Tell us a little about yourself and a member of the care team will get back to you. To pick a time straight away, <a href="{{site.bookUrl}}">book a video call</a>.</p>
     </div>
     <div class="split split--top split--contact" data-tabs="contact">
       <div class="card reveal">
@@ -34,43 +34,12 @@ nav: contact
 
         <div class="tabs__panel" data-panel="patient" hidden>
           <div class="info-row mb-6"><span class="card__icon">{{icon:send}}</span><div><b>Send us a message</b><span class="small" style="color:var(--text-2)">Fill out the form and we'll get back to you shortly.</span></div></div>
-          <form class="form" data-demo-form novalidate>
-            <div class="form__row">
-              <label class="field"><span class="field__label">First name</span><input type="text" name="first_name" autocomplete="given-name" required></label>
-              <label class="field"><span class="field__label">Last name</span><input type="text" name="last_name" autocomplete="family-name" required></label>
-            </div>
-            <div class="form__row">
-              <label class="field"><span class="field__label">Email</span><input type="email" name="email" autocomplete="email" required></label>
-              <label class="field"><span class="field__label">Phone</span><input type="tel" name="phone" autocomplete="tel"></label>
-            </div>
-            <div class="form__row">
-              <label class="field"><span class="field__label">State</span><input type="text" name="state" autocomplete="address-level1" placeholder="e.g. TX"></label>
-              <label class="field"><span class="field__label">I'm interested in</span>
-                <select name="interest">
-                  <option value="">Select a program</option>
-                  <option>Stem cell / regenerative therapy</option>
-                  {{#if module:hormones}}<option>Hormone optimization</option>{{/if}}
-                  {{#if module:peptides}}<option>Peptide therapy</option>{{/if}}
-                  {{#if module:nad}}<option>NAD+ &amp; longevity</option>{{/if}}
-                  <option>Not sure yet</option>
-                </select>
-              </label>
-            </div>
-            <div class="form__row">
-              <label class="field"><span class="field__label">Who sent you? (optional)</span><input type="text" name="referred_by" placeholder="e.g. Dr. Reyes, or a friend"></label>
-              <label class="field"><span class="field__label">Where it hurts (optional)</span><input type="text" name="where" placeholder="e.g. right knee"></label>
-            </div>
-            <label class="field"><span class="field__label">What are you dealing with?</span><textarea name="message" rows="4" placeholder="Symptoms, goals, or questions"></textarea></label>
-            <label class="field field--check"><input type="checkbox" name="sms_consent"><span>I agree to be contacted by phone, email, or text about my inquiry. Message frequency may vary. Message &amp; data rates may apply. Reply STOP to opt out. See our <a href="privacy-policy.html" style="text-decoration:underline">Privacy Policy</a>.</span></label>
-            <div class="actions"><button class="btn btn--primary btn--lg" type="submit">{{icon:send}} Request My Consultation</button></div>
-            <p class="form__notice" role="status">{{icon:info}}<span><b>Demo form.</b> This form isn't connected to a CRM or inbox yet. Hook it up to the client's form handler before launch.</span></p>
-            <p class="form__foot">Placeholder consent language. Replace with the client's reviewed SMS and privacy wording. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
-          </form>
+          {{> form-patient}}
         </div>
 
         <div class="tabs__panel" data-panel="provider" hidden>
           <div class="info-row mb-6"><span class="card__icon">{{icon:stethoscope}}</span><div><b>Partnership inquiry</b><span class="small" style="color:var(--text-2)">Tell us about your practice and we'll set up a 15-minute intro call. No commitment required.</span></div></div>
-          <form class="form" data-demo-form novalidate>
+          <form class="form" data-demo-form data-thanks="{{site.booking.thankYouUrl}}" novalidate>
             <div class="form__row">
               <label class="field"><span class="field__label">Your name</span><input type="text" name="name" autocomplete="name" required></label>
               <label class="field"><span class="field__label">Practice name</span><input type="text" name="practice" autocomplete="organization" required></label>
@@ -145,23 +114,3 @@ nav: contact
     <div class="actions actions--center mt-8"><a class="btn btn--primary btn--lg" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a></div>
   </div>
 </section>
-
-<!-- Demo thank-you: the form is not connected yet, so a submit shows what the patient will see, stamped as a sample. -->
-<script>
-  (function () {
-    document.querySelectorAll("[data-demo-form]").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var first = (form.querySelector('input[name="first_name"]') || { value: "" }).value.trim().replace(/[<>&"]/g, "");
-        var box = document.createElement("div");
-        box.className = "form__thanks"; box.setAttribute("role", "status"); box.tabIndex = -1;
-        box.innerHTML = '<span class="form__thanks-icon">{{icon:check-circle}}</span>' +
-          '<h3>Thank you' + (first ? ", " + first : "") + '.</h3>' +
-          '<p>A member of the care team will call you within one business day to confirm a time. If it is urgent, call <a href="{{site.phoneTel}}">{{site.phone}}</a>.</p>' +
-          '<p class="small"><span class="sample">Sample</span> &nbsp;Demo only: nothing was sent. Connect the client\'s form handler before launch.</p>';
-        form.replaceWith(box);
-        box.scrollIntoView({ block: "center", behavior: "smooth" }); box.focus({ preventScroll: true });
-      });
-    });
-  })();
-</script>

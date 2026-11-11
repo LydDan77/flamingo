@@ -1,0 +1,33 @@
+<!-- The native patient form. Submitting lands on the thank-you page (site.booking.thankYouUrl); connect the client's form handler or a GoHighLevel form before launch. -->
+<form class="form" data-demo-form data-thanks="{{site.booking.thankYouUrl}}" novalidate>
+            <div class="form__row">
+              <label class="field"><span class="field__label">First name</span><input type="text" name="first_name" autocomplete="given-name" required></label>
+              <label class="field"><span class="field__label">Last name</span><input type="text" name="last_name" autocomplete="family-name" required></label>
+            </div>
+            <div class="form__row">
+              <label class="field"><span class="field__label">Email</span><input type="email" name="email" autocomplete="email" required></label>
+              <label class="field"><span class="field__label">Phone</span><input type="tel" name="phone" autocomplete="tel"></label>
+            </div>
+            <div class="form__row">
+              <label class="field"><span class="field__label">State</span><input type="text" name="state" autocomplete="address-level1" placeholder="e.g. TX"></label>
+              <label class="field"><span class="field__label">I'm interested in</span>
+                <select name="interest">
+                  <option value="">Select a program</option>
+                  <option>Stem cell / regenerative therapy</option>
+                  {{#if module:hormones}}<option>Hormone optimization</option>{{/if}}
+                  {{#if module:peptides}}<option>Peptide therapy</option>{{/if}}
+                  {{#if module:nad}}<option>NAD+ &amp; longevity</option>{{/if}}
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+            </div>
+            <div class="form__row">
+              <label class="field"><span class="field__label">Who sent you? (optional)</span><input type="text" name="referred_by" placeholder="e.g. Dr. Reyes, or a friend"></label>
+              <label class="field"><span class="field__label">Where it hurts (optional)</span><input type="text" name="where" placeholder="e.g. right knee"></label>
+            </div>
+            <label class="field"><span class="field__label">What are you dealing with?</span><textarea name="message" rows="4" placeholder="Symptoms, goals, or questions"></textarea></label>
+            <label class="field field--check"><input type="checkbox" name="sms_consent"><span>I agree to be contacted by phone, email, or text about my inquiry. Message frequency may vary. Message &amp; data rates may apply. Reply STOP to opt out. See our <a href="privacy-policy.html" style="text-decoration:underline">Privacy Policy</a>.</span></label>
+            <div class="actions"><button class="btn btn--primary btn--lg" type="submit">{{icon:send}} Request My Consultation</button></div>
+            <p class="form__notice" role="status">{{icon:info}}<span><b>Demo form.</b> This form isn't connected to a CRM or inbox yet. Hook it up to the client's form handler before launch.</span></p>
+            <p class="form__foot">Placeholder consent language. Replace with the client's reviewed SMS and privacy wording. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+          </form>

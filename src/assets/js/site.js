@@ -359,6 +359,13 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (form.reportValidity && !form.reportValidity()) return;
+      var to = form.getAttribute("data-thanks");
+      if (to) { // the thank-you page, with a first name so it can say hello (letters only, nothing else travels)
+        var f = form.querySelector('input[name="first_name"], input[name="name"]');
+        var first = f ? f.value.trim().split(/\s+/)[0].replace(/[^A-Za-z'\-]/g, "").slice(0, 30) : "";
+        window.location.href = to + (first ? (to.indexOf("?") < 0 ? "?" : "&") + "first=" + encodeURIComponent(first) : "");
+        return;
+      }
       var notice = form.querySelector(".form__notice");
       if (notice) { notice.classList.add("is-visible"); notice.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" }); }
     });

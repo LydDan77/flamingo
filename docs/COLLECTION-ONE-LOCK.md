@@ -88,6 +88,14 @@ New files: `27-patient.css`, `src/templates/referral.html`, `src/partials/where-
 
 The nav itself lives in `site.config.js` (not locked): four items now, "Where it hurts", "Treatments", "About", "Contact", with NAD+, hormones, peptides and "How care works" inside Treatments and the journal and provider pages inside About.
 
+## Round 8 edits to locked files (booking, ready for GoHighLevel)
+
+- `build.js`: the `booking:` condition, `{{bookingEmbed}}` (the calendar iframe, a custom snippet, or the honest placeholder) and `{{headScript}}`, rendered right after partial includes so icons inside them still resolve. Regular pages build exactly as before.
+- `src/layout.html`: `{{headScript}}` on the line before `</head>`; empty unless `site.booking.headScript` is set.
+- `src/assets/js/site.js`: demo forms with `data-thanks` redirect to the thank-you page instead of showing the inline notice; forms without it behave as before.
+
+New files: `src/pages/book.html`, `src/pages/thank-you.html`, `src/partials/form-patient.html`, `28-booking.css`, `docs/prompts/booking-ghl.md`.
+
 ## Restoring Collection One exactly
 
 ```

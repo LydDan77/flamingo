@@ -193,8 +193,20 @@ return {
   address: "123 Street Name, Suite 100, City, ST 00000",
   hours: "Mon–Fri: 9AM–5PM",
 
-  // Primary conversion action: the on-site consultation form.
-  bookUrl: "contact.html#book",
+  // Booking. Every "Book" button, link and the phone-only bar point at bookUrl (book.html). That page renders the
+  // GoHighLevel calendar when booking.calendarUrl is set (here, or by the GHL_BOOKING_URL environment variable where the
+  // site is built), a raw snippet when booking.embedHtml is set (any other widget or "GHL-like" script), and an honest
+  // placeholder plus the native call-back form otherwise. Native forms and the calendar's confirmation redirect both land
+  // on booking.thankYouUrl. Calendar links and widget IDs are public; an API key never goes here or anywhere in src/.
+  booking: {
+    provider: process.env.BOOKING_PROVIDER || "ghl", // "ghl" | "form"
+    calendarUrl: process.env.GHL_BOOKING_URL || "", // e.g. https://api.leadconnectorhq.com/widget/booking/XXXXXXXXXXXX
+    embedScript: "https://link.msgsndr.com/js/form_embed.js", // GHL's resizer for the calendar iframe
+    embedHtml: process.env.BOOKING_EMBED_HTML || "", // optional: a complete embed snippet instead of the calendar iframe
+    headScript: process.env.SITE_HEAD_SCRIPT || "", // optional: a tracking or chat snippet placed before </head>
+    thankYouUrl: "thank-you.html",
+  },
+  bookUrl: "book.html",
   bookLabel: "Book a Consultation",
 
   // Social (placeholders)
@@ -242,7 +254,7 @@ return {
       featured: {
         title: "Not sure which treatment fits?",
         desc: "Book a video call and a clinician will tell you honestly, including if none of them do.",
-        href: "contact.html#book",
+        href: "book.html",
         cta: "Book a video call",
       },
     },
@@ -314,7 +326,7 @@ return {
       title: "Contact",
       links: [
         { label: "Patient Support", href: "contact.html" },
-        { label: "Book a Consultation", href: "contact.html#book" },
+        { label: "Book a Consultation", href: "book.html" },
         { label: "For Providers", href: "for-providers.html" },
         { label: "(000) 000-0000", href: "tel:+10000000000" },
       ],

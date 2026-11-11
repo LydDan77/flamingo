@@ -1,0 +1,65 @@
+---
+title: Book a video call
+description: Pick a time for a video call with a licensed clinician. About thirty minutes, an honest answer, and if it is yes, a price in writing.
+nav: contact
+bodyClass: page--book
+---
+<section class="hero hero--page hero--short">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="hero__kicker">Book a video call</p>
+      <h1>Pick a time to talk to <em class="hl">a licensed clinician</em>.</h1>
+      <p class="lead">About thirty minutes by video. Bring your imaging if you have it. You leave with an honest answer, and if the answer is yes, a written plan with the price. Nobody calls to push.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="book">
+  <div class="container container--wide">
+    <div class="split split--top split--contact">
+      <div class="reveal">
+        {{bookingEmbed}}
+        {{#unless booking:calendar}}{{#unless booking:custom}}
+        <div class="callback card">
+          <div class="info-row mb-6"><span class="card__icon">{{icon:phone}}</span><div><b>{{#if booking:form}}Request a video call{{/if}}{{#unless booking:form}}Rather we call you?{{/unless}}</b><span class="small" style="color:var(--text-2)">Leave your details and {{site.coordinator.first}} will call to find a time that suits you.</span></div></div>
+          {{> form-patient}}
+        </div>
+        {{/unless}}{{/unless}}
+      </div>
+      <aside class="booking-aside reveal" data-delay="1">
+        <div class="who-answers">
+          <span class="eyebrow">Who answers the phone</span>
+          <p class="who-answers__name">{{site.coordinator.first}}</p>
+          <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. If a time here does not work, or you would rather talk first, call and {{site.coordinator.first}} will sort it out. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
+          <a class="btn btn--secondary" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
+          <p class="small muted mt-4">{{site.hours}}</p>
+        </div>
+        <div class="card card--soft">
+          <h4>What happens on the call</h4>
+          <ul class="dot-list">
+            <li>A licensed clinician, about thirty minutes, by video.</li>
+            <li>Your knee, hip, shoulder or back, your health, and what you want back.</li>
+            <li>One of three answers: yes, no, or we need more information.</li>
+            <li>If yes, a written plan with the full price. A quote is never a commitment.</li>
+          </ul>
+        </div>
+        <div class="honest-line">
+          <span class="eyebrow">In one breath</span>
+          <ul>
+            <li>{{icon:check}} Not FDA-approved and investigational for most uses. Results vary and we never promise one.</li>
+            <li>{{icon:check}} If you are not a candidate, we say so, on the call.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--narrow text-center reveal">
+    <span class="eyebrow">Before you book</span>
+    <h2 class="mt-4">Not sure this is for you yet?</h2>
+    <p class="lead mx-auto mt-5">Start with where it hurts. Each page says who tends to be a candidate, what we will not promise, and what it costs, in plain words.</p>
+    <div class="actions actions--center mt-8"><a class="btn btn--secondary btn--lg" href="knees.html">Start with where it hurts {{icon:arrow-right}}</a></div>
+  </div>
+</section>

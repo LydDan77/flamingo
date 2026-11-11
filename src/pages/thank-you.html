@@ -1,0 +1,77 @@
+---
+title: Thank you
+description: Your request is in. What happens next, how to change the time, and how to get ready for your video call.
+nav: contact
+noindex: true
+bodyClass: page--thank-you
+---
+<section class="hero hero--page hero--short">
+  <div class="container hero__inner">
+    <div class="hero__content thank-you">
+      <span class="thank-you__check" aria-hidden="true">{{icon:check}}</span>
+      <p class="hero__kicker">Thank you</p>
+      <h1>Thank you<span id="ty-name"></span>. <em class="hl">We have your request.</em></h1>
+      <p class="lead">If you picked a time, it is booked and a confirmation is on its way by email or text. If you asked us to call, {{site.coordinator.first}} will call within one business day to find a time. {{#if sample}}<span class="sample">Sample</span>{{/if}}</p>
+      <p class="small muted">Need to change or cancel? Call <a href="{{site.phoneTel}}">{{site.phone}}</a>, or use the link in your confirmation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">What happens next</span>
+      <h2>Three steps, in plain words</h2>
+    </div>
+    <div class="steps steps--3 steps--line reveal" data-reveal-steps>
+      <div class="step"><span class="step__icon">{{icon:phone}}</span><span class="step__num">01</span><h3>Your video call</h3><p>About thirty minutes with a licensed clinician. We ask about your knee, hip, shoulder or back, your health, and what you want back.</p></div>
+      <div class="step"><span class="step__icon">{{icon:clipboard-check}}</span><span class="step__num">02</span><h3>An honest answer, in writing</h3><p>Yes, no, or we need more information. If yes, a written plan with the full price. A quote is never a commitment.</p></div>
+      <div class="step"><span class="step__icon">{{icon:home}}</span><span class="step__num">03</span><h3>Treatment at home</h3><p>A licensed nurse practitioner comes to you. A physician oversees the plan. Follow-ups are with the same team.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--wide">
+    <div class="split split--top">
+      <div class="reveal">
+        <span class="eyebrow">Get ready</span>
+        <h2 class="mt-4">Five things that make the call count</h2>
+        <p class="lead mt-6">None of them are required. All of them help the clinician give you a straight answer.</p>
+      </div>
+      <div class="card reveal" data-delay="1">
+        <ol class="is-you">
+          <li>Your imaging, if you have it: X-ray or MRI reports, or the images themselves.</li>
+          <li>A list of what you take, including supplements and injections you have had in the joint.</li>
+          <li>What you want back: the stairs, the garden, sleeping on that side, the walk that got shorter.</li>
+          <li>If a surgeon has given you a date, bring it. It changes the advice.</li>
+          <li>Your questions, written down. The price, the follow-ups, what we will not promise. Ask all of them.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <div class="honest-line reveal">
+      <span class="eyebrow">In one breath</span>
+      <ul>
+        <li>{{icon:check}} A licensed nurse practitioner at home, a physician overseeing every plan.</li>
+        <li>{{icon:check}} Not FDA-approved and investigational for most uses. Results vary and we never promise one.</li>
+        <li>{{icon:check}} If you are not a candidate, we say so, on the call.</li>
+      </ul>
+      <div class="hero__actions"><a class="btn btn--secondary btn--lg" href="index.html">Back to the start {{icon:arrow-right}}</a></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Says hello by first name when the form passed one along (?first=); letters only, inserted as text.
+  (function () {
+    try {
+      var f = (new URLSearchParams(window.location.search).get("first") || "").replace(/[^A-Za-z'\-]/g, "").slice(0, 30);
+      if (f) document.getElementById("ty-name").textContent = ", " + f;
+    } catch (e) {}
+  })();
+</script>

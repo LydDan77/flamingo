@@ -7,7 +7,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const PATIENT_PAGES = /^(index|knees|hips|shoulders|back-and-neck|after-an-injury|before-surgery|from-[a-z-]+|contact|services|financing|journal(-[a-z-]+)?)\.html$/;
+const PATIENT_PAGES = /^(index|knees|hips|shoulders|back-and-neck|after-an-injury|before-surgery|from-[a-z-]+|contact|book|thank-you|services|financing|journal(-[a-z-]+)?)\.html$/;
 const BANNED = ["protocol", "biologic", "msc", "mesenchymal", "vesicle", "lab-guided", "candidacy", "journey", "elevate", "holistic", "telehealth", "modality", "cutting-edge", "state-of-the-art", "synergy", "leverage", "seamless", "empower", "optimiz", "unlock", "transform"];
 const BODY = ["knee", "hip", "shoulder", "back", "neck", "stairs", "walk", "sleep", "garden", "surgery", "surgeon", "pain", "injury", "chair", "reach", "lift", "home", "price", "cost"];
 

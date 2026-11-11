@@ -57,6 +57,15 @@ Chris Kulbaba's page-by-page scorecard (Nov 5–6, 2026) marked the first Flamin
 - **Bigger type** in Collection Three (17px base, larger leads) and every micro-label at 12px or more.
 - **SAMPLE stamps** on placeholder testimonials, and the build prints how many placeholder / sample spots remain.
 
+## Booking (ready for GoHighLevel)
+
+Every "Book" button, the Treatments menu, the footer and the phone-only bar point at `book.html`. That page has one job: hold the booking calendar.
+
+- **With a calendar.** Set `booking.calendarUrl` in `site.config.js` to the GoHighLevel calendar link (`https://api.leadconnectorhq.com/widget/booking/…`), or set the `GHL_BOOKING_URL` environment variable where the site is built (a Vercel project setting works), and rebuild. The page renders GHL's iframe and its resizer script. Any other widget or "GHL-like" script goes in `booking.embedHtml` / `BOOKING_EMBED_HTML` and replaces the calendar; a tracking or chat snippet goes in `booking.headScript` / `SITE_HEAD_SCRIPT` and is placed before `</head>`. Links and widget IDs are public; API keys never go in the config or anywhere under `src/`.
+- **Without one.** The slot shows an honest placeholder saying what goes there (stamped SAMPLE in the sample practice), and the native call-back form works underneath.
+- **After booking.** `thank-you.html` (noindex, not in the sitemap): what happens next, how to change the time, five things to bring. The native forms land there and greet by first name. In GHL, set the calendar's confirmation to redirect to `https://<domain>/thank-you.html` so a calendar booking lands there too.
+- **Automation.** Chris can set the per-client values from Sanity by writing the environment variables or the config file before the build; nothing else changes per client. The reusable prompt that produced this is in `docs/prompts/booking-ghl.md`.
+
 ## Collection Three on its own link
 
 `dist/three/` is the same site with the design switcher limited to the five Collection Three versions (plus the partner entries): https://flamingo-regenerative-revival.vercel.app/three/ . It is a variant in `site.config.js` with `collections: ["three", "partners"]` and `hidden: true`, read by the `{{#if collection:x}}` tag in `theme-switch.html`.
@@ -112,7 +121,7 @@ The logo is a generic SVG mark in `src/partials/logo.html`. Replace it with the 
 
 ### Contact form
 
-The contact page uses a native HTML form (`form[data-demo-form]`). It is **not connected** to anything yet: submitting shows a notice instead of posting. Point it at the client's CRM, form service or email handler before launch (`src/assets/js/site.js`, "demo contact forms" section).
+The patient form lives in `src/partials/form-patient.html` and is shared by `contact.html` (send a message) and `book.html` (request a call back while no calendar is connected). Forms carry `data-demo-form` and `data-thanks="thank-you.html"`: submitting validates, then lands on the thank-you page with nothing sent. Before launch, connect the client's handler (or a GoHighLevel form via `BOOKING_EMBED_HTML`) and remove the demo attributes.
 
 ## Edit it
 

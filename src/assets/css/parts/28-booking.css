@@ -1,0 +1,22 @@
+/* ===================================================== BOOKING AND THANK-YOU (book.html, thank-you.html)
+   The booking slot holds the GoHighLevel calendar iframe (GHL's script resizes it), a custom snippet, or the honest
+   placeholder while no calendar is connected. Both pages reuse the patient-path pieces from 27-patient.css. */
+.booking-slot { position: relative; border-radius: var(--radius-lg, 20px); overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
+.booking-slot iframe { display: block; width: 100%; min-height: 720px; background: #fff; }
+.booking-slot--empty { display: grid; gap: 14px; align-content: center; justify-items: start; min-height: 420px; padding: 36px; border: 1px dashed var(--line-strong); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.booking-slot--empty h3 { margin: 0; }
+.booking-slot--empty p { margin: 0; max-width: 58ch; color: var(--text-2); }
+.booking-slot--empty code { font-family: var(--font-mono); font-size: 0.85em; padding: 1px 6px; border-radius: 4px; background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--text); white-space: nowrap; }
+.callback { margin-top: 28px; }
+.booking-aside { display: grid; gap: 20px; align-content: start; }
+.booking-aside .who-answers { margin: 0; }
+.thank-you__check { display: grid; place-items: center; width: 68px; height: 68px; margin-bottom: 20px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); }
+.thank-you__check .icon { width: 32px; height: 32px; } /* the plain tick: the circle-tick's duotone disc hides the tick in Collection Three */
+/* the phone-only book / call bar has no job on the booking page or after booking */
+.page--book .sticky-cta, .page--thank-you .sticky-cta { display: none; }
+.page--thank-you .hero__content { max-width: 760px; }
+@media (max-width: 899px) {
+  .booking-slot iframe { min-height: 640px; }
+  .booking-slot--empty { min-height: 320px; padding: 24px; }
+  .callback { margin-top: 20px; }
+}

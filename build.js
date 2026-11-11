@@ -14,6 +14,7 @@
  *   {{page.key}}                   value from the page's front matter
  *   {{nav}} {{footer}} {{year}}    generated navigation, footer columns, current year
  *   {{variantSwitch}} {{variantBadge}}  the "Programs" items of the design switcher (site variants, see site.config.js)
+ *   {{bookingEmbed}} {{headScript}}   the booking slot (GoHighLevel calendar, a custom snippet, or the placeholder) and the optional head snippet
  *   {{#if module:x}} … {{/if}}     conditional blocks (also {{#unless …}}, any:a,b, all:a,b, collection:x, sample)
  *   src/templates/*.html           page templates rendered once per data record (referral pages from site.referrers)
  *
@@ -274,10 +275,32 @@ function evalCondition(expr) {
   if (kind === "notice") return !!(site.notices || {})[names[0]];
   if (kind === "collection") return !site.collections || site.collections.includes(names[0]); // which switcher groups a variant lists
   if (kind === "sample") return !!site.sample; // the dressed sample practice (variants.demo)
+  if (kind === "booking") return bookingState() === names[0]; // booking:calendar | booking:custom | booking:slot | booking:form
   if (kind === "any") return names.some(moduleOn);
   if (kind === "all") return names.every(moduleOn);
   throw new Error(`Unknown condition: ${expr}`);
 }
+// Booking (site.booking): which of the four states the booking page is in, and the markup for its slot.
+function bookingState() {
+  const b = site.booking || {};
+  if (b.embedHtml) return "custom";
+  if (b.provider === "ghl") return b.calendarUrl ? "calendar" : "slot";
+  return "form";
+}
+function renderBookingEmbed() {
+  const b = site.booking || {};
+  const state = bookingState();
+  if (state === "custom") return `<div class="booking-slot" data-booking="custom">${b.embedHtml}</div>`;
+  if (state === "calendar") {
+    const id = "ghl-" + (b.calendarUrl.split("/").filter(Boolean).pop() || "booking").replace(/[^\w-]/g, "");
+    return `<div class="booking-slot" data-booking="ghl"><iframe src="${escapeHtml(b.calendarUrl)}" id="${id}" title="Book a video call" style="width:100%;border:none;overflow:hidden" scrolling="no"></iframe><script src="${escapeHtml(b.embedScript || "https://link.msgsndr.com/js/form_embed.js")}" type="text/javascript"></script></div>`;
+  }
+  if (state === "form") return "";
+  // No calendar yet: a visible, honest slot so the provision is obvious on every build and nobody ships without noticing.
+  const tag = site.sample ? '<span class="sample">Sample</span>' : '<span class="ph-tag">{{icon:pen}} Client to provide</span>';
+  return `<div class="booking-slot booking-slot--empty" data-booking="ghl">${tag}<h3>The booking calendar appears here</h3><p>Paste the GoHighLevel calendar link into <code>booking.calendarUrl</code> in <code>site.config.js</code>, or set <code>GHL_BOOKING_URL</code> where the site is built, and rebuild. In GoHighLevel, point the calendar's confirmation redirect at <code>thank-you.html</code>.</p><p>Until then, the call-back form below works as the first step.</p></div>`;
+}
+
 function navVisible(item) {
   return !item.module || moduleOn(item.module);
 }
@@ -383,6 +406,10 @@ function render(template, ctx, depth = 0) {
 
   // partial includes
   out = out.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, name) => render(partial(name), ctx, depth + 1));
+
+  // booking slot and the optional head snippet (site.booking); raw by design, they come from the operator's own config
+  out = out.replace(/\{\{bookingEmbed\}\}/g, () => renderBookingEmbed());
+  out = out.replace(/\{\{headScript\}\}/g, () => (site.booking && site.booking.headScript) || "");
 
   // icons
   out = out.replace(/\{\{icon:([\w-]+)(?:\s+([\w\s-]+))?\}\}/g, (_, name, cls) => icon(name, cls));
