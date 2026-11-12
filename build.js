@@ -191,7 +191,14 @@ const PHOTO_DIR = "assets/img/photos";
 const PRODUCT_DIR = "assets/img/products";
 const PRODUCT_H = 1000; // product renders are trimmed to a 4:5 box (800x1000) so the intrinsic size is known before load
 const THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush", "ecosystem", "onyx", "sandstone", "meridian", "ivory"];
-const PHOTO_SET = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w`;
+// Photos that also have a 2880px rendition (<slug>-2880.webp): the ones shown large enough that 1920px goes soft on a
+// high-density screen. Every srcset, in the markup and in the scripts, is built from this one list.
+const XL_PHOTOS = fs.readdirSync(path.join(ASSETS, "img", "photos")).filter((f) => /-2880\.webp$/.test(f)).map((f) => f.replace(/-2880\.webp$/, "")).sort();
+const PHOTO_SET = (s) => `${PHOTO_DIR}/${s}-800.webp 800w, ${PHOTO_DIR}/${s}-1200.webp 1200w, ${PHOTO_DIR}/${s}-1920.webp 1920w` + (XL_PHOTOS.includes(s) ? `, ${PHOTO_DIR}/${s}-2880.webp 2880w` : "");
+// The same rule for the browser: window.FLAMINGO_SET(dir, slug), defined in <head> on every page (see buildPage).
+const PHOTO_SET_SCRIPT =
+  `var X=${JSON.stringify("|" + XL_PHOTOS.join("|") + "|")};` +
+  `window.FLAMINGO_SET=function(d,s){return d+s+"-800.webp 800w, "+d+s+"-1200.webp 1200w, "+d+s+"-1920.webp 1920w"+(X.indexOf("|"+s+"|")>-1?", "+d+s+"-2880.webp 2880w":"")};`;
 function imgTag(spec, ctx) {
   const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
   const slug = parts.shift();
@@ -241,7 +248,7 @@ function imgTag(spec, ctx) {
       `<script>(function(i,t){var d="${PHOTO_DIR}/",s=i.getAttribute("data-img-"+t)||i.getAttribute("data-img"),p=i.getAttribute("data-pos-"+t);` +
       `if(p)i.style.objectPosition=p;` +
       (isHero ? `i.sizes=/^(light|warm|bright)$/.test(t)?"(max-width: 899px) 100vw, 50vw":"100vw";` : `i.sizes=${JSON.stringify(opt.sizes)};`) +
-      `i.srcset=d+s+"-800.webp 800w, "+d+s+"-1200.webp 1200w, "+d+s+"-1920.webp 1920w";i.src=d+s+"-1200.webp";i.setAttribute("data-img-current",s)})` +
+      `i.srcset=FLAMINGO_SET(d,s);i.src=d+s+"-1200.webp";i.setAttribute("data-img-current",s)})` +
       `(document.currentScript.previousElementSibling,document.documentElement.getAttribute("data-theme")||"dark")</script>` +
       `<noscript><img class="img${opt.class ? " " + opt.class : ""}" src="${src(slug)}" srcset="${PHOTO_SET(slug)}" sizes="${opt.sizes}" alt="${escapeHtml(opt.alt)}"></noscript>`;
     if (ctx && !ctx.heroImage) ctx.heroImage = { slug, themeSrc, isHero, sizes: opt.sizes };
@@ -257,7 +264,7 @@ function heroPreloadScript(hero) {
   return (
     `var H=${map},hs=H[t]||H["default"],hd="${PHOTO_DIR}/";` +
     `var pl=d.createElement("link");pl.rel="preload";pl.as="image";pl.setAttribute("fetchpriority","high");` +
-    `pl.setAttribute("imagesrcset",hd+hs+"-800.webp 800w, "+hd+hs+"-1200.webp 1200w, "+hd+hs+"-1920.webp 1920w");` +
+    `pl.setAttribute("imagesrcset",FLAMINGO_SET(hd,hs));` +
     `pl.setAttribute("imagesizes",${sizes});d.head.appendChild(pl);`
   );
 }
@@ -476,7 +483,7 @@ function buildPage(file, outDir, variant, gen) {
 
   // Render the page body first (so its partials/icons resolve and the hero photo is known), then slot it into the layout.
   const content = render(body, ctx);
-  page.heroPreload = heroPreloadScript(ctx.heroImage);
+  page.heroPreload = PHOTO_SET_SCRIPT + heroPreloadScript(ctx.heroImage);
   const layout = read(LAYOUT);
   const html = render(layout.replace("{{content}}", () => content), ctx);
 

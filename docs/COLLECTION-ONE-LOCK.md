@@ -96,6 +96,14 @@ The nav itself lives in `site.config.js` (not locked): four items now, "Where it
 
 New files: `src/pages/book.html`, `src/pages/thank-you.html`, `src/partials/form-patient.html`, `28-booking.css`, `docs/prompts/booking-ghl.md`.
 
+## Round 9 edits to locked files (sharper photos on high-density screens)
+
+- `build.js`: `XL_PHOTOS` (the slugs that have a `<slug>-2880.webp`), `PHOTO_SET` adds that file to the `srcset` when it exists, and `PHOTO_SET_SCRIPT` defines `window.FLAMINGO_SET(dir, slug)` in the head of every page so the scripts build the same `srcset`. Photos without a 2880 file render exactly as before.
+- `src/layout.html`: the end-of-body photo swap calls `window.FLAMINGO_SET` instead of spelling the three widths out.
+- `src/assets/js/site.js`: the version switch and the tiles panel call `window.FLAMINGO_SET`; `TALL_HERO` makes the switch declare a full-width hero for the five Collection Three versions, matching what the page already declares on first load.
+
+Not locked, same round: twenty-seven `-2880` renditions from the licensed masters, the product renders re-cut without their baked shadow (`vial-*-2-*`), focal points on fifteen Collection Three heroes, and `sizes` corrected on twelve tall photo slots.
+
 ## Restoring Collection One exactly
 
 ```

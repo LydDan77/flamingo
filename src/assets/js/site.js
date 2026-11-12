@@ -6,6 +6,7 @@
   var root = doc.documentElement;
   var THEMES = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush", "ecosystem", "onyx", "sandstone", "meridian", "ivory"];
   var SPLIT_HERO = { light: 1, warm: 1, bright: 1, atelier: 1, sanctuary: 1, monolith: 1, aurora: 1, blush: 1, ecosystem: 1, onyx: 1, sandstone: 1, meridian: 1, ivory: 1 }; // themes whose photo hero is a half-width panel
+  var TALL_HERO = { ecosystem: 1, onyx: 1, sandstone: 1, meridian: 1, ivory: 1 }; // Collection Three: the panel is nearly square, so a landscape photo is drawn about a viewport wide
   var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD", blush: "#FFFDFB", ecosystem: "#F7F7FB", onyx: "#0B0A08", sandstone: "#F5EFE3", meridian: "#F2F5FB", ivory: "#FBF9F4" };
   var PHOTOS = "assets/img/photos/";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -19,12 +20,12 @@
       var want = img.getAttribute("data-img-" + t) || base;
       var pos = img.getAttribute("data-pos-" + t) || img.getAttribute("data-pos") || "";
       img.style.objectPosition = pos;
-      if (img.classList.contains("hero__img")) img.sizes = SPLIT_HERO[t] ? "(max-width: 899px) 100vw, 50vw" : "100vw";
+      if (img.classList.contains("hero__img")) img.sizes = SPLIT_HERO[t] && !TALL_HERO[t] ? "(max-width: 899px) 100vw, 50vw" : "100vw";
       if (img.getAttribute("data-img-current") === want) return;
       if (img.hasAttribute("data-portrait")) {
         img.src = PHOTOS + want + "-portrait.webp";
       } else {
-        img.srcset = PHOTOS + want + "-800.webp 800w, " + PHOTOS + want + "-1200.webp 1200w, " + PHOTOS + want + "-1920.webp 1920w";
+        img.srcset = window.FLAMINGO_SET(PHOTOS, want);
         img.src = PHOTOS + want + "-1200.webp";
       }
       img.setAttribute("data-img-current", want);
@@ -230,7 +231,7 @@
           var next = new Image();
           next.onload = function () {
             panelImg.src = PHOTOS + slug + "-1200.webp";
-            panelImg.srcset = PHOTOS + slug + "-800.webp 800w, " + PHOTOS + slug + "-1200.webp 1200w, " + PHOTOS + slug + "-1920.webp 1920w";
+            panelImg.srcset = window.FLAMINGO_SET(PHOTOS, slug);
             panelImg.setAttribute("data-img-current", slug);
             panelImg.classList.remove("is-switching");
           };
