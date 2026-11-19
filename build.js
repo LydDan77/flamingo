@@ -321,6 +321,7 @@ function renderNav(current) {
         return `<li class="nav__item${active ? " is-active" : ""}"><a class="nav__link" href="${item.href}">${item.label}</a></li>`;
       }
       const links = item.children
+        .filter(navVisible) // a child that belongs to a switched-off module is not listed (its page is not built)
         .map(
           (c) =>
             `<li><a class="menu__link" href="${c.href}">` +

@@ -104,6 +104,10 @@ New files: `src/pages/book.html`, `src/pages/thank-you.html`, `src/partials/form
 
 Not locked, same round: twenty-seven `-2880` renditions from the licensed masters, the product renders re-cut without their baked shadow (`vial-*-2-*`), focal points on fifteen Collection Three heroes, and `sizes` corrected on twelve tall photo slots.
 
+## Round 9a edit to a locked file (menu fix)
+
+- `build.js`: the header menu filters its child links by module, the way the top-level items and the footer already do. Since the menu was cut to four items, "Hormones" and "Peptide programs" sat inside Treatments with a `module` key that was not being read, so they were listed, and led to a page-not-found, while those modules were off.
+
 ## Restoring Collection One exactly
 
 ```
