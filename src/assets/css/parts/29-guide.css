@@ -99,3 +99,5 @@ html.is-staged, html.is-staged body { overflow: hidden; }
 .booking-sample__foot { display: grid; gap: 10px; justify-items: start; }
 .booking-sample__foot .small { margin: 0; color: var(--text-3); }
 @media (max-width: 899px) { .booking-slot--sample { padding: 20px; } .booking-sample__row button { flex: 1 1 calc(33% - 8px); min-width: 0; } }
+
+.assistant-dock__fine { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.8rem; line-height: 1.45; color: var(--text-3); }

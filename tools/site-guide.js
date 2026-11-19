@@ -43,6 +43,9 @@ function annotate(html, info) {
   html.replace(/\bid="([^"]+)"/g, (_, id) => (used.add(id), ""));
   const sections = [];
   const claim = (base) => { let id = base || "section", n = 2; while (used.has(id)) id = `${base}-${n++}`; used.add(id); return id; };
+  // An id is made from the section's label, without the practice's own name and people: the same section gets the same id on every practice's site.
+  const own = (info.names || []).filter(Boolean).sort((a, b) => b.length - a.length);
+  const neutral = (t) => own.reduce((s, n) => s.split(n).join(" "), String(t || ""));
 
   let main = m[1].replace(/<section\b([^>]*)>([\s\S]*?)<\/section>/g, (all, attrs, inner) => {
     const cls = (attrs.match(/\bclass="([^"]*)"/) || [, ""])[1];
@@ -53,7 +56,7 @@ function annotate(html, info) {
       const qq = strip(q.replace(STAMP, " ")), aa = strip(a.replace(STAMP, " "));
       if (!qq || !aa) return d;
       let id = (dattrs.match(/\bid="([^"]*)"/) || [])[1];
-      if (!id) { id = claim("q-" + (slugify(qq, 6) || "question")); dattrs = dattrs.replace(/\s*$/, "") + ` id="${id}"`; }
+      if (!id) { id = claim("q-" + (slugify(neutral(qq), 6) || "question")); dattrs = dattrs.replace(/\s*$/, "") + ` id="${id}"`; }
       faqs.push({ id, q: qq, a: aa });
       return `<details${dattrs} data-guide="question">${open}${q}${close}${a}</details>`;
     });
@@ -62,7 +65,9 @@ function annotate(html, info) {
     const heading = first(clean, /<h1\b[^>]*>([\s\S]*?)<\/h1>/) || first(clean, /<h2\b[^>]*>([\s\S]*?)<\/h2>/) || first(clean, /<h3\b[^>]*>([\s\S]*?)<\/h3>/);
     let id = (attrs.match(/\bid="([^"]*)"/) || [])[1];
     if (!id) {
-      id = claim(kind === "section" ? slugify(label || heading) || slugify(strip(clean), 4) || "more" : kind);
+      // No label and no heading: name it for what it is (a row of figures), or for its first words without the figures.
+      const plainWords = neutral(strip(clean)).replace(/[0-9][0-9,.+%$]*/g, " ");
+      id = claim(kind === "section" ? slugify(neutral(label)) || slugify(neutral(heading)) || (/class="[^"]*\bstat/.test(inner) ? "numbers" : slugify(plainWords, 4)) || "more" : kind);
       attrs = attrs.replace(/\s*$/, "") + ` id="${id}"`;
     }
     // spots inside a section that the templates mark for the guide: <div id="calendar" data-guide-mark="The booking calendar">
@@ -123,6 +128,30 @@ function readJson(file, site) {
   return fill(data, site, path.relative(ROOT, file));
 }
 
+/** The site-level notes: src/guide/site.json plus every file in src/guide/parts/ (lists are joined, objects merged). */
+function readNotes(site) {
+  const notes = readJson(path.join(SRC, "site.json"), site) || {};
+  const partsDir = path.join(SRC, "parts");
+  if (fs.existsSync(partsDir)) for (const f of fs.readdirSync(partsDir).filter((x) => x.endsWith(".json")).sort()) {
+    const part = readJson(path.join(partsDir, f), site) || {};
+    for (const [k, v] of Object.entries(part)) {
+      if (Array.isArray(v)) notes[k] = (Array.isArray(notes[k]) ? notes[k] : []).concat(v);
+      else if (v && typeof v === "object") notes[k] = Object.assign({}, notes[k] || {}, v, Object.fromEntries(Object.entries(v).filter(([kk, vv]) => Array.isArray(vv) && notes[k] && Array.isArray(notes[k][kk])).map(([kk, vv]) => [kk, notes[k][kk].concat(vv)])));
+      else if (v !== "" && v != null) notes[k] = v;
+    }
+  }
+  return notes;
+}
+
+/** Why a spoken answer is not acceptable (an empty list means it is). */
+function lintText(say) {
+  const out = [];
+  const n = String(say || "").split(/\s+/).filter(Boolean).length;
+  if (n > SAY_MAX_WORDS) out.push(`is ${n} words (keep it to ${SAY_MAX_WORDS})`);
+  for (const [re, why] of SAY_BANNED) if (re.test(say)) out.push(why);
+  return out;
+}
+
 /** For each page in the menus: the name the menu gives it, and how to reach it in words a person can follow. */
 function menuMap(site) {
   const on = (i) => !i.module || (site.modules && site.modules[i.module]);
@@ -167,7 +196,7 @@ function write({ outDir, site, variant, baseUrl }) {
   const pages = reg.pages.filter((p) => p.slug !== "404").sort((a, b) => (a.slug === "index" ? -1 : b.slug === "index" ? 1 : a.slug.localeCompare(b.slug)));
   const bySlug = new Map(pages.map((p) => [p.slug, p]));
   const base = baseUrl.replace(/\/$/, "") + "/";
-  const notes = readJson(path.join(SRC, "site.json"), site) || {};
+  const notes = readNotes(site);
   const menus = menuMap(site);
   const problems = [], warnings = [];
   const name = (site.assistant && site.assistant.name) || "the assistant";
@@ -471,4 +500,4 @@ function write({ outDir, site, variant, baseUrl }) {
   return `${variant.path || "root"}/guide: ${meta.pages} pages, ${meta.sections} sections, ${ownQa.length} spoken answers + ${quoteQa.length} quoted from the site, ${tours.length} tours, ${tests.length} tests, ${topics.length} topic files, short form ${Math.round(compactDoc.length / 1000)}k characters${warnings.length ? `, ${warnings.length} WARNINGS` : ""}`;
 }
 
-module.exports = { annotate, write, strip, slugify };
+module.exports = { annotate, write, strip, slugify, lintText, fill, readNotes };

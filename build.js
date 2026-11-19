@@ -432,8 +432,8 @@ function render(template, ctx, depth = 0) {
 
   // booking slot and the optional head snippet (site.booking); raw by design, they come from the operator's own config
   out = out.replace(/\{\{bookingEmbed\}\}/g, () => renderBookingEmbed());
-  out = out.replace(/\{\{headScript\}\}/g, () => ((site.booking && site.booking.headScript) || "") + (site.assistant && site.assistant.headHtml ? `<!--assistant:start-->${site.assistant.headHtml}<!--assistant:end-->` : ""));
-  out = out.replace(/\{\{assistantEmbed\}\}/g, () => (site.assistant && site.assistant.embedHtml) || ""); // raw by design: the operator's own snippet
+  out = out.replace(/\{\{headScript\}\}/g, () => ((site.booking && site.booking.headScript) || "") + (site.assistant && site.assistant.headHtml ? `<!--assistant:start--><!--assistant:head--><!--assistant:end-->` : ""));
+  out = out.replace(/\{\{assistantEmbed\}\}/g, () => "<!--assistant:embed-->"); // the snippet itself is put in by buildPage after every template pass
 
   // icons
   out = out.replace(/\{\{icon:([\w-]+)(?:\s+([\w\s-]+))?\}\}/g, (_, name, cls) => icon(name, cls));
@@ -507,7 +507,9 @@ function buildPage(file, outDir, variant, gen) {
   page.heroPreload = PHOTO_SET_SCRIPT + heroPreloadScript(ctx.heroImage);
   const layout = read(LAYOUT);
   let html = render(layout.replace("{{content}}", () => content), ctx);
-  if (site.guide) html = require("./tools/site-guide.js").annotate(html, { outDir, slug, file: gen ? gen.out : file, page, noindex: !!data.noindex });
+  if (site.guide) html = require("./tools/site-guide.js").annotate(html, { outDir, slug, file: gen ? gen.out : file, page, noindex: !!data.noindex, names: [site.name, site.founder && site.founder.name, site.coordinator && site.coordinator.first].concat(Object.values(site.team || {}).map((t) => t.name)) });
+  // The assistant's own snippet goes in last and untouched: nothing in it is read as a template tag.
+  if (site.assistant) html = html.replace("<!--assistant:embed-->", () => site.assistant.embedHtml || "").replace("<!--assistant:head-->", () => site.assistant.headHtml || "");
 
   const outFile = path.join(outDir, gen ? gen.out : file);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
