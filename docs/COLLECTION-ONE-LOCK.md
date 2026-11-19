@@ -104,6 +104,16 @@ New files: `src/pages/book.html`, `src/pages/thank-you.html`, `src/partials/form
 
 Not locked, same round: twenty-seven `-2880` renditions from the licensed masters, the product renders re-cut without their baked shadow (`vial-*-2-*`), focal points on fifteen Collection Three heroes, and `sizes` corrected on twelve tall photo slots.
 
+## Round 10 edits to locked files (Dr. Demo and the assistant)
+
+All of it is switched per variant and off in an ordinary build. The ordinary builds were compared page by page before and after: the only difference in their HTML is the menu fix of Round 9a.
+
+- `build.js`: per-variant switches set on the site object (`fixedTheme`, `noSwitcher`, `guide`, `assistant`, `sampleNote`); the `site:` condition; front matter `only:` and `unless:` to build a page for some variants only; the hooks into `tools/site-guide.js` (section ids after a page is rendered, the knowledge pack after a variant is built); `{{assistantEmbed}}`, put in after every template pass so a vendor's snippet is never read as a template tag; `noindex` without `nofollow`, a robots.txt `Allow` line and sitemap for guide builds; a sample calendar in the booking slot of a sample practice.
+- `src/layout.html`: the theme bootstrap honours a variant's fixed design version (it ignores the remembered choice; `?theme=` still previews another); the design switcher is left out where `noSwitcher` is set; the assistant partial is included where a variant has one.
+- `src/assets/js/site.js`: with a fixed design version nothing is remembered and links stay clean; the form's thank-you redirect goes through `SiteGuide.visit` when the guide is present; the buyer layer (`?partner=1`, typing "partner") is off on a guide build.
+
+New files: `tools/site-guide.js`, `src/guide/` (runtime, brief, notes), `src/partials/assistant.html`, `src/pages/site-guide.html`, `29-guide.css`, `docs/AVA-DR-DEMO.md`.
+
 ## Restoring Collection One exactly
 
 ```

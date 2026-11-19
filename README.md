@@ -66,6 +66,18 @@ Every "Book" button, the Treatments menu, the footer and the phone-only bar poin
 - **After booking.** `thank-you.html` (noindex, not in the sitemap): what happens next, how to change the time, five things to bring. The native forms land there and greet by first name. In GHL, set the calendar's confirmation to redirect to `https://<domain>/thank-you.html` so a calendar booking lands there too.
 - **Automation.** Chris can set the per-client values from Sanity by writing the environment variables or the config file before the build; nothing else changes per client. The reusable prompt that produced this is in `docs/prompts/booking-ghl.md`.
 
+## Dr. Demo: the example site, and Ava its guide
+
+`dist/dr-demo/` is the example site a practice owner explores before their own site carries their name: https://flamingo-regenerative-revival.vercel.app/dr-demo/ . Ava, a talking guide, lives on it, answers questions and takes people around. The full handover is `docs/AVA-DR-DEMO.md`. In short:
+
+- **The variant.** `variants.drdemo` in `site.config.js`: one design look (`theme: "ecosystem"`, no switcher; `?theme=` still previews the other four), a fictional practice with every detail stamped SAMPLE, `guide: true` and an `assistant` block. The buyer overview is left out of this build. Pages are `noindex` but crawlable, so an assistant can learn them from the address.
+- **Ava's corner.** Paste her embed snippet into `assistant.embedHtml`, or set `AVA_EMBED_HTML` (and `AVA_HEAD_HTML`) where the site is built. It is inserted untouched at the end of every page. Until then a labelled placeholder holds the corner. Public ids only; never an API key.
+- **What she learns.** `tools/site-guide.js` reads the built pages and the hand-written notes in `src/guide/` and writes the knowledge pack to `dist/dr-demo/guide/`: her brief, one short document, small topic files, question-and-answer rows, a site map with every section, facts marked sample, checklists, tours, tool definitions and a test set. `llms.txt` at the root of the variant indexes it.
+- **What she can do.** `guide/guide.js` puts `window.SiteGuide` on every page: go to a page and section, highlight it, point at a menu item, read a section, outline the samples, run a tour, show another look. The same functions are described as tool definitions in `guide/tools.json`.
+- **She stays on screen.** A move to another page does not reload: the target's assistant-free copy (`view-<page>.html`) is shown in a frame that fills the window, and the address bar and Back button follow. A voice session survives the whole visit.
+- **It cannot drift.** The build stops when a note points at a page or section that does not exist, when a spoken answer breaks a rule (too long, a web address, "free", a claim word), when anything unfinished is visible on Dr. Demo, or when a section id pinned in `src/guide/anchors.json` disappears.
+- **Any variant can have this.** `guide: true` and an `assistant` block work for a real practice's build too; section ids never contain the practice's name.
+
 ## Collection Three on its own link
 
 `dist/three/` is the same site with the design switcher limited to the five Collection Three versions (plus the partner entries): https://flamingo-regenerative-revival.vercel.app/three/ . It is a variant in `site.config.js` with `collections: ["three", "partners"]` and `hidden: true`, read by the `{{#if collection:x}}` tag in `theme-switch.html`.

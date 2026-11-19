@@ -10,6 +10,7 @@
      SiteGuide.read("knees#cost") the words of a section, to quote them
      SiteGuide.samples(true)      outline every sample detail on the page in view; returns how many
      SiteGuide.tour("patient-path")           the steps of a walk-through: a line to say and a place to show
+     SiteGuide.look("sandstone")  show the page in view in another of the five design looks
      SiteGuide.back()             back to what the visitor was looking at before
 
    Targets are checked against the site's own page list, so nothing here can send a visitor off the site.
@@ -40,6 +41,8 @@
   /* ------------------------------------------------------------------ the stage: other pages, without a reload */
   var keepAlive = !framed && DATA.keepAlive !== false;
   var stage = null, frame = null, staged = false, stagedSlug = "", ownTitle = doc.title, pendingShow = "";
+  var curLook = ""; // a design look chosen for this visit (other than the site's own), carried from page to page
+  try { curLook = new URLSearchParams(location.search).get("theme") || ""; if (curLook === (window.FLAMINGO_FIXED_THEME || "")) curLook = ""; } catch (e) {}
   function inner() { try { return staged && frame && frame.contentWindow && frame.contentWindow.SiteGuide ? frame.contentWindow.SiteGuide : null; } catch (e) { return null; } }
   function here() { return staged ? stagedSlug : own; }
   function viewUrl(slug, section, query) {
@@ -115,7 +118,7 @@
       if (!bySlug[slug] || slug === own) return; // same page, or not a page of this site: the browser handles it
       e.preventDefault();
       doc.body.classList.remove("nav-open");
-      openStage(slug, u.hash.slice(1), u.search);
+      openStage(slug, u.hash.slice(1), u.search || (curLook ? "theme=" + curLook : ""));
     });
   }
 
@@ -166,7 +169,7 @@
       try { w.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" }); } catch (e) {}
       return { ok: true, page: t.page, section: "" };
     }
-    var theme = new URLSearchParams(location.search).get("theme");
+    var theme = curLook;
     if (keepAlive) { openStage(t.page, t.section, theme ? "theme=" + theme : ""); return { ok: true, page: t.page, section: t.section, title: bySlug[t.page].t }; }
     var q = [];
     if (t.section) q.push("show=" + encodeURIComponent(t.section));
@@ -222,6 +225,18 @@
     return t ? { ok: true, id: t.id, title: t.title, steps: t.steps } : { ok: false, reason: "no tour called " + id, tours: tours() };
   }
   function back() { history.back(); return { ok: true }; }
+  /** Show the page in view in another design look, without reloading the assistant's page. */
+  var LOOKS = ["ecosystem", "onyx", "sandstone", "meridian", "ivory"];
+  function look(name) {
+    name = String(name || "").toLowerCase().trim();
+    if (LOOKS.indexOf(name) < 0) return { ok: false, reason: "no look called " + name, looks: LOOKS };
+    curLook = name === (window.FLAMINGO_FIXED_THEME || "") ? "" : name; // the site's own look needs no mention in the address
+    var slug = here();
+    if (!keepAlive) { location.search = "theme=" + name; return { ok: true, look: name, navigating: true }; }
+    if (staged) { try { var loc = frame.contentWindow.location; loc.replace("view-" + slug + ".html?theme=" + name + loc.hash); } catch (e) { return { ok: false, reason: "the page is still loading" }; } }
+    else openStage(slug, "", "theme=" + name);
+    return { ok: true, look: name, page: slug, looks: LOOKS };
+  }
   function find(query, limit) {
     var q = words(query), hits = {};
     if (!q.length) return [];
@@ -265,13 +280,13 @@
     return { ok: true, pointed_at: (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60) };
   }
 
-  var api = { where: where, pages: pages, find: find, go: go, show: show, point: point, read: read, samples: samples, tours: tours, tour: tour, back: back, visit: visit, starters: function () { return (DATA.starters || []).slice(); }, version: 1 };
+  var api = { where: where, pages: pages, find: find, go: go, show: show, point: point, read: read, samples: samples, tours: tours, tour: tour, back: back, look: look, visit: visit, starters: function () { return (DATA.starters || []).slice(); }, version: 1 };
   window.SiteGuide = api;
   function announce() { try { doc.dispatchEvent(new CustomEvent("siteguide:page", { detail: where() })); } catch (e) {} }
 
   // An assistant in an iframe talks to the page with messages. Only the actions below exist; go() and show() accept the
   // site's own pages and sections and nothing else, so a message cannot send the visitor anywhere else.
-  var OPEN = { where: 1, pages: 1, find: 1, go: 1, show: 1, point: 1, read: 1, samples: 1, tours: 1, tour: 1, back: 1, starters: 1 };
+  var OPEN = { where: 1, pages: 1, find: 1, go: 1, show: 1, point: 1, read: 1, samples: 1, tours: 1, tour: 1, back: 1, look: 1, starters: 1 };
   window.addEventListener("message", function (e) {
     var d = e.data;
     if (!d || d.type !== "site-guide" || !OPEN[d.action]) return;
@@ -287,7 +302,7 @@
     e.preventDefault();
     var t = b.getAttribute("data-guide-go");
     var top = framed ? window.parent.SiteGuide : api; // inside the stage, the outer page does the moving
-    if (/^(menu:|book$|call$|home$|footer$)/i.test(t)) top.point(t); else top.go(t);
+    if (/^look:/i.test(t)) top.look(t.slice(5)); else if (/^samples$/i.test(t)) top.samples(!root.classList.contains("guide-samples")); else if (/^(menu:|book$|call$|home$|footer$)/i.test(t)) top.point(t); else top.go(t);
     var dock = doc.getElementById("assistant-dock");
     if (dock && dock.contains(b)) setDock(false);
   });

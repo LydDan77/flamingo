@@ -53,7 +53,9 @@ html.is-staged, html.is-staged body { overflow: hidden; }
 /* ---- the owner's guide page */
 .guide-steps { counter-reset: gs; list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .guide-steps > li { counter-increment: gs; display: grid; grid-template-columns: 56px 1fr; gap: 6px 18px; padding: 22px 0; border-top: 1px solid var(--line); }
-.guide-steps > li::before { content: counter(gs, decimal-leading-zero); grid-row: span 2; font-family: var(--font-display); font-size: 1.7rem; line-height: 1; color: var(--brand); }
+.guide-steps > li::before { content: counter(gs, decimal-leading-zero); grid-column: 1; grid-row: 1 / span 3; font-family: var(--font-display); font-size: 1.7rem; line-height: 1; color: var(--brand); }
+.guide-steps > li > * { grid-column: 2; }
+:is(.guide-steps, .guide-list) button.link-arrow { justify-self: start; padding: 0; border: 0; background: none; font: inherit; font-weight: 600; color: var(--brand); cursor: pointer; white-space: nowrap; }
 .guide-steps h3 { margin: 0; font-size: 1.15rem; }
 .guide-steps p { margin: 0; color: var(--text-2); }
 .guide-steps .link-arrow { margin-top: 6px; }
@@ -101,3 +103,17 @@ html.is-staged, html.is-staged body { overflow: hidden; }
 @media (max-width: 899px) { .booking-slot--sample { padding: 20px; } .booking-sample__row button { flex: 1 1 calc(33% - 8px); min-width: 0; } }
 
 .assistant-dock__fine { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.8rem; line-height: 1.45; color: var(--text-3); }
+
+/* the owner's guide is not a patient page: no payment-plans chip on it */
+.page--guide .financing-chip { display: none; }
+/* on a phone the page table becomes a list of cards: name, what it is for, how to get there */
+@media (max-width: 767px) {
+  .guide-table { overflow: visible; border: 0; background: none; }
+  .guide-table table { min-width: 0; display: block; }
+  .guide-table thead { display: none; }
+  .guide-table tbody { display: grid; gap: 10px; }
+  .guide-table tr { display: grid; gap: 6px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  .guide-table td, .guide-table td:first-child, .guide-table td:last-child { display: block; width: auto; padding: 0; border: 0; }
+  .guide-table td:last-child { font-size: 0.9rem; }
+  .guide-table td:last-child::before { content: "How to get there: "; font-weight: 600; color: var(--text); }
+}
