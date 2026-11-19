@@ -18,7 +18,7 @@ bodyClass: page--referral
         </div>
       </div>
       <aside class="referral__card reveal" data-delay="1">
-        <span class="sample">Sample referrer</span>
+        {{page.ref.stampHtml}}
         <div class="referral__portrait">{{img:{{page.ref.photo}}|alt=Portrait of {{page.ref.name}}|pos={{page.ref.pos}}|sizes=112px}}</div>
         <p class="referral__name">{{page.ref.name}}</p>
         <p class="referral__role">{{page.ref.role}} · {{page.ref.practice}}</p>

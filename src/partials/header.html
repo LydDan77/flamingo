@@ -1,4 +1,4 @@
-{{#if sample}}<div class="sample-banner" role="note">{{icon:info}} {{site.sampleNote}}</div>{{/if}}
+{{#if sample}}<div class="sample-banner" role="note">{{icon:info}} <span>{{site.sampleNote}}{{#if site:guide}} <a href="site-guide.html">How this site works</a>{{/if}}</span></div>{{/if}}
 <header class="site-header" id="site-header">
   <div class="container site-header__inner">
     <a class="brand{{site.brandClass}}" href="index.html" aria-label="{{site.name}} home">{{> logo}}</a>
