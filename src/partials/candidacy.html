@@ -13,7 +13,7 @@
           <label><input type="radio" name="c-goal" value="pain"><span>Joint or soft-tissue pain</span></label>
           <label><input type="radio" name="c-goal" value="surgery"><span>Avoiding or delaying surgery</span></label>
           <label><input type="radio" name="c-goal" value="performance"><span>Recovery and performance</span></label>
-          <label><input type="radio" name="c-goal" value="energy"><span>Energy, sleep and aging well</span></label>
+          <label><input type="radio" name="c-goal" value="energy"><span>{{#if any:nad,hormones,peptides}}Energy, sleep and aging well{{/if}}{{#unless any:nad,hormones,peptides}}Staying active as I get older{{/unless}}</span></label>
         </div>
       </fieldset>
       <fieldset>
@@ -44,7 +44,7 @@
         </div>
       </fieldset>
       <div class="candidacy__result">
-        <p><b>Thank you. That is exactly what the first consultation is for.</b>A clinician reviews your history and, where it matters, your labs, then tells you plainly whether regenerative care, a longevity protocol, both, or neither is the right next step.</p>
+        <p><b>Thank you. That is exactly what the first consultation is for.</b>A clinician reviews your history and, where it matters, your labs, then tells you plainly whether {{#if any:nad,hormones,peptides}}regenerative care, a longevity protocol, both, or neither is{{/if}}{{#unless any:nad,hormones,peptides}}regenerative care is or is not{{/unless}} the right next step.</p>
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
       </div>
       <p class="candidacy__privacy">Your answers stay in your browser and are not sent anywhere. Share them at your consultation if you like.</p>

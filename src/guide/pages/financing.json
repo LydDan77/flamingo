@@ -12,7 +12,7 @@
     "The financing partner's name: your own partner replaces the sample {{site.financingPartner}} at the top, in step two, in the questions and in the Apply card.",
     "The Apply card: a practice adds its own partner's application link and disclosure wording before launch.",
     "The call buttons: your phone number replaces the sample {{site.phone}}.",
-    "The list under What it covers follows the programs your own site carries; the NAD+ line is there because this example carries NAD+.",
+    "The list under What it covers follows the programs your own site carries. This example carries regenerative care only.",
     "The questions and the note in the Apply card carry your practice name in place of the sample name {{site.name}}."
   ],
   "keep": [

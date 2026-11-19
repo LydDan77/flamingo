@@ -122,8 +122,7 @@
     {
       "q": "Are the product pictures on the site my products?",
       "alt": ["Whose vials are in the pictures?", "Will the vial pictures carry my label?", "Can I use my own product photos?"],
-      "say": "The vial pictures on this example carry a stamp that says Sample picture. They are stand-ins and do not show your products. What I don't have is whether your site gets pictures with your own label, or who makes them. Your contact for the website can tell you.",
-      "show": "nad#programs",
+      "say": "This example shows no product pictures, only stock photos, which are stand-ins. What I don't have is whether your site gets pictures of your own products, or who makes them. Your contact for the website can tell you.",
       "owner": "Lydia",
       "needs": "whether product pictures are redrawn with each practice's label, who makes them, and what a practice must supply"
     },

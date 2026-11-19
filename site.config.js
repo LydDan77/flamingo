@@ -85,7 +85,8 @@ const variants = {
     label: "Dr. Demo",
     short: "Dr. Demo",
     desc: "The example site partners explore with Ava",
-    modules: DEFAULT_MODULES,
+    // Regenerative care only: no NAD+, hormone or peptide program on the example (Lydia, 20 Nov 2026).
+    modules: { hormones: false, peptides: false, nad: false },
     collections: [],
     hidden: true,
     sample: true,

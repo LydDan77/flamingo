@@ -17,7 +17,7 @@
     "The name of the physician group behind your plans goes under The infrastructure behind the care.",
     "Three of your own patient stories go under Patient stories: verified reviews, published with written consent.",
     "Your starting price and your financing partner's name go in the Cost and financing section.",
-    "The picture of a vial under Coordinated care is stamped Sample picture. It is a stand-in, and your own photo can take its place."
+    "The photos on this page are stock stand-ins, and your own photos can take their place."
   ],
   "keep": [
     "The whole section What we will not promise, including the sentence that stem cell and exosome therapy is not FDA-approved.",
@@ -33,9 +33,9 @@
     "reviews": { "say": "This strip shows the review score and how many reviews there are; on this example both figures are samples." },
     "where-it-hurts": { "say": "These are six plain choices, from knees to before surgery, so a patient can pick the page that sounds like their day." },
     "short-version": { "say": "This is the short version: the whole offer in five lines, including that the care is not FDA-approved and that the price comes in writing." },
-    "what-we-do-three-pillars": { "say": "Three panels introduce the three kinds of care on offer: regenerative care for joints, exosome therapy, and longevity plans." },
-    "services": { "say": "This is the list of treatments, four on this site, each leading to its own page." },
-    "coordinated-care": { "say": "This part shows how care at home and plans by video call sit under one medical team and one patient record; the vial in it is stamped as a sample picture." },
+    "what-we-do-three-pillars": { "say": "Three panels introduce what the practice does: regenerative care for joints, exosome therapy, and the way care is delivered at home by one team." },
+    "services": { "say": "This is the list of treatments, three on this example, each leading to its own page." },
+    "coordinated-care": { "say": "This part shows how the stem cell, Wharton's Jelly and exosome plans sit under one medical team and one patient record." },
     "how-it-works": { "say": "These are the four steps a patient takes, from booking a video call to treatment and follow-ups." },
     "candidacy": { "say": "This is a four-question fit check; it gives no score and no diagnosis, and the answers never leave the patient's browser." },
     "this-is-probably-you": { "say": "Four cards describe the people the practice helps, in everyday words, and each one opens a fuller page." },

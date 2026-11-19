@@ -13,7 +13,7 @@ nav: regenerative
     <div class="hero__content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>All treatments</span></nav>
       <p class="hero__kicker">Our Services</p>
-      <h1>Regenerative medicine for <em class="hl">chronic pain</em>. Longevity care for everything else.</h1>
+      <h1>Regenerative medicine for <em class="hl">chronic pain</em>{{#if any:nad,hormones,peptides}}. Longevity care for everything else.{{/if}}{{#unless any:nad,hormones,peptides}}, in your own home.{{/unless}}</h1>
       <p class="lead">Regenerative therapy is aimed at the tissue behind long-standing joint pain, and it comes to your home. {{#if any:hormones,peptides,nad}}The same physician-led team offers {{site.programsPhrase}} by video call, so one care team sees the whole picture.{{/if}}{{#unless any:hormones,peptides,nad}}A licensed nurse practitioner gives the treatment, under physician oversight, so one care team sees the whole picture.{{/unless}}</p>
       <ul class="hero__pills">
         <li class="pill">{{icon:microscope}} Minimally Invasive</li>

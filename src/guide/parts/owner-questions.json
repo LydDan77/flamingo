@@ -188,7 +188,7 @@
       "topic": "samples",
       "q": "What does the Sample stamp mean?",
       "alt": ["Why does it say Sample everywhere?", "Will the Sample stamps be on my own site?", "What does Sample picture mean?"],
-      "say": "A Sample stamp marks a detail that was made up for this example. It is a stand-in. On your own site the same spot carries your real detail instead. Product pictures, such as the vial on the home page, carry a stamp that says Sample picture.",
+      "say": "A Sample stamp marks a detail that was made up for this example. It is a stand-in. On your own site the same spot carries your real detail instead.",
       "show": "site-guide#yours"
     },
     {
@@ -385,10 +385,10 @@
     {
       "audience": "owner",
       "topic": "the design",
-      "q": "I do not offer NAD+. Can those pages come off?",
-      "alt": ["Can I remove a program?", "Can hormone or peptide programs be added?"],
-      "say": "Yes. Each program is a switch. With one off, its page, its menu links and every mention of it are gone from the site. Hormone and peptide pages also exist, switched off on this example. Which programs your own site carries is a question for your contact for the website.",
-      "show": "nad"
+      "q": "Can a program such as NAD plus be added, or left off?",
+      "alt": ["Is there an NAD plus page?", "Can hormone or peptide programs be added?", "Can I remove a program?"],
+      "say": "Yes. Each program is a switch. This example carries regenerative care only. Pages for NAD plus, hormone and peptide programs exist and are switched off here, so they are not in the menus. Which programs your own site carries is a question for your contact for the website.",
+      "show": "services#all-programs"
     },
     {
       "audience": "owner",

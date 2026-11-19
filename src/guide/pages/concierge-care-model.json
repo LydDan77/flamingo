@@ -3,7 +3,7 @@
   "audience": "patients",
   "owner_notes": [
     "The menu calls this page How care works, under Treatments. The footer lists the same page under About, by the same name.",
-    "The page describes one particular way of working: a named Medical Director oversees every patient, nurse practitioners treat at home, and NAD+ and longevity plans are prescribed online. It speaks in the practice's name, so an owner should read it against how their own practice is staffed.",
+    "The page describes one particular way of working: a named Medical Director oversees every patient, nurse practitioners treat at home, and consultations and follow-ups are by video call. It speaks in the practice's name, so an owner should read it against how their own practice is staffed.",
     "The process here has four stages, from booking a consultation to coordination over time. The Where it hurts pages tell the same path as three steps.",
     "Meet The Team at the top opens the team part of the Our team page. Book a Consultation appears three times and always opens the Booking page."
   ],
@@ -73,7 +73,7 @@
       "topic": "the patient's path",
       "q": "What does the How care works page say happens after a patient books?",
       "alt": ["What are the four stages on How care works?", "What is the process on the concierge page?"],
-      "say": "The page sets out four stages. The patient books a consultation. A licensed clinician reviews their history and labs. Treatment comes to their home, or a prescription is shipped to their door. Then the same team follows up over time.",
+      "say": "The page sets out four stages. The patient books a consultation. A licensed clinician reviews their history and labs. Treatment comes to their home, with follow-ups by video call. Then the same team keeps the plan together over time.",
       "show": "concierge-care-model#the-process"
     },
     {
@@ -81,7 +81,7 @@
       "topic": "what a patient asks",
       "q": "Do I need to visit a clinic?",
       "alt": ["Do I have to come in?", "Is everything done at home?"],
-      "say": "No, the page says. Regenerative treatment is given in your home by a licensed nurse practitioner. The NAD plus and longevity plans are handled online: the consultation, the prescription and the delivery.",
+      "say": "No, the page says. Regenerative treatment is given in your home by a licensed nurse practitioner, and consultations and follow-ups are handled by video call.",
       "show": "concierge-care-model#q-do-i-need-to-visit-a"
     },
     {

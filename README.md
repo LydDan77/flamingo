@@ -79,6 +79,7 @@ Who gets which link: `/dr-demo/` is for practice owners. `/demo/` and `/three/` 
   | `theme` | One fixed design look; nothing is remembered. `?theme=` still previews the other four |
   | `switcher: false` | No design switcher |
   | `sample: true` | A made-up practice: every detail is stamped SAMPLE |
+  | `modules` | Which programs the site carries. Dr. Demo is regenerative care only (no NAD+, hormone or peptide pages) |
   | `sampleNote` | The note under the header |
   | `guide: true` | Stable section ids, the owner's guide page, and the knowledge pack in `dist/<path>/guide/` |
   | `guideStrict` | The checks stop the build (`GUIDE_STRICT=0` makes the spoken-answer and unfinished-content checks warnings) |

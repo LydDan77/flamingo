@@ -11,6 +11,7 @@ Who gets which link: `/dr-demo/` is for practice owners. `/demo/` (Northwind) an
 - A complete build of the site at `dist/dr-demo/`, defined as `variants.drdemo` in `site.config.js`.
 - One design look, Ecosystem, with no design switcher. Change `theme` in the variant for another. `?theme=onyx`, `sandstone`, `meridian` or `ivory` previews another look for that visit, which is how "show me another look" works.
 - A made-up practice, "Dr. Demo Regenerative Care". Every name, number, price, review and story is a sample and is stamped SAMPLE on the page.
+- Regenerative care only: stem cell therapy, Wharton's Jelly and exosomes. The NAD+, hormone and peptide programs are switched off, so their pages are not on this example (`modules` in the variant switches them).
 - An owner's guide page, "How this website works" (`/dr-demo/site-guide`), linked from the note at the top of every page and from the footer. It holds in writing everything Ava can explain, for owners who would rather read.
 - Crawlable on purpose, but out of search: pages carry `noindex`, `robots.txt` allows `/dr-demo/`, and `/dr-demo/sitemap.xml` lists every page.
 - The program's own buyer overview and the design switcher are left out of this build.
@@ -190,7 +191,7 @@ The ones that matter most before owners get the link:
 - What is recorded when someone talks to her, where it is kept, and what wording must sit beside her before the microphone opens?
 - When the owner is a chiropractor or a physical therapist, who are the nurse practitioner, the physician and the medical group shown on their site, and who supplies them? Dr. Demo is dressed as a physician-led practice. This is the first thing its main audience will ask.
 - What may she say about GoHighLevel: who connects the calendar, what the reminders say, what it costs?
-- Does an owner choose among the five looks, and is their site built with the NAD+ program or without it? Dr. Demo has it switched on.
+- Does an owner choose among the five looks, or is one assigned?
 
 ## Questions for Joe
 
@@ -205,7 +206,7 @@ The ones that matter most before owners get the link:
 9. Is every id in the embed safe to publish in page source, and is it locked to our domains? Which origins should be registered?
 10. When does she start listening? Does she ask for the camera as well? Can an owner use text only?
 11. Can we set her whole system prompt, or only a persona field? Are there controls for blocked phrases and a fallback answer? Does she say she is an AI at the start?
-12. Does her voice accept a pronunciation list (Wharton's Jelly, exosomes, NAD+, GoHighLevel)? Can she be interrupted? English only, or Spanish as well?
+12. Does her voice accept a pronunciation list (Wharton's Jelly, exosomes, GoHighLevel)? Can she be interrupted? English only, or Spanish as well?
 13. Is Dr. Demo open to anyone with the link or shared privately, and is there a cost per conversation we should design around?
 14. Can we get transcripts, or a list of questions she could not answer, to improve her notes? Can the tests be run through an API in text mode?
 15. Is there a GoHighLevel sandbox calendar we may embed on Dr. Demo, so an owner can make a test booking and receive the real confirmation and reminders?

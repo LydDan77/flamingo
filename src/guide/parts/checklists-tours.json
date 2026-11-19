@@ -63,8 +63,8 @@
     {
       "id": "R11",
       "item": "Your photos",
-      "where": ["index#top", "index#physician-led-care", "nad#programs"],
-      "say": "The photos on this example are stock stand-ins, and the clinician portraits are not real people. Your own photos and headshots can take their place. The product pictures are stand-ins too, and each carries a stamp that says Sample picture."
+      "where": ["index#top", "index#physician-led-care"],
+      "say": "The photos on this example are stock stand-ins, and the clinician portraits are not real people. Your own photos and headshots can take their place."
     },
     {
       "id": "R12",
@@ -132,8 +132,8 @@
     {
       "id": "K8",
       "item": "The small print at the foot of the pages",
-      "where": ["knees#small-print", "from-dr-example#small-print", "nad#small-print"],
-      "say": "Small print sits at the foot of the pages. It says the statements have not been evaluated by the FDA, that stem cell and exosome therapies are not FDA-approved and investigational for most uses, and that results vary. It stays, as does the NAD+ page's own small print about compounded medications, and your counsel reviews the wording before launch."
+      "where": ["knees#small-print", "from-dr-example#small-print"],
+      "say": "Small print sits at the foot of the pages. It says the statements have not been evaluated by the FDA, that stem cell and exosome therapies are not FDA-approved and investigational for most uses, and that results vary. It stays, and your counsel reviews the wording before launch."
     }
   ],
 
@@ -363,7 +363,7 @@
         "The owner's guide page, How this website works, has a section called One site, five looks, with five buttons. Each button shows the site in that look, and the look stays on from page to page until another is chosen. An owner can also ask Ava for a look by name, for example Onyx or Ivory, and she shows the page they are on in that look. Choosing Ecosystem brings this one back. The other pages carry no design button. Ava only says she has changed the look once the page has done it.",
         "All five looks were tuned for older readers: larger type, buttons in plain sentence case, calmer labels, and every pairing of text and background checked for contrast.",
         "Which look a practice's own site wears, and whether it can be changed later, is not something Ava has been told. That is decided with the owner's contact for the website. What Ava can do is show all five on any page, so the owner knows what they are choosing between.",
-        "The programs are separate from the look. Each program is a switch. This example has NAD+ switched on, and pages for hormone and peptide programs exist but are switched off here. With a program off, its page, its menu links and every mention of it are gone from the site. Which programs a practice's own site carries is also a question for the website contact."
+        "The programs are separate from the look. Each program is a switch. This example carries regenerative care only: pages for NAD plus, hormone and peptide programs exist but are switched off here. With a program off, its page, its menu links and every mention of it are gone from the site. Which programs a practice's own site carries is also a question for the website contact."
       ]
     },
     {
