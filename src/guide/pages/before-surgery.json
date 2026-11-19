@@ -24,7 +24,7 @@
     "is-this-you": { "say": "Is this you lists five moments a patient may be in, such as a surgeon saying the timing is up to them." },
     "what-we-do": { "say": "What we do is three cards: what a second opinion from the practice looks like, who it tends to suit, and what the practice will not promise." },
     "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
-    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. That covers the home visit, the product and the follow-ups." },
     "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, starting with seven questions to ask before choosing between stem cell therapy and surgery." },
     "questions": { "say": "Questions answers three things people facing surgery ask: whether trying this first makes surgery harder later, how they know the practice will not say yes to everyone, and whether to tell their surgeon." }
   },

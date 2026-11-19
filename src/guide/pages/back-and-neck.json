@@ -4,7 +4,7 @@
   "owner_notes": [
     "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. This is the page where the site says no most often, and it says so in its opening lines.",
     "It limits what the practice offers to wear in the small joints of the spine, without nerve involvement. Disc problems and nerve compression are described as different problems that the clinician sorts out on the call.",
-    "It tells patients that spine work is often image-guided and arranged at a partner facility instead of at home. That is a statement about how the practice works. What it costs says the quote shows it, with any added cost, when a partner facility is needed.",
+    "It tells patients that this is concierge care, so treatment comes to them, and that the clinician says first whether a back or neck is a fit at all. That is a statement about how the practice works.",
     "The caution is the point of the page. In its own words, sending the rest to specialists is the reason a patient can trust the yes when they get one."
   ],
   "replace": [
@@ -23,7 +23,7 @@
     "is-this-you": { "say": "Is this you lists five situations, from standing at the sink to pain that shoots down a leg or an arm." },
     "what-we-do": { "say": "What we do is three cards: what the practice can offer for wear in the small joints of the spine, who it tends to suit, and the signs that need a spine specialist instead." },
     "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
-    "cost": { "say": "What it costs gives the range for a plan for one area, such as the lower back, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, such as the lower back, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. That covers the home visit, the product and the follow-ups." },
     "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, including one on how to read a clinic's claims." },
     "questions": { "say": "Questions answers three things back patients ask: why the practice is more cautious about backs, whether a disc problem is the same as joint wear, and whether it can be done at home." }
   },
@@ -57,7 +57,7 @@
       "topic": "getting around",
       "q": "Where is the price on the Back and neck page?",
       "alt": ["Where does a patient see the cost on the back page?"],
-      "say": "In the part called What it costs, about halfway down, the same block as on the other Where it hurts pages. On this example it shows {{site.pricing.from}} to {{site.pricing.to}} for a plan for one area, such as the lower back, which is a sample. It adds that the quote says so if treatment needs a partner facility.",
+      "say": "In the part called What it costs, about halfway down, the same block as on the other Where it hurts pages. On this example it shows {{site.pricing.from}} to {{site.pricing.to}} for a plan for one area, such as the lower back, which is a sample. That covers the home visit, the product and the follow-ups.",
       "show": "back-and-neck#cost"
     },
     {

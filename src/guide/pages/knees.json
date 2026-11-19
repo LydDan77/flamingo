@@ -6,7 +6,7 @@
     "It is written for a patient reading on a phone who wants four things in this order: is this for me, is it honest, what does it cost, what do I do next. The science comes last, as links to short guides.",
     "Book a video call at the top and Book a Consultation at the bottom both open the Booking page. Nothing on the page takes payment or decides who is a candidate; a clinician does that on the call.",
     "On this example two referral pages link here: the sample chiropractor's page (Read about knee care first) and the general Sent here by your provider page (Read about joint care first).",
-    "What it costs is the same paragraph on all six Where it hurts pages. It prices a plan for one area, such as a knee, a shoulder or the lower back, and says the quote shows it when treatment needs a partner facility instead of a home visit."
+    "What it costs is the same paragraph on all six Where it hurts pages. It prices a plan for one area, such as a knee, a shoulder or the lower back, and says it covers the home visit, the product and the follow-ups."
   ],
   "replace": [
     "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
@@ -25,7 +25,7 @@
     "is-this-you": { "say": "Is this you lists five everyday situations a knee patient will recognise, before any science." },
     "what-we-do": { "say": "What we do is three cards: the treatment in plain words, who it tends to suit, and what the practice will not promise." },
     "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
-    "cost": { "say": "What it costs gives the range for a plan for one area, such as a knee, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, such as a knee, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. That covers the home visit, the product and the follow-ups." },
     "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides for people who like to read before they decide." },
     "questions": { "say": "Questions answers three things knee patients ask: how many visits it takes, whether a replacement is still possible later, and what to bring to the call." }
   },

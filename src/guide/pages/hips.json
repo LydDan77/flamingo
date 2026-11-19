@@ -3,7 +3,7 @@
   "audience": "patients",
   "owner_notes": [
     "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. The words on this one are about hips only.",
-    "This page tells patients that hips sit deep, so some need an image-guided injection arranged at a partner facility instead of at home. That is a statement about how the practice works, and the clinician says which applies on the call. The tag on the photo at the top reads Often treated at home for the same reason, and What it costs says the quote shows it when a partner facility is needed.",
+    "This page tells patients that a nurse practitioner comes to the home, and that the clinician explains on the call how a hip injection is given. That is a statement about how the practice works. The tag on the photo at the top reads Treated at home by a nurse practitioner.",
     "It speaks to people who want a second opinion before they see a surgeon, and it says that if a surgeon says do not wait, the practice agrees with the surgeon.",
     "On this example the sample family doctor's referral page links here with the words Read about hip care first."
   ],
@@ -23,7 +23,7 @@
     "is-this-you": { "say": "Is this you lists five situations a hip patient will recognise, ending with wanting an honest second opinion before seeing a surgeon." },
     "what-we-do": { "say": "What we do is three cards: the treatment in plain words, who it tends to suit, and what the practice will not promise for a hip." },
     "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
-    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. That covers the home visit, the product and the follow-ups." },
     "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, including one on who is and is not a candidate." },
     "questions": { "say": "Questions answers three things hip patients ask: whether a hip can be treated at home, whether a replacement date makes it too late, and how soon they would know if it helped." }
   },
@@ -40,8 +40,8 @@
       "audience": "owner",
       "topic": "getting around",
       "q": "Where does the Hips page say whether a hip can be treated at home?",
-      "alt": ["Why does the Hips page mention a partner facility?", "Does the site say hips are treated at home?"],
-      "say": "In two places: the first card under What we do, and the first answer under Questions. It says a nurse practitioner comes to the home, but some hips need an image-guided injection arranged at a partner facility instead. The clinician says which applies on the call, before anything is booked or paid for.",
+      "alt": ["Does the site say hips are treated at home?", "Is a hip treated at home or at a clinic?"],
+      "say": "In two places: the first card under What we do, and the first answer under Questions. It says this is concierge care: a licensed nurse practitioner comes to the home. The clinician says on the call whether a hip is a fit at all, before anything is booked or paid for.",
       "show": "hips#q-can-a-hip-be-treated-at"
     },
     {
@@ -89,7 +89,7 @@
       "topic": "what a patient asks",
       "q": "What would it cost for my hip?",
       "alt": ["How much is hip treatment?", "Where is the price on the Hips page?"],
-      "say": "The part called What it costs gives a range for a plan for one area: {{site.pricing.from}} to {{site.pricing.to}}, which is a sample on this example site. Care is paid out of pocket. A clinician decides on the call what, if anything, makes sense, and your written quote says so if treatment needs a partner facility.",
+      "say": "The part called What it costs gives a range for a plan for one area: {{site.pricing.from}} to {{site.pricing.to}}, which is a sample on this example site. Care is paid out of pocket. A clinician decides on the call what, if anything, makes sense, and the exact quote is put in writing.",
       "show": "hips#cost"
     }
   ]

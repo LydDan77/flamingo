@@ -23,7 +23,7 @@
     "is-this-you": { "say": "Is this you lists five situations, such as a partly torn tendon that is not healing or a sprain that has gone on for months." },
     "what-we-do": { "say": "What we do is three cards: the treatment in plain words, who it tends to suit, and what the practice will not promise for an injury." },
     "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
-    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. That covers the home visit, the product and the follow-ups." },
     "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, including one on what happens during a visit at home." },
     "questions": { "say": "Questions answers three things injured patients ask: how long until they can train again, whether the practice works with their physical therapist, and what happens if imaging shows a complete tear." }
   },
