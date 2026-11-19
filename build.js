@@ -15,6 +15,8 @@
  *   {{nav}} {{footer}} {{year}}    generated navigation, footer columns, current year
  *   {{variantSwitch}} {{variantBadge}}  the "Programs" items of the design switcher (site variants, see site.config.js)
  *   {{bookingEmbed}} {{headScript}}   the booking slot (GoHighLevel calendar, a custom snippet, or the placeholder) and the optional head snippet
+ *   {{assistantEmbed}}                the assistant's own embed snippet (site.assistant.embedHtml), for variants that have an assistant
+ *   {{#if site:guide}} … {{/if}}      per-variant switches: guide, noSwitcher, assistantOn, assistantLive; front matter `only: guide` builds a page for those variants only
  *   {{#if module:x}} … {{/if}}     conditional blocks (also {{#unless …}}, any:a,b, all:a,b, collection:x, sample)
  *   src/templates/*.html           page templates rendered once per data record (referral pages from site.referrers)
  *
@@ -283,6 +285,7 @@ function evalCondition(expr) {
   if (kind === "collection") return !site.collections || site.collections.includes(names[0]); // which switcher groups a variant lists
   if (kind === "sample") return !!site.sample; // the dressed sample practice (variants.demo)
   if (kind === "booking") return bookingState() === names[0]; // booking:calendar | booking:custom | booking:slot | booking:form
+  if (kind === "site") return !!site[names[0]]; // a per-variant switch: site:guide | site:noSwitcher | site:assistantOn | site:assistantLive
   if (kind === "any") return names.some(moduleOn);
   if (kind === "all") return names.every(moduleOn);
   throw new Error(`Unknown condition: ${expr}`);
@@ -416,7 +419,8 @@ function render(template, ctx, depth = 0) {
 
   // booking slot and the optional head snippet (site.booking); raw by design, they come from the operator's own config
   out = out.replace(/\{\{bookingEmbed\}\}/g, () => renderBookingEmbed());
-  out = out.replace(/\{\{headScript\}\}/g, () => (site.booking && site.booking.headScript) || "");
+  out = out.replace(/\{\{headScript\}\}/g, () => ((site.booking && site.booking.headScript) || "") + ((site.assistant && site.assistant.headHtml) || ""));
+  out = out.replace(/\{\{assistantEmbed\}\}/g, () => (site.assistant && site.assistant.embedHtml) || ""); // raw by design: the operator's own snippet
 
   // icons
   out = out.replace(/\{\{icon:([\w-]+)(?:\s+([\w\s-]+))?\}\}/g, (_, name, cls) => icon(name, cls));
@@ -452,6 +456,8 @@ function buildPage(file, outDir, variant, gen) {
   const body = gen ? parsed.body.replace(/\{\{page\.([\w.]+)\}\}/g, (m, k) => { const v = getPath(gen.extra, k); return v == null ? m : String(v); }) : parsed.body;
   const slug = gen ? gen.slug : file.replace(/\.html$/, "");
   if (data.module && !moduleOn(data.module)) return null; // page belongs to a module that is switched off
+  if (data.only && !site[data.only]) return null; // page belongs to a per-variant switch (only: guide)
+  if (data.unless && site[data.unless]) return null; // page is left out where that switch is on (unless: guide)
   // Titles and descriptions may use {{site.x}}, {{page.x}} and {{#if …}} so they follow the modules too.
   const lite = { page: { ...(gen ? gen.extra : {}) }, navHtml: "", footerHtml: "", heroImage: null };
   for (const k of ["title", "description"]) if (data[k] && data[k].includes("{{")) data[k] = render(data[k], lite);
@@ -467,7 +473,9 @@ function buildPage(file, outDir, variant, gen) {
     ...data,
     ...(gen ? gen.extra : {}),
   };
-  page.robotsMeta = data.noindex || site.indexable === false ? '<meta name="robots" content="noindex, nofollow">' : "";
+  page.bodyClass = [data.bodyClass || "", site.guide ? "has-guide" : "", site.assistantOn ? "has-assistant" : ""].filter(Boolean).join(" ");
+  // A guide build is meant to be read by its assistant's crawler but kept out of search: noindex, links may be followed.
+  page.robotsMeta = data.noindex || site.indexable === false ? `<meta name="robots" content="${site.guide ? "noindex" : "noindex, nofollow"}">` : "";
   page.titleEsc = escapeHtml(page.fullTitle);
   page.descriptionEsc = escapeHtml(page.description);
 
@@ -485,7 +493,8 @@ function buildPage(file, outDir, variant, gen) {
   const content = render(body, ctx);
   page.heroPreload = PHOTO_SET_SCRIPT + heroPreloadScript(ctx.heroImage);
   const layout = read(LAYOUT);
-  const html = render(layout.replace("{{content}}", () => content), ctx);
+  let html = render(layout.replace("{{content}}", () => content), ctx);
+  if (site.guide) html = require("./tools/site-guide.js").annotate(html, { outDir, slug, file: gen ? gen.out : file, page, noindex: !!data.noindex });
 
   const outFile = path.join(outDir, gen ? gen.out : file);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
@@ -526,6 +535,16 @@ function build() {
   for (const variant of variantList()) {
     site = variant.key ? Object.assign(SITE.make(variant.modules, variant.brand), { collections: variant.collections, sample: !!variant.sample }) : SITE;
     site.brandClass = (site.name || "").length > 18 ? " brand--long" : ""; // long names drop the mark on phones (27-patient.css)
+    // Per-variant switches, all off in an ordinary build: one fixed design version with no switcher, the site guide
+    // (stable section ids + the knowledge pack in dist/<path>/guide/, see tools/site-guide.js), and an assistant slot.
+    site.fixedTheme = variant.theme || "";
+    site.noSwitcher = variant.switcher === false;
+    site.guide = !!variant.guide;
+    site.assistant = variant.assistant ? Object.assign({ name: "Ava", embedHtml: "", headHtml: "" }, variant.assistant) : null;
+    site.assistantOn = !!site.assistant;
+    site.assistantLive = !!(site.assistant && site.assistant.embedHtml);
+    site.assistantName = site.assistant ? site.assistant.name : "";
+    site.sampleNote = variant.sampleNote || "Sample practice. Names, numbers, prices and stories are fictional, for demonstration.";
     MODULES = site.modules || {};
     const outDir = variant.path ? path.join(DIST, variant.path) : DIST;
     const baseUrl = variant.path ? `${site.url}/${variant.path}` : site.url;
@@ -558,8 +577,13 @@ function build() {
       path.join(outDir, "sitemap.xml"),
       `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
     );
-    if (!variant.path) fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\n${site.indexable === false ? "Disallow: /" : "Allow: /"}\nSitemap: ${site.url}/sitemap.xml\n`);
+    if (!variant.path) {
+      // Guide builds stay crawlable on purpose (their pages carry noindex), so an assistant can learn them from the URL.
+      const guides = variantList().filter((v) => v.guide && v.path);
+      fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\n${site.indexable === false ? "Disallow: /" : "Allow: /"}\n${guides.map((v) => `Allow: /${v.path}/\n`).join("")}Sitemap: ${site.url}/sitemap.xml\n${guides.map((v) => `Sitemap: ${site.url}/${v.path}/sitemap.xml\n`).join("")}`);
+    }
 
+    if (site.guide) log.push(require("./tools/site-guide.js").write({ outDir, site, variant, baseUrl }));
     log.push(`${variant.path ? variant.path + "/" : "root"}: ${pages.length} pages${skipped.length ? ` (modules off, skipped: ${skipped.join(", ")})` : ""}`);
   }
   site = SITE;

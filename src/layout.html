@@ -26,14 +26,15 @@
   <script>
     (function () {
       var ok = ["dark", "light", "warm", "bright", "elite", "atelier", "obsidian", "sanctuary", "monolith", "aurora", "blush", "ecosystem", "onyx", "sandstone", "meridian", "ivory"], t = "ecosystem", d = document, h = d.documentElement;
+      var fx = window.FLAMINGO_FIXED_THEME = "{{site.fixedTheme}}"; // a variant with one fixed design version (it ignores the remembered choice; ?theme= still previews another)
       try {
         var q = new URLSearchParams(location.search).get("theme");
-        var s = localStorage.getItem("flamingo-theme");
+        var s = fx ? null : localStorage.getItem("flamingo-theme");
         if (q === "playful") q = "bright";
         if (s === "playful") s = "bright";
-        t = q || s || "ecosystem";
-        if (ok.indexOf(t) < 0) t = "ecosystem";
-        if (q && ok.indexOf(q) >= 0) localStorage.setItem("flamingo-theme", q);
+        t = q || s || fx || "ecosystem";
+        if (ok.indexOf(t) < 0) t = fx || "ecosystem";
+        if (!fx && q && ok.indexOf(q) >= 0) localStorage.setItem("flamingo-theme", q);
       } catch (e) {}
       h.setAttribute("data-theme", t);
       var G = "https://fonts.googleapis.com/css2?display=swap&family=";
@@ -76,7 +77,7 @@
 </main>
 
 {{> footer}}
-{{> theme-switch}}
+{{#unless site:noSwitcher}}{{> theme-switch}}{{/unless}}
 {{> financing-chip}}
 <div class="progress" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
@@ -96,5 +97,6 @@
   })();
 </script>
 <script src="{{page.assets.js}}" defer></script>
+{{#if site:assistantOn}}{{> assistant}}{{/if}}
 </body>
 </html>

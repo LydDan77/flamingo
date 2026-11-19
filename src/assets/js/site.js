@@ -38,7 +38,8 @@
     if (t === "playful") t = "bright";
     if (THEMES.indexOf(t) < 0) return;
     root.setAttribute("data-theme", t);
-    try { localStorage.setItem("flamingo-theme", t); } catch (e) {}
+    var fixed = window.FLAMINGO_FIXED_THEME || ""; // a variant with one design version: nothing to remember, and clean links
+    if (!fixed) { try { localStorage.setItem("flamingo-theme", t); } catch (e) {} }
     var meta = doc.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", THEME_COLORS[t]);
     if (fromUser && fontLink && window.FLAMINGO_FONTS && window.FLAMINGO_FONTS[t]) fontLink.href = window.FLAMINGO_FONTS[t];
@@ -53,6 +54,7 @@
     });
     applyThemeImages(t);
     // keep ?theme= on internal links so the chosen version follows you between pages
+    if (fixed && t === fixed) return;
     doc.querySelectorAll("a[href]").forEach(function (a) {
       var href = a.getAttribute("href");
       if (!href || /^(https?:|mailto:|tel:|#)/.test(href)) return;
