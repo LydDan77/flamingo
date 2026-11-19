@@ -30,7 +30,7 @@ bodyClass: page--book
         <div class="who-answers">
           <span class="eyebrow">Who answers the phone</span>
           <p class="who-answers__name">{{site.coordinator.first}}</p>
-          <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. If a time here does not work, or you would rather talk first, call and {{site.coordinator.first}} will sort it out. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
+          <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. If a time here does not work, or you would rather talk first, call and {{site.coordinator.first}} will sort it out. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
           <a class="btn btn--secondary" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
           <p class="small muted mt-4">{{site.hours}}</p>
         </div>

@@ -10,7 +10,7 @@ nav: journal
       <p class="hero__kicker">Science · 4 min read</p>
       <h1>Exosomes, explained in <em class="hl">plain words</em></h1>
       <p class="lead">The word gets used loosely. This is the version a careful clinician would give you across the kitchen table.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
@@ -40,7 +40,7 @@ nav: journal
       <h3>Sources and further reading</h3>
       <ul>
         <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/consumer-alert-regenerative-medicine-products-including-stem-cells-and-exosomes" target="_blank" rel="noopener">FDA: Consumer alert on regenerative medicine products including stem cells and exosomes</a></li>
-        <li>Peer-reviewed reviews of extracellular vesicles in musculoskeletal research. <span class="ph-tag">{{icon:pen}} Clinical review to add citations</span></li>
+        <li>Peer-reviewed reviews of extracellular vesicles in musculoskeletal research. {{#if sample}}<span class="sample">Sample</span> A practice's clinical reviewer adds the citations before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Clinical review to add citations</span>{{/unless}}</li>
       </ul>
     </div>
 

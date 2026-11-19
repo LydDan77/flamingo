@@ -14,7 +14,7 @@ nav: legal
 </section>
 <section class="section section--tight">
   <div class="container container--narrow">
-    <div class="notice mb-8">{{icon:info}}<span><b>Template legal copy.</b> This page is a generic starting point. Have the client's counsel review and replace it before launch.</span></div>
+    <div class="notice mb-8">{{icon:info}}<span>{{#if sample}}<span class="sample">Sample</span> <b>Sample legal text.</b> A practice's own counsel reviews and replaces it before launch.{{/if}}{{#unless sample}}<b>Template legal copy.</b> This page is a generic starting point. Have the client's counsel review and replace it before launch.{{/unless}}</span></div>
     </div>
   <div style="margin-bottom:28px">{{> notice-california}}</div>
   <div class="container container--narrow">

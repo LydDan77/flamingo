@@ -13,7 +13,13 @@ a.guide-spot, .nav__link.guide-spot, .btn.guide-spot, .site-header__call.guide-s
 @media (min-width: 1024px) { .nav__item.guide-open > .menu { opacity: 1; visibility: visible; transform: none; } }
 
 .has-assistant { --assistant-corner: 84px; }
-.assistant-dock { position: fixed; right: 20px; bottom: 20px; z-index: 96; display: grid; justify-items: end; gap: 12px; font-family: var(--font-body); }
+/* the stage: another page of the site shown in a frame that fills the window, so the assistant's page never reloads */
+#guide-stage { position: fixed; inset: 0; z-index: 2000; background: var(--bg); }
+#guide-stage[hidden] { display: none; }
+#guide-stage iframe { display: block; width: 100%; height: 100%; border: 0; }
+html.is-staged, html.is-staged body { overflow: hidden; }
+.is-staged .cursor, .is-staged .progress, .is-staged .sample-banner, .is-staged .sticky-cta, .is-staged .financing-chip { display: none; }
+.assistant-dock { position: fixed; right: 20px; bottom: 20px; z-index: 2001; display: grid; justify-items: end; gap: 12px; font-family: var(--font-body); }
 .assistant-dock__button { display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 8px 20px 8px 8px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface-solid, var(--bg)); color: var(--text); box-shadow: 0 18px 44px -18px rgba(16, 20, 32, 0.45); cursor: pointer; text-align: left; }
 .assistant-dock__button:hover { border-color: var(--brand); }
 .assistant-dock__mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: #fff; flex: none; }
@@ -68,3 +74,28 @@ a.guide-spot, .nav__link.guide-spot, .btn.guide-spot, .site-header__call.guide-s
 .guide-list > li span { color: var(--text-2); }
 .guide-files { font-family: var(--font-mono); font-size: 0.86rem; }
 .guide-files a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* the owner asks "what do I replace?": every sample stamp on the page lights up, with the block it belongs to */
+.guide-samples #main .sample { background: var(--brand); border-color: var(--brand); color: #fff; }
+.guide-samples #main :is(.card, .story-card, .doctor-card, .who-answers, .referral__card, article, li, p, .booking-slot):has(> .sample) { outline: 2px dashed var(--brand); outline-offset: 6px; border-radius: 6px; }
+
+/* the example-site note: scrolls away with the page, wraps instead of cutting off, and links to the owner's guide */
+.has-guide .sample-banner { position: absolute; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; line-height: 1.35; align-items: flex-start; width: max-content; max-width: min(760px, calc(100vw - 24px)); pointer-events: auto; padding: 8px 14px; }
+.has-guide .sample-banner .icon { margin-top: 2px; }
+.has-guide .sample-banner a { color: inherit; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+
+/* the sample calendar on the booking page of a sample practice */
+.booking-slot--sample { display: grid; gap: 18px; padding: 28px; }
+.booking-sample__head { display: grid; gap: 10px; justify-items: start; }
+.booking-sample__head h3 { margin: 0; }
+.booking-sample__head p { margin: 0; color: var(--text-2); max-width: 56ch; }
+.booking-sample__label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+.booking-sample__row { display: flex; flex-wrap: wrap; gap: 8px; }
+.booking-sample__row button { min-width: 84px; min-height: 48px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface-solid, var(--bg)); color: var(--text); font: inherit; font-size: 0.95rem; cursor: pointer; }
+.booking-sample__row button small { display: block; font-size: 0.74rem; color: var(--text-3); }
+.booking-sample__row button:hover { border-color: var(--brand); }
+.booking-sample__row button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.booking-sample__row button[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.8); }
+.booking-sample__foot { display: grid; gap: 10px; justify-items: start; }
+.booking-sample__foot .small { margin: 0; color: var(--text-3); }
+@media (max-width: 899px) { .booking-slot--sample { padding: 20px; } .booking-sample__row button { flex: 1 1 calc(33% - 8px); min-width: 0; } }

@@ -10,7 +10,7 @@ nav: journal
       <p class="hero__kicker">Trust · 5 min read</p>
       <h1>How to read a regenerative clinic's <em class="hl">claims</em></h1>
       <p class="lead">Including ours. If a sentence on this site fails the tests below, we want to hear about it.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
@@ -45,7 +45,7 @@ nav: journal
     <div class="callout">Hold this site to the same standard. Our commitments are on the <a href="index.html#honesty">what we will not promise</a> section of the home page, and our candidacy rules are published, not hidden.</div>
 
     <h2>About reviews</h2>
-    <p>Reviews on a medical website should come from real patients, be published with their written consent, and never promise a result. Rules on fake and incentivised reviews apply to clinics as they do to any business. Where this site shows a review, it is either a real one with consent or clearly marked as a sample. <span class="ph-tag">{{icon:pen}} Client to provide verified reviews</span></p>
+    <p>Reviews on a medical website should come from real patients, be published with their written consent, and never promise a result. Rules on fake and incentivised reviews apply to clinics as they do to any business. Where this site shows a review, it is either a real one with consent or clearly marked as a sample. {{#if sample}}<span class="sample">Sample</span> Every review on this sample site is a sample. A practice adds its own verified reviews before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide verified reviews</span>{{/unless}}</p>
 
     <div class="article__sources">
       <h3>Sources and further reading</h3>

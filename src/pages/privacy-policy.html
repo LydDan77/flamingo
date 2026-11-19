@@ -14,10 +14,10 @@ nav: legal
 </section>
 <section class="section section--tight">
   <div class="container container--narrow">
-    <div class="notice mb-8">{{icon:info}}<span><b>Template legal copy.</b> This page is a generic starting point. Have the client's counsel review and replace it before launch.</span></div>
+    <div class="notice mb-8">{{icon:info}}<span>{{#if sample}}<span class="sample">Sample</span> <b>Sample legal text.</b> A practice's own counsel reviews and replaces it before launch.{{/if}}{{#unless sample}}<b>Template legal copy.</b> This page is a generic starting point. Have the client's counsel review and replace it before launch.{{/unless}}</span></div>
     <div class="prose">
-    <p><strong>Last updated: [Month DD, YYYY]</strong></p>
-    <p>{{site.name}} ("we", "us", or "our") operates the website at {{site.url}} (the "Service"). This page informs visitors of our policies regarding the collection, use, and disclosure of personal information when you use the Service.</p>
+    <p><strong>Last updated: {{#if sample}}{{site.legal.updated}}{{/if}}{{#unless sample}}[Month DD, YYYY]{{/unless}}</strong></p>
+    <p>{{site.name}} ("we", "us", or "our") operates {{#if sample}}this website{{/if}}{{#unless sample}}the website at {{site.url}}{{/unless}} (the "Service"). This page informs visitors of our policies regarding the collection, use, and disclosure of personal information when you use the Service.</p>
     <p>If you choose to use our Service, you agree to the collection and use of information in accordance with this policy. The personal information we collect is used to provide and improve the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
     <h2>Information Collection and Use</h2>
     <p>For a better experience while using our Service, we may require you to provide certain personally identifiable information, including but not limited to your name, email address, phone number, and state of residence. The information we collect is used to contact or identify you and to route your inquiry to the appropriate clinician.</p>

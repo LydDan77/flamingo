@@ -1,0 +1,310 @@
+{
+ "about": "Section ids per page, as the assistant has learned them. The build fails if one disappears. To rename one on purpose, list it under moved (old target -> new target) and rebuild with GUIDE_ANCHORS=update.",
+ "moved": {},
+ "pages": {
+  "index": [
+   "top",
+   "where-it-hurts",
+   "short-version",
+   "what-we-do-three-pillars",
+   "services",
+   "coordinated-care",
+   "how-it-works",
+   "candidacy",
+   "this-is-probably-you",
+   "physician-led-care",
+   "honesty",
+   "the-infrastructure-behind-the-care",
+   "patient-stories",
+   "results",
+   "cost",
+   "faq",
+   "journal",
+   "next-step",
+   "reviews",
+   "numbers"
+  ],
+  "about": [
+   "top",
+   "how-it-works",
+   "our-promise",
+   "founder",
+   "team",
+   "next-step"
+  ],
+  "after-an-injury": [
+   "top",
+   "is-this-you",
+   "what-we-do",
+   "what-happens",
+   "cost",
+   "the-science-if-you-want-it",
+   "questions",
+   "next-step",
+   "small-print"
+  ],
+  "back-and-neck": [
+   "top",
+   "is-this-you",
+   "what-we-do",
+   "what-happens",
+   "cost",
+   "the-science-if-you-want-it",
+   "questions",
+   "next-step",
+   "small-print"
+  ],
+  "before-surgery": [
+   "top",
+   "is-this-you",
+   "what-we-do",
+   "what-happens",
+   "cost",
+   "the-science-if-you-want-it",
+   "questions",
+   "next-step",
+   "small-print"
+  ],
+  "book": [
+   "top",
+   "book",
+   "before-you-book"
+  ],
+  "concierge-care-model": [
+   "top",
+   "the-problem-we-solve",
+   "the-model",
+   "the-process",
+   "faq",
+   "next-step"
+  ],
+  "contact": [
+   "top",
+   "book",
+   "prefer-to-talk"
+  ],
+  "disclaimer": [
+   "top",
+   "sample-legal-text-a"
+  ],
+  "financing": [
+   "top",
+   "monthly-payment-plans",
+   "how-it-works",
+   "what-it-covers",
+   "apply-2",
+   "next-step"
+  ],
+  "for-providers": [
+   "top",
+   "the-opportunity",
+   "what-you-get",
+   "requirements",
+   "next-step",
+   "faq"
+  ],
+  "founder": [
+   "top",
+   "800-patients-connected-6licensed",
+   "why-dr-demo-regenerative-care-exists",
+   "milestones",
+   "how-we-meet-patients",
+   "next-step"
+  ],
+  "from-dr-natarajan": [
+   "top",
+   "what-happens-next",
+   "three-questions",
+   "cost",
+   "in-one-breath",
+   "small-print"
+  ],
+  "from-dr-reyes": [
+   "top",
+   "what-happens-next",
+   "three-questions",
+   "cost",
+   "in-one-breath",
+   "small-print"
+  ],
+  "from-marcus-hale": [
+   "top",
+   "what-happens-next",
+   "three-questions",
+   "cost",
+   "in-one-breath",
+   "small-print"
+  ],
+  "from-your-provider": [
+   "top",
+   "what-happens-next",
+   "three-questions",
+   "cost",
+   "in-one-breath",
+   "small-print"
+  ],
+  "hips": [
+   "top",
+   "is-this-you",
+   "what-we-do",
+   "what-happens",
+   "cost",
+   "the-science-if-you-want-it",
+   "questions",
+   "next-step",
+   "small-print"
+  ],
+  "journal": [
+   "top",
+   "what-whartons-jelly-is-and-why",
+   "next-step",
+   "small-print"
+  ],
+  "journal-candidacy": [
+   "top",
+   "who-tends-to-be-considered",
+   "next-step",
+   "small-print"
+  ],
+  "journal-exosomes-explained": [
+   "top",
+   "tiny-packages-that-cells-send-to",
+   "next-step",
+   "small-print"
+  ],
+  "journal-in-home-visit": [
+   "top",
+   "before-the-visit-the-consultation",
+   "next-step",
+   "small-print"
+  ],
+  "journal-reading-claims": [
+   "top",
+   "start-with-what-the-regulator-says",
+   "next-step",
+   "small-print"
+  ],
+  "journal-surgery-questions": [
+   "top",
+   "1-what-exactly-is-damaged-and",
+   "next-step",
+   "small-print"
+  ],
+  "journal-whartons-jelly": [
+   "top",
+   "a-tissue-not-a-drug",
+   "next-step",
+   "small-print"
+  ],
+  "knees": [
+   "top",
+   "is-this-you",
+   "what-we-do",
+   "what-happens",
+   "cost",
+   "the-science-if-you-want-it",
+   "questions",
+   "next-step",
+   "small-print"
+  ],
+  "nad": [
+   "top",
+   "why-nad",
+   "programs",
+   "delivery-options",
+   "faq",
+   "talk-to-a-provider",
+   "small-print"
+  ],
+  "privacy-policy": [
+   "top",
+   "information-collection-and-use"
+  ],
+  "services": [
+   "top",
+   "all-programs",
+   "the-science",
+   "why-consider-it",
+   "next-step",
+   "small-print"
+  ],
+  "shoulders": [
+   "top",
+   "is-this-you",
+   "what-we-do",
+   "what-happens",
+   "cost",
+   "the-science-if-you-want-it",
+   "questions",
+   "next-step",
+   "small-print"
+  ],
+  "site-guide": [
+   "top",
+   "tour",
+   "pages",
+   "yours",
+   "stays",
+   "booking",
+   "ask",
+   "connect"
+  ],
+  "stem-cell-therapy": [
+   "top",
+   "how-it-works",
+   "key-benefits",
+   "conditions-addressed",
+   "active-adultsback-on-the",
+   "before-you-book",
+   "faq",
+   "next-step",
+   "small-print"
+  ],
+  "terms-conditions": [
+   "top",
+   "accounts"
+  ],
+  "testimonials": [
+   "top",
+   "video-stories",
+   "what-patients-are-saying",
+   "ready-to-write-your-own-story",
+   "next-step"
+  ],
+  "thank-you": [
+   "top",
+   "what-happens-next",
+   "get-ready",
+   "in-one-breath"
+  ],
+  "whartons-jelly": [
+   "top",
+   "the-source",
+   "why-it-matters",
+   "from-donation-to-your-door",
+   "delivery",
+   "before-you-book",
+   "faq",
+   "next-step",
+   "small-print"
+  ],
+  "why-exosomes": [
+   "top",
+   "the-science",
+   "scale",
+   "combined-protocol",
+   "before-you-book",
+   "faq",
+   "next-step",
+   "small-print"
+  ],
+  "why-were-different": [
+   "top",
+   "our-principles",
+   "sourceaccredited-tissue-banks-tested",
+   "side-by-side",
+   "experience-the-difference",
+   "next-step"
+  ]
+ }
+}

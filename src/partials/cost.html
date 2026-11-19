@@ -8,7 +8,7 @@
     <div class="cost reveal reveal--stagger">
       <div class="cost__price">
         <p class="eyebrow">Programs from</p>
-        <p class="cost__from">{{site.pricing.from}}<small>per plan {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</small></p>
+        <p class="cost__from">{{site.pricing.from}}<small>per plan {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</small></p>
         <p class="lead">Every plan is quoted in writing at your consultation, after a clinician has decided what, if anything, makes sense for you. A quote is never a commitment.</p>
         <ul class="cost__list">
           <li>{{icon:check-circle}}<span>Clinician consultation and candidacy review included</span></li>
@@ -20,7 +20,7 @@
         <span class="card__icon">{{icon:credit-card}}</span>
         <h3>Financing available</h3>
         <p>Monthly payment plans through a third-party financing partner, subject to approval. Terms are shown in full before you sign anything.</p>
-        {{#unless sample}}<p class="small muted">Financing partner and terms: <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>{{/unless}}
+        {{#if sample}}<p class="small muted">Financing partner: {{site.financingPartner}}, a separate company that sets the rates and terms. <span class="sample">Sample</span></p>{{/if}}{{#unless sample}}<p class="small muted">Financing partner and terms: <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>{{/unless}}
         <a class="link-arrow" href="financing.html">Financing details {{icon:arrow-up-right}}</a>
       </div>
     </div>

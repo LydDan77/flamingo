@@ -4,37 +4,139 @@
      SiteGuide.where()            which page and section the visitor is looking at
      SiteGuide.pages()            every page: slug, title, how to reach it, its sections
      SiteGuide.find("price")      the best places for a word or a question
-     SiteGuide.go("knees#cost")   go to a page and section (scrolls and highlights; loads the page if needed)
-     SiteGuide.show("cost")       highlight a section on this page
+     SiteGuide.go("knees#cost")   go to a page and section (scrolls and highlights)
+     SiteGuide.show("cost")       highlight a section, a marked spot or a question of the page in view
      SiteGuide.point("menu:Where it hurts")   show where something is in the header: a menu, "book", "call", "home"
+     SiteGuide.read("knees#cost") the words of a section, to quote them
+     SiteGuide.samples(true)      outline every sample detail on the page in view; returns how many
+     SiteGuide.tour("patient-path")           the steps of a walk-through: a line to say and a place to show
+     SiteGuide.back()             back to what the visitor was looking at before
 
    Targets are checked against the site's own page list, so nothing here can send a visitor off the site.
+
+   Staying put. A talking assistant is cut off when the page it lives on reloads. So when a visitor (or the assistant)
+   moves to another page, this script does not reload: it shows the assistant-free copy of that page, view-<page>.html,
+   in a frame that fills the window, and updates the address bar and the Back button to match. The assistant's page
+   never unloads, so she keeps talking. A reload, or a link opened in a new tab, lands on the ordinary page.
+
    An assistant inside an iframe can post { type: "site-guide", action: "go", target: "knees#cost", id: 1 } to the page
-   and gets { type: "site-guide:result", id: 1, result } back. A link with ?show=<section> does the same on arrival. */
+   and gets { type: "site-guide:result", id: 1, result } back. A link with ?show=<section> highlights on arrival. */
 (function () {
   "use strict";
   var DATA = window.__SITE_GUIDE__ || { pages: [], qa: [], starters: [] };
   var doc = document, root = doc.documentElement;
   var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var here = (location.pathname.split("/").pop() || "").replace(/\.html$/, "") || "index";
+  var framed = false;
+  try { framed = window.self !== window.top && !!window.parent.SiteGuide; } catch (e) { framed = false; }
+  function slugOf(pathname) { var f = (String(pathname).split("/").pop() || "").replace(/\.html$/, "").replace(/^view-/, ""); return f || "index"; }
+  var own = slugOf(location.pathname);
+  var dotHtml = /\.html$/.test(location.pathname); // a local server; the live site uses clean addresses
   var bySlug = {};
   DATA.pages.forEach(function (p) { bySlug[p.s] = p; });
 
-  function words(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9+ ]+/g, " ").split(/\s+/).filter(function (w) { return w.length > 2 && !STOP[w]; }); }
   var STOP = { the: 1, and: 1, for: 1, how: 1, what: 1, where: 1, does: 1, can: 1, you: 1, your: 1, this: 1, that: 1, with: 1, are: 1, there: 1, page: 1, site: 1, website: 1, find: 1, show: 1, take: 1, see: 1, about: 1, get: 1, have: 1, from: 1, they: 1, will: 1, when: 1, who: 1, why: 1, into: 1, our: 1, its: 1, was: 1, has: 1, not: 1, any: 1, all: 1 };
+  function words(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9+ ]+/g, " ").split(/\s+/).filter(function (w) { return w.length > 2 && !STOP[w]; }); }
 
+  /* ------------------------------------------------------------------ the stage: other pages, without a reload */
+  var keepAlive = !framed && DATA.keepAlive !== false;
+  var stage = null, frame = null, staged = false, stagedSlug = "", ownTitle = doc.title, pendingShow = "";
+  function inner() { try { return staged && frame && frame.contentWindow && frame.contentWindow.SiteGuide ? frame.contentWindow.SiteGuide : null; } catch (e) { return null; } }
+  function here() { return staged ? stagedSlug : own; }
+  function viewUrl(slug, section, query) {
+    var q = [];
+    if (section) q.push("show=" + encodeURIComponent(section));
+    String(query || "").replace(/^\?/, "").split("&").forEach(function (kv) { if (kv && !/^show=/.test(kv)) q.push(kv); });
+    return "view-" + slug + ".html" + (q.length ? "?" + q.join("&") : "") + (section ? "#" + section : "");
+  }
+  function realUrl(slug, hash) { return (slug === "index" ? "./" : slug + (dotHtml ? ".html" : "")) + (hash || ""); }
+  function setStaged(on) {
+    staged = on;
+    if (stage) stage.hidden = !on;
+    root.classList.toggle("is-staged", on);
+    ["site-header", "main", "footer"].forEach(function (id) { var el = doc.getElementById(id); if (el) { if (on) el.setAttribute("inert", ""); else el.removeAttribute("inert"); } });
+    if (!on) doc.title = ownTitle;
+  }
+  function onFrameLoad() {
+    var loc;
+    try { loc = frame.contentWindow.location; if (!loc || loc.href === "about:blank") return; } catch (e) { return; }
+    var file = loc.pathname.split("/").pop() || "";
+    var m = file.match(/^view-([a-z0-9-]+)(?:\.html)?$/);
+    if (!m) { // the frame reached an ordinary page: swap in its assistant-free copy
+      var s = slugOf(loc.pathname);
+      if (bySlug[s]) loc.replace("view-" + s + ".html" + loc.search + loc.hash);
+      return;
+    }
+    stagedSlug = m[1];
+    try { doc.title = frame.contentDocument.title; } catch (e) {}
+    if (staged) { try { history.replaceState({ guideStage: 1, slug: stagedSlug }, "", realUrl(stagedSlug, loc.hash)); } catch (e) {} }
+    if (pendingShow) { var id = pendingShow; pendingShow = ""; var g = inner(); if (g) setTimeout(function () { g.show(id); }, 250); }
+    announce();
+  }
+  function openStage(slug, section, query) {
+    if (!frame) {
+      stage = doc.createElement("div");
+      stage.id = "guide-stage";
+      stage.hidden = true;
+      frame = doc.createElement("iframe");
+      frame.title = DATA.name || "Website";
+      frame.addEventListener("load", onFrameLoad);
+      stage.appendChild(frame);
+      doc.body.appendChild(stage);
+    }
+    var url = viewUrl(slug, section, query);
+    stagedSlug = slug;
+    if (!staged) {
+      try { history.pushState({ guideStage: 1, slug: slug }, "", realUrl(slug, section ? "#" + section : "")); } catch (e) { location.href = realUrl(slug, section ? "#" + section : ""); return; }
+      if (frame.getAttribute("src")) frame.contentWindow.location.replace(url); else frame.setAttribute("src", url);
+      setStaged(true);
+    } else {
+      frame.contentWindow.location.assign(url);
+    }
+  }
+  if (keepAlive) {
+    window.addEventListener("popstate", function (e) {
+      var st = e.state;
+      if (st && st.guideStage && frame) { stagedSlug = st.slug || stagedSlug; setStaged(true); }
+      else if (st && st.guideStage) { location.reload(); }
+      else setStaged(false);
+      announce();
+    });
+    // The visitor's own clicks on links to other pages take the same route, so the assistant is not cut off.
+    doc.addEventListener("click", function (e) {
+      if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || a.target === "_blank" || a.hasAttribute("download") || a.hasAttribute("data-guide-go")) return;
+      var u;
+      try { u = new URL(a.getAttribute("href"), location.href); } catch (err) { return; }
+      if (u.origin !== location.origin) return;
+      var dir = function (p) { return p.slice(0, p.lastIndexOf("/") + 1); };
+      if (dir(u.pathname) !== dir(location.pathname)) return;
+      var slug = slugOf(u.pathname);
+      if (!bySlug[slug] || slug === own) return; // same page, or not a page of this site: the browser handles it
+      e.preventDefault();
+      doc.body.classList.remove("nav-open");
+      openStage(slug, u.hash.slice(1), u.search);
+    });
+  }
+
+  /* ------------------------------------------------------------------------------------------------ the guide */
   function parse(target) {
-    if (target && typeof target === "object") return { page: String(target.page || here).replace(/\.html$/, ""), section: String(target.section || "") };
+    if (target && typeof target === "object") return { page: slugOf(target.page || here()), section: String(target.section || "").replace(/^#/, "") };
     var t = String(target || "").trim().replace(/^\.?\//, "");
     var bits = t.split("#");
-    var pg = bits[0].split("?")[0].replace(/\.html$/, "");
-    return { page: pg || (t.charAt(0) === "#" ? here : "index"), section: bits[1] || "" };
+    var pg = bits[0].split("?")[0];
+    return { page: pg ? slugOf(pg) : (t.charAt(0) === "#" ? here() : "index"), section: bits[1] || "" };
   }
-  function urlOf(slug) { return slug === "index" ? "./" : slug + ".html"; }
   function known(t) {
     var p = bySlug[t.page];
-    if (!p) return false;
-    return !t.section || p.x.some(function (s) { return s[0] === t.section; });
+    return !!p && (!t.section || p.x.some(function (s) { return s[0] === t.section; }) || (p.m || []).some(function (s) { return s[0] === t.section; }));
+  }
+  /** An id the assistant learned before it was renamed still works (the build keeps the list). */
+  function current(t) {
+    var to = (DATA.moved || {})[t.page + (t.section ? "#" + t.section : "")];
+    if (!to) return t;
+    var b = String(to).split("#");
+    return { page: b[0], section: b[1] || "" };
   }
 
   var spotTimer = null;
@@ -46,46 +148,85 @@
     spotTimer = setTimeout(function () { el.classList.remove("guide-spot"); }, ms || 4500);
   }
   function show(id) {
-    var el = doc.getElementById(String(id || "").replace(/^#/, ""));
+    id = String(id || "").replace(/^#/, "");
+    if (staged) { var g = inner(); if (g) return g.show(id); pendingShow = id; return { ok: true, page: stagedSlug, section: id, loading: true }; }
+    var el = doc.getElementById(id);
     if (!el) return { ok: false, reason: "no section called " + id + " on this page" };
-    el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+    if (el.tagName === "DETAILS") el.open = true; // a question: open it
+    el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: el.tagName === "DETAILS" ? "center" : "start" });
     spot(el);
-    return { ok: true, page: here, section: el.id };
+    return { ok: true, page: own, section: el.id };
   }
   function go(target) {
-    var t = parse(target);
+    var t = current(parse(target));
     if (!known(t)) return { ok: false, reason: "unknown target " + JSON.stringify(target) + "; use SiteGuide.find() or SiteGuide.pages()" };
-    if (t.page === here) {
+    if (t.page === here()) {
       if (t.section) return show(t.section);
-      window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" });
-      return { ok: true, page: here, section: "" };
+      var w = staged && frame ? frame.contentWindow : window;
+      try { w.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" }); } catch (e) {}
+      return { ok: true, page: t.page, section: "" };
     }
     var theme = new URLSearchParams(location.search).get("theme");
+    if (keepAlive) { openStage(t.page, t.section, theme ? "theme=" + theme : ""); return { ok: true, page: t.page, section: t.section, title: bySlug[t.page].t }; }
     var q = [];
     if (t.section) q.push("show=" + encodeURIComponent(t.section));
     if (theme) q.push("theme=" + encodeURIComponent(theme));
-    location.href = urlOf(t.page) + (q.length ? "?" + q.join("&") : "") + (t.section ? "#" + t.section : "");
+    location.href = (framed ? "view-" : "") + (t.page === "index" && !framed ? "./" : t.page + ".html") + (q.length ? "?" + q.join("&") : "") + (t.section ? "#" + t.section : "");
     return { ok: true, page: t.page, section: t.section, navigating: true };
+  }
+  /** Follow an address of this site (used by the form's thank-you redirect) without cutting the assistant off. */
+  function visit(url) {
+    var u;
+    try { u = new URL(url, location.href); } catch (e) { location.href = url; return; }
+    var slug = slugOf(u.pathname);
+    if (keepAlive && u.origin === location.origin && bySlug[slug] && slug !== here()) openStage(slug, u.hash.slice(1), u.search);
+    else location.href = url;
   }
 
   function where() {
-    var p = bySlug[here] || { s: here, t: doc.title, x: [] };
+    if (staged) { var g = inner(); if (g) return g.where(); var sp = bySlug[stagedSlug] || { t: "", x: [] }; return { page: stagedSlug, title: sp.t, section: "", section_label: "", sections: sp.x.map(function (s) { return { id: s[0], label: s[1] }; }) }; }
+    var p = bySlug[own] || { s: own, t: doc.title, x: [] };
     var line = window.innerHeight * 0.35, cur = null;
     doc.querySelectorAll("[data-guide][id]").forEach(function (el) {
       var r = el.getBoundingClientRect();
       if (r.top <= line && r.bottom > 0) cur = el;
     });
     var sec = cur ? p.x.filter(function (s) { return s[0] === cur.id; })[0] : null;
-    return { page: p.s, title: p.t, section: cur ? cur.id : "", section_label: sec ? sec[1] : "", sections: p.x.map(function (s) { return { id: s[0], label: s[1] }; }) };
+    return { page: own, name: p.n || p.t, title: p.t, reach: p.r || "", section: cur ? cur.id : "", section_label: sec ? sec[1] : "", layout: window.innerWidth < 1024 ? "phone" : "laptop", sections: p.x.map(function (s) { return { id: s[0], label: s[1] }; }) };
   }
   function pages() {
-    return DATA.pages.map(function (p) { return { page: p.s, title: p.t, reach: p.r, purpose: p.p, sections: p.x.map(function (s) { return { target: p.s + "#" + s[0], label: s[1] }; }) }; });
+    return DATA.pages.map(function (p) { return { page: p.s, name: p.n || p.t, title: p.t, reach: p.r, purpose: p.p, sections: p.x.map(function (s) { return { target: p.s + "#" + s[0], label: s[1] }; }) }; });
   }
+  /** The words of a section as they are on the page, so they can be quoted exactly. */
+  function read(target) {
+    var t = current(parse(String(target || "").indexOf("#") < 0 && doc.getElementById(String(target)) ? "#" + target : target));
+    if (!known(t)) return { ok: false, reason: "unknown target " + JSON.stringify(target) };
+    if (t.page !== here()) { var p = bySlug[t.page], s = p.x.filter(function (x) { return x[0] === t.section; })[0]; return { ok: true, page: t.page, section: t.section, text: s ? s[2] : p.p, summary_only: true }; }
+    if (staged) { var g = inner(); if (g) return g.read("#" + t.section); }
+    var el = t.section ? doc.getElementById(t.section) : doc.getElementById("main");
+    if (!el) return { ok: false, reason: "not on this page" };
+    var c = el.cloneNode(true);
+    c.querySelectorAll("script, style, svg, .sample, .ph-tag").forEach(function (x) { x.remove(); });
+    return { ok: true, page: t.page, section: t.section, text: (c.textContent || "").replace(/\s+/g, " ").trim().slice(0, 4000) };
+  }
+  /** Outline every sample detail on the page in view, so an owner can see what they will replace. */
+  function samples(on) {
+    if (staged) { var g = inner(); if (g) return g.samples(on); }
+    on = on !== false;
+    root.classList.toggle("guide-samples", on);
+    return { ok: true, on: on, count: doc.querySelectorAll("#main .sample").length, page: own };
+  }
+  function tours() { return (DATA.tours || []).map(function (t) { return { id: t.id, title: t.title, steps: t.steps.length }; }); }
+  function tour(id) {
+    var t = (DATA.tours || []).filter(function (x) { return x.id === id; })[0];
+    return t ? { ok: true, id: t.id, title: t.title, steps: t.steps } : { ok: false, reason: "no tour called " + id, tours: tours() };
+  }
+  function back() { history.back(); return { ok: true }; }
   function find(query, limit) {
     var q = words(query), hits = {};
     if (!q.length) return [];
     function add(target, score, label) { if (score > 0 && (!hits[target] || hits[target].score < score)) hits[target] = { target: target, label: label, score: score }; }
-    function overlap(text, weight) { var w = words(text), n = 0; q.forEach(function (x) { if (w.indexOf(x) >= 0 || w.some(function (y) { return y.indexOf(x) === 0 || x.indexOf(y) === 0; })) n++; }); return (n / q.length) * weight; }
+    function overlap(text, weight) { var w = words(text), n = 0; q.forEach(function (x) { if (w.indexOf(x) >= 0 || w.some(function (y) { return y.length > 3 && x.length > 3 && (y.indexOf(x) === 0 || x.indexOf(y) === 0); })) n++; }); return (n / q.length) * weight; }
     DATA.pages.forEach(function (p) {
       add(p.s, overlap(p.t, 3) + overlap(p.p, 1), p.t);
       p.x.forEach(function (s) { add(p.s + "#" + s[0], overlap(s[1], 3) + overlap(s[2], 1.2) + overlap(p.t, 0.8), p.t + " › " + s[1]); });
@@ -96,10 +237,11 @@
 
   // Show where something lives in the header, the way a person would point at it.
   function point(what) {
+    if (staged) { var g = inner(); if (g) return g.point(what); }
     var w = String(what || "").trim(), el = null, low = w.toLowerCase();
     var phone = window.innerWidth < 1024;
-    function openDrawer() { var b = doc.querySelector(".burger"); if (phone && b && !root.classList.contains("nav-open") && !doc.body.classList.contains("nav-open")) b.click(); }
-    if (low === "book" || low === "booking") el = phone ? doc.querySelector(".sticky-cta .btn--primary, .site-header__cta") : doc.querySelector(".site-header__cta");
+    function openDrawer() { var b = doc.querySelector(".burger"); if (phone && b && !doc.body.classList.contains("nav-open")) b.click(); }
+    if (low === "book" || low === "booking") el = phone ? (doc.querySelector(".sticky-cta .btn--primary") || doc.querySelector(".site-header__cta")) : doc.querySelector(".site-header__cta");
     else if (low === "call" || low === "phone") el = doc.querySelector(".site-header__call");
     else if (low === "home" || low === "logo") el = doc.querySelector(".site-header .brand");
     else if (low === "footer") el = doc.getElementById("footer");
@@ -112,26 +254,29 @@
         el = li.querySelector(".nav__link");
         if (bits[1]) {
           var kid = [].slice.call(li.querySelectorAll("a")).filter(function (a) { return a !== el && a.textContent.trim().toLowerCase().indexOf(bits[1].trim().toLowerCase()) >= 0; })[0];
-          if (kid) { li.classList.add("is-open", "guide-open"); el.focus({ preventScroll: true }); el = kid; setTimeout(function () { li.classList.remove("guide-open"); }, 6000); }
+          if (kid) el = kid;
         }
+        if (li.querySelector(".menu")) { li.classList.add("is-open", "guide-open"); setTimeout(function () { li.classList.remove("guide-open"); }, 6500); }
       }
     }
     if (!el) return { ok: false, reason: "nothing in the header called " + what };
     if (el.id === "footer") el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
-    spot(el, 6000);
+    spot(el, 6500);
     return { ok: true, pointed_at: (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60) };
   }
 
-  var api = { where: where, pages: pages, find: find, go: go, show: show, point: point, starters: function () { return (DATA.starters || []).slice(); }, version: 1 };
+  var api = { where: where, pages: pages, find: find, go: go, show: show, point: point, read: read, samples: samples, tours: tours, tour: tour, back: back, visit: visit, starters: function () { return (DATA.starters || []).slice(); }, version: 1 };
   window.SiteGuide = api;
+  function announce() { try { doc.dispatchEvent(new CustomEvent("siteguide:page", { detail: where() })); } catch (e) {} }
 
-  // An assistant in an iframe talks to the page with messages. Only the six actions above exist; go() and show() only
-  // accept the site's own pages and sections, so a message cannot send the visitor anywhere else.
+  // An assistant in an iframe talks to the page with messages. Only the actions below exist; go() and show() accept the
+  // site's own pages and sections and nothing else, so a message cannot send the visitor anywhere else.
+  var OPEN = { where: 1, pages: 1, find: 1, go: 1, show: 1, point: 1, read: 1, samples: 1, tours: 1, tour: 1, back: 1, starters: 1 };
   window.addEventListener("message", function (e) {
     var d = e.data;
-    if (!d || d.type !== "site-guide" || typeof api[d.action] !== "function" || d.action === "version") return;
+    if (!d || d.type !== "site-guide" || !OPEN[d.action]) return;
     var result;
-    try { result = api[d.action](d.target !== undefined ? d.target : d.query, d.limit); } catch (err) { result = { ok: false, reason: String(err && err.message) }; }
+    try { result = api[d.action](d.target !== undefined ? d.target : d.query !== undefined ? d.query : d.id_or_on, d.limit); } catch (err) { result = { ok: false, reason: String(err && err.message) }; }
     if (e.source && e.source.postMessage) { try { e.source.postMessage({ type: "site-guide:result", id: d.id, action: d.action, result: result }, "*"); } catch (err) {} }
   });
 
@@ -141,7 +286,8 @@
     if (!b) return;
     e.preventDefault();
     var t = b.getAttribute("data-guide-go");
-    if (/^(menu:|book$|call$|home$|footer$)/i.test(t)) point(t); else go(t);
+    var top = framed ? window.parent.SiteGuide : api; // inside the stage, the outer page does the moving
+    if (/^(menu:|book$|call$|home$|footer$)/i.test(t)) top.point(t); else top.go(t);
     var dock = doc.getElementById("assistant-dock");
     if (dock && dock.contains(b)) setDock(false);
   });

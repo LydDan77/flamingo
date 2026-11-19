@@ -100,7 +100,7 @@ nav: regenerative
           <li>{{icon:check-circle}} Licensed NP under physician oversight</li>
           <li>{{icon:check-circle}} Targeted injection to the affected area</li>
           <li>{{icon:check-circle}} 30–60 minute session</li>
-          <li>{{icon:check-circle}} Service area: <span class="ph-tag">{{icon:pen}} Client to confirm</span></li>
+          <li>{{icon:check-circle}} Service area: {{#if sample}}{{site.serviceArea}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</li>
         </ul>
         <a class="btn btn--primary mt-10" href="{{site.bookUrl}}">See if you qualify {{icon:arrow-up-right}}</a>
       </div>

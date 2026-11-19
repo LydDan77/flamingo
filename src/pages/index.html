@@ -150,7 +150,7 @@ nav: home
             <li>One patient record, one coordinated plan</li>
             <li>Ongoing check-ins with the same team</li>
           </ul>
-          <p class="pillar__note">Service areas and visit availability vary by state and are confirmed on your consultation. <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>
+          <p class="pillar__note">Service areas and visit availability vary by state and are confirmed on your consultation. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
           <a class="btn btn--brand" href="concierge-care-model.html">Get Started {{icon:arrow-up-right}}</a>
         </div>
       </article>
@@ -304,7 +304,7 @@ nav: home
         <blockquote>
           <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
           <p>{{#if sample}}Every plan here is reviewed by a physician before a nurse practitioner delivers it, and we say no when a joint is not a good fit. That is the whole model: one record, one team, and honesty about what regenerative care can and cannot do.{{/if}}{{#unless sample}}A short quote from the medical director goes here: two or three sentences on why {{site.quoteScope}} belong under one coordinated team.{{/unless}}</p>
-          <cite>{{site.team.director.name}} · {{site.team.director.title}}</cite>
+          <cite>{{site.team.director.name}} · {{site.team.director.title}}{{#if sample}} <span class="sample">Sample</span>{{/if}}</cite>
         </blockquote>
       </article>
       <article class="doctor-card">
@@ -316,7 +316,7 @@ nav: home
         <blockquote>
           <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
           <p>{{#if sample}}Patients tell us the hardest part is not the treatment, it is not knowing what happens next. So we put the steps, the price and the follow-up schedule in writing before anyone books.{{/if}}{{#unless sample}}A second clinician quote goes here. Keep it to two or three sentences in the clinician's own words, reviewed for compliance before publishing.{{/unless}}</p>
-          <cite>{{site.team.cmo.name}} · {{site.team.cmo.title}}</cite>
+          <cite>{{site.team.cmo.name}} · {{site.team.cmo.title}}{{#if sample}} <span class="sample">Sample</span>{{/if}}</cite>
         </blockquote>
       </article>
     </div>
@@ -334,7 +334,7 @@ nav: home
       <div class="stat"><strong>{{site.stats.states}}</strong><span>States Served</span></div>
       <div class="stat"><strong>{{site.stats.patients}}</strong><span>Patients Treated</span></div>
     </div>
-    <p class="stats-band__note">{{#if sample}}Sample figures for a fictional practice. A client build prints verified numbers here.{{/if}}{{#unless sample}}Figures above are placeholders until the client supplies verified numbers. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
+    <p class="stats-band__note">{{#if sample}}<span class="sample" style="color:inherit;border-color:currentColor">Sample</span> Sample figures for a fictional practice. A client build prints verified numbers here.{{/if}}{{#unless sample}}Figures above are placeholders until the client supplies verified numbers. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
   </div>
 </div>
 
@@ -352,10 +352,10 @@ nav: home
       <div class="card card--hover reveal" data-delay="1">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap">
           <h3 style="font-size:1.6rem;font-weight:400">{{site.group}}</h3>
-          <span class="ph ph--logo"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Partner logo</span></span>
+          {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph ph--logo"><span class="ph__icon">{{icon:image}}</span><span class="ph__label">Partner logo</span></span>{{/unless}}
         </div>
         <p style="font-size:1.05rem;color:var(--text)">The clinical backbone.</p>
-        <p>A physician-led medical group develops and supervises every plan, provides medical direction, and conducts good-faith exams in every state served. Replace this copy with the client's clinical partner details. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+        <p>A physician-led medical group develops and supervises every plan, provides medical direction, and conducts good-faith exams in every state served. {{#if sample}}{{site.group}} is a fictional group. A practice names its own clinical partner here.{{/if}}{{#unless sample}}Replace this copy with the client's clinical partner details. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
       </div>
     </div>
   </div>

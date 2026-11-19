@@ -92,6 +92,7 @@ const variants = {
     theme: "ecosystem",
     switcher: false,
     guide: true,
+    guideStrict: false,
     assistant: { name: "Ava", embedHtml: process.env.AVA_EMBED_HTML || "", headHtml: process.env.AVA_HEAD_HTML || "" },
     sampleNote: "Example site. Dr. Demo is not a real practice: every name, number, price and story is a sample.",
     brand: {
@@ -117,9 +118,9 @@ const variants = {
       },
       coordinator: { first: "Casey", role: "care coordinator" },
       group: "Example Physician Partners",
-      stats: { years: "10+", clinicians: "12", states: "5", patients: "1,500+" },
+      stats: { years: "9+", clinicians: "6", states: "2", patients: "800+" },
       pricing: { from: "$3,900", to: "$7,500" },
-      reviews: { score: "4.9", count: "200" },
+      reviews: { score: "4.9", count: "120" },
       stories: [
         { quote: "The nurse explained every step before she did it, and the physician called the next morning to check in. I never felt rushed or sold to.", who: "Sample patient A | Anytown", what: "Knee care, at home" },
         { quote: "They told me on the first call that my hip was not a good fit and sent me back to my surgeon with notes. That honesty is why I trust them.", who: "Sample patient B | Anytown", what: "Consultation only" },

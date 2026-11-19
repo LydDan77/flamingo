@@ -20,8 +20,8 @@ nav: about
       </div>
       <ul class="hero__meta">
         <li><b>Physician-led</b> oversight</li>
-        <li><b>X,XXX+</b> patients</li>
-        <li><b>XX+</b> years experience</li>
+        <li><b>{{#if sample}}{{site.stats.patients}}{{/if}}{{#unless sample}}X,XXX+{{/unless}}</b> patients</li>
+        <li><b>{{#if sample}}{{site.stats.years}}{{/if}}{{#unless sample}}XX+{{/unless}}</b> years experience</li>{{#if sample}}<li><span class="sample">Sample</span></li>{{/if}}
       </ul>
     </div>
   </div>
@@ -72,19 +72,19 @@ nav: about
   <div class="container container--wide">
     <div class="split">
       <div class="media media--4x5 reveal reveal--left">
-        <div class="media__frame">{{img:clinician-home-visit|portrait|alt=Founder portrait placeholder}}<div class="media__caption"><small>Founder</small><b>[Founder Name]</b></div></div>
-        <div class="media__float media__float--tl gradient-card"><strong style="color:#fff">X,XXX</strong><span style="color:rgba(255,255,255,.75)">Lives Changed</span></div>
+        <div class="media__frame">{{img:clinician-home-visit|portrait|alt=Founder portrait placeholder}}<div class="media__caption"><small>Founder</small><b>{{#if sample}}{{site.founder.name}}{{/if}}{{#unless sample}}[Founder Name]{{/unless}}</b></div></div>
+        <div class="media__float media__float--tl gradient-card">{{#if sample}}<strong style="color:#fff">{{site.stats.patients}}</strong><span style="color:rgba(255,255,255,.75)">Patients Cared For</span>{{/if}}{{#unless sample}}<strong style="color:#fff">X,XXX</strong><span style="color:rgba(255,255,255,.75)">Lives Changed</span>{{/unless}}</div>
       </div>
       <div class="reveal reveal--right">
         <span class="eyebrow">Our Founder</span>
         <h2 class="mt-4">Meet <em class="hl">{{site.founder.name}}</em></h2>
         <p class="mt-2" style="color:var(--brand-2);font-weight:500">Founder, {{site.name}}</p>
-        <div class="ph-copy mt-6">{{icon:pen}}<div><b>Founder bio · client to provide</b>Two short paragraphs: why the founder started the practice, their background in regenerative medicine, and what they want every patient to experience. The portrait is a stand-in photo until the client's headshot arrives.</div></div>
+        {{#if sample}}<div class="prose mt-6"><span class="sample">Sample</span><p>{{site.founder.name}}, started {{site.name}} in {{site.founded}}. The idea was simple. A nurse practitioner comes to your home, and a physician reviews every plan first.</p><p>Two rules have not changed since. You get the price in writing before you decide. And if this is not a fit for you, we say so.</p></div>{{/if}}{{#unless sample}}<div class="ph-copy mt-6">{{icon:pen}}<div><b>Founder bio · client to provide</b>Two short paragraphs: why the founder started the practice, their background in regenerative medicine, and what they want every patient to experience. The portrait is a stand-in photo until the client's headshot arrives.</div></div>{{/unless}}
         <div class="stat-strip mt-8">
-          <div class="stat">{{icon:users}}<div><strong>X,XXX+</strong><span>Patients Connected</span></div></div>
-          <div class="stat">{{icon:stethoscope}}<div><strong>XX+</strong><span>Licensed Practitioners</span></div></div>
-          <div class="stat">{{icon:map-pin}}<div><strong>XX</strong><span>States Covered</span></div></div>
-          <div class="stat">{{icon:building}}<div><strong>Since YYYY</strong><span>Founded</span></div></div>
+          <div class="stat">{{icon:users}}<div><strong>{{#if sample}}{{site.stats.patients}}{{/if}}{{#unless sample}}X,XXX+{{/unless}}</strong><span>Patients Connected</span></div></div>
+          <div class="stat">{{icon:stethoscope}}<div><strong>{{#if sample}}{{site.stats.clinicians}}{{/if}}{{#unless sample}}XX+{{/unless}}</strong><span>Licensed Practitioners</span></div></div>
+          <div class="stat">{{icon:map-pin}}<div><strong>{{#if sample}}{{site.stats.states}}{{/if}}{{#unless sample}}XX{{/unless}}</strong><span>States Covered</span></div></div>
+          <div class="stat">{{icon:building}}<div><strong>Since {{#if sample}}{{site.founded}}{{/if}}{{#unless sample}}YYYY{{/unless}}</strong><span>Founded</span></div></div>
         </div>
         <div class="actions mt-10">
           <a class="btn btn--primary" href="{{site.bookUrl}}">Schedule A Consultation {{icon:arrow-up-right}}</a>
@@ -101,7 +101,7 @@ nav: about
     <div class="section-head reveal">
       <span class="eyebrow">Our Team</span>
       <h2>The people behind <em class="hl">your care</em></h2>
-      <p class="lead">Leadership, clinicians, and support staff. Cards below are placeholders until the client supplies names, roles, bios, and headshots. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <p class="lead">Leadership, clinicians, and support staff. {{#if sample}}<span class="sample">Sample</span> The names and bios below are fictional. A practice lists its own team here.{{/if}}{{#unless sample}}Cards below are placeholders until the client supplies names, roles, bios, and headshots. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
     </div>
     <div class="tabs__nav" role="tablist" aria-label="Team groups">
       <button class="tab" role="tab" data-tab="leadership">{{icon:stethoscope}} Leadership <span class="tab__count">2</span></button>
@@ -113,38 +113,38 @@ nav: about
     <div class="tabs__panel" data-panel="leadership" hidden>
       <div class="team-banner">{{img:nurse-portrait|alt=|sizes=100vw}}<div><small>{{icon:stethoscope}} Leadership</small><h3>The physicians who oversee every protocol.</h3></div></div>
       <div class="team-grid team-grid--2">
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">MD</span><div><p class="member__name">[Name], MD</p><p class="member__role">Medical Director</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">MD</span><div><p class="member__name">[Name], MD</p><p class="member__role">Chief Medical Officer</p></div></div><p class="member__bio">Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.</p></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">MD</span><div><p class="member__name">{{#if sample}}{{site.team.director.name}}{{/if}}{{#unless sample}}[Name], MD{{/unless}}</p><p class="member__role">Medical Director</p></div></div><p class="member__bio">{{#if sample}}More than 20 years in practice, with a focus on joint and spine care. Reviews every plan before a home visit is booked.{{/if}}{{#unless sample}}Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.{{/unless}}</p></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">MD</span><div><p class="member__name">{{#if sample}}{{site.team.cmo.name}}{{/if}}{{#unless sample}}[Name], MD{{/unless}}</p><p class="member__role">Chief Medical Officer</p></div></div><p class="member__bio">{{#if sample}}18 years in practice, with a focus on sports injuries and joint care. Sets the standards of care the whole team follows.{{/if}}{{#unless sample}}Short bio placeholder: board certification, clinical focus, years in practice, and the role they play in overseeing patient care.{{/unless}}</p></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="clinicians" hidden>
       <div class="team-banner">{{img:therapist-shoulder|alt=|sizes=100vw}}<div><small>{{icon:shield-check}} Clinicians</small><h3>Nurse practitioners who deliver care in your home.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Lead Nurse Practitioner · [Region]</p></div></div><p class="member__bio">Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.</p></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name], PA-C</p><p class="member__role">Physician Assistant · [Region]</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">[Name], NP</p><p class="member__role">Nurse Practitioner · [Region]</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">{{#if sample}}{{site.team.np.name}}{{/if}}{{#unless sample}}[Name], NP{{/unless}}</p><p class="member__role">Lead Nurse Practitioner · {{#if sample}}{{site.region}}{{/if}}{{#unless sample}}[Region]{{/unless}}</p></div></div><p class="member__bio">{{#if sample}}12 years as a nurse practitioner, with a focus on care at home. Leads the nurses who come to your door and stays in touch after each visit.{{/if}}{{#unless sample}}Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.{{/unless}}</p></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">{{#if sample}}Riley Doe, NP{{/if}}{{#unless sample}}[Name], NP{{/unless}}</p><p class="member__role">Lead Nurse Practitioner · {{#if sample}}Northern counties{{/if}}{{#unless sample}}[Region]{{/unless}}</p></div></div><p class="member__bio">{{#if sample}}10 years as a nurse practitioner, with a focus on knees and hips. Explains each step before it happens.{{/if}}{{#unless sample}}Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.{{/unless}}</p></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">{{#if sample}}Jordan Roe, NP{{/if}}{{#unless sample}}[Name], NP{{/unless}}</p><p class="member__role">Lead Nurse Practitioner · {{#if sample}}Southern counties{{/if}}{{#unless sample}}[Region]{{/unless}}</p></div></div><p class="member__bio">{{#if sample}}9 years as a nurse practitioner, with a focus on shoulders and backs. Makes the follow-up calls after your visit.{{/if}}{{#unless sample}}Short bio placeholder: credentials, specialty, and experience in regenerative or orthopedic care.{{/unless}}</p></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">{{#if sample}}Avery Sample, NP{{/if}}{{#unless sample}}[Name], NP{{/unless}}</p><p class="member__role">Nurse Practitioner · {{#if sample}}{{site.town}}{{/if}}{{#unless sample}}[Region]{{/unless}}</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">{{#if sample}}Morgan Example, PA-C{{/if}}{{#unless sample}}[Name], PA-C{{/unless}}</p><p class="member__role">Physician Assistant · {{#if sample}}Northern counties{{/if}}{{#unless sample}}[Region]{{/unless}}</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">NP</span><div><p class="member__name">{{#if sample}}Quinn Doe, NP{{/if}}{{#unless sample}}[Name], NP{{/unless}}</p><p class="member__role">Nurse Practitioner · {{#if sample}}Southern counties{{/if}}{{#unless sample}}[Region]{{/unless}}</p></div></div></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="advocates" hidden>
       <div class="team-banner">{{img:reassuring-hand|alt=|sizes=100vw}}<div><small>{{icon:heart-pulse}} Patient Advocates</small><h3>Your first call, and the people who route you to the right program.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name]</p><p class="member__role">Senior Patient Advocate</p></div></div><p class="member__bio">Short bio placeholder: background, why they joined, and how they help patients navigate options.</p></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Advocate</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">{{#if sample}}Jamie{{/if}}{{#unless sample}}[Name]{{/unless}}</p><p class="member__role">Senior Patient Advocate</p></div></div><p class="member__bio">{{#if sample}}8 years helping patients sort out their options. Takes your first call, explains the steps and the price, and sets up your video call with a clinician.{{/if}}{{#unless sample}}Short bio placeholder: background, why they joined, and how they help patients navigate options.{{/unless}}</p></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">{{#if sample}}Taylor{{/if}}{{#unless sample}}[Name]{{/unless}}</p><p class="member__role">Patient Advocate</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">PA</span><div><p class="member__name">{{#if sample}}Robin{{/if}}{{#unless sample}}[Name]{{/unless}}</p><p class="member__role">Patient Advocate</p></div></div></article>
       </div>
     </div>
 
     <div class="tabs__panel" data-panel="staff" hidden>
       <div class="team-banner">{{img:office-desk-light|alt=|sizes=100vw}}<div><small>{{icon:users}} Support Staff</small><h3>Operations, scheduling, and patient support.</h3></div></div>
       <div class="team-grid">
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">OP</span><div><p class="member__name">[Name]</p><p class="member__role">Director of Operations</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">CC</span><div><p class="member__name">[Name]</p><p class="member__role">Care Coordinator</p></div></div></article>
-        <article class="member"><div class="member__head"><span class="avatar" aria-hidden="true">PS</span><div><p class="member__name">[Name]</p><p class="member__role">Patient Support</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">OP</span><div><p class="member__name">{{#if sample}}Alex{{/if}}{{#unless sample}}[Name]{{/unless}}</p><p class="member__role">Director of Operations</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">CC</span><div><p class="member__name">{{#if sample}}{{site.coordinator.first}}{{/if}}{{#unless sample}}[Name]{{/unless}}</p><p class="member__role">Care Coordinator</p></div></div></article>
+        <article class="member">{{#if sample}}<span class="sample" style="margin-bottom:10px">Sample</span>{{/if}}<div class="member__head"><span class="avatar" aria-hidden="true">PS</span><div><p class="member__name">{{#if sample}}Drew{{/if}}{{#unless sample}}[Name]{{/unless}}</p><p class="member__role">Patient Support</p></div></div></article>
       </div>
     </div>
   </div>

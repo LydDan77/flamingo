@@ -10,7 +10,7 @@ nav: journal
       <p class="hero__kicker">Decisions · 6 min read</p>
       <h1>Stem cell therapy or surgery? <em class="hl">Seven questions</em> to ask first</h1>
       <p class="lead">A surgeon has given you a date. Someone has mentioned a non-surgical option. Here is how to think it through without pressure from either side.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
@@ -48,7 +48,7 @@ nav: journal
       <h3>Sources and further reading</h3>
       <ul>
         <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/important-patient-and-consumer-information-about-regenerative-medicine-therapies" target="_blank" rel="noopener">FDA: Important patient and consumer information about regenerative medicine therapies</a></li>
-        <li>Orthopedic society guidance on timing of elective joint surgery. <span class="ph-tag">{{icon:pen}} Clinical review to add citations</span></li>
+        <li>Orthopedic society guidance on timing of elective joint surgery. {{#if sample}}<span class="sample">Sample</span> A practice's clinical reviewer adds the citations before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Clinical review to add citations</span>{{/unless}}</li>
       </ul>
     </div>
 

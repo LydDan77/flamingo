@@ -62,7 +62,7 @@ nav: contact
             </div>
             <label class="field"><span class="field__label">Tell us about your practice</span><textarea name="message" rows="4" placeholder="Patient population, current services, what you're looking to add"></textarea></label>
             <div class="actions"><button class="btn btn--primary btn--lg" type="submit">{{icon:send}} Request an Intro Call</button><a class="btn btn--secondary btn--lg" href="for-providers.html">About the partnership</a></div>
-            <p class="form__notice" role="status">{{icon:info}}<span><b>Demo form.</b> This form isn't connected to a CRM or inbox yet. Hook it up to the client's form handler before launch.</span></p>
+            <p class="form__notice" role="status">{{icon:info}}<span>{{#if sample}}<span class="sample">Sample</span> <b>Sample form.</b> Messages do not reach anyone yet. A practice connects it to its own inbox before launch.{{/if}}{{#unless sample}}<b>Demo form.</b> This form isn't connected to a CRM or inbox yet. Hook it up to the client's form handler before launch.{{/unless}}</span></p>
           </form>
         </div>
       </div>
@@ -72,7 +72,7 @@ nav: contact
           <div class="media media--16x9"><div class="media__frame">{{img:office-desk-light|dark=laptop-stethoscope|warm=tablet-coffee-plant|bright=shapes-cubes|elite=notebook-desk|alt=Office|sizes=(max-width: 899px) 100vw, 40vw|atelier=atelier-plaster-wall|obsidian=obsidian-glass-abstract|sanctuary=sanctuary-eucalyptus-shadow|monolith=monolith-concrete-architecture|aurora=aurora-friends-sunrise|blush=hands-tea|ecosystem=office-desk-light|onyx=laptop-stethoscope|sandstone=tablet-coffee-plant|meridian=laptop-stethoscope|ivory=hands-tea}}</div></div>
           <a class="info-row" href="{{site.phoneTel}}"><span class="card__icon">{{icon:phone}}</span><div><small>Phone</small><b>{{site.phone}}</b></div></a>
           <a class="info-row" href="mailto:{{site.email}}"><span class="card__icon">{{icon:mail}}</span><div><small>Email</small><b>{{site.email}}</b></div></a>
-          <div class="info-row"><span class="card__icon">{{icon:map-pin}}</span><div><small>Address</small><b>{{site.address}}</b><span class="small muted">Service area: <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:map-pin}}</span><div><small>Address</small><b>{{site.address}}</b><span class="small muted">Service area: {{#if sample}}{{site.serviceArea}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
           <div class="info-row"><span class="card__icon">{{icon:clock}}</span><div><small>Hours</small><b>{{site.hours}}</b></div></div>
         </div>
         <div class="card card--soft">
@@ -94,12 +94,12 @@ nav: contact
         <div class="card">
           <h4 class="eyebrow" style="font-size:.66rem">Credentials &amp; Accreditations</h4>
           <ul class="badges">
-            <li>{{icon:shield-check}} [Accreditation]</li>
-            <li>{{icon:award}} [Certification]</li>
+            <li>{{icon:shield-check}} {{#if sample}}Sample accreditation{{/if}}{{#unless sample}}[Accreditation]{{/unless}}</li>
+            <li>{{icon:award}} {{#if sample}}Sample certification{{/if}}{{#unless sample}}[Certification]{{/unless}}</li>
             <li>{{icon:lock}} Encrypted connection</li>
-            <li>{{icon:award}} [Board Certified]</li>
+            <li>{{icon:award}} {{#if sample}}Sample board certification{{/if}}{{#unless sample}}[Board Certified]{{/unless}}</li>
           </ul>
-          <p class="small muted">Badges are placeholders. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+          <p class="small muted">{{#if sample}}<span class="sample">Sample</span> Sample badges. A practice lists its own verified credentials here.{{/if}}{{#unless sample}}Badges are placeholders. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
      built) the assistant's own snippet goes here. Without one, a labelled placeholder holds the corner and shows what
      the guide can already do. Either way the guide runtime (window.SiteGuide) is loaded first so the assistant can use it. -->
 {{#if site:guide}}<script src="guide/guide.js" defer></script>{{/if}}
+<!--assistant:start-->
 {{#if site:assistantLive}}{{assistantEmbed}}{{/if}}
 {{#unless site:assistantLive}}
 <div class="assistant-dock" id="assistant-dock">
@@ -23,3 +24,4 @@
   </button>
 </div>
 {{/unless}}
+<!--assistant:end-->

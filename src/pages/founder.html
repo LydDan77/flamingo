@@ -14,7 +14,7 @@ nav: about
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="about.html">About</a>{{icon:chevron-down}}<span>Founder</span></nav>
       <p class="hero__kicker">Founder</p>
       <h1><em class="hl">{{site.founder.name}}</em></h1>
-      <p class="lead">Founder, {{site.name}}. One-line positioning statement about the founder and the mission goes here. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <p class="lead">Founder, {{site.name}}. {{#if sample}}Care in your home, a physician who reviews every plan, and the price in writing before you decide. <span class="sample">Sample</span>{{/if}}{{#unless sample}}One-line positioning statement about the founder and the mission goes here. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
         <a class="btn btn--secondary btn--lg" href="about.html#team">Meet The Team {{icon:arrow-up-right}}</a>
@@ -26,11 +26,11 @@ nav: about
 <section class="section section--tight section--deep">
   <div class="container">
     <div class="stat-strip reveal reveal--stagger">
-      <div class="stat">{{icon:users}}<div><strong>X,XXX+</strong><span>Patients Connected</span></div></div>
-      <div class="stat">{{icon:stethoscope}}<div><strong>XX+</strong><span>Licensed Practitioners</span></div></div>
-      <div class="stat">{{icon:map-pin}}<div><strong>XX</strong><span>States Covered</span></div></div>
-      <div class="stat">{{icon:building}}<div><strong>Since YYYY</strong><span>Founded</span></div></div>
-    </div>
+      <div class="stat">{{icon:users}}<div><strong>{{#if sample}}{{site.stats.patients}}{{/if}}{{#unless sample}}X,XXX+{{/unless}}</strong><span>Patients Connected</span></div></div>
+      <div class="stat">{{icon:stethoscope}}<div><strong>{{#if sample}}{{site.stats.clinicians}}{{/if}}{{#unless sample}}XX+{{/unless}}</strong><span>Licensed Practitioners</span></div></div>
+      <div class="stat">{{icon:map-pin}}<div><strong>{{#if sample}}{{site.stats.states}}{{/if}}{{#unless sample}}XX{{/unless}}</strong><span>States Covered</span></div></div>
+      <div class="stat">{{icon:building}}<div><strong>Since {{#if sample}}{{site.founded}}{{/if}}{{#unless sample}}YYYY{{/unless}}</strong><span>Founded</span></div></div>
+    </div>{{#if sample}}<p class="small mt-6" style="color:var(--text-3)"><span class="sample">Sample</span> Sample figures for a fictional practice. A client build prints verified numbers here.</p>{{/if}}
   </div>
 </section>
 
@@ -38,13 +38,13 @@ nav: about
   <div class="container container--narrow">
     <blockquote class="pullquote reveal">
       <svg class="icon quote-mark" aria-hidden="true"><use href="#i-quote"></use></svg>
-      <p>"A signature line from the founder goes here: one sentence that captures why the practice exists and the standard it holds itself to."</p>
-      <footer>{{site.founder.name}} · Founder</footer>
+      <p>{{#if sample}}"You should know the price, the plan and who is coming to your door before you decide anything."{{/if}}{{#unless sample}}"A signature line from the founder goes here: one sentence that captures why the practice exists and the standard it holds itself to."{{/unless}}</p>
+      <footer>{{site.founder.name}} · Founder{{#if sample}} <span class="sample">Sample</span>{{/if}}</footer>
     </blockquote>
     <div class="reveal mt-12">
       <span class="eyebrow">Why {{site.name}} Exists</span>
       <h2 class="mt-4">The origin story, <em class="hl">in the founder's words.</em></h2>
-      <div class="ph-copy mt-6">{{icon:pen}}<div><b>Section 1 · Why the practice exists</b><p>Two or three paragraphs: the gap the founder saw in the industry, what they built in response, and the standard of care they hold the team to.</p></div></div>
+      {{#if sample}}<div class="prose mt-6"><span class="sample">Sample</span><p>I started {{site.name}} in {{site.founded}} because of what I kept seeing. People with a sore knee or hip drove a long way, sat in a waiting room, and went home without a clear answer or a clear price.</p><p>So we turned it around. A nurse practitioner comes to your home. A physician reads your history and reviews your plan before any visit is booked.</p><p>The price goes in writing before you decide. We do not promise results. And if this is not a fit for you, we say so and tell you who to see next.</p></div>{{/if}}{{#unless sample}}<div class="ph-copy mt-6">{{icon:pen}}<div><b>Section 1 · Why the practice exists</b><p>Two or three paragraphs: the gap the founder saw in the industry, what they built in response, and the standard of care they hold the team to.</p></div></div>{{/unless}}
     </div>
   </div>
 </section>
@@ -55,14 +55,14 @@ nav: about
       <div class="sticky-media reveal reveal--left">
         <span class="eyebrow">Milestones</span>
         <h2 class="mt-4">How the practice took shape</h2>
-        <p class="lead mt-6">A short timeline of the practice's milestones. Years and events are placeholders. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+        <p class="lead mt-6">A short timeline of the practice's milestones. {{#if sample}}<span class="sample">Sample</span> The years and events are fictional. A practice lists its own here.{{/if}}{{#unless sample}}Years and events are placeholders. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
         <div class="media media--4x3 mt-8"><div class="media__frame">{{img:home-hallway|dark=hiker-rail|warm=seniors-gardening|elite=couple-hiking-sunrise|alt=|sizes=(max-width: 899px) 100vw, 45vw}}</div></div>
       </div>
       <div class="timeline reveal" data-delay="1">
-        <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>The first patients</h3><p>How the founder began connecting patients with regenerative care, and what they learned in the first year.</p></div>
-        <div class="timeline__item"><span class="timeline__when">YYYY</span><h3>A physician-led team</h3><p>When clinical oversight, protocols, and a nurse practitioner network came together.</p></div>
-        {{#if any:hormones,peptides,nad}}<div class="timeline__item"><span class="timeline__when">YYYY</span><h3>Telehealth joins in-home care</h3><p>Longevity programs added under the same chart as regenerative therapy.</p></div>{{/if}}
-        <div class="timeline__item"><span class="timeline__when">Today</span><h3>One team, one plan</h3><p>Where the practice is now, and what it's building next.</p></div>
+        <div class="timeline__item"><span class="timeline__when">{{#if sample}}{{site.founded}}{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>The first patients</h3><p>{{#if sample}}{{site.founder.name}}, begins seeing patients at home in {{site.town}}. Every visit starts with the price in writing.{{/if}}{{#unless sample}}How the founder began connecting patients with regenerative care, and what they learned in the first year.{{/unless}}</p></div>
+        <div class="timeline__item"><span class="timeline__when">{{#if sample}}2019{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>A physician-led team</h3><p>{{#if sample}}A second physician joins to review every plan. The nurse practitioner team grows to cover {{site.region}}.{{/if}}{{#unless sample}}When clinical oversight, protocols, and a nurse practitioner network came together.{{/unless}}</p></div>
+        {{#if any:hormones,peptides,nad}}<div class="timeline__item"><span class="timeline__when">{{#if sample}}2022{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>Telehealth joins in-home care</h3><p>Longevity programs added under the same chart as regenerative therapy.</p></div>{{/if}}
+        <div class="timeline__item"><span class="timeline__when">Today</span><h3>One team, one plan</h3><p>{{#if sample}}{{site.stats.clinicians}} licensed clinicians, one shared record, and the same two rules: care at home, and the price in writing.{{/if}}{{#unless sample}}Where the practice is now, and what it's building next.{{/unless}}</p></div>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@ nav: about
   <div class="container container--narrow">
     <div class="reveal">
       <h2>How we meet <em class="hl">patients</em></h2>
-      <div class="ph-copy mt-6">{{icon:pen}}<div><b>Section 2 · How patients find the practice</b><p>Two paragraphs: how most patients first meet the team (events, referrals, provider partners), and how the website extends that experience. Include credentials, affiliations, and any verifiable milestones.</p></div></div>
+      {{#if sample}}<div class="prose mt-6"><span class="sample">Sample</span><p>Most people hear about us from someone they already trust: a chiropractor, a physical therapist or a family doctor. Others come to a local talk, or a friend passes on our number.</p><p>The first step is the same for everyone. {{site.coordinator.first}}, our {{site.coordinator.role}}, sets up a video call with a clinician. You get the steps and the price in writing, and time to think it over.</p></div>{{/if}}{{#unless sample}}<div class="ph-copy mt-6">{{icon:pen}}<div><b>Section 2 · How patients find the practice</b><p>Two paragraphs: how most patients first meet the team (events, referrals, provider partners), and how the website extends that experience. Include credentials, affiliations, and any verifiable milestones.</p></div></div>{{/unless}}
     </div>
     <div class="actions mt-12 reveal">
       <a class="btn btn--primary" href="{{site.bookUrl}}">{{site.bookLabel}} {{icon:arrow-up-right}}</a>

@@ -300,12 +300,24 @@ function bookingState() {
 function renderBookingEmbed() {
   const b = site.booking || {};
   const state = bookingState();
-  if (state === "custom") return `<div class="booking-slot" data-booking="custom">${b.embedHtml}</div>`;
+  if (state === "custom") return `<div class="booking-slot" id="calendar" data-booking="custom" data-guide-mark="The booking calendar">${b.embedHtml}</div>`;
   if (state === "calendar") {
     const id = "ghl-" + (b.calendarUrl.split("/").filter(Boolean).pop() || "booking").replace(/[^\w-]/g, "");
-    return `<div class="booking-slot" data-booking="ghl"><iframe src="${escapeHtml(b.calendarUrl)}" id="${id}" title="Book a video call" style="width:100%;border:none;overflow:hidden" scrolling="no"></iframe><script src="${escapeHtml(b.embedScript || "https://link.msgsndr.com/js/form_embed.js")}" type="text/javascript"></script></div>`;
+    return `<div class="booking-slot" id="calendar" data-booking="ghl" data-guide-mark="The booking calendar"><iframe src="${escapeHtml(b.calendarUrl)}" id="${id}" title="Book a video call" style="width:100%;border:none;overflow:hidden" scrolling="no"></iframe><script src="${escapeHtml(b.embedScript || "https://link.msgsndr.com/js/form_embed.js")}" type="text/javascript"></script></div>`;
   }
   if (state === "form") return "";
+  // A sample practice shows a sample calendar: what a patient does at this step, with nothing booked.
+  if (site.sample) {
+    const days = [["Mon", "Morning"], ["Tue", "Afternoon"], ["Wed", "Morning"], ["Thu", "Afternoon"], ["Fri", "Morning"]];
+    const times = ["9:00 am", "10:30 am", "1:00 pm", "2:30 pm", "4:00 pm"];
+    return `<div class="booking-slot booking-slot--sample" id="calendar" data-booking="sample" data-guide-mark="The booking calendar">` +
+      `<div class="booking-sample__head"><span class="sample">Sample calendar</span><h3>Pick a day and a time</h3><p>On a real site the practice's own calendar sits here, with its real openings. This one is a stand-in: choose any time to see the step a patient takes. Nothing is booked.</p></div>` +
+      `<div><p class="booking-sample__label">Day</p><div class="booking-sample__row" role="group" aria-label="Day">${days.map((d, i) => `<button type="button" aria-pressed="${i === 1}">${d[0]}<small>${d[1]}</small></button>`).join("")}</div></div>` +
+      `<div><p class="booking-sample__label">Time</p><div class="booking-sample__row" role="group" aria-label="Time">${times.map((t, i) => `<button type="button" aria-pressed="${i === 2}">${t}</button>`).join("")}</div></div>` +
+      `<div class="booking-sample__foot"><a class="btn btn--primary btn--lg" href="${escapeHtml((site.booking && site.booking.thankYouUrl) || "thank-you.html")}">{{icon:calendar-check}} Book this time</a><p class="small">Then the patient lands on the thank-you page, and the confirmation and reminders go out from the practice's booking system.</p></div>` +
+      `<script>document.currentScript.parentNode.addEventListener("click",function(e){var b=e.target.closest(".booking-sample__row button");if(!b)return;[].forEach.call(b.parentNode.children,function(x){x.setAttribute("aria-pressed",String(x===b))})})</script>` +
+      `</div>`;
+  }
   // No calendar yet: a visible, honest slot so the provision is obvious on every build and nobody ships without noticing.
   const tag = site.sample ? '<span class="sample">Sample</span>' : '<span class="ph-tag">{{icon:pen}} Client to provide</span>';
   return `<div class="booking-slot booking-slot--empty" data-booking="ghl">${tag}<h3>The booking calendar appears here</h3><p>Paste the GoHighLevel calendar link into <code>booking.calendarUrl</code> in <code>site.config.js</code>, or set <code>GHL_BOOKING_URL</code> where the site is built, and rebuild. In GoHighLevel, point the calendar's confirmation redirect at <code>thank-you.html</code>.</p><p>Until then, the call-back form below works as the first step.</p></div>`;
@@ -324,6 +336,7 @@ function renderNav(current) {
         return `<li class="nav__item${active ? " is-active" : ""}"><a class="nav__link" href="${item.href}">${item.label}</a></li>`;
       }
       const links = item.children
+        .filter(navVisible) // a child that belongs to a switched-off module is not listed (its page is not built)
         .map(
           (c) =>
             `<li><a class="menu__link" href="${c.href}">` +
@@ -419,7 +432,7 @@ function render(template, ctx, depth = 0) {
 
   // booking slot and the optional head snippet (site.booking); raw by design, they come from the operator's own config
   out = out.replace(/\{\{bookingEmbed\}\}/g, () => renderBookingEmbed());
-  out = out.replace(/\{\{headScript\}\}/g, () => ((site.booking && site.booking.headScript) || "") + ((site.assistant && site.assistant.headHtml) || ""));
+  out = out.replace(/\{\{headScript\}\}/g, () => ((site.booking && site.booking.headScript) || "") + (site.assistant && site.assistant.headHtml ? `<!--assistant:start-->${site.assistant.headHtml}<!--assistant:end-->` : ""));
   out = out.replace(/\{\{assistantEmbed\}\}/g, () => (site.assistant && site.assistant.embedHtml) || ""); // raw by design: the operator's own snippet
 
   // icons

@@ -366,7 +366,8 @@
       if (to) { // the thank-you page, with a first name so it can say hello (letters only, nothing else travels)
         var f = form.querySelector('input[name="first_name"], input[name="name"]');
         var first = f ? f.value.trim().split(/\s+/)[0].replace(/[^A-Za-z'\-]/g, "").slice(0, 30) : "";
-        window.location.href = to + (first ? (to.indexOf("?") < 0 ? "?" : "&") + "first=" + encodeURIComponent(first) : "");
+        var dest = to + (first ? (to.indexOf("?") < 0 ? "?" : "&") + "first=" + encodeURIComponent(first) : "");
+        if (window.SiteGuide && window.SiteGuide.visit) window.SiteGuide.visit(dest); else window.location.href = dest;
         return;
       }
       var notice = form.querySelector(".form__notice");
@@ -408,12 +409,14 @@
   // ?partner=1 switches on a partner-facing layer (header pill, numbered pins on sections tagged data-pin, a bottom bar).
   // It is remembered for the session only and never appears for ordinary visitors. ?partner=0 switches it off.
   var pq = new URLSearchParams(location.search).get("partner");
+  var partnerAllowed = !doc.body.classList.contains("has-guide"); // a partner's example site has no buyer overview to link to
   var partnerOn = false;
   try {
     if (pq === "1") sessionStorage.setItem("flamingo-partner", "1");
     if (pq === "0") sessionStorage.removeItem("flamingo-partner");
     partnerOn = sessionStorage.getItem("flamingo-partner") === "1";
   } catch (e) { partnerOn = pq === "1"; }
+  if (!partnerAllowed) partnerOn = false;
   // "Partner view" switch in the design menu (and any other [data-partner-toggle])
   doc.querySelectorAll("[data-partner-toggle]").forEach(function (b) {
     b.setAttribute("aria-checked", String(partnerOn));
@@ -458,7 +461,7 @@
     if (tag === "input" || tag === "textarea" || tag === "select" || (t && t.isContentEditable)) return;
     if (!/^[a-z]$/i.test(e.key)) return;
     typed = (typed + e.key.toLowerCase()).slice(-7);
-    if (typed === "partner") { typed = ""; location.search = "partner=" + (partnerOn ? "0" : "1"); }
+    if (typed === "partner" && partnerAllowed) { typed = ""; location.search = "partner=" + (partnerOn ? "0" : "1"); }
   });
 
   /* ------------------------------------------------------------- scrollspy menus */

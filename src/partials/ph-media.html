@@ -1,4 +1,4 @@
-<div class="ph ph--media" role="img" aria-label="Image placeholder">
+<div class="ph ph--media" role="img" aria-label="{{#if sample}}Sample image{{/if}}{{#unless sample}}Image placeholder{{/unless}}">
   <span class="ph__icon">{{icon:image}}</span>
-  <span class="ph__label">Client image</span>
+  <span class="ph__label">{{#if sample}}Sample image{{/if}}{{#unless sample}}Client image{{/unless}}</span>
 </div>

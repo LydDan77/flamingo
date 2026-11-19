@@ -14,7 +14,7 @@ nav: resources
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>Financing</span></nav>
       <p class="hero__kicker">Financing &amp; Payment Plans</p>
       <h1>Treat now, <em class="hl">pay over time</em></h1>
-      <p class="lead">Break the cost of your care into manageable monthly payments. Financing partner details, rates, and terms will be added once confirmed by the client. <span class="ph-tag">{{icon:pen}} Client to provide</span></p>
+      <p class="lead">Break the cost of your care into manageable monthly payments. {{#if sample}}Payment plans come from {{site.financingPartner}}, a separate financing company. They are subject to approval, and the partner sets the rates and terms. <span class="sample">Sample</span>{{/if}}{{#unless sample}}Financing partner details, rates, and terms will be added once confirmed by the client. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
         <a class="btn btn--secondary btn--lg" href="#apply">Check Payment Options {{icon:arrow-down}}</a>
@@ -46,7 +46,7 @@ nav: resources
         <p class="lead mt-6">Nothing is applied for until you know exactly what your program costs.</p>
         <div class="timeline mt-8">
           <div class="timeline__item"><span class="timeline__when">Step 1</span><h3>Get your plan and your price</h3><p>Your consultation ends with a written protocol and its full cost. No surprises later.</p></div>
-          <div class="timeline__item"><span class="timeline__when">Step 2</span><h3>Apply with the financing partner</h3><p>A short application through [Financing partner], completed from your phone in about a minute.</p></div>
+          <div class="timeline__item"><span class="timeline__when">Step 2</span><h3>Apply with the financing partner</h3><p>A short application through {{#if sample}}{{site.financingPartner}}{{/if}}{{#unless sample}}[Financing partner]{{/unless}}, completed from your phone in about a minute.{{#if sample}} <span class="sample">Sample</span>{{/if}}</p></div>
           <div class="timeline__item"><span class="timeline__when">Step 3</span><h3>Your coordinator applies it</h3><p>Once you're approved, tell your care coordinator and the plan is attached to your program.</p></div>
         </div>
       </div>
@@ -60,7 +60,7 @@ nav: resources
       <div class="reveal reveal--left">
         <span class="eyebrow">What It Covers</span>
         <h2 class="mt-4">Payment plans for every program</h2>
-        <p class="lead mt-6">Financing applies to the full catalog, in-home and telehealth alike. <span class="ph-tag">{{icon:pen}} Client to confirm</span></p>
+        <p class="lead mt-6">Financing applies to the full catalog, in-home and telehealth alike.{{#unless sample}} <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
         <ul class="check-list mt-8">
           <li>{{icon:check-circle}} In-home regenerative therapy (Wharton's Jelly, exosomes)</li>
           <li>{{icon:check-circle}} Concierge care visits and follow-ups</li>
@@ -75,8 +75,8 @@ nav: resources
         <h2 class="mt-4 mb-8">Common questions</h2>
         <div class="faq">
           <details class="faq__item"><summary>When do I find out what my program costs?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">On your consultation, before you commit to anything. Your clinician walks through the protocol and its full price, and financing is only discussed once you have that number.</div></details>
-          <details class="faq__item"><summary>Who provides the financing?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">A third-party financing partner, not {{site.name}}. Approval, rates, and terms are set by the partner. <span class="ph-tag">{{icon:pen}} Client to name partner</span></div></details>
-          <details class="faq__item"><summary>Can I pay without financing?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Yes. Financing is optional. Pay-in-full and other accepted payment methods are confirmed on your consultation. <span class="ph-tag">{{icon:pen}} Client to confirm methods</span></div></details>
+          <details class="faq__item"><summary>Who provides the financing?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">{{#if sample}}{{site.financingPartner}}, a third-party financing partner. It is a separate company from {{site.name}}. Approval, rates, and terms are set by the partner. <span class="sample">Sample</span>{{/if}}{{#unless sample}}A third-party financing partner, not {{site.name}}. Approval, rates, and terms are set by the partner. <span class="ph-tag">{{icon:pen}} Client to name partner</span>{{/unless}}</div></details>
+          <details class="faq__item"><summary>Can I pay without financing?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Yes. Financing is optional. Pay-in-full and other accepted payment methods are confirmed on your consultation.{{#unless sample}} <span class="ph-tag">{{icon:pen}} Client to confirm methods</span>{{/unless}}</div></details>
         </div>
       </div>
     </div>
@@ -88,12 +88,12 @@ nav: resources
     <div class="card reveal" id="apply">
       <span class="eyebrow">Apply</span>
       <h3 class="mt-4">Check your payment options</h3>
-      <p>[Financing partner] is a third-party provider. Applying takes about a minute. Once you're approved, let your care coordinator know and we'll apply it to your plan.</p>
+      <p>{{#if sample}}{{site.financingPartner}}{{/if}}{{#unless sample}}[Financing partner]{{/unless}} is a third-party provider. Applying takes about a minute. Once you're approved, let your care coordinator know and we'll apply it to your plan.</p>
       <div class="actions mt-4">
         <a class="btn btn--primary" href="{{site.bookUrl}}">Ask about financing on your consult {{icon:arrow-right}}</a>
         <a class="btn btn--secondary" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
       </div>
-      <div class="notice mt-4">{{icon:info}}<span><b>Placeholder.</b> Replace with the client's financing partner, application link, and disclosure language. Payment plans are subject to approval and terms vary by plan. {{site.name}} does not extend credit.</span></div>
+      <div class="notice mt-4">{{icon:info}}<span>{{#if sample}}<span class="sample">Sample</span> <b>Sample financing partner.</b> A practice adds its own partner, application link, and disclosure wording before launch.{{/if}}{{#unless sample}}<b>Placeholder.</b> Replace with the client's financing partner, application link, and disclosure language.{{/unless}} Payment plans are subject to approval and terms vary by plan. {{site.name}} does not extend credit.</span></div>
     </div>
   </div>
 </section>

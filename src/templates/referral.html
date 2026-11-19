@@ -66,13 +66,13 @@ bodyClass: page--referral
       <div class="reveal">
         <span class="eyebrow">What it costs</span>
         <h2 class="mt-4">The number, before you decide</h2>
-        <p class="lead mt-6">Regenerative care is paid out of pocket. Plans for a single joint run from <b>{{site.pricing.from}}</b> to <b>{{site.pricing.to}}</b>, with the visit, the product and the follow-ups in one price. Your exact quote is written down on the call, and a quote is never a commitment. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
+        <p class="lead mt-6">Regenerative care is paid out of pocket. Plans for a single joint run from <b>{{site.pricing.from}}</b> to <b>{{site.pricing.to}}</b>, with the visit, the product and the follow-ups in one price. Your exact quote is written down on the call, and a quote is never a commitment. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
         <p class="mt-4" style="color:var(--text-2)">Monthly payment plans are available through a financing partner, subject to approval, with the terms shown in full before you sign anything. <a href="financing.html">How financing works</a>.</p>
       </div>
       <div class="who-answers reveal" data-delay="1">
         <span class="eyebrow">Who answers the phone</span>
         <p class="who-answers__name">{{site.coordinator.first}}</p>
-        <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. Say {{page.ref.short}} sent you and {{site.coordinator.first}} will book your call, answer the practical questions, and stay your point of contact throughout. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
+        <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. Say {{page.ref.short}} sent you and {{site.coordinator.first}} will book your call, answer the practical questions, and stay your point of contact throughout. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
         <a class="btn btn--primary" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
         <p class="small muted mt-4">{{site.hours}}</p>
       </div>

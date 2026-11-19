@@ -10,7 +10,7 @@ nav: journal
       <p class="hero__kicker">Science · 5 min read</p>
       <h1>What Wharton's Jelly is, and <em class="hl">why clinics use it</em></h1>
       <p class="lead">You will hear the phrase in almost every regenerative consultation. Here is what it means, where it comes from, and the questions worth asking about it.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
@@ -35,7 +35,7 @@ nav: journal
       <li><b>Lot testing.</b> Every lot should be tested for sterility and endotoxin before release, with a certificate of analysis available on request.</li>
       <li><b>Cold chain.</b> The product is stored and transported frozen, and thawed only immediately before use.</li>
     </ul>
-    <p>Our protocols use products that meet all four conditions, and your clinician can show you the certificate of analysis for the lot used in your care. <span class="ph-tag">{{icon:pen}} Client to confirm supplier details</span></p>
+    <p>Our protocols use products that meet all four conditions, and your clinician can show you the certificate of analysis for the lot used in your care. {{#if sample}}<span class="sample">Sample</span> A practice confirms its own supplier details before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm supplier details</span>{{/unless}}</p>
 
     <h2>How it is used in practice</h2>
     <p>In a musculoskeletal protocol, the product is delivered by injection into the affected joint or soft tissue by a licensed nurse practitioner under physician oversight. The visit itself is short. What takes time is the work before it: a consultation, a review of your imaging and history, and an honest conversation about whether you are a candidate at all.</p>
@@ -48,7 +48,7 @@ nav: journal
       <ul>
         <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/consumer-alert-regenerative-medicine-products-including-stem-cells-and-exosomes" target="_blank" rel="noopener">FDA: Consumer alert on regenerative medicine products including stem cells and exosomes</a></li>
         <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/important-patient-and-consumer-information-about-regenerative-medicine-therapies" target="_blank" rel="noopener">FDA: Important patient and consumer information about regenerative medicine therapies</a></li>
-        <li>Peer-reviewed reviews of umbilical cord-derived mesenchymal stromal cells. <span class="ph-tag">{{icon:pen}} Clinical review to add citations</span></li>
+        <li>Peer-reviewed reviews of umbilical cord-derived mesenchymal stromal cells. {{#if sample}}<span class="sample">Sample</span> A practice's clinical reviewer adds the citations before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Clinical review to add citations</span>{{/unless}}</li>
       </ul>
     </div>
 

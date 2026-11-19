@@ -10,7 +10,7 @@ nav: journal
       <p class="hero__kicker">Candidacy · 4 min read</p>
       <h1>Who is, and isn't, a <em class="hl">candidate</em> for regenerative therapy</h1>
       <p class="lead">We say no more often than people expect. Here is how the decision is made, so you know what to expect before you book.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span></span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
@@ -50,7 +50,7 @@ nav: journal
       <h3>Sources and further reading</h3>
       <ul>
         <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/important-patient-and-consumer-information-about-regenerative-medicine-therapies" target="_blank" rel="noopener">FDA: Important patient and consumer information about regenerative medicine therapies</a></li>
-        <li>Clinic candidacy criteria. <span class="ph-tag">{{icon:pen}} Clinical review to confirm</span></li>
+        <li>Clinic candidacy criteria. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Clinical review to confirm</span>{{/unless}}</li>
       </ul>
     </div>
 
