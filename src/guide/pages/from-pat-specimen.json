@@ -1,0 +1,98 @@
+{
+  "name": "Pat Specimen referral",
+  "reach": "a private link given to that sample provider's patients; it is not in the menus. On this example, the Site guide link at the bottom of any page opens a table that lists it",
+  "purpose": "A private page for the patients of one referring provider: on this example a sample physical therapist, Pat Specimen, who sends people whose shoulder has stopped improving in therapy. It says plainly what happens next, what it costs and who answers the phone, and that their therapist keeps working with them.",
+  "audience": "patients sent by a provider",
+  "owner_notes": [
+    "Built the same way as the other three referral pages: who sent you, three steps, three questions, the cost, who answers the phone, then three honest lines. This one is about a shoulder, and its link opens the Shoulders page.",
+    "Pat Specimen, DPT, of Specimen Physical Therapy is a sample referrer, and the card is stamped Sample referrer. The page says Pat throughout, where the other two samples use Dr. and a surname: each page uses the short name that provider's patients know.",
+    "Pat's note says Pat keeps working with the patient during and after, so a therapist's patient reads that their therapist stays part of their care.",
+    "The page says that, with the patient's permission, Pat gets a note at each step. The website sends nothing to the provider; the practice keeps that promise itself.",
+    "Under Who answers the phone, beneath the hours, the page says: This website is not for emergencies. In an emergency, call 911. All four referral pages carry that line. It is part of the page itself, not a sample detail."
+  ],
+  "replace": [
+    "The card at the top: the provider's name and letters, role, practice name, portrait and the note under What Pat told us. All of it is a sample; a real provider's details go there.",
+    "The body area in the heading, your shoulder on this page, and the link Read about shoulder care first, which opens the Shoulders page. Both follow the patients that provider usually sends.",
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "Who answers the phone: your coordinator's first name replaces the sample {{site.coordinator.first}}, and your own number and hours replace the samples. The number shown, {{site.phone}}, is a sample and is also on the call button at the top."
+  ],
+  "keep": [
+    "The answer to Is this approved, which starts with No: not FDA-approved to treat joints, and investigational for most uses.",
+    "The In one breath lines: not FDA-approved and investigational for most uses, results vary and none is promised, and if someone is not a candidate the practice says so and sends them back to their provider with notes.",
+    "The answer to What if I am not a candidate: the patient is told so on the call.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page tells the patient that Pat, a sample physical therapist on this example, asked the practice to look after their shoulder, with a card about Pat and two buttons: Book a video call, and a call button." },
+    "what-happens-next": { "say": "What happens next sets out three steps: a video call with a licensed clinician, an honest answer in writing, then treatment at home, with a note to the therapist at each step if the patient agrees." },
+    "three-questions": { "say": "Three questions gives short answers to what a therapist's patients ask first: is this approved, will it hurt and how long does it take, and what if I am not a candidate. A link there opens the Shoulders page." },
+    "cost": { "say": "What it costs gives the range for one area, such as a knee or a shoulder, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It also names who answers the phone, and ends with a line that says the website is not for emergencies." },
+    "in-one-breath": { "say": "In one breath repeats three honest lines, then offers Book a video call and a button to see the whole site." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is Pat Specimen's page for?",
+      "alt": ["What does a patient sent by a physical therapist see?", "Why would a physical therapist have a page on my site?"],
+      "say": "It is a private page for patients a physical therapist has sent to you. On this example that is Pat Specimen, who is a sample. It tells Pat's patients what happens next and what it costs, and that Pat keeps working with them during and after.",
+      "show": "from-pat-specimen"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "I'm a physical therapist. Is this what my patients would see?",
+      "alt": ["Is this the page a therapist's patients get?", "What would someone a physical therapist refers see?"],
+      "say": "This is what a patient sees when a therapist sends them to the practice the website belongs to. Pat Specimen is a sample. On your own site the card carries the real therapist's name, portrait and note, and the heading names the body area they usually send.",
+      "show": "from-pat-specimen#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the page tell a patient what happens next?",
+      "alt": ["Where are the three steps on Pat Specimen's page?", "What are the steps on a referral page?"],
+      "say": "Just under the top, in the part called What happens next. It gives three steps: a video call with a licensed clinician, an honest answer in writing, then treatment at home with follow-ups by the same team.",
+      "show": "from-pat-specimen#what-happens-next"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "The page says Pat gets a note at each step. Does the website send that?",
+      "alt": ["Does the website tell the therapist when their patient books?", "Who sends the notes to the referring provider?"],
+      "say": "No, the website sends nothing to the provider. That line is a promise your practice keeps itself, and only with the patient's permission. Pat is a sample provider on this example.",
+      "show": "from-pat-specimen#what-happens-next"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "How do I get a page like this for a therapist who refers to me?",
+      "alt": ["Can my referring physical therapist have a page?", "How do I ask for a new referral page?"],
+      "say": "I don't have that. Your contact for the website can tell you how to ask for one for a provider who sends you patients. I can show you this sample page so you know what one looks like.",
+      "show": "from-pat-specimen"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on Pat Specimen's page?",
+      "alt": ["What do I replace on the physical therapist's page?", "Is Pat Specimen a real therapist?"],
+      "say": "Pat is a sample, so a real therapist's name, portrait and note take that place, along with the body area that therapist usually sends. Further down, your price range, your coordinator's first name and your phone number replace the samples.",
+      "show": "from-pat-specimen#top"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will my physical therapist still be involved?",
+      "alt": ["Do I keep working with Pat?", "Does my therapist find out what happens?"],
+      "say": "The page says Pat keeps working with you during and after. It also says that, with your permission, Pat gets a note at each step so your care stays joined up. Pat is a sample provider on this example site.",
+      "show": "from-pat-specimen#top"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will it hurt, and how long does the visit take?",
+      "alt": ["How long is the appointment?", "Is the injection sore?"],
+      "say": "On this example the page says the visit is about an hour. The injection takes a few minutes and feels like any injection into a joint, and mild soreness for a day or two is common. It adds that side effects are possible with any procedure, and a clinician goes through them before you decide.",
+      "show": "from-pat-specimen#q-will-it-hurt-and-how-long"
+    }
+  ]
+}

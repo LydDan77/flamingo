@@ -1,0 +1,254 @@
+{
+  "unknowns": [
+    {
+      "q": "Who do I call when something on my site is wrong?",
+      "alt": ["How do I get support?", "Who looks after my site once it is live?", "How fast do you answer when I need help?"],
+      "say": "I don't have that. The phone number and email on this example are samples, so they reach nobody. Your contact for the website can tell you who looks after your site once it is live, and how quickly they answer.",
+      "owner": "Lydia",
+      "needs": "a support name, a channel (phone, email or form), support hours and a response time"
+    },
+    {
+      "q": "How do I ask for a change after my site is live?",
+      "alt": ["Can I change a photo or a sentence later?", "Can I add a page of my own?", "What does a change cost after launch?"],
+      "say": "The site has no editing screen, so changes are made for you by the people who build it. What I don't have is how you ask for one after launch, what it costs, or how long it takes. Your contact for the website can tell you.",
+      "owner": "Lydia",
+      "needs": "how a change is requested after launch, what it costs, how long it takes, and whether extra pages or menu items are offered"
+    },
+    {
+      "q": "Where do I send my logo, photos and bios?",
+      "alt": ["How do I get my details to you?", "What format do you need my logo and photos in?", "Is there a form for sending my reviews and prices?"],
+      "say": "I don't have that. The page called How this website works lists what you hand over, and I can take you through it. Where to send it all, and in what format, is a question for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "the place to send materials (a form, an address or a shared folder), the file types and sizes wanted for the logo and photos, and a deadline"
+    },
+    {
+      "q": "How long does it take from sending my details to my site going live?",
+      "alt": ["When will my site launch?", "What is the timeline?", "How soon can I be live?"],
+      "say": "I don't have that. Nobody has told me how long it takes from handing over your details to going live, so I won't guess. Your contact for the website can give you the dates.",
+      "owner": "Lydia",
+      "needs": "the usual time from hand-over to launch, and what it depends on"
+    },
+    {
+      "q": "How many rounds of changes do I get before my site launches?",
+      "alt": ["Can I ask for revisions?", "How many times can I send corrections?", "Do I approve the site before it goes live?"],
+      "say": "That isn't something I can tell you. How many rounds of changes you get before launch is not on this site. Your contact for the website can tell you, and I can show you the pages you would be checking.",
+      "owner": "Lydia",
+      "needs": "the number of revision rounds before launch, what counts as a round, and who signs the site off"
+    },
+    {
+      "q": "What does my website package include?",
+      "alt": ["What exactly am I getting?", "Is marketing or advertising included?", "Is everything on this example part of my site?"],
+      "say": "I don't have that. I can show you every page of this example and what each one is for. What comes with your own package is a question for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "the written list of what a buyer gets (pages, looks, booking set-up, referral pages, the guide, marketing, support); the repository mentions more than one offer and does not say which applies (Joe to confirm)"
+    },
+    {
+      "q": "What does the website cost?",
+      "alt": ["How much is this?", "Is there a monthly fee?", "What are the payment terms?"],
+      "say": "I don't have that. Nobody has told me what the website costs or how it is paid for, so I won't guess. Your contact for the website can tell you.",
+      "owner": "Lydia",
+      "needs": "the price and payment terms Ava is allowed to say, or a decision that she never quotes them (Joe to confirm)"
+    },
+    {
+      "q": "Can I use my own domain name, and do I get email addresses?",
+      "alt": ["Who connects my web address?", "Do I keep my current domain?", "Does the site come with email?"],
+      "say": "I don't have that. Whether your site sits on your own domain, who connects it, and whether email addresses come with it are questions for your contact for the website. I can show you where your practice name and contact details appear.",
+      "owner": "Lydia",
+      "needs": "whether a practice's own domain is used, who buys and connects it, what the practice must do, and whether mailboxes are included"
+    },
+    {
+      "q": "On my live site, where do the form messages go?",
+      "alt": ["Who gets the message when a patient fills in the form?", "Do form messages go to my inbox or to GoHighLevel?", "How quickly will I see a new enquiry?"],
+      "say": "The forms on this example send nothing, and the site says a practice connects them to its own inbox before launch. What I don't have is who sets that up, and who is told when a message arrives. Your contact for the website can tell you.",
+      "owner": "Lydia",
+      "needs": "where a live form delivers (the practice inbox, GoHighLevel or both), who connects it, who is notified and how quickly (Seth for the GoHighLevel side)"
+    },
+    {
+      "q": "Who sets up my GoHighLevel account and connects my calendar?",
+      "alt": ["Do I need to create the GoHighLevel account myself?", "Can I use the GoHighLevel account I already have?", "Who do I send my calendar link to?"],
+      "say": "I don't have that. The website only needs the link to your calendar, and I can show you the box it goes in. Who creates your GoHighLevel account, and whether you can use one you already have, is a question for your contact for the website.",
+      "owner": "Seth",
+      "needs": "who creates the account and login, whether an existing account can be used, who the calendar link is sent to, and how long set-up takes"
+    },
+    {
+      "q": "What do the reminder and no-show messages say?",
+      "alt": ["When do the reminders go out?", "Can I change the wording of the reminders?", "What does the cancellation message say?"],
+      "say": "I don't have that. Reminders and no-show messages are sent by GoHighLevel, not by the website, so their wording is not on this site. Your contact for the website can tell you what they say and whether you can change them.",
+      "owner": "Seth",
+      "needs": "the wording and timing of each confirmation, reminder, no-show and cancellation message, and whether the practice can edit them"
+    },
+    {
+      "q": "What does GoHighLevel cost me?",
+      "alt": ["Is GoHighLevel included?", "Do I pay for the booking system separately?"],
+      "say": "I don't have that. Nobody has told me what GoHighLevel costs a practice, or whether it comes with the website. Your contact for the website can tell you.",
+      "owner": "Seth",
+      "needs": "whether GoHighLevel is included or billed separately, by whom, and the amount Ava may say (Joe to confirm)"
+    },
+    {
+      "q": "How do my staff find out when a patient books?",
+      "alt": ["Who is told about a new booking?", "Does a new booking come to my phone or my email?"],
+      "say": "That isn't something I can tell you. Bookings are held in GoHighLevel, the booking system, not in the website. How your staff are told about a new one is set up there, so ask your contact for the website.",
+      "owner": "Seth",
+      "needs": "how a new booking is announced to the practice (email, text or app), to whom, and how fast"
+    },
+    {
+      "q": "How many referral pages do I get, and how do I ask for one?",
+      "alt": ["A chiropractor wants to send me patients. How do I get that chiropractor a page?", "How long does a new referral page take?", "Does the referring provider approve their page?"],
+      "say": "I don't have that. Each provider who sends you patients can have a private page, and I can show you a sample one. How many you get, how to ask for one and how long it takes are questions for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "how many referral pages are included, how one is requested, the turnaround, and whether the referring provider approves the page first"
+    },
+    {
+      "q": "I'm a chiropractor. Who are the nurse practitioner and the physician for my practice?",
+      "alt": ["Do you supply the medical group, or do I?", "Who is my medical director?", "I'm a physical therapist. Who gives the treatment?", "Which medical group goes on my site?"],
+      "say": "I don't have that. The site describes a nurse practitioner treating at home and a physician overseeing every plan, and the names on this example, such as {{site.group}}, are samples. Who fills those roles for your practice is a question for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "for a practice owned by a chiropractor or physical therapist: who supplies the nurse practitioner, the medical director and the medical group, and what name goes in the clinical partner spot (Joe and counsel to confirm)"
+    },
+    {
+      "q": "What are the rules in my state for offering and advertising this care?",
+      "alt": ["Can a chiropractor legally offer this in my state?", "What does my licensing board allow?", "Is the wording on the site legal where I practise?"],
+      "say": "I can't tell you that. I'm a guide to this website, not a lawyer. The only state notice on the site is the one required in California, so for what your state and your licensing board allow, ask your own counsel.",
+      "owner": "the practice",
+      "needs": "the practice's own counsel on state advertising rules and licensing-board limits; from the website team, which state notices the site can carry besides California"
+    },
+    {
+      "q": "Which tissue bank do the products come from?",
+      "alt": ["Who is the supplier?", "Where do the cells come from for my practice?", "Can I name my tissue bank on the site?"],
+      "say": "I don't have that. The site says tissue comes from accredited tissue banks, and it names no supplier. Which one your practice uses is for you and your contact for the website to confirm.",
+      "owner": "the practice",
+      "needs": "the name of the tissue bank or supplier, its accreditation, and what lot documentation the practice may show or offer (Joe to confirm if the program supplies it)"
+    },
+    {
+      "q": "Are the product pictures on the site my products?",
+      "alt": ["Whose vials are in the pictures?", "Will the vial pictures carry my label?", "Can I use my own product photos?"],
+      "say": "The vial pictures on this example carry a stamp that says Sample picture. They are stand-ins and do not show your products. What I don't have is whether your site gets pictures with your own label, or who makes them. Your contact for the website can tell you.",
+      "show": "nad#programs",
+      "owner": "Lydia",
+      "needs": "whether product pictures are redrawn with each practice's label, who makes them, and what a practice must supply"
+    },
+    {
+      "q": "Do you provide the legal review, or do I need my own lawyer?",
+      "alt": ["Who checks my privacy policy and terms?", "Is legal review included?"],
+      "say": "The site says your own counsel reviews and replaces the legal pages before launch. What I don't have is whether any legal review comes with your website. Your contact for the website can tell you.",
+      "owner": "Lydia",
+      "needs": "whether any legal review is provided with the site, or the practice always brings its own counsel"
+    },
+    {
+      "q": "Who checks the medical wording on my site before it goes live?",
+      "alt": ["Is there a clinical review?", "Who reviews the Journal articles for my practice?", "Do you check my claims for me?"],
+      "say": "The site says a practice's own clinician reviews each Journal article before launch. What I don't have is whether anyone else checks the medical wording on the rest of your site. Your contact for the website can tell you.",
+      "owner": "Lydia",
+      "needs": "who reviews the clinical wording for a practice's site (its own clinician, or a reviewer who is supplied), and how the review is signed off"
+    },
+    {
+      "q": "Is there a consent form I can give patients before I publish their review?",
+      "alt": ["Do you have a release form for testimonials?", "How do I get written consent for a patient story?"],
+      "say": "I don't have a form for that. The site's rule is that only verified reviews are published, with the patient's written consent. Whether a consent form comes with your website is a question for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "a patient consent form for reviews and stories, or a statement that the practice supplies its own (counsel to approve)"
+    },
+    {
+      "q": "Can my Google reviews be pulled in automatically?",
+      "alt": ["Can you import my reviews?", "Can the review score update by itself?"],
+      "say": "I can't tell you that. Nothing on this example pulls reviews in from anywhere, and the site publishes only reviews with written consent. Your contact for the website can tell you whether it can be done.",
+      "owner": "Lydia",
+      "needs": "whether reviews can be imported from Google or elsewhere, and how written consent is handled for them"
+    },
+    {
+      "q": "Can I keep the photos on this example, or must I replace them all?",
+      "alt": ["Are the stock photos licensed for my site?", "Do I need my own photography before launch?"],
+      "say": "I don't have that. The photos here are stock stand-ins, and you can use your own. Whether these ones are licensed for your live site is a question for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "whether the stock photo licence covers a practice's live site, or every photo must be replaced before launch"
+    },
+    {
+      "q": "How will I know how many people visited my site and how many booked?",
+      "alt": ["Do I get a report?", "Can I see my visitor numbers?", "Will you add Google Analytics?"],
+      "say": "I don't have that. The site has no visitor counting today, and bookings are held in the booking system, not the website. Whether you get a report, and how often, is a question for your contact for the website.",
+      "owner": "Lydia",
+      "needs": "whether visitor counting is added to a live site, what report the practice gets, how often, and who sends it (Seth for booking numbers)"
+    },
+    {
+      "q": "Is there a Spanish version of the site?",
+      "alt": ["Can my site be in another language?", "Do you translate the pages?"],
+      "say": "No, this example is in English only. Whether your own site can be in Spanish or another language is not something I can tell you, so ask your contact for the website.",
+      "owner": "Lydia",
+      "needs": "whether other languages are offered, who translates, and who reviews the translated medical and legal wording"
+    },
+    {
+      "q": "Is there an accessibility statement?",
+      "alt": ["Is the site ADA compliant?", "Does the site meet accessibility rules?"],
+      "say": "There is no accessibility statement on this site. The looks were checked for contrast and for keyboard use, but whether your site gets a statement, and what it may say, is not something I can tell you. Ask your contact for the website.",
+      "owner": "Lydia",
+      "needs": "whether an accessibility statement page is provided, and what level of conformance a practice may state (counsel to approve)"
+    },
+    {
+      "q": "What happens to my site if I cancel?",
+      "alt": ["Can I cancel?", "Is there a contract term?", "Do I keep my site and my domain if I leave?"],
+      "say": "I don't have that. Nothing on this site covers cancelling, a contract term, or what happens to a site afterward. Your contact for the website can tell you.",
+      "owner": "Lydia",
+      "needs": "the contract term, the cancellation terms and notice period, and what happens to the site, the domain and the content afterward (Joe to confirm)"
+    },
+    {
+      "q": "What should a patient do in an emergency, or when the office is closed?",
+      "alt": ["What does the site tell a patient to do after hours?", "Is there an emergency number on the site?", "What if a patient has a problem at night?"],
+      "say": "The Contact and Booking pages say: This website is not for emergencies. In an emergency, call 911. What I don't have is what a practice does when the office is closed. That wording is each practice's own to state. Your contact for the website can tell you how it is added to your site.",
+      "show": "contact#book",
+      "owner": "the practice",
+      "needs": "the after-hours wording the practice wants on its site, and the line Ava should say about it (counsel to approve). The emergency line itself is now on the Contact, Booking and referral pages"
+    },
+    {
+      "q": "Will I have you on my own website?",
+      "alt": ["Is Ava on my live site or only on this example?", "Can my patients talk to you?", "What are you on a real practice's site?"],
+      "say": "The page called How this website works says I'm the guide here, and that I won't be on a patient's screen unless you want me there. What I don't have is whether a guide like me is offered for your own site, or how that would work. The team that set me up can tell you.",
+      "show": "site-guide#top",
+      "owner": "Joe",
+      "needs": "whether a guide like Ava is offered on a practice's live site, who she would speak to there (owners, patients or both), and under what rules"
+    },
+    {
+      "q": "Are you included with my website, and what do you cost?",
+      "alt": ["Is Ava part of my package?", "Do I pay extra for you?"],
+      "say": "I can't tell you that. Nobody has told me whether I come with a website or what I would cost. The team that set me up can tell you, and your contact for the website can put you in touch.",
+      "owner": "Joe",
+      "needs": "whether Ava is part of the package or an extra, and the price Ava may say, if any"
+    },
+    {
+      "q": "Do you record or keep what I say?",
+      "alt": ["Where does this conversation go?", "Are you listening all the time?", "Is what I tell you private?", "Do you need my microphone?"],
+      "say": "I can't tell you that, because I don't know how my conversations are stored. The team that set me up can tell you what is recorded and kept. You can type instead of speaking, and please keep health details for a clinician.",
+      "owner": "Joe",
+      "needs": "what Ava records or stores (voice, text or both), where, for how long, who can see it, whether she needs microphone permission, and the notice or consent wording (counsel to approve)"
+    },
+    {
+      "q": "What technology are you built on?",
+      "alt": ["Which company makes you?", "Who built Ava?", "Are you ChatGPT?"],
+      "say": "I can't tell you that. I'm an AI guide to this example website, and I don't know which company's technology I run on. The team that set me up can tell you.",
+      "owner": "Joe",
+      "needs": "the platform Ava runs on, and what she may say about it"
+    },
+    {
+      "q": "Does the consultation cost the patient anything?",
+      "alt": ["Is the first call free?", "Is there a fee for the video call?", "How much is the consultation?"],
+      "say": "I can't tell you that. The site calls it a consultation or a video call, and it never states a fee for it either way. Whether there is one is each practice's decision, and your contact for the website can add your wording to your site.",
+      "owner": "the practice",
+      "needs": "the practice's decision on whether the first video call has a fee, the amount if any, and the wording to use (never the word free)"
+    },
+    {
+      "q": "Can I change to a different look after my site is live?",
+      "alt": ["Can I see my own name and logo in each look before I choose?", "Will my patients see a design button on my site?", "Do I get one look or all five?"],
+      "say": "I don't have that. I can show you all five looks on this example, on any page. Whether you can preview your own details in each one, or switch after launch, is a question for your contact for the website.",
+      "show": "site-guide#looks",
+      "owner": "Lydia",
+      "needs": "whether a practice gets one look or can switch later, what a switch costs, whether a preview with the practice's own details is offered, and whether a live site ever shows a design button"
+    },
+    {
+      "q": "Can I have my own colours and fonts instead of one of the five looks?",
+      "alt": ["Can you match my brand colours?", "Is a custom design possible?"],
+      "say": "There are five looks, and a custom one is not among them. Whether your own colours and typefaces can be used is not something I can tell you. Ask your contact for the website, and I can show you the five in the meantime.",
+      "show": "site-guide#looks",
+      "owner": "Lydia",
+      "needs": "whether a custom palette or typefaces are offered beyond the five looks, and on what terms"
+    }
+  ]
+}

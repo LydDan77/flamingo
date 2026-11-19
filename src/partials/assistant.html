@@ -1,20 +1,41 @@
-<!-- The assistant's corner. With an embed configured (site.assistant.embedHtml, or AVA_EMBED_HTML where the site is
-     built) the assistant's own snippet goes here. Without one, a labelled placeholder holds the corner and shows what
-     the guide can already do. Either way the guide runtime (window.SiteGuide) is loaded first so the assistant can use it. -->
+<!-- The assistant's corner. The guide runtime (window.SiteGuide) is loaded first so the assistant can use it. Then one of:
+     - no embed configured: a labelled placeholder holds the corner and offers the same tour by tapping;
+     - an embed in "widget" mode (the default): her own snippet goes in untouched and draws its own launcher;
+     - an embed in "panel" mode (AVA_MODE=panel): the site draws the launcher and puts her snippet in its panel on the
+       first tap, so nothing of hers loads and no microphone is asked for until the visitor asks. Use it for a bare iframe.
+     The snippet comes from site.assistant.embedHtml (AVA_EMBED_HTML where the site is built). -->
 {{#if site:guide}}<script src="guide/guide.js" defer></script>{{/if}}
 <!--assistant:start-->
-{{#if site:assistantLive}}{{assistantEmbed}}{{/if}}
+{{#if site:assistantWidget}}
+<div class="assistant-slot" id="assistant-slot">{{assistantEmbed}}</div>
+<p class="assistant-note" id="assistant-note"><span>{{site.assistantName}} is an AI guide to this example website, not a clinician. Please do not share health details with her.</span><button type="button" class="assistant-note__close" aria-label="Close this note">{{icon:x}}</button></p>
+{{/if}}
+{{#if site:assistantPanel}}
+<div class="assistant-dock assistant-dock--live" id="assistant-dock" data-live>
+  <div class="assistant-dock__panel" id="assistant-dock-panel" role="dialog" aria-label="{{site.assistantName}}, your site guide" hidden>
+    <button type="button" class="assistant-dock__close" aria-label="Close">{{icon:x}}</button>
+    <div class="assistant-dock__embed"></div>
+    <p class="assistant-dock__fine">{{site.assistantName}} is an AI guide to this example website, not a clinician. Please do not share health details with her.</p>
+    <template>{{assistantEmbed}}</template>
+  </div>
+  <button type="button" class="assistant-dock__button" aria-expanded="false" aria-controls="assistant-dock-panel">
+    <span class="assistant-dock__mark" aria-hidden="true">{{icon:message-circle}}</span>
+    <span class="assistant-dock__label"><b>Ask {{site.assistantName}}</b><small>Your site guide</small></span>
+  </button>
+</div>
+{{/if}}
 {{#unless site:assistantLive}}
 <div class="assistant-dock" id="assistant-dock">
   <div class="assistant-dock__panel" id="assistant-dock-panel" role="dialog" aria-label="{{site.assistantName}}, your site guide" hidden>
     <button type="button" class="assistant-dock__close" aria-label="Close">{{icon:x}}</button>
     <p class="assistant-dock__title"><b>{{site.assistantName}}</b> is your guide to this site</p>
-    <p class="assistant-dock__note"><span class="sample">Not connected yet</span> {{site.assistantName}} will appear in this corner. She talks, listens and can take you to any part of the site. Until then, these do the same thing:</p>
+    <p class="assistant-dock__note"><span class="sample">Not connected yet</span> {{site.assistantName}} will sit in this corner. She talks, listens and can take you to any part of this site. Until she is connected, the same tour works by tapping:</p>
     <ul class="assistant-dock__asks">
-      <li><button type="button" data-guide-go="knees#cost">Where does a patient see the price?</button></li>
-      <li><button type="button" data-guide-go="book#book">Show me how booking works</button></li>
-      <li><button type="button" data-guide-go="menu:Where it hurts">Where are the pages for knees, hips and shoulders?</button></li>
-      <li><button type="button" data-guide-go="index#honesty">What does the site refuse to promise?</button></li>
+      <li><button type="button" data-guide-go="site-guide#tour">Take the two-minute tour</button></li>
+      <li><button type="button" data-guide-go="book#calendar">Show me how a patient books</button></li>
+      <li><button type="button" data-guide-go="knees#cost">Show me where the price appears</button></li>
+      <li><button type="button" data-guide-go="site-guide#yours">What do you need from me?</button></li>
+      <li><button type="button" data-guide-go="site-guide#stays">What must stay on my site?</button></li>
     </ul>
     <a class="link-arrow" href="site-guide.html">Open the site guide {{icon:arrow-right}}</a>
     <p class="assistant-dock__fine">{{site.assistantName}} is an AI guide to this example website. She is not a clinician. Please do not share health details with her.</p>

@@ -9,13 +9,13 @@ nav: journal
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="journal.html">Journal</a>{{icon:chevron-down}}<span>Candidacy</span></nav>
       <p class="hero__kicker">Candidacy · 4 min read</p>
       <h1>Who is, and isn't, a <em class="hl">candidate</em> for regenerative therapy</h1>
-      <p class="lead">We say no more often than people expect. Here is how the decision is made, so you know what to expect before you book.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
+      <p class="lead">A good clinic tells some people no. Here is how the decision is made, so you know what to expect before you book.</p>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>{{#if sample}}Clinical review{{/if}}{{#unless sample}}Clinical Review Board{{/unless}}</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="article" data-guide-label="The article">
   <div class="container container--narrow article__body">
     <div class="article__hero media__frame">{{img:reassuring-hand|dark=chalk-hands|alt=A reassuring hand on a shoulder|sizes=(max-width: 899px) 100vw, 900px|atelier=atelier-portrait-woman|obsidian=obsidian-runner-night|sanctuary=sanctuary-couple-garden|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|blush=atelier-portrait-woman|ecosystem=seniors-gardening|onyx=chalk-hands|sandstone=senior-golf|meridian=couple-hiking-sunrise|ivory=grandparents-picnic}}</div>
 
@@ -50,7 +50,7 @@ nav: journal
       <h3>Sources and further reading</h3>
       <ul>
         <li><a href="https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/important-patient-and-consumer-information-about-regenerative-medicine-therapies" target="_blank" rel="noopener">FDA: Important patient and consumer information about regenerative medicine therapies</a></li>
-        <li>Clinic candidacy criteria. {{#unless sample}}<span class="ph-tag">{{icon:pen}} Clinical review to confirm</span>{{/unless}}</li>
+        <li>Clinic candidacy criteria. {{#if sample}}<span class="sample">Sample</span> A practice's own clinician adds its criteria before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Clinical review to confirm</span>{{/unless}}</li>
       </ul>
     </div>
 

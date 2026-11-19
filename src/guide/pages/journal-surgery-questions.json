@@ -1,0 +1,71 @@
+{
+  "name": "Seven questions article",
+  "reach": "the Journal page, which is under About in the menu at the top; it is the second of the six guides listed there, and the Home page and the Knees, Hips and Before surgery pages link to it",
+  "purpose": "Gives a patient with a surgery date seven questions to ask both the surgeon and the practice, so they can choose with the full picture and without pressure from either side. It says plainly that nobody should talk a patient out of a surgery they need.",
+  "audience": "patients",
+  "owner_notes": [
+    "It is the longer read behind the Before surgery page, and it takes neither side: get both opinions, ask for both in writing, and choose with the full picture.",
+    "The seven questions are the ones the article says the practice's clinicians ask on a consultation. They run from what exactly is damaged, through cost in writing and who delivers the care, to what success means for the patient.",
+    "Question four says a good clinic tells some people no and sends them back to their specialist, and it invites the reader to ask any clinic how often it does that. A patient may put the same question to your practice.",
+    "The Home page shows it under From the journal, and the Knees, Hips and Before surgery pages link to it under The science, if you want it."
+  ],
+  "replace": [
+    "The reviewer line under the heading: your own clinical reviewer's name and the review date replace the sample {{site.reviewer.name}}.",
+    "The sources box at the end: your clinical reviewer adds the citations before launch, where the Sample stamp is.",
+    "Question six describes the care model, a nurse practitioner at home with a named physician overseeing: your clinician confirms it matches your practice.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}."
+  ],
+  "keep": [
+    "The opening line that nobody should talk a patient out of a surgery they need, or into one they can postpone.",
+    "The sentence under question three that stem cell and exosome products are not FDA-approved for orthopedic conditions and are investigational for most musculoskeletal uses.",
+    "The line under question one that these options are not for a joint that has lost its structure or a tendon that has fully separated.",
+    "The answer under question seven that individual results vary and some people see little change.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the article speaks to someone a surgeon has given a date, and shows who reviewed it; the reviewer on this example is a sample name." },
+    "article": { "say": "The article itself is the seven questions, from what exactly is damaged to what success means, and it ends by saying get both opinions in writing." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the seven questions article for?",
+      "alt": ["What is the stem cell therapy or surgery article?", "Why does my site have an article about surgery?"],
+      "say": "It is for the patient who has a surgery date and has heard there may be another option. It gives them seven questions to ask both the surgeon and your practice. It takes neither side: get both opinions in writing, then choose with the full picture.",
+      "show": "journal-surgery-questions"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the seven questions to ask before surgery?",
+      "alt": ["Where is the article about surgery?", "How does a patient find the surgery questions?"],
+      "say": "In the Journal. Open the menu at the top, choose About, then Journal, and it is the second guide. The Home page shows it too, under From the journal, and the Before surgery page links to it under The science, if you want it.",
+      "show": "journal-surgery-questions#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the seven questions article?",
+      "alt": ["What do I replace on the surgery article?"],
+      "say": "The reviewer line at the top takes your own clinician's name and date; on this example it shows {{site.reviewer.name}}, a sample name. Your clinical reviewer also adds citations to the sources at the end. And check question six, which describes your care model: a nurse practitioner at home, with a named physician overseeing.",
+      "show": "journal-surgery-questions"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "Should I have the surgery or try this first?",
+      "alt": ["Is this better than surgery?", "Can this replace my surgery?"],
+      "say": "I can't advise you on that, and the article says nobody should talk you out of a surgery you need. It suggests asking your surgeon what happens if you wait, and getting both opinions in writing. It also says these treatments are not FDA-approved for orthopedic conditions, and that results vary.",
+      "show": "journal-surgery-questions#article"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will my insurance pay for this?",
+      "alt": ["Is this covered by insurance?", "Do I have to pay out of pocket?"],
+      "say": "The article says regenerative therapy is almost always self-pay, while surgery has a price that insurance may cover. It suggests asking for the full cost in writing before you decide, follow-up visits included, and asking whether financing is available.",
+      "show": "journal-surgery-questions#article"
+    }
+  ]
+}

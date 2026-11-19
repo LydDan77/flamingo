@@ -1,0 +1,60 @@
+{
+  "purpose": "States the limits in one place: the site is general education and not medical advice, the treatments are not FDA-approved and are investigational for most uses, results vary, and a licensed clinician decides who is a candidate. It also carries the notice California requires. On this example it is sample legal text.",
+  "audience": "everyone",
+  "owner_notes": [
+    "It gathers in one place the honest lines that run through the whole site: not medical advice, statements not evaluated by the FDA, not FDA-approved and investigational for most uses, results vary, and candidacy decided by a licensed clinician.",
+    "It opens with the notice required under California law, the same boxed notice that sits at the bottom of the regenerative pages.",
+    "It is reached from the last line of the footer, and the Terms and Conditions link to it.",
+    "It says testimonials reflect individual experiences and are not typical results, and that compounded medications are not FDA-approved drugs."
+  ],
+  "replace": [
+    "The whole text is sample legal text: your own counsel reviews and replaces it before launch.",
+    "The practice name, which appears as the sample {{site.name}}.",
+    "The California notice: a practice outside California can switch it off, and its own counsel confirms before launch."
+  ],
+  "keep": [
+    "The statement that the information is general education and not medical advice.",
+    "The statement that these therapies are not FDA-approved and are investigational for most uses, and that statements on the site have not been evaluated by the FDA.",
+    "Individual results vary, and no outcome is promised.",
+    "Candidacy is decided case by case by a licensed clinician, and not everyone qualifies.",
+    "The California notice, unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page is the heading, Disclaimer, and one line saying it covers results, liability and the practice's limits." },
+    "disclaimer-text": { "say": "This is the disclaimer itself, which opens with the California notice. It then says the site is not medical advice, that the treatments are not FDA-approved and are investigational for most uses, and that results vary. On this example it is sample legal text." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Disclaimer page for?",
+      "alt": ["Where is the disclaimer?", "What does the Disclaimer say?"],
+      "say": "It states the limits in one place: the site is general education and not medical advice, the treatments are not FDA-approved and are investigational for most uses, and results vary. You reach it from the last line of the footer. On this example it is sample legal text for your counsel to review.",
+      "show": "disclaimer"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Where is the California notice, and what does it say?",
+      "alt": ["What does the California notice say?", "Is the California notice on the Disclaimer page?"],
+      "say": "It is a boxed notice at the top of the Disclaimer and at the bottom of the regenerative pages. It says the practitioner performs stem cell therapies not yet approved by the FDA, and encourages the reader to consult their primary care physician first. A practice outside California can switch it off, once its own counsel confirms.",
+      "show": "disclaimer#disclaimer-text"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Disclaimer page?",
+      "alt": ["What do I replace on the Disclaimer?", "Can I keep the disclaimer as it is?"],
+      "say": "It is sample legal text, so your own counsel reviews and replaces it before launch. Your practice name takes the place of the sample name. Whatever the final wording, the honest lines stay: not medical advice, not FDA-approved and investigational for most uses, and results vary.",
+      "show": "disclaimer#disclaimer-text"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "Does the site diagnose anyone or recommend a treatment?",
+      "alt": ["Is the website giving medical advice?", "Can the site tell a patient what treatment they need?"],
+      "say": "No. The Disclaimer says the site is general education and not medical advice, and is not meant to diagnose or treat anything. Whether someone is a candidate is decided case by case by a licensed clinician, and not everyone qualifies.",
+      "show": "disclaimer#disclaimer-text"
+    }
+  ]
+}

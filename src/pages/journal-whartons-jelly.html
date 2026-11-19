@@ -10,18 +10,18 @@ nav: journal
       <p class="hero__kicker">Science · 5 min read</p>
       <h1>What Wharton's Jelly is, and <em class="hl">why clinics use it</em></h1>
       <p class="lead">You will hear the phrase in almost every regenerative consultation. Here is what it means, where it comes from, and the questions worth asking about it.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>{{#if sample}}Clinical review{{/if}}{{#unless sample}}Clinical Review Board{{/unless}}</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="article" data-guide-label="The article">
   <div class="container container--narrow article__body">
     <div class="article__hero media__frame">{{img:cells-macro|light=cells-blue-white|warm=cells-violet-white|bright=dna-violet|elite=dna-gold|alt=Microscope view of cells|sizes=(max-width: 899px) 100vw, 900px|ecosystem=cells-blue-white|sandstone=cells-violet-white|meridian=cells-blue-white|ivory=cells-violet-white|blush=cells-violet-white}}</div>
 
     <h2>A tissue, not a drug</h2>
     <p>Wharton's Jelly is the gelatinous connective tissue inside the umbilical cord. It cushions the cord's blood vessels during pregnancy. After a healthy, full-term birth, the cord is normally discarded. With the mother's informed consent, it can instead be donated to an accredited tissue bank.</p>
-    <p>Within that tissue are mesenchymal stromal cells, often called MSCs, along with growth factors and the structural proteins that hold the cord together. Because the tissue comes from a newborn, the cells have not been exposed to decades of aging, medication or injury. That is the main reason clinics are interested in it.</p>
+    <p>Within that tissue are mesenchymal stromal cells, often called MSCs, along with growth factors and the structural proteins that hold the cord together. Because the tissue comes from a newborn, the cells have not been exposed to decades of aging, medication or injury. That is the main reason clinics are interested in it. It is a reason for interest, not a promise of a better result.</p>
 
     <h2>What the cells are studied for</h2>
     <p>MSCs are studied for the signals they send rather than for turning into new tissue. In laboratory and early clinical research they have been observed to release molecules that may influence inflammation and the local repair processes around a joint or soft-tissue injury. Research is ongoing, and results in published studies vary by condition, product and protocol.</p>
@@ -38,10 +38,10 @@ nav: journal
     <p>Our protocols use products that meet all four conditions, and your clinician can show you the certificate of analysis for the lot used in your care. {{#if sample}}<span class="sample">Sample</span> A practice confirms its own supplier details before launch.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm supplier details</span>{{/unless}}</p>
 
     <h2>How it is used in practice</h2>
-    <p>In a musculoskeletal protocol, the product is delivered by injection into the affected joint or soft tissue by a licensed nurse practitioner under physician oversight. The visit itself is short. What takes time is the work before it: a consultation, a review of your imaging and history, and an honest conversation about whether you are a candidate at all.</p>
+    <p>In a musculoskeletal protocol, the product is delivered by injection into the affected joint or soft tissue by a licensed nurse practitioner under physician oversight. The visit itself takes about an hour. What takes longer is the work before it: a consultation, a review of your imaging and history, and an honest conversation about whether you are a candidate at all.</p>
 
     <h2>What it is not</h2>
-    <p>It is not a cure, and it is not a replacement for a surgery you genuinely need. It will not "regrow" a joint. Individual responses vary, and some patients do not notice a meaningful change. A clinic that promises a specific outcome is making a claim the evidence does not support.</p>
+    <p>It is not a cure, and it is not a replacement for a surgery you genuinely need. It will not "regrow" a joint. Results vary, and some patients do not notice a meaningful change. A clinic that promises a specific outcome is making a claim the evidence does not support.</p>
 
     <div class="article__sources">
       <h3>Sources and further reading</h3>

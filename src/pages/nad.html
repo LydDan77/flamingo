@@ -1,16 +1,16 @@
 ---
 title: NAD+ Therapy - Injection & Sublingual
-description: NAD+ therapy for energy, longevity, and mitochondrial health. Clinician-supervised injection or sublingual via telehealth. Book a consultation.
+description: NAD+ by prescription, as an injection or a form taken under the tongue, supervised by a clinician by video call. What it is, and what is and is not known.
 nav: nad
 module: nad
 ---
 <section class="hero hero--simple lux-grid">
   <div class="container hero__inner">
     <div class="hero__content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>NAD+ &amp; Supplements</span></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<span>NAD+ &amp; longevity</span></nav>
       <p class="hero__kicker">Longevity · Cellular Energy</p>
       <h1>NAD+ therapy, injection &amp; <em class="hl">sublingual</em></h1>
-      <p class="lead">NAD+ is a coenzyme central to mitochondrial energy production and DNA repair. Levels decline with age. Our clinicians build personalized NAD+ protocols, injection or sublingual, based on your labs and goals.</p>
+      <p class="lead">NAD+ is a molecule every cell uses to make energy and repair DNA. Levels fall with age. Our clinicians build an NAD+ plan around your labs and goals, as an injection or a form taken under the tongue.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
         <a class="btn btn--secondary btn--lg" href="#programs">See Programs {{icon:arrow-down}}</a>
@@ -18,7 +18,7 @@ module: nad
     </div>
   </div>
   <div class="hero__art hero__art--product" aria-hidden="true">
-    {{img:vial-nad-2|product|eager|alt=|sizes=(max-width: 899px) 1px, 30vw}}
+    {{#if sample}}<span class="sample sample--pic">Sample picture</span>{{/if}}{{img:vial-nad-2|product|eager|alt=|sizes=(max-width: 899px) 1px, 30vw}}
   </div>
 </section>
 
@@ -27,12 +27,12 @@ module: nad
     <div class="split split--top">
       <div class="reveal reveal--left">
         <span class="eyebrow">Why NAD+</span>
-        <h2 class="mt-4">The coenzyme your cells can't function without</h2>
-        <p class="lead mt-6">NAD+ levels decline significantly with age. Restoring them supports the biological processes that keep you sharp, energized, and resilient.</p>
+        <h2 class="mt-4">What NAD+ does in the body, and what is not known</h2>
+        <p class="lead mt-6">NAD+ levels fall with age. Whether raising them changes how a person feels is still being studied. People differ, and some notice little change.</p>
         <div class="stack mt-8">
-          <div class="info-row"><span class="card__icon">{{icon:zap}}</span><div><b>Cellular Energy</b><span class="small muted">Supports mitochondrial ATP production, the fuel your cells run on.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:brain}}</span><div><b>Cognitive Clarity</b><span class="small muted">NAD+ is essential for neuronal function and stress resilience.</span></div></div>
-          <div class="info-row"><span class="card__icon">{{icon:activity}}</span><div><b>Recovery &amp; Aging</b><span class="small muted">Involved in sirtuin and PARP enzyme activity tied to DNA repair and longevity.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:zap}}</span><div><b>Cellular Energy</b><span class="small muted">Cells use NAD+ to turn food into energy.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:brain}}</span><div><b>Brain &amp; Nerves</b><span class="small muted">Nerve cells use NAD+ too. Studies in people on thinking and mood are early.</span></div></div>
+          <div class="info-row"><span class="card__icon">{{icon:activity}}</span><div><b>DNA Repair &amp; Aging</b><span class="small muted">NAD+ takes part in the enzymes that repair DNA. What that means for aging is not settled.</span></div></div>
         </div>
       </div>
       <div class="chart reveal reveal--right" data-draw>
@@ -59,9 +59,9 @@ module: nad
       <p class="lead">Pricing is shared on your consultation. {{#if sample}}<span class="sample">Sample</span> Sample programs. A practice lists its own programs and prices here.{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm catalog &amp; pricing</span>{{/unless}}</p>
     </div>
     <div class="grid grid--3 reveal reveal--stagger">
-      <article class="program"><div class="program__vial" style="--vial-cap:#3DF2FF">{{img:vial-nad-2|product|alt=NAD+ injection vial}}</div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Injection · Telehealth</span><h3>NAD+ Injection</h3><p class="small" style="color:var(--text-2)">Clinician-supervised NAD+ injection therapy for cellular energy, mitochondrial function, and longevity. Subcutaneous or IM, shipped to your door.</p><div class="program__price"><b>Pricing on consultation</b><small>1 &amp; 3-month supplies</small></div><div class="program__actions"><a class="btn btn--primary btn--sm" href="{{site.bookUrl}}">Request this program {{icon:arrow-right}}</a></div></article>
-      <article class="program"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:droplets}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Sublingual · Telehealth</span><h3>Sublingual NAD+</h3><p class="small" style="color:var(--text-2)">Absorbed under the tongue. No needles. Ideal for daily maintenance protocols. Your clinician recommends the right form based on your goals and labs.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
-      <article class="program"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:layers}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Supplement Protocols</span><h3>Clinician-curated supplements</h3><p class="small" style="color:var(--text-2)">Supplement protocols built around your labs and reviewed by the same medical team that manages your {{site.teamScope}}.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
+      <article class="program"><div class="program__vial" style="--vial-cap:#3DF2FF">{{#if sample}}<span class="sample sample--pic">Sample picture</span>{{/if}}{{img:vial-nad-2|product|alt=NAD+ injection vial}}</div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Injection · Video call</span><h3>NAD+ Injection</h3><p class="small" style="color:var(--text-2)">NAD+ as an injection, under the skin or into a muscle. Prescribed and supervised by a clinician, and shipped to your door.</p><div class="program__price"><b>Pricing on consultation</b><small>1 &amp; 3-month supplies</small></div><div class="program__actions"><a class="btn btn--primary btn--sm" href="{{site.bookUrl}}">Request this program {{icon:arrow-right}}</a></div></article>
+      <article class="program"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:droplets}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Sublingual · Video call</span><h3>Sublingual NAD+</h3><p class="small" style="color:var(--text-2)">Absorbed under the tongue. No needles. Your clinician recommends the right form based on your goals and labs.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
+      <article class="program"><div class="program__vial"><span class="card__icon card__icon--grad">{{icon:layers}}</span></div><span class="pill pill--accent pill--sm" style="align-self:flex-start">Supplement Plans</span><h3>Clinician-curated supplements</h3><p class="small" style="color:var(--text-2)">Supplement plans built around your labs and reviewed by the same medical team that manages your {{site.teamScope}}.</p><div class="program__price"><b>Consult required</b></div><div class="program__actions"><a class="btn btn--secondary btn--sm" href="{{site.bookUrl}}">Talk to a provider {{icon:arrow-right}}</a></div></article>
     </div>
   </div>
 </section>
@@ -70,15 +70,15 @@ module: nad
   <div class="container container--wide">
     <div class="split">
       <div class="media media--4x3 reveal reveal--left">
-        <div class="media__frame media__frame--product">{{img:vial-nad-2|product|alt=NAD+ injection vial}}</div>
+        <div class="media__frame media__frame--product">{{#if sample}}<span class="sample sample--pic">Sample picture</span>{{/if}}{{img:vial-nad-2|product|alt=NAD+ injection vial}}</div>
         <div class="media__float media__float--br media__float--row"><span class="card__icon">{{icon:stethoscope}}</span><span><b>Prescribed by a clinician</b><span>Injection or sublingual, based on your labs and goals</span></span></div>
       </div>
       <div class="reveal reveal--right">
         <span class="eyebrow">Delivery Options</span>
         <h2 class="mt-4">Injection vs sublingual: which is right for you?</h2>
         <div class="grid grid--2 mt-8 reveal--stagger reveal" style="gap:14px">
-          <div class="card card--hover"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Injection</h3><p>Subcutaneous or IM injection. Prescribed via telehealth, shipped to your door.</p></div>
-          <div class="card card--hover"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Telehealth</span><h3>Sublingual</h3><p>Absorbed under the tongue. No needles. Ideal for daily maintenance protocols.</p></div>
+          <div class="card card--hover"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Video call</span><h3>Injection</h3><p>An injection under the skin or into a muscle. Prescribed by video call, shipped to your door.</p></div>
+          <div class="card card--hover"><span class="pill pill--accent pill--sm" style="align-self:flex-start">Video call</span><h3>Sublingual</h3><p>Absorbed under the tongue. No needles. Your clinician sets how often you take it.</p></div>
         </div>
       </div>
     </div>
@@ -90,10 +90,10 @@ module: nad
     <span class="eyebrow">FAQ</span>
     <h2 class="mt-4 mb-8">NAD+ therapy questions answered</h2>
     <div class="faq reveal">
-      <details class="faq__item"><summary>What is NAD+ therapy?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">NAD+ therapy delivers nicotinamide adenine dinucleotide to support mitochondrial energy production, DNA repair, and cellular longevity. We offer clinician-supervised injection and sublingual protocols tailored to your labs and goals.</div></details>
-      <details class="faq__item"><summary>What is the difference between NAD+ injection and sublingual NAD+?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Injection delivers NAD+ with strong absorption and is a convenient at-home option. Sublingual NAD+ is absorbed under the tongue and is the most convenient delivery method. Your clinician recommends the right form based on your goals and labs.</div></details>
+      <details class="faq__item"><summary>What is NAD+ therapy?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">NAD+ (nicotinamide adenine dinucleotide) is a molecule your cells use to make energy and repair DNA. NAD+ therapy is a prescription for extra NAD+, as an injection or a form taken under the tongue. A clinician supervises it and builds the plan around your labs and goals. What it changes for a person is still being studied.</div></details>
+      <details class="faq__item"><summary>What is the difference between NAD+ injection and sublingual NAD+?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">The injection goes under the skin or into a muscle, and is shipped to your door for use at home. Sublingual NAD+ is absorbed under the tongue, with no needles. Your clinician recommends the right form based on your goals and labs.</div></details>
       <details class="faq__item"><summary>How long does NAD+ therapy take to work?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">It differs from person to person, and some people notice little change. Your clinician checks how you are doing at each follow-up and adjusts or stops the plan. Individual results vary.</div></details>
-      <details class="faq__item"><summary>Is NAD+ therapy safe?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">NAD+ therapy is generally well tolerated. Some patients notice mild, temporary flushing or warmth. Your clinician supervises all protocols and adjusts dosing based on your response.</div></details>
+      <details class="faq__item"><summary>Is NAD+ therapy safe?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Every patient is reviewed by a licensed clinician before anything is prescribed. Side effects are possible with any treatment, and your clinician discusses them with you before you decide. Some people notice flushing or warmth for a short time. Your clinician supervises the plan and adjusts the dose. Compounded NAD+ is not FDA-approved. Results vary.</div></details>
       <details class="faq__item"><summary>Can I get NAD+ therapy at home?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Yes. Both injection and sublingual options let you start NAD+ therapy from home, supervised by the clinical team. No clinic visit required.</div></details>
     </div>
   </div>

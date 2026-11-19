@@ -1,0 +1,95 @@
+{
+  "purpose": "Sets out what the practice says makes it different, for a patient comparing options: eight principles, from sourcing to follow-up, and a side-by-side list of what the practice will not do and what it does instead. It exists to answer a wary patient who has heard big promises elsewhere.",
+  "audience": "patients",
+  "owner_notes": [
+    "Under About in the menu. It is for the patient who is comparing clinics; nobody needs to read it to book.",
+    "Everything here is said in the practice's name, and only the practice name and the phone number are samples. The eight principles and the six side-by-side rows are statements the practice makes about itself, so an owner should check that each one is true of their practice.",
+    "Ava describes these as what the page says. The page speaks only about this practice and compares it with no one else, and Ava does the same.",
+    "Learn the Science at the top opens the Wharton's Jelly page, and Patient stories near the bottom opens the Patient stories page. Book a Consultation appears three times and always opens the Booking page."
+  ],
+  "replace": [
+    "The heading at the top carries your practice name in place of the sample name {{site.name}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photos are licensed stock standing in; your own photos can replace them."
+  ],
+  "keep": [
+    "The line under the Our Principles heading: the treatments are not FDA-approved, are investigational for most uses, and results vary.",
+    "Principle eight, Honest follow-up: the practice follows how each patient does and sets honest expectations.",
+    "Principle five, Education-first: before any treatment the patient knows what is being used, why, and what to expect, including what is still unknown.",
+    "The closing line that if someone is not a fit for any program, the practice tells them.",
+    "This page has no small print of its own. The small print in the footer of every page still applies: statements not evaluated by the FDA, and individual results vary."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page says regenerative medicine attracts big promises, and sets out how this practice works instead. It has two buttons, Book a Consultation and Learn the Science." },
+    "our-principles": { "say": "Our Principles is eight short cards, from where the tissue comes from to honest follow-up. The line over them says the treatments are not FDA-approved and that results vary." },
+    "at-a-glance": { "say": "Three picture cards sum the page up as source, people and process." },
+    "side-by-side": { "say": "Side by Side is six rows, each setting something the practice will not do beside what it does instead. Every row is about this practice and no one else." },
+    "experience-the-difference": { "say": "Experience the difference is a short band that calls the consultation a real conversation, not a sales call, with links to book and to Patient stories." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Why we're different page for?",
+      "alt": ["What does Why we're different do?", "Why is there a Why we're different page?"],
+      "say": "It is for the patient who is comparing you with other options and is wary of big promises. The page sets out eight principles, from sourcing to follow-up, and six things you will not do beside what you do instead. It speaks in your practice's name, so read it as a list of things you stand behind.",
+      "show": "why-were-different"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What's on About, Our founder and Why we're different?",
+      "alt": ["What are the pages under About for?", "What's the difference between Our team, Our founder and Why we're different?"],
+      "say": "Our team introduces the practice and its clinicians by name. Our founder tells why the practice started. Why we're different lists eight principles, and what the practice will not do beside what it does. All three are under About, in the menu at the top.",
+      "show": "why-were-different"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the side-by-side list?",
+      "alt": ["Where is the comparison table?", "Where does the site compare us with other clinics?", "Where are the eight principles?"],
+      "say": "On the Why we're different page, under About in the menu at the top. The eight principles are near the top, in Our Principles. Near the bottom, Side by Side sets six things the practice will not do beside what it does instead. It speaks only about your practice and compares you with no one else.",
+      "show": "why-were-different#side-by-side"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Why we're different page?",
+      "alt": ["What do I replace on Why we're different?", "Do I rewrite the eight principles?"],
+      "say": "Your practice name goes in the heading at the top, in place of the sample name, {{site.name}}. Your phone number replaces the sample {{site.phone}} at the bottom. The eight principles are not samples, so check that each one is true of your practice.",
+      "show": "why-were-different#our-principles"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Is anything on the Why we're different page a sample?",
+      "alt": ["Are the eight principles samples?", "Is the comparison table a sample?"],
+      "say": "Only the practice name, {{site.name}}, and the phone number, {{site.phone}}. Both are samples. The eight principles and the side-by-side list are the site's own wording and carry no Sample stamp, so on your site they are statements your practice makes.",
+      "show": "why-were-different#our-principles"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay on the Why we're different page?",
+      "alt": ["What can't come off Why we're different?", "Is there small print on Why we're different?"],
+      "say": "The honest lines. The line over the eight principles says the treatments are not FDA-approved, are investigational for most uses, and that results vary. Principle eight says the practice sets honest expectations. The page has no small print of its own; the footer of every page carries it.",
+      "show": "why-were-different#our-principles"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How are you different from other clinics?",
+      "alt": ["Why should I choose you?", "What makes this practice different?"],
+      "say": "The page speaks only for this practice. It lists eight things it holds itself to, among them tissue from accredited tissue banks with every lot tested, licensed clinicians under physician oversight, and a plan built around you. It also says the practice sets honest expectations, and that if you are not a fit, it will tell you.",
+      "show": "why-were-different#our-principles"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will I be pressured to buy?",
+      "alt": ["Is the consultation a sales call?", "Will someone push me to sign up?"],
+      "say": "The page says no. It describes the consultation as a real conversation, not a sales call, with education first and no pressure. And if you are not a fit for any program, the practice says it will tell you.",
+      "show": "why-were-different#experience-the-difference"
+    }
+  ]
+}

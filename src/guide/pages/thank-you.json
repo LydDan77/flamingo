@@ -1,0 +1,93 @@
+{
+  "name": "Thank-you",
+  "reach": "the Booking page or a form: it opens by itself after a patient books a time or sends a form; it is not in the menus",
+  "purpose": "Tells a patient that their request has arrived, what happens next, how to change the time, and how to get ready for the video call. It exists so nobody is left wondering after they book a time or send a form. On this example the top of the page says plainly that nothing was booked or sent.",
+  "audience": "patients",
+  "owner_notes": [
+    "A patient lands here after booking a time or sending a form. On this example the Book this time button under the sample calendar and every form open it, and nothing has been booked or sent. The top of the page says so in plain words, under a Sample stamp.",
+    "On a practice's own site the calendar is set, in GoHighLevel, to send the patient here once they have booked. The site's own forms already land here, and the page greets the patient by first name when a form passes one along.",
+    "The confirmation, the reminders, the no-show messages and the link for changing a time are sent by the practice's booking system, GoHighLevel, not by the website. On a practice's own site the page only tells the patient to expect a confirmation, or a call within one business day if they asked for one. That reply time is a promise about the practice, so it has to be true there.",
+    "It is not in the menus, and the bar at the bottom of a phone screen is left off it, because the patient has already taken the step."
+  ],
+  "replace": [
+    "The top of the page: the first name of the person who calls patients back replaces the sample name {{site.coordinator.first}}.",
+    "The line about changing or cancelling: your phone number replaces the sample {{site.phone}}.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The In one breath lines at the bottom: not FDA-approved and investigational for most uses, results vary and the practice never promises one, and if someone is not a candidate the practice says so on the call.",
+    "Step two of What happens next: the answer is yes, no, or more information is needed, and a quote is never a commitment."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page thanks the patient. On this example it says plainly that nothing was booked or sent, and that on a real site a picked time is booked and a confirmation is sent. It also says how a patient changes or cancels." },
+    "what-happens-next": { "say": "What happens next is three steps: the video call, an honest answer in writing, then treatment at home." },
+    "get-ready": { "say": "Get ready lists five things that help the call, such as imaging and a list of what the patient takes, and says none of them are required." },
+    "in-one-breath": { "say": "In one breath is three honest lines, including that the care is not FDA-approved and is investigational for most uses, with a link back to the Home page." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What's the thank-you page, and when does a patient see it?",
+      "alt": ["What is the thank-you page for?", "What does a patient see after they book?"],
+      "say": "A patient lands on it right after booking a time or sending a form. It thanks them, then says what happens next in three steps, how to change the time, and what to bring to the call. It is not in the menus, because nobody needs to go looking for it.",
+      "show": "thank-you"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "After someone books a time in the calendar, where do they end up?",
+      "alt": ["Where does the calendar send a patient after they book?", "Does a booked patient see the thank-you page too?"],
+      "say": "On the thank-you page. On this example the Book this time button under the sample calendar opens it, and nothing is booked. On your own site your calendar is set to send patients there once they have booked, and a sent form lands there too.",
+      "show": "thank-you#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "How does a patient change or cancel their time?",
+      "alt": ["Where does a patient go to reschedule?", "Can a patient cancel from the website?"],
+      "say": "The top of the thank-you page tells them: call the practice, or use the link in the confirmation. On this example that line says the number shown, {{site.phone}}, is a sample. The confirmation and its link come from your booking system, not from the website.",
+      "show": "thank-you#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Does the website send the confirmation and the reminders?",
+      "alt": ["Does the website send the reminders and the no-show texts?", "Who sends the confirmation email or text?"],
+      "say": "No, the website sends nothing. The confirmation, the reminders and the no-show messages are sent by your booking system, GoHighLevel. On your own site the thank-you page only tells the patient a confirmation is on its way. On this example it says nothing was booked or sent.",
+      "show": "thank-you#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "What is the patient told about the call, and what should they bring?",
+      "alt": ["What does the thank-you page tell a patient to prepare?", "Where is the list of things to bring?"],
+      "say": "The page says the call is about thirty minutes with a licensed clinician, and that the answer is a yes, a no, or a request for more information. Under Get ready it lists five things that help, such as imaging and a list of what they take. None of them are required.",
+      "show": "thank-you#get-ready"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the thank-you page?",
+      "alt": ["What do I replace on the thank-you page?", "Is anything on the thank-you page mine to fill in?"],
+      "say": "Two details, both at the top. The first name of the person who calls patients back, and your phone number in the line about changing or cancelling. On this example they are {{site.coordinator.first}} and {{site.phone}}, and both are samples.",
+      "show": "thank-you#top"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "I sent the form. Am I booked?",
+      "alt": ["I picked a time. Is my call booked?", "Did my message go through?"],
+      "say": "Not here. This is an example site, so nothing has been booked and no message has reached anyone, and the top of the thank-you page says so. On a real practice's site this page tells you a picked time is booked and a confirmation is on its way, or that someone will call you.",
+      "show": "thank-you#top"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What should I bring to the call?",
+      "alt": ["How do I get ready for the video call?", "Do I need my imaging for the call?"],
+      "say": "Nothing is required. The page suggests your imaging if you have it, a list of what you take, and your questions written down. It also asks what you want back, such as the stairs or the garden, and for your surgeon's date if you have one.",
+      "show": "thank-you#get-ready"
+    }
+  ]
+}

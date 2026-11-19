@@ -1,0 +1,95 @@
+{
+  "purpose": "Lets a patient ask a question before booking, by message, phone or email, and shows the practice's phone number, address, service area and hours. It also holds the form for a provider who wants to ask about partnering with the practice.",
+  "audience": "everyone",
+  "owner_notes": [
+    "Contact is for questions first; the Booking page is for picking a time. The top of this page offers both, with a Book a video call button, a call button and an email link.",
+    "The message box has two tabs. I'm a Patient shows the same form as the call-back form on the Booking page. I'm a Provider shows a partnership inquiry, and the Apply to Partner buttons on the For providers and partners page open it.",
+    "On this example both forms are samples: pressing the button opens the thank-you page and no message reaches anyone. A practice connects the forms to its own inbox before launch.",
+    "The practice details sit beside the form, with the credential badges under them. The page makes no HIPAA promise, on purpose: the one fixed badge says Encrypted connection.",
+    "Under the hours, the details card carries an emergency line: This website is not for emergencies. In an emergency, call 911."
+  ],
+  "replace": [
+    "The details card beside the form: your phone number, email address, street address, service area and hours replace the samples, such as {{site.phone}} and {{site.address}}.",
+    "Credentials and Accreditations: your own verified credentials replace the three sample badges.",
+    "Quick response: the reply time, within one business day, is stamped Sample, and you state your own.",
+    "The consent wording under the patient form is sample wording: a practice replaces it with its own reviewed text message and privacy wording before launch.",
+    "Both forms are connected to your own inbox before launch; on this example they send nothing.",
+    "The heading over the form carries your practice name in place of the sample name {{site.name}}, and the photo beside it is licensed stock standing in for your own."
+  ],
+  "keep": [
+    "The consent tick box under the patient form: agreement to be contacted by phone, email or text, with message frequency, message and data rates, Reply STOP and a link to the Privacy Policy. Its wording is replaced with your reviewed text; the tick box itself stays.",
+    "The closing line that if someone is not a fit for any program, the practice tells them.",
+    "The page makes no HIPAA promise, on purpose: the badge says Encrypted connection."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page offers three ways in: a Book a video call button, a call button, and an email link." },
+    "book": { "say": "This is the message part: a form with one tab for patients and one for providers, and beside it the practice's phone, email, address and hours, which are samples on this example. Under the hours, one line says this website is not for emergencies." },
+    "prefer-to-talk": { "say": "Prefer to talk is a short closing part with one call button, and the line that if someone is not a fit, the practice tells them." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "Why is there a Contact page as well as a Book page?",
+      "alt": ["What is the Contact page for?", "What is the difference between Contact and Booking?"],
+      "say": "Contact is for questions first: a patient can send a message, call or email, and see your address and hours. Booking is for picking a time. The patient form is the same on both pages, and both end on the thank-you page.",
+      "show": "contact"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does a patient send a message?",
+      "alt": ["Where is the message form?", "Where is the contact form?", "How does a patient ask a question before booking?"],
+      "say": "On the Contact page, under the heading Send a message. Open the menu at the top and choose Contact. The form has two tabs: one for patients, and one for providers who want to ask about partnering.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my address, hours, service area and accreditation badges go?",
+      "alt": ["Where does my address show?", "Where do my credentials go?"],
+      "say": "On the Contact page, in the cards beside the message form. The first card holds your contact details, your service area and your hours, and your own verified badges go in the last card. On this example the address is {{site.address}}, a sample, and so are the badges.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Contact page?",
+      "alt": ["What do I replace on the Contact page?", "What on the Contact page is a sample?"],
+      "say": "Four things. Your contact details and hours in the card beside the form, your own verified badges, and your reviewed consent wording under the patient form. The fourth is the reply time in the Quick response card. On this example the phone number, {{site.phone}}, is a sample, like the rest.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Is the contact form wired to my GoHighLevel?",
+      "alt": ["Do the forms on the Contact page send anything?", "Where do the contact form messages go?"],
+      "say": "Not on this example: both forms here are samples, so you land on the thank-you page and no message reaches anyone. On your own site a form is connected before launch, to your own inbox or to a GoHighLevel form. Who sets that up is a question for your contact for the website.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What does the form ask for, and what's the tick box about texts?",
+      "alt": ["What does the patient form ask?", "Do I have to keep the consent tick box?"],
+      "say": "It asks who the patient is and how to reach them, which program interests them, and what they are dealing with. Two optional boxes ask who sent them and where it hurts. The tick box is their agreement to be contacted by phone, email or text; it stays, and its wording here is a sample.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "A patient is asking a medical question. Where do you send them?",
+      "alt": ["Where should Ava send a patient with a medical question?", "Can you answer a medical question?"],
+      "say": "To a clinician, not to me: I'm a guide to this website and I can't give medical advice. The Contact page says that on the video call you talk to a licensed clinician, not a salesperson. So the next step is to book a video call, or to phone the practice on {{site.phone}}, which is a sample number.",
+      "show": "contact#top"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How soon will someone get back to me?",
+      "alt": ["How quickly does the practice reply?", "When will I hear back after I send a message?", "What if it is urgent, or an emergency?"],
+      "say": "The page says the practice typically responds within one business day, which is a sample here, and to talk sooner it says to call during its hours. Under the hours it says this website is not for emergencies: in an emergency, call 911. On this example a message reaches nobody.",
+      "show": "contact#book"
+    }
+  ]
+}

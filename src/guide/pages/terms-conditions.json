@@ -1,0 +1,58 @@
+{
+  "purpose": "Sets out the terms for using the website, including the full terms for text messages and a line that the site's content is not medical advice. On this example it is sample legal text, which a practice's own counsel reviews and replaces before launch.",
+  "audience": "everyone",
+  "owner_notes": [
+    "It is reached from the last line of the footer. The Privacy Policy and the Disclaimer link to it as well, and all of them call it Terms and Conditions.",
+    "It holds the full text message terms that the Privacy Policy points to: how often messages come, that rates may apply, reply STOP to cancel and reply HELP for help. The consent line under the forms links to the Privacy Policy.",
+    "Its Accounts paragraph says this website has no accounts: it does not ask a visitor to create one, to log in, or to choose a password.",
+    "It says the site's content is general information and not medical advice, and it points to the Disclaimer."
+  ],
+  "replace": [
+    "The whole text: your own counsel reviews and replaces it before launch.",
+    "The practice name, the contact email and the phone number in the text message terms. On this example they are samples, such as {{site.name}} and {{site.phone}}.",
+    "The governing law paragraph, which on this example names a made-up state as a sample: yours names your own state.",
+    "The Last updated date under the heading."
+  ],
+  "keep": [
+    "The text message terms, in whatever form your counsel approves: how often messages come, rates, how to stop and how to get help.",
+    "The line that the content is general information and not medical advice, and that clinical services follow an individual evaluation by a licensed clinician."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page is the heading, Terms and Conditions, and a line asking visitors to read the terms before using the site." },
+    "terms": { "say": "This is the terms themselves, including the full text message terms and a line that the site is not medical advice; on this example it is sample legal text." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Terms and Conditions page for?",
+      "alt": ["Where are the terms and conditions?", "Where are the terms of service?"],
+      "say": "It sets out the terms for using your website, including the full terms for text messages. It is called Terms and Conditions everywhere on the site, and you reach it from the last line of the footer. On this example it is sample legal text.",
+      "show": "terms-conditions"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Terms page?",
+      "alt": ["What do I replace on the Terms and Conditions?", "Can I keep the terms as they are?"],
+      "say": "All of it is sample legal text, so your own counsel reviews and replaces it before launch. Within it, your practice name, email and phone number take the place of the samples, and the governing law line needs your state. The phone number shown, {{site.phone}}, is a sample.",
+      "show": "terms-conditions#terms"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "The terms mention accounts. Is there a patient login?",
+      "alt": ["Why do the terms talk about accounts and passwords?", "Can patients sign in on the site?"],
+      "say": "No. The Accounts paragraph says so itself: this website has no accounts, and it does not ask anyone to create one, to log in, or to choose a password. The site is a set of pages with a booking calendar and forms.",
+      "show": "terms-conditions#terms"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the full terms for text messages?",
+      "alt": ["Where does it say how a patient stops the texts?", "What do the text message terms say?"],
+      "say": "On the Terms and Conditions page, under the heading about text messaging. They say how often messages come, that message and data rates may apply, and that replying STOP cancels them. They also say that agreeing to texts is not a condition of buying anything. On this example it is sample legal text.",
+      "show": "terms-conditions#terms"
+    }
+  ]
+}

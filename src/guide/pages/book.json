@@ -1,0 +1,93 @@
+{
+  "purpose": "Gives a patient one place to pick a time for a video call with a licensed clinician. Every booking button on the site leads here, and the page exists to hold the practice's own booking calendar.",
+  "audience": "patients",
+  "owner_notes": [
+    "Every booking button on the site leads to this one page: Book a Consultation at the top right of every page, the buttons inside the pages, the footer link, and the bar at the bottom of a phone screen.",
+    "The calendar on this example is a stand-in, marked Sample calendar: choosing a day and a time books nothing. On a practice's own site its GoHighLevel calendar sits in that spot, with its real openings.",
+    "The call-back form under the calendar is shown on this example. When a practice's real calendar is connected, the call-back form is no longer shown on the Booking page. Patients can still phone, or send a message from the Contact page.",
+    "Under the call-back form the page carries an emergency line: This website is not for emergencies. In an emergency, call 911. That line stays when a practice's real calendar takes the form's place.",
+    "After booking a time or sending the form, the patient lands on the thank-you page. The confirmation, the reminders and the no-show messages are sent by the practice's booking system, GoHighLevel, not by the website."
+  ],
+  "replace": [
+    "The booking calendar at the top: your practice's own GoHighLevel calendar replaces the sample calendar.",
+    "Who answers the phone: the first name of the person who answers your phone replaces the sample name {{site.coordinator.first}}, there and in the line over the call-back form.",
+    "The call button and the hours beside the calendar: your phone number and hours replace the samples, {{site.phone}} and {{site.hours}}.",
+    "While the call-back form is shown: the consent wording under it is sample wording, replaced with your own reviewed text message and privacy wording, and the form is connected to your own inbox before launch."
+  ],
+  "keep": [
+    "The In one breath lines beside the calendar: not FDA-approved and investigational for most uses, results vary and the practice never promises one, and if someone is not a candidate the practice says so on the call.",
+    "The honest wording in What happens on the call: one of three answers, yes, no, or more information is needed, and a quote is never a commitment.",
+    "The consent tick box on the call-back form, for as long as the form is shown: agreement to be contacted by phone, email or text, with Reply STOP and a link to the Privacy Policy."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page says what a patient is booking: about thirty minutes by video with a licensed clinician, an honest answer, and if the answer is yes, a written plan with the price." },
+    "book": { "say": "This is the booking part: the sample calendar, with a call-back form under it that is no longer shown once a real calendar is connected. Beside them are who answers the phone and what happens on the call. Under the form, one line says this website is not for emergencies." },
+    "before-you-book": { "say": "Before you book is for someone who is not sure yet: one button, Start with where it hurts, opens the Home page at the part where a patient picks one of the six Where it hurts pages." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Booking page for?",
+      "alt": ["What is the Book page for?", "How do I get to the booking page from wherever I am?", "Do all the booking buttons go to one page?"],
+      "say": "It has one job: to hold your booking calendar, so a patient can pick a time for a video call with a licensed clinician. Every booking button on the site leads here, starting with Book a Consultation at the top right of every page.",
+      "show": "book"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Where does my GoHighLevel calendar show up?",
+      "alt": ["Where does my booking calendar go?", "Is the calendar on the booking page real?", "If I pick a time on this example, is anything booked?"],
+      "say": "In the box at the top of the Booking page. On this example a sample calendar sits there: pick any day and time to see the step a patient takes, and nothing is booked. On your own site your GoHighLevel calendar takes that spot, with your real openings.",
+      "show": "book#calendar"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Once the calendar is in, can people still just ask for a call back?",
+      "alt": ["Does the call-back form stay when my calendar is connected?", "What is the form under the calendar for?"],
+      "say": "Not from the Booking page. The call-back form under the sample calendar is no longer shown there once your real calendar is connected. A patient can still phone the practice, or send a message from the Contact page.",
+      "show": "book#call-back"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "What happens when someone presses Request My Consultation?",
+      "alt": ["What happens when a patient sends the call-back form?", "Does the form on the booking page send anything?"],
+      "say": "On this example the form checks that a name and an email are filled in, then opens the thank-you page and greets the patient by first name. Nothing is sent: it is a sample form, and a note under the button says so. A practice connects it to its own inbox before launch.",
+      "show": "book#call-back"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Who does the site say answers the phone?",
+      "alt": ["Who is {{site.coordinator.first}}?", "Whose name is on the booking page?"],
+      "say": "The Booking page names the care coordinator by first name, beside the calendar. On this example that is {{site.coordinator.first}}, a sample name, with a sample phone number under it. On your own site it is the first name of the person who really answers your phone.",
+      "show": "book#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Can I use a different booking tool instead of GoHighLevel?",
+      "alt": ["Does it have to be a GoHighLevel calendar?", "Can I add a chat or a tracking snippet?"],
+      "say": "The website can hold one. The box at the top of the Booking page takes another booking tool's calendar in place of a GoHighLevel one, and there is a separate spot for a chat or tracking snippet. Whether that suits your own set-up is a question for your contact for the website.",
+      "show": "book#calendar"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Booking page?",
+      "alt": ["What do I replace on the booking page?", "What on the booking page is mine to fill in?"],
+      "say": "Three things: your own calendar in place of the sample one, the first name of the person who answers your phone, and your phone number and hours beside the calendar. On this example the name is {{site.coordinator.first}} and the number is {{site.phone}}, and both are samples.",
+      "show": "book#book"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What happens on the video call?",
+      "alt": ["How long is the call?", "What do I get at the end of the call?", "What is the patient told about the call?"],
+      "say": "The page says you talk with a licensed clinician for about thirty minutes, by video, about what hurts, your health and what you want back. You hear one of three answers: yes, no, or more information is needed. If it is yes, you get a written plan with the full price, and a quote is never a commitment.",
+      "show": "book#book"
+    }
+  ]
+}

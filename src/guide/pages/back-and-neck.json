@@ -1,0 +1,96 @@
+{
+  "purpose": "Speaks to a patient whose back or neck sets their schedule, and is as much about who the practice sends elsewhere as what it offers. It exists so a patient with wear in the small joints of the spine knows what is possible, and a patient with nerve signs is pointed to a spine specialist.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. This is the page where the site says no most often, and it says so in its opening lines.",
+    "It limits what the practice offers to wear in the small joints of the spine, without nerve involvement. Disc problems and nerve compression are described as different problems that the clinician sorts out on the call.",
+    "It tells patients that spine work is often image-guided and arranged at a partner facility instead of at home. That is a statement about how the practice works. What it costs says the quote shows it, with any added cost, when a partner facility is needed.",
+    "The caution is the point of the page. In its own words, sending the rest to specialists is the reason a patient can trust the yes when they get one."
+  ],
+  "replace": [
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photo at the top is licensed stock standing in; your own photo can replace it."
+  ],
+  "keep": [
+    "The What we will not promise card: nothing is promised for pain that shoots down a limb, numbness, weakness, or changes in bladder or bowel control, and those signs need a spine specialist, promptly.",
+    "The same card's wording that the treatment is not FDA-approved for the spine and is investigational, and that results vary.",
+    "The line in Who it tends to suit that candidacy is a careful clinical decision made on the video call, with imaging.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page puts back and neck trouble in everyday words, and says straight away that this is where the practice says no most often." },
+    "is-this-you": { "say": "Is this you lists five situations, from standing at the sink to pain that shoots down a leg or an arm." },
+    "what-we-do": { "say": "What we do is three cards: what the practice can offer for wear in the small joints of the spine, who it tends to suit, and the signs that need a spine specialist instead." },
+    "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, such as the lower back, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, including one on how to read a clinic's claims." },
+    "questions": { "say": "Questions answers three things back patients ask: why the practice is more cautious about backs, whether a disc problem is the same as joint wear, and whether it can be done at home." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Back and neck page for?",
+      "alt": ["Why is there a page for backs and necks?", "What does the Back & neck page do?"],
+      "say": "The Back and neck page is where the site says no most often. It tells a patient the narrow set of back and neck problems your practice may help with, wear in the small joints of the spine, and who it sends to a spine specialist instead.",
+      "show": "back-and-neck"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "Why does the Back and neck page say no so often? Won't that put people off?",
+      "alt": ["Why does the site spend so much space on what it won't promise?", "Isn't the Back and neck page too negative?"],
+      "say": "It is deliberate. The page explains that the spine carries the nerves, so the practice treats a narrow set of problems and sends the rest to specialists. As the page puts it, that is the reason a patient can trust the yes when they get one.",
+      "show": "back-and-neck#q-why-are-you-more-cautious-about"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the Back and neck page say who you send elsewhere?",
+      "alt": ["What does this page tell someone who isn't a good fit?", "Which back problems does the page turn away?"],
+      "say": "In the card called What we will not promise, under What we do. It names pain that shoots down a limb, numbness or weakness, and changes in bladder or bowel control. It says those signs need a spine specialist, promptly, and that the practice will help the patient get there.",
+      "show": "back-and-neck#what-we-do"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the price on the Back and neck page?",
+      "alt": ["Where does a patient see the cost on the back page?"],
+      "say": "In the part called What it costs, about halfway down, the same block as on the other Where it hurts pages. On this example it shows {{site.pricing.from}} to {{site.pricing.to}} for a plan for one area, such as the lower back, which is a sample. It adds that the quote says so if treatment needs a partner facility.",
+      "show": "back-and-neck#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Back and neck page?",
+      "alt": ["What do I replace on the back page?"],
+      "say": "Your price range in the What it costs part and your phone number beside the booking button at the bottom, which are both samples on this example. The photo at the top is a stock stand-in you can swap for your own.",
+      "show": "back-and-neck#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay on the Back and neck page?",
+      "alt": ["Can I soften the warnings on the back page?"],
+      "say": "The card called What we will not promise. It lists the signs that need a spine specialist, says the treatment is not FDA-approved for the spine and is investigational, and says results vary. The small print at the bottom stays as well.",
+      "show": "back-and-neck#what-we-do"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "I have pain shooting down my leg. Can you treat it?",
+      "alt": ["I have numbness in my arm. Is this for me?"],
+      "say": "I can't give medical advice. The page says the practice promises nothing for pain that shoots down a limb, numbness or weakness, or changes in bladder or bowel control. It says those signs need a spine specialist, promptly, and the practice will say so on the call and help you get there.",
+      "show": "back-and-neck#what-we-do"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "I have a bulging disc. Is this for me?",
+      "alt": ["Do you treat disc problems?"],
+      "say": "I can't tell you; a clinician does that on a video call, with your imaging. The page says disc problems and joint wear are different problems with different options, and that the practice treats only a narrow set of back and neck problems. The treatment is not FDA-approved for the spine and is investigational.",
+      "show": "back-and-neck#q-is-a-disc-problem-the-same"
+    }
+  ]
+}

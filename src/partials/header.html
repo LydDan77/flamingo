@@ -1,4 +1,4 @@
-{{#if sample}}<div class="sample-banner" role="note">{{icon:info}} <span>{{site.sampleNote}}{{#if site:guide}} <a href="site-guide.html">How this site works</a>{{/if}}</span></div>{{/if}}
+{{#if sample}}<div class="sample-banner" role="note">{{icon:info}} <span>{{site.sampleNote}}{{#if site:guide}} <a href="site-guide.html">How this site works</a> <button type="button" class="sample-banner__btn" data-guide-go="samples">Outline what is yours to replace</button>{{/if}}</span></div>{{/if}}
 <header class="site-header" id="site-header">
   <div class="container site-header__inner">
     <a class="brand{{site.brandClass}}" href="index.html" aria-label="{{site.name}} home">{{> logo}}</a>
@@ -6,7 +6,7 @@
     <nav class="nav" id="primary-nav" aria-label="Primary">
       {{nav}}
       <div class="nav__mobile-extras">
-        <a class="nav__provider" href="for-providers.html">{{icon:users}} For Providers / Partners {{icon:arrow-up-right}}</a>
+        <a class="nav__provider" href="for-providers.html">{{icon:users}} For providers &amp; partners {{icon:arrow-up-right}}</a>
         <a class="btn btn--primary btn--block" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
         <a class="nav__phone" href="{{site.phoneTel}}">{{icon:phone}} {{site.phone}}</a>
       </div>

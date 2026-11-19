@@ -285,7 +285,7 @@ function evalCondition(expr) {
   if (kind === "collection") return !site.collections || site.collections.includes(names[0]); // which switcher groups a variant lists
   if (kind === "sample") return !!site.sample; // the dressed sample practice (variants.demo)
   if (kind === "booking") return bookingState() === names[0]; // booking:calendar | booking:custom | booking:slot | booking:form
-  if (kind === "site") return !!site[names[0]]; // a per-variant switch: site:guide | site:noSwitcher | site:assistantOn | site:assistantLive
+  if (kind === "site") return !!site[names[0]]; // a per-variant switch: site:guide | site:noSwitcher | site:assistantOn | site:assistantLive | site:assistantPanel | site:assistantWidget
   if (kind === "any") return names.some(moduleOn);
   if (kind === "all") return names.every(moduleOn);
   throw new Error(`Unknown condition: ${expr}`);
@@ -555,9 +555,13 @@ function build() {
     site.fixedTheme = variant.theme || "";
     site.noSwitcher = variant.switcher === false;
     site.guide = !!variant.guide;
-    site.assistant = variant.assistant ? Object.assign({ name: "Ava", embedHtml: "", headHtml: "" }, variant.assistant) : null;
+    site.assistant = variant.assistant ? Object.assign({ name: "Ava", embedHtml: "", headHtml: "", mode: "widget", origins: [], keepAlive: true }, variant.assistant) : null;
     site.assistantOn = !!site.assistant;
     site.assistantLive = !!(site.assistant && site.assistant.embedHtml);
+    // "widget": her snippet draws its own launcher. "panel": the site draws the launcher and loads her snippet inside
+    // its own panel on the first tap (for a bare iframe embed, and to hold back the microphone prompt until asked).
+    site.assistantPanel = site.assistantLive && site.assistant.mode === "panel";
+    site.assistantWidget = site.assistantLive && !site.assistantPanel;
     site.assistantName = site.assistant ? site.assistant.name : "";
     site.sampleNote = variant.sampleNote || "Sample practice. Names, numbers, prices and stories are fictional, for demonstration.";
     MODULES = site.modules || {};
@@ -595,7 +599,7 @@ function build() {
     if (!variant.path) {
       // Guide builds stay crawlable on purpose (their pages carry noindex), so an assistant can learn them from the URL.
       const guides = variantList().filter((v) => v.guide && v.path);
-      fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\n${site.indexable === false ? "Disallow: /" : "Allow: /"}\n${guides.map((v) => `Allow: /${v.path}/\n`).join("")}Sitemap: ${site.url}/sitemap.xml\n${guides.map((v) => `Sitemap: ${site.url}/${v.path}/sitemap.xml\n`).join("")}`);
+      fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\n${site.indexable === false ? "Disallow: /" : "Allow: /"}\n${guides.map((v) => `Allow: /${v.path}/\nDisallow: /${v.path}/view-\n`).join("")}Sitemap: ${site.url}/sitemap.xml\n${guides.map((v) => `Sitemap: ${site.url}/${v.path}/sitemap.xml\n`).join("")}`);
     }
 
     if (site.guide) log.push(require("./tools/site-guide.js").write({ outDir, site, variant, baseUrl }));

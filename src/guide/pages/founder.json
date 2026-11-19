@@ -1,0 +1,96 @@
+{
+  "purpose": "This page tells the story behind the practice in the founder's own words: why it started, how it grew, and how patients find it. It gives a patient a person to trust, and it repeats the rules the whole site keeps: care at home, a physician who reviews every plan, and the price in writing.",
+  "audience": "patients",
+  "owner_notes": [
+    "It is a trust page, not a sales page. It restates what the rest of the site keeps to: a physician reviews every plan, the price is in writing first, and no result is promised.",
+    "The part called How we meet patients says most people are sent by a chiropractor, a physical therapist or a family doctor. That matches the private pages for patients sent by a provider.",
+    "It names the care coordinator who sets up the video call, by first name, as the Booking page does.",
+    "A shorter founder block on the Our team page links here."
+  ],
+  "replace": [
+    "Your founder's name, title and portrait go at the top of the page.",
+    "Your own four figures go under the opening: patients cared for, licensed clinicians, states served and the year founded.",
+    "Your founder's short quote and three-paragraph origin story go under The origin story, in the founder's words.",
+    "Your own four milestones go in the timeline, with your years and events.",
+    "Your care coordinator's first name goes in How we meet patients."
+  ],
+  "keep": [
+    "The line in the origin story that the practice does not promise results.",
+    "The line that if this is not a fit, the practice says so and tells the patient who to see next.",
+    "The promise that the price goes in writing before the patient decides.",
+    "The small print at the foot of the page: statements not evaluated by the FDA, individual results vary."
+  ],
+  "sections": {
+    "top": { "say": "This is the opening of the Our founder page, with the founder's name and the practice's idea in one sentence; the name on this example is a sample." },
+    "numbers": { "say": "These are four figures about the practice; on this example they are sample figures." },
+    "why-exists": { "say": "This is the origin story in the founder's own words, opening with a short quote; on this example it is fictional." },
+    "milestones": { "say": "This is a short timeline of how the practice took shape; the years and events on this example are fictional." },
+    "how-we-meet-patients": { "say": "This part says how patients usually find the practice and what the first step is." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Our founder page for?",
+      "alt": ["Why is there a page just for the founder?", "What's on the founder page?"],
+      "say": "It tells a patient why your practice exists, in your founder's own words. It has a short origin story, a timeline of milestones, and a note on how patients find you. It gives people a person to trust before they book.",
+      "show": "founder"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the founder's story?",
+      "alt": ["Where is the origin story?", "How does a patient find the founder page?"],
+      "say": "Open the menu at the top, choose About, then Our founder. The story is a little way down, under the heading The origin story, in the founder's words. The Our team page also links to it.",
+      "show": "founder#why-exists"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I replace on the Our founder page?",
+      "alt": ["What do you need from me for the founder page?", "What do I change on this page?"],
+      "say": "Your founder's name and title, a short quote, and the origin story in three short paragraphs. Then your own milestones and your own figures. Everything on this example, including {{site.founder.name}}, is a sample.",
+      "show": "founder#why-exists"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Is the founder's story real?",
+      "alt": ["Is Dr. Demo a real person?", "Are the milestones real?"],
+      "say": "No. {{site.founder.name}} is a fictional founder, and the story, the years and the milestones are samples. On your own site this page carries your founder's story.",
+      "show": "founder#milestones"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay in the founder's story?",
+      "alt": ["Can I rewrite the founder story any way I like?", "Can the founder story say our treatment works?"],
+      "say": "You tell it in your own words, but its honest lines stay. The price goes in writing before a patient decides. You do not promise results, and if someone is not a fit, you say so.",
+      "show": "founder#why-exists"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "What does the founder page say about how patients find us?",
+      "alt": ["Does the founder page mention the providers who send me patients?"],
+      "say": "On this example it says most people hear about the practice from someone they trust, such as a chiropractor, a physical therapist or a family doctor. The first step is the same for everyone: a video call with a clinician. That text is a sample you replace with your own.",
+      "show": "founder#how-we-meet-patients"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Why did this practice start?",
+      "alt": ["Who started this practice?", "What's the story behind this practice?"],
+      "say": "On this example, the founder says people drove a long way and went home without a clear answer or a clear price. So a nurse practitioner comes to your home, and a physician reviews your plan first. The founder and the story are samples.",
+      "show": "founder#why-exists"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What's the first step if I want to go ahead?",
+      "alt": ["How do I start?", "Who do I talk to first?"],
+      "say": "The page says the first step is the same for everyone: a video call with a clinician. On this example {{site.coordinator.first}}, the {{site.coordinator.role}}, sets it up; that name is a sample. You get the steps and the price in writing, and time to think it over.",
+      "show": "founder#how-we-meet-patients"
+    }
+  ]
+}

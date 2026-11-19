@@ -10,10 +10,14 @@
      SiteGuide.read("knees#cost") the words of a section, to quote them
      SiteGuide.samples(true)      outline every sample detail on the page in view; returns how many
      SiteGuide.tour("patient-path")           the steps of a walk-through: a line to say and a place to show
+     SiteGuide.tourStep("patient-path", 1)    go to one step of a walk-through and get its line
      SiteGuide.look("sandstone")  show the page in view in another of the five design looks
      SiteGuide.back()             back to what the visitor was looking at before
 
    Targets are checked against the site's own page list, so nothing here can send a visitor off the site.
+   Every call that moves the page answers in one shape: { ok, page, name, section, label, layout, say } and, when it
+   could not, { ok: false, reason, try } with the closest places. "say" is a finished sentence the assistant may speak;
+   she should say she has shown something only when ok is true.
 
    Staying put. A talking assistant is cut off when the page it lives on reloads. So when a visitor (or the assistant)
    moves to another page, this script does not reload: it shows the assistant-free copy of that page, view-<page>.html,
@@ -21,7 +25,9 @@
    never unloads, so she keeps talking. A reload, or a link opened in a new tab, lands on the ordinary page.
 
    An assistant inside an iframe can post { type: "site-guide", action: "go", target: "knees#cost", id: 1 } to the page
-   and gets { type: "site-guide:result", id: 1, result } back. A link with ?show=<section> highlights on arrival. */
+   and gets { type: "site-guide:result", id: 1, result } back. Messages are taken from this site, from the origins the
+   site lists for its assistant, or (when it lists none) from a frame placed directly on the page.
+   A link with ?show=<section> highlights on arrival; ?samples=1 outlines the sample details. */
 (function () {
   "use strict";
   var DATA = window.__SITE_GUIDE__ || { pages: [], qa: [], starters: [] };
@@ -57,7 +63,7 @@
     if (stage) stage.hidden = !on;
     root.classList.toggle("is-staged", on);
     ["site-header", "main", "footer"].forEach(function (id) { var el = doc.getElementById(id); if (el) { if (on) el.setAttribute("inert", ""); else el.removeAttribute("inert"); } });
-    if (!on) doc.title = ownTitle;
+    if (!on) { doc.title = ownTitle; root.classList.toggle("guide-samples", samplesOn); }
   }
   function onFrameLoad() {
     var loc;
@@ -73,6 +79,7 @@
     try { doc.title = frame.contentDocument.title; } catch (e) {}
     if (staged) { try { history.replaceState({ guideStage: 1, slug: stagedSlug }, "", realUrl(stagedSlug, loc.hash)); } catch (e) {} }
     if (pendingShow) { var id = pendingShow; pendingShow = ""; var g = inner(); if (g) setTimeout(function () { g.show(id); }, 250); }
+    if (samplesOn) { var g2 = inner(); if (g2) g2.samples(true); }
     announce();
   }
   function openStage(slug, section, query) {
@@ -107,7 +114,10 @@
     // The visitor's own clicks on links to other pages take the same route, so the assistant is not cut off.
     doc.addEventListener("click", function (e) {
       if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      var a = e.target.closest && e.target.closest("a[href]");
+      // composedPath sees a link inside an open shadow root (a chat box), which e.target does not
+      var a = null, trail = e.composedPath ? e.composedPath() : [];
+      for (var i = 0; i < trail.length && !a; i++) if (trail[i] && trail[i].tagName === "A" && trail[i].hasAttribute && trail[i].hasAttribute("href")) a = trail[i];
+      if (!a) a = e.target.closest && e.target.closest("a[href]");
       if (!a || a.target === "_blank" || a.hasAttribute("download") || a.hasAttribute("data-guide-go")) return;
       var u;
       try { u = new URL(a.getAttribute("href"), location.href); } catch (err) { return; }
@@ -142,6 +152,42 @@
     return { page: b[0], section: b[1] || "" };
   }
 
+  /* One shape for every answer, with a sentence the assistant can say. */
+  function layoutNow() { return window.innerWidth < 1024 ? "phone" : "laptop"; }
+  function labelOf(page, section) {
+    var p = bySlug[page] || {}, lab = "", sample = false;
+    if (section) (p.x || []).forEach(function (s) { if (s[0] === section) { lab = s[1]; sample = !!s[3]; } });
+    if (section && !lab) (p.m || []).forEach(function (s) { if (s[0] === section) lab = s[1]; });
+    return { name: p.n || p.t || page, label: lab, sample: sample };
+  }
+  function pageWords(name) { name = String(name || ""); return /^the /i.test(name) || /\bpage$/i.test(name) ? name.charAt(0).toUpperCase() + name.slice(1) : "The " + name + " page"; }
+  function done(page, section, extra) {
+    var l = labelOf(page, section);
+    var at = section === "top" ? "" : l.label.replace(/[.?!]+$/, "");
+    var r = { ok: true, page: page, name: l.name, section: section || "", label: l.label, layout: layoutNow(), say: pageWords(l.name) + " is open" + (at ? " at " + at : section === "top" ? " at the top" : "") + "." + (l.sample ? " The details shown there are samples." : "") };
+    for (var k in extra || {}) r[k] = extra[k];
+    return r;
+  }
+  function fail(reason, query) {
+    var r = { ok: false, reason: reason, layout: layoutNow(), say: "I could not find that on this site." };
+    if (query) { var near = find(String(query).replace(/[#>:_-]+/g, " "), 3); if (near.length) r["try"] = near; }
+    return r;
+  }
+  /* A small card that says what was just shown, so the visitor knows why the page moved even with the sound off. */
+  var capTimer = null;
+  function caption(r) {
+    if (framed || !r || !r.ok || !doc.body) return r;
+    var el = doc.getElementById("guide-caption");
+    if (!el) { el = doc.createElement("div"); el.id = "guide-caption"; el.className = "guide-caption"; el.setAttribute("role", "status"); doc.body.appendChild(el); }
+    el.textContent = "";
+    var b = doc.createElement("b"); b.textContent = "Shown: "; el.appendChild(b);
+    el.appendChild(doc.createTextNode(r.name + (r.label && r.section !== "top" ? ", " + r.label : "") + (r.note ? ". " + r.note : "")));
+    el.classList.add("is-on");
+    clearTimeout(capTimer);
+    capTimer = setTimeout(function () { el.classList.remove("is-on"); }, 6000);
+    return r;
+  }
+
   var spotTimer = null;
   function spot(el, ms) {
     doc.querySelectorAll(".guide-spot").forEach(function (e) { e.classList.remove("guide-spot"); });
@@ -152,30 +198,35 @@
   }
   function show(id) {
     id = String(id || "").replace(/^#/, "");
-    if (staged) { var g = inner(); if (g) return g.show(id); pendingShow = id; return { ok: true, page: stagedSlug, section: id, loading: true }; }
+    if (staged) {
+      var g = inner();
+      if (!g) { pendingShow = id; return caption(done(stagedSlug, id, { loading: true })); }
+      var r = g.show(id);
+      return r && r.ok ? caption(r) : fail("no section called " + id + " on the " + labelOf(stagedSlug).name + " page", id);
+    }
     var el = doc.getElementById(id);
-    if (!el) return { ok: false, reason: "no section called " + id + " on this page" };
+    if (!el) return fail("no section called " + id + " on this page", id);
     if (el.tagName === "DETAILS") el.open = true; // a question: open it
     el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: el.tagName === "DETAILS" ? "center" : "start" });
     spot(el);
-    return { ok: true, page: own, section: el.id };
+    return caption(done(own, el.id));
   }
   function go(target) {
     var t = current(parse(target));
-    if (!known(t)) return { ok: false, reason: "unknown target " + JSON.stringify(target) + "; use SiteGuide.find() or SiteGuide.pages()" };
+    if (!known(t)) return fail("there is no page or section called " + (typeof target === "string" ? target : JSON.stringify(target)) + " on this site", typeof target === "string" ? target : (target && (target.section || target.page)) || "");
     if (t.page === here()) {
       if (t.section) return show(t.section);
       var w = staged && frame ? frame.contentWindow : window;
       try { w.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" }); } catch (e) {}
-      return { ok: true, page: t.page, section: "" };
+      return caption(done(t.page, ""));
     }
     var theme = curLook;
-    if (keepAlive) { openStage(t.page, t.section, theme ? "theme=" + theme : ""); return { ok: true, page: t.page, section: t.section, title: bySlug[t.page].t }; }
+    if (keepAlive) { openStage(t.page, t.section, theme ? "theme=" + theme : ""); return caption(done(t.page, t.section, { title: bySlug[t.page].t })); }
     var q = [];
     if (t.section) q.push("show=" + encodeURIComponent(t.section));
     if (theme) q.push("theme=" + encodeURIComponent(theme));
     location.href = (framed ? "view-" : "") + (t.page === "index" && !framed ? "./" : t.page + ".html") + (q.length ? "?" + q.join("&") : "") + (t.section ? "#" + t.section : "");
-    return { ok: true, page: t.page, section: t.section, navigating: true };
+    return done(t.page, t.section, { navigating: true });
   }
   /** Follow an address of this site (used by the form's thank-you redirect) without cutting the assistant off. */
   function visit(url) {
@@ -187,7 +238,7 @@
   }
 
   function where() {
-    if (staged) { var g = inner(); if (g) return g.where(); var sp = bySlug[stagedSlug] || { t: "", x: [] }; return { page: stagedSlug, title: sp.t, section: "", section_label: "", sections: sp.x.map(function (s) { return { id: s[0], label: s[1] }; }) }; }
+    if (staged) { var g = inner(); if (g) return g.where(); var sp = bySlug[stagedSlug] || { t: "", x: [] }; return { ok: true, page: stagedSlug, name: sp.n || sp.t, title: sp.t, reach: sp.r || "", reach_phone: sp.rp || sp.r || "", section: "", section_label: "", label: "", layout: layoutNow(), sample: !!DATA.sample, sections: sp.x.map(function (s) { return { id: s[0], label: s[1] }; }) }; }
     var p = bySlug[own] || { s: own, t: doc.title, x: [] };
     var line = window.innerHeight * 0.35, cur = null;
     doc.querySelectorAll("[data-guide][id]").forEach(function (el) {
@@ -195,34 +246,47 @@
       if (r.top <= line && r.bottom > 0) cur = el;
     });
     var sec = cur ? p.x.filter(function (s) { return s[0] === cur.id; })[0] : null;
-    return { page: own, name: p.n || p.t, title: p.t, reach: p.r || "", section: cur ? cur.id : "", section_label: sec ? sec[1] : "", layout: window.innerWidth < 1024 ? "phone" : "laptop", sections: p.x.map(function (s) { return { id: s[0], label: s[1] }; }) };
+    return { ok: true, page: own, name: p.n || p.t, title: p.t, reach: p.r || "", reach_phone: p.rp || p.r || "", section: cur ? cur.id : "", section_label: sec ? sec[1] : "", label: sec ? sec[1] : "", layout: layoutNow(), sample: !!DATA.sample, say: "You are on " + pageWords(p.n || p.t).replace(/^The /, "the ") + (sec ? (sec[0] === "top" ? ", at the top" : ", at " + String(sec[1]).replace(/[.?!]+$/, "")) : "") + ".", sections: p.x.map(function (s) { return { id: s[0], label: s[1] }; }) };
   }
   function pages() {
-    return DATA.pages.map(function (p) { return { page: p.s, name: p.n || p.t, title: p.t, reach: p.r, purpose: p.p, sections: p.x.map(function (s) { return { target: p.s + "#" + s[0], label: s[1] }; }) }; });
+    return DATA.pages.map(function (p) { return { page: p.s, name: p.n || p.t, title: p.t, reach: p.r, reach_phone: p.rp || p.r, purpose: p.p, sections: p.x.map(function (s) { return { target: p.s + "#" + s[0], label: s[1] }; }) }; });
   }
   /** The words of a section as they are on the page, so they can be quoted exactly. */
   function read(target) {
     var t = current(parse(String(target || "").indexOf("#") < 0 && doc.getElementById(String(target)) ? "#" + target : target));
-    if (!known(t)) return { ok: false, reason: "unknown target " + JSON.stringify(target) };
-    if (t.page !== here()) { var p = bySlug[t.page], s = p.x.filter(function (x) { return x[0] === t.section; })[0]; return { ok: true, page: t.page, section: t.section, text: s ? s[2] : p.p, summary_only: true }; }
+    if (!known(t)) return fail("there is no section called " + String(target) + " on this site", String(target));
+    if (t.page !== here()) { var p = bySlug[t.page], s = p.x.filter(function (x) { return x[0] === t.section; })[0]; return { ok: true, page: t.page, section: t.section, text: (s ? s[2] : p.p) + (s && s[3] ? " (The details shown in this section are samples.)" : ""), summary_only: true }; }
     if (staged) { var g = inner(); if (g) return g.read("#" + t.section); }
     var el = t.section ? doc.getElementById(t.section) : doc.getElementById("main");
     if (!el) return { ok: false, reason: "not on this page" };
     var c = el.cloneNode(true);
-    c.querySelectorAll("script, style, svg, .sample, .ph-tag").forEach(function (x) { x.remove(); });
+    c.querySelectorAll("script, style, svg, .ph-tag").forEach(function (x) { x.remove(); });
+    c.querySelectorAll(".sample").forEach(function (x) { x.textContent = " (sample) "; }); // a made-up detail stays marked when it is quoted
     return { ok: true, page: t.page, section: t.section, text: (c.textContent || "").replace(/\s+/g, " ").trim().slice(0, 4000) };
   }
   /** Outline every sample detail on the page in view, so an owner can see what they will replace. */
+  var samplesOn = false; // kept for the visit, so the outlines follow the visitor from page to page
   function samples(on) {
+    on = on === "toggle" ? !samplesOn : on !== false;
+    if (!framed) samplesOn = on;
     if (staged) { var g = inner(); if (g) return g.samples(on); }
-    on = on !== false;
     root.classList.toggle("guide-samples", on);
-    return { ok: true, on: on, count: doc.querySelectorAll("#main .sample").length, page: own };
+    var n = doc.querySelectorAll("#main .sample").length;
+    return { ok: true, on: on, count: n, page: own, name: labelOf(own).name, layout: layoutNow(), say: on ? (n ? "I have outlined " + (n === 1 ? "the one sample detail" : "the " + n + " sample details") + " on this page. Those are the places where your own details go." : "There are no sample details on this page.") : "The outlines are off." };
   }
   function tours() { return (DATA.tours || []).map(function (t) { return { id: t.id, title: t.title, steps: t.steps.length }; }); }
   function tour(id) {
     var t = (DATA.tours || []).filter(function (x) { return x.id === id; })[0];
     return t ? { ok: true, id: t.id, title: t.title, steps: t.steps } : { ok: false, reason: "no tour called " + id, tours: tours() };
+  }
+  /** Go to step n (counting from 1) of a walk-through. The answer carries the line to say and whether there is another step. */
+  function tourStep(id, n) {
+    var t = tour(id);
+    if (!t.ok) return t;
+    n = Math.max(1, Math.min(t.steps.length, parseInt(n, 10) || 1));
+    var st = t.steps[n - 1], r = st.show ? go(st.show) : { ok: true };
+    r.tour = t.id; r.step = n; r.of = t.steps.length; r.line = st.say; r.next = n < t.steps.length ? n + 1 : 0;
+    return r;
   }
   function back() { history.back(); return { ok: true }; }
   /** Show the page in view in another design look, without reloading the assistant's page. */
@@ -235,10 +299,12 @@
     if (!keepAlive) { location.search = "theme=" + name; return { ok: true, look: name, navigating: true }; }
     if (staged) { try { var loc = frame.contentWindow.location; loc.replace("view-" + slug + ".html?theme=" + name + loc.hash); } catch (e) { return { ok: false, reason: "the page is still loading" }; } }
     else openStage(slug, "", "theme=" + name);
-    return { ok: true, look: name, page: slug, looks: LOOKS };
+    return { ok: true, look: name, page: slug, name: labelOf(slug).name, looks: LOOKS, layout: layoutNow(), say: "This is the same page in the look called " + name.charAt(0).toUpperCase() + name.slice(1) + "." };
   }
   function find(query, limit) {
-    var q = words(query), hits = {};
+    var heard = String(query || "").toLowerCase();
+    (DATA.heard || []).forEach(function (h) { if (heard.indexOf(h[0]) >= 0) heard = heard.split(h[0]).join(h[1]); }); // what a microphone tends to make of the site's words
+    var q = words(heard), hits = {};
     if (!q.length) return [];
     function add(target, score, label) { if (score > 0 && (!hits[target] || hits[target].score < score)) hits[target] = { target: target, label: label, score: score }; }
     function overlap(text, weight) { var w = words(text), n = 0; q.forEach(function (x) { if (w.indexOf(x) >= 0 || w.some(function (y) { return y.length > 3 && x.length > 3 && (y.indexOf(x) === 0 || x.indexOf(y) === 0); })) n++; }); return (n / q.length) * weight; }
@@ -246,7 +312,7 @@
       add(p.s, overlap(p.t, 3) + overlap(p.p, 1), p.t);
       p.x.forEach(function (s) { add(p.s + "#" + s[0], overlap(s[1], 3) + overlap(s[2], 1.2) + overlap(p.t, 0.8), p.t + " › " + s[1]); });
     });
-    (DATA.qa || []).forEach(function (x) { var s = overlap(x[0], 3.4); if (s > 1.6) add(x[1], s, (hits[x[1]] || {}).label || x[1]); });
+    (DATA.qa || []).forEach(function (x) { var s = overlap(x[0], 3.4); if (s > 1.6) { var b = String(x[1]).split("#"), l = labelOf(b[0], b[1] || ""); add(x[1], s, (hits[x[1]] || {}).label || l.name + (l.label ? " › " + l.label : "")); } });
     return Object.keys(hits).map(function (k) { return hits[k]; }).sort(function (a, b) { return b.score - a.score; }).slice(0, limit || 5).map(function (h) { return { target: h.target, label: h.label, score: Math.round(h.score * 100) / 100 }; });
   }
 
@@ -274,25 +340,32 @@
         if (li.querySelector(".menu")) { li.classList.add("is-open", "guide-open"); setTimeout(function () { li.classList.remove("guide-open"); }, 6500); }
       }
     }
-    if (!el) return { ok: false, reason: "nothing in the header called " + what };
+    if (!el) return { ok: false, reason: "nothing in the header called " + what, layout: layoutNow(), say: "I could not find that in the menu." };
     if (el.id === "footer") el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
     spot(el, 6500);
-    return { ok: true, pointed_at: (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60) };
+    var at = (el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60);
+    return { ok: true, pointed_at: at, page: own, layout: layoutNow(), say: el.id === "footer" ? "That is the footer, at the bottom of every page." : "I have outlined " + (at || "it") + (phone ? " for you." : " at the top of the page.") };
   }
 
-  var api = { where: where, pages: pages, find: find, go: go, show: show, point: point, read: read, samples: samples, tours: tours, tour: tour, back: back, look: look, visit: visit, starters: function () { return (DATA.starters || []).slice(); }, version: 1 };
+  var api = { where: where, pages: pages, find: find, go: go, show: show, point: point, read: read, samples: samples, tours: tours, tour: tour, tourStep: tourStep, back: back, look: look, visit: visit, starters: function () { return (DATA.starters || []).slice(); }, version: 2 };
   window.SiteGuide = api;
   function announce() { try { doc.dispatchEvent(new CustomEvent("siteguide:page", { detail: where() })); } catch (e) {} }
 
   // An assistant in an iframe talks to the page with messages. Only the actions below exist; go() and show() accept the
   // site's own pages and sections and nothing else, so a message cannot send the visitor anywhere else.
-  var OPEN = { where: 1, pages: 1, find: 1, go: 1, show: 1, point: 1, read: 1, samples: 1, tours: 1, tour: 1, back: 1, look: 1, starters: 1 };
+  var OPEN = { where: 1, pages: 1, find: 1, go: 1, show: 1, point: 1, read: 1, samples: 1, tours: 1, tour: 1, tourStep: 1, back: 1, look: 1, starters: 1 };
+  var ORIGINS = DATA.origins || [];
+  function trusted(e) {
+    if (e.origin === location.origin || ORIGINS.indexOf(e.origin) >= 0) return true;
+    if (ORIGINS.length) return false;
+    try { return !!e.source && e.source !== window && e.source.parent === window; } catch (err) { return false; } // a frame placed directly on this page
+  }
   window.addEventListener("message", function (e) {
     var d = e.data;
-    if (!d || d.type !== "site-guide" || !OPEN[d.action]) return;
+    if (!d || d.type !== "site-guide" || !OPEN[d.action] || !trusted(e)) return;
     var result;
-    try { result = api[d.action](d.target !== undefined ? d.target : d.query !== undefined ? d.query : d.id_or_on, d.limit); } catch (err) { result = { ok: false, reason: String(err && err.message) }; }
-    if (e.source && e.source.postMessage) { try { e.source.postMessage({ type: "site-guide:result", id: d.id, action: d.action, result: result }, "*"); } catch (err) {} }
+    try { result = api[d.action](d.target !== undefined ? d.target : d.query !== undefined ? d.query : d.id_or_on, d.step !== undefined ? d.step : d.limit); } catch (err) { result = { ok: false, reason: String(err && err.message) }; }
+    if (e.source && e.source.postMessage) { try { e.source.postMessage({ type: "site-guide:result", id: d.id, action: d.action, result: result }, e.origin && e.origin !== "null" ? e.origin : "*"); } catch (err) {} }
   });
 
   // Buttons and links on the page can use the same thing: <button data-guide-go="knees#cost">.
@@ -302,17 +375,28 @@
     e.preventDefault();
     var t = b.getAttribute("data-guide-go");
     var top = framed ? window.parent.SiteGuide : api; // inside the stage, the outer page does the moving
-    if (/^look:/i.test(t)) top.look(t.slice(5)); else if (/^samples$/i.test(t)) top.samples(!root.classList.contains("guide-samples")); else if (/^(menu:|book$|call$|home$|footer$)/i.test(t)) top.point(t); else top.go(t);
+    if (/^look:/i.test(t)) top.look(t.slice(5)); else if (/^samples$/i.test(t)) top.samples("toggle"); else if (/^(menu:|book$|call$|home$|footer$)/i.test(t)) top.point(t); else top.go(t);
     var dock = doc.getElementById("assistant-dock");
     if (dock && dock.contains(b)) setDock(false);
   });
 
-  // The placeholder that holds the assistant's corner until the real one is connected.
+  // Panel mode: the assistant's own snippet waits in a <template> and is put on the page the first time the visitor
+  // opens the corner, so nothing of hers loads, and no microphone is asked for, until they ask.
+  function mount(dock) {
+    var tpl = dock.querySelector("template"), host = dock.querySelector(".assistant-dock__embed");
+    if (!tpl || !host || dock.getAttribute("data-mounted")) return;
+    dock.setAttribute("data-mounted", "1");
+    var frag = tpl.content.cloneNode(true);
+    [].slice.call(frag.querySelectorAll("script")).forEach(function (old) { var s = doc.createElement("script"); [].slice.call(old.attributes).forEach(function (a) { s.setAttribute(a.name, a.value); }); s.text = old.text; old.parentNode.replaceChild(s, old); });
+    host.appendChild(frag);
+  }
+  // The placeholder that holds the assistant's corner until the real one is connected (and her launcher in panel mode).
   function setDock(open) {
     var dock = doc.getElementById("assistant-dock");
     if (!dock) return;
     var panel = dock.querySelector(".assistant-dock__panel"), btn = dock.querySelector(".assistant-dock__button");
     dock.classList.toggle("is-open", open);
+    if (open) mount(dock);
     if (panel) panel.hidden = !open;
     if (btn) btn.setAttribute("aria-expanded", String(open));
   }
@@ -320,13 +404,16 @@
     var dock = doc.getElementById("assistant-dock");
     if (!dock) return;
     if (e.target.closest(".assistant-dock__button")) setDock(!dock.classList.contains("is-open"));
-    else if (e.target.closest(".assistant-dock__close") || !dock.contains(e.target)) setDock(false);
+    else if (e.target.closest(".assistant-dock__close") || (!dock.contains(e.target) && !dock.hasAttribute("data-live"))) setDock(false);
   });
-  doc.addEventListener("keydown", function (e) { if (e.key === "Escape") setDock(false); });
+  doc.addEventListener("keydown", function (e) { var dock = doc.getElementById("assistant-dock"); if (e.key === "Escape" && dock && !dock.hasAttribute("data-live")) setDock(false); });
+  // The one line shown beside a live assistant on the first page of a visit.
+  doc.addEventListener("click", function (e) { var x = e.target.closest && e.target.closest(".assistant-note__close"); if (x && x.parentNode) x.parentNode.hidden = true; });
 
   function arrive() {
     var id = new URLSearchParams(location.search).get("show");
     if (id && doc.getElementById(id)) setTimeout(function () { show(id); }, 350);
+    if (new URLSearchParams(location.search).get("samples") === "1") samples(true);
     try { doc.dispatchEvent(new CustomEvent("siteguide:ready", { detail: where() })); } catch (e) {}
   }
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", arrive); else arrive();

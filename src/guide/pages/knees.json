@@ -1,0 +1,98 @@
+{
+  "purpose": "Speaks to a patient whose knee has started deciding their day, and tells them plainly what the practice offers, who it tends to suit, what it will not promise and what it costs. It exists so a knee patient sees themselves first and then takes one small step: a video call.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. Each page has its own situations, its own who-it-suits and its own what-we-will-not-promise.",
+    "It is written for a patient reading on a phone who wants four things in this order: is this for me, is it honest, what does it cost, what do I do next. The science comes last, as links to short guides.",
+    "Book a video call at the top and Book a Consultation at the bottom both open the Booking page. Nothing on the page takes payment or decides who is a candidate; a clinician does that on the call.",
+    "On this example two referral pages link here: the sample chiropractor's page (Read about knee care first) and the general Sent here by your provider page (Read about joint care first).",
+    "What it costs is the same paragraph on all six Where it hurts pages. It prices a plan for one area, such as a knee, a shoulder or the lower back, and says the quote shows it when treatment needs a partner facility instead of a home visit."
+  ],
+  "replace": [
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photo at the top is licensed stock standing in; your own photo can replace it.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The What we will not promise card: the treatment is not FDA-approved for knees and is investigational, results vary and some people notice little change, and a knee that has lost its structure is better served by a surgeon.",
+    "The line in Who it tends to suit that a clinician decides candidacy on a video call.",
+    "The closing line that if someone is not a fit, the practice tells them.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page names the trouble in everyday words, stairs, chairs and the garden, and offers one button, Book a video call." },
+    "is-this-you": { "say": "Is this you lists five everyday situations a knee patient will recognise, before any science." },
+    "what-we-do": { "say": "What we do is three cards: the treatment in plain words, who it tends to suit, and what the practice will not promise." },
+    "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, such as a knee, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides for people who like to read before they decide." },
+    "questions": { "say": "Questions answers three things knee patients ask: how many visits it takes, whether a replacement is still possible later, and what to bring to the call." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Knees page for?",
+      "alt": ["Why is there a page just for knees?", "What does the Knees page do?"],
+      "say": "The Knees page speaks to someone whose knee has started deciding their day: stairs, low chairs, kneeling in the garden. It says plainly what your practice offers, who it tends to suit and what it costs, and it is honest about what it will not promise. Then it asks for one small step, a video call.",
+      "show": "knees"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What are the six Where it hurts pages for?",
+      "alt": ["Why are there separate pages for knees, hips and shoulders?", "Are the Where it hurts pages all built the same?"],
+      "say": "They meet patients where they are, with pages named for what hurts instead of for a treatment. All six are built the same way, from Is this you down to the price and a few questions. Each one has its own situations and its own honest limits.",
+      "show": "index#where-it-hurts"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where's the knee page? And the ones for hips and shoulders?",
+      "alt": ["Where are the pages for each body part?", "How do I find the knee, hip and shoulder pages?"],
+      "say": "Open the menu at the top and choose Where it hurts. Knees, Hips and Shoulders are the first three, with three more under them. The same six are also on the Home page and at the bottom of every page.",
+      "show": "knees"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does a patient see the price on the Knees page?",
+      "alt": ["Is the price on the Knees page?", "Where is the cost on the knee page?"],
+      "say": "About halfway down, in the part called What it costs. On this example it says a plan for one area, such as a knee, runs from {{site.pricing.from}} to {{site.pricing.to}}, which is a sample. On your own site that spot shows your range.",
+      "show": "knees#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my prices go?",
+      "alt": ["How do I put my own prices on the site?", "Where does my price range show?"],
+      "say": "Your site needs two figures from you, a from and a to. They show in the What it costs part of all six Where it hurts pages and on the referral pages, and the lower figure shows on the Home page. The {{site.pricing.from}} to {{site.pricing.to}} you see here is a sample.",
+      "show": "knees#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Knees page?",
+      "alt": ["What do I replace on this page?", "What on the knee page is mine to fill in?"],
+      "say": "Three things. Your price range in the What it costs part, your phone number beside the booking button at the bottom, and the photo at the top, which is a stock stand-in. On this example the price and the phone number are samples.",
+      "show": "knees#cost"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "Will this work for my knee?",
+      "alt": ["Can you tell a patient whether this will work for their knee?", "Is this going to fix my knee?"],
+      "say": "I can't tell you that, and the page does not promise it. It says the treatment is not FDA-approved for knees and is investigational, and that results vary: some people notice a change over weeks and some notice little change. A clinician decides whether you are a candidate, on a video call.",
+      "show": "knees#what-we-do"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How much does it cost for my knee?",
+      "alt": ["What does knee treatment cost?"],
+      "say": "The page says a plan for one area, such as a knee, runs from {{site.pricing.from}} to {{site.pricing.to}}. That figure is a sample on this example site. Care is paid out of pocket, and your exact quote is written down on the call, after a clinician decides what, if anything, makes sense for you.",
+      "show": "knees#cost"
+    }
+  ]
+}

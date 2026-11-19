@@ -1,0 +1,98 @@
+{
+  "name": "Dr. Tester referral",
+  "reach": "a private link given to that sample provider's patients; it is not in the menus. On this example, the Site guide link at the bottom of any page opens a table that lists it",
+  "purpose": "A private page for the patients of one referring provider: on this example a sample family doctor, Dr. Tester, who sends people whose hip pain is changing how far they walk. It says plainly what happens next, what it costs and who answers the phone, so they have an honest picture before they decide anything.",
+  "audience": "patients sent by a provider",
+  "owner_notes": [
+    "Built the same way as the other three referral pages: who sent you, three steps, three questions, the cost, who answers the phone, then three honest lines. This one is about a hip, and its link opens the Hips page.",
+    "Dr. Lee Tester, MD, of Tester Family Medicine is a sample referrer, and the card is stamped Sample referrer. The note on it says Dr. Tester sends patients who want an honest opinion before they see a surgeon.",
+    "The second step can end in a no. The page says the patient then gets a clearer picture to take back to the doctor who sent them, and that nobody calls to push.",
+    "The page says that, with the patient's permission, Dr. Tester gets a note at each step. The website sends nothing to the provider; the practice keeps that promise itself.",
+    "Under Who answers the phone, beneath the hours, the page says: This website is not for emergencies. In an emergency, call 911. All four referral pages carry that line. It is part of the page itself, not a sample detail."
+  ],
+  "replace": [
+    "The card at the top: the provider's name and letters, role, practice name, portrait and the note under What Dr. Tester told us. All of it is a sample; a real provider's details go there. The picture on this card is a stock photo of a doctor with an older patient, standing in for a portrait.",
+    "The body area in the heading, your hip on this page, and the link Read about hip care first, which opens the Hips page. Both follow the patients that provider usually sends.",
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "Who answers the phone: your coordinator's first name replaces the sample {{site.coordinator.first}}, and your own number and hours replace the samples. The number shown, {{site.phone}}, is a sample and is also on the call button at the top."
+  ],
+  "keep": [
+    "The answer to Is this approved, which starts with No: not FDA-approved to treat joints, and investigational for most uses.",
+    "The In one breath lines: not FDA-approved and investigational for most uses, results vary and none is promised, and if someone is not a candidate the practice says so and sends them back to their provider with notes.",
+    "The answer to What if I am not a candidate: the patient is told so on the call.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page tells the patient that Dr. Tester, a sample family doctor on this example, asked the practice to look after their hip, with a card about Dr. Tester and two buttons: Book a video call, and a call button." },
+    "what-happens-next": { "say": "What happens next sets out three steps: a video call with a licensed clinician, an honest answer in writing that can be yes, no or more information needed, then treatment at home with follow-ups by the same team." },
+    "three-questions": { "say": "Three questions gives short answers to what a doctor's patients ask first: is this approved, will it hurt and how long does it take, and what if I am not a candidate. A link there opens the Hips page." },
+    "cost": { "say": "What it costs gives the range for one area, such as a knee or a shoulder, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It also names who answers the phone, and ends with a line that says the website is not for emergencies." },
+    "in-one-breath": { "say": "In one breath repeats three honest lines, then offers Book a video call and a button to see the whole site." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is Dr. Tester's page for?",
+      "alt": ["What does a patient sent by a family doctor see?", "Can a physician who refers to me have a page?"],
+      "say": "It is a private page for patients a doctor has sent to you. On this example that is Dr. Tester, a sample family doctor. It tells Dr. Tester's patients what happens next, what it costs and who answers the phone, before they decide anything.",
+      "show": "from-dr-tester"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the price on Dr. Tester's page?",
+      "alt": ["Does a referred patient see what it costs?", "Where does a referral page show the cost?"],
+      "say": "In the part called What it costs, after the three questions. On this example it says a plan for one area runs from {{site.pricing.from}} to {{site.pricing.to}}, which is a sample. On your own site that spot shows your range.",
+      "show": "from-dr-tester#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Who does a patient reach when they call from this page?",
+      "alt": ["Who answers the phone for a referred patient?", "Who is {{site.coordinator.first}}?"],
+      "say": "The page names the person who answers the phone, in the same part as the price. On this example that is {{site.coordinator.first}}, the {{site.coordinator.role}}, on {{site.phone}}, and both are samples. The patient is asked to say who sent them, and {{site.coordinator.first}} books the call.",
+      "show": "from-dr-tester#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "What should I check on a referral page before the link goes out?",
+      "alt": ["What do I proofread on a provider's page?", "Is a referral page ready to send to patients?"],
+      "say": "First, the provider's name, portrait and note, and the body area in the heading. Then your price range, and the first name, number and hours shown with it. Last, that the honest lines are still there: not FDA-approved, results vary, and what happens if someone is not a candidate.",
+      "show": "from-dr-tester#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on Dr. Tester's page?",
+      "alt": ["What do I replace on the doctor's referral page?", "Is Dr. Tester a real doctor?"],
+      "say": "Dr. Tester is a sample, so a real doctor who sends you patients takes that place: name, portrait and note, plus the body area in the heading. Lower down, your own price range, your coordinator's first name and your phone number replace the samples.",
+      "show": "from-dr-tester#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "A family doctor wants to send me patients. How do I get a page for that doctor?",
+      "alt": ["How do I get a referral page for a physician?", "How many referral pages can I have?"],
+      "say": "I don't have that. Your contact for the website can tell you how to ask for one, and how many you can have. This sample shows what a doctor's page looks like, and I can walk you through it.",
+      "show": "from-dr-tester"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "Is this approved?",
+      "alt": ["Is the treatment approved by the FDA?", "Can a referral page say the treatment is approved?"],
+      "say": "No. The page says stem cell and exosome products are not FDA-approved to treat joints, and are investigational for most uses, and it says so up front. On the call a clinician can explain who tends to be a candidate, what the treatment involves, and what the research does and does not show.",
+      "show": "from-dr-tester#q-is-this-approved"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What if I'm not a candidate?",
+      "alt": ["What happens if this isn't right for my hip?", "Will you tell me if I'm not a fit?"],
+      "say": "I can't tell you whether you are one; a licensed clinician tells you on the call. The page says a note then goes to Dr. Tester, a sample provider on this example, with your permission. It adds that some people are better served by their specialist, and that the practice says so.",
+      "show": "from-dr-tester#q-what-if-i-am-not-a"
+    }
+  ]
+}

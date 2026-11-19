@@ -1,0 +1,72 @@
+{
+  "name": "Exosomes article",
+  "reach": "the Journal page, which is under About in the menu at the top; it is the third of the six guides listed there, and the Knees, Shoulders and After an injury pages link to it",
+  "purpose": "Explains in plain words what exosomes are and what they are not, so a patient who has heard the word used loosely gets the careful version. It says plainly that exosome products are not FDA-approved for any orthopedic or wellness use, and that results vary.",
+  "audience": "patients",
+  "owner_notes": [
+    "Do not confuse it with the Exosomes page under Treatments. This is the short Journal read about the science; the Treatments page presents exosomes as part of the care on offer.",
+    "It chooses the narrower wording on purpose: exosomes carry signals that may support the body's own repair. It says that marketing words such as repair and regenerate go further than the research does.",
+    "It says the FDA has issued consumer alerts about clinics marketing exosomes with claims that outrun the evidence, and that the practice agrees with the alerts.",
+    "The Knees, Shoulders and After an injury pages link here under The science, if you want it."
+  ],
+  "replace": [
+    "The reviewer line under the heading: your own clinical reviewer's name and the review date replace the sample {{site.reviewer.name}}.",
+    "The sources box at the end: your clinical reviewer adds the citations before launch, where the Sample stamp is.",
+    "The parts headed Where they come from and How a protocol works describe the practice's own products and clinicians: your clinician confirms they are true of your practice.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}."
+  ],
+  "keep": [
+    "The sentence that exosome products are not FDA-approved for any orthopedic or wellness use and are considered investigational.",
+    "The careful wording that exosomes carry signals that may support the body's own repair, and that published results vary.",
+    "The line under What to expect that individual results vary, and that the practice says so before anyone books.",
+    "The line under What to expect that other side effects are possible with any procedure, and that a clinician goes through them before the patient decides.",
+    "The link to the FDA consumer alert in the sources box.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the article promises the version a careful clinician would give across the kitchen table, and shows who reviewed it; the reviewer on this example is a sample name." },
+    "article": { "say": "The article itself explains what exosomes are and are not, where they come from and what to expect, and says they are not FDA-approved and are investigational." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the exosomes article for?",
+      "alt": ["Why is there an article about exosomes?", "What does Exosomes, explained in plain words cover?"],
+      "say": "It gives your patients the careful version of a word that gets used loosely. It says what exosomes are, tiny packages that cells send each other, and what they are not. It also says plainly that they are not FDA-approved and are investigational, and that results vary.",
+      "show": "journal-exosomes-explained"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site explain exosomes in plain words?",
+      "alt": ["Is the exosomes article the same as the Exosomes page?", "Where is the article on exosomes?"],
+      "say": "In the Journal: open the menu at the top, choose About, then Journal, and pick Exosomes, explained in plain words. It is a different page from Exosomes under Treatments. The Knees, Shoulders and After an injury pages link to it as well.",
+      "show": "journal-exosomes-explained#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the exosomes article?",
+      "alt": ["What do I replace on the exosomes article?", "Who adds the sources to the exosomes article?"],
+      "say": "Two spots are stamped Sample. The reviewer line at the top takes your own clinician's name and date; on this example it shows {{site.reviewer.name}}, a sample name. And your clinical reviewer adds the citations to the sources box at the end before launch.",
+      "show": "journal-exosomes-explained"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Can you explain exosomes in plain words?",
+      "alt": ["What does the article say exosomes are?", "Do exosomes turn into new tissue?"],
+      "say": "The article calls them tiny packages that cells send each other, like sealed envelopes with instructions inside. They are not cells and cannot become new tissue, though early research suggests they may influence how nearby cells behave. They are not FDA-approved for any orthopedic or wellness use, and published results vary.",
+      "show": "journal-exosomes-explained#article"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What should I expect afterwards?",
+      "alt": ["How soon would I notice anything?", "Will I be sore after?"],
+      "say": "The article says mild soreness where the injection went in is common for a day or two. Other side effects are possible, and a clinician goes through them with you before you decide. Any change, if it comes, tends to be gradual over weeks, and results vary from person to person.",
+      "show": "journal-exosomes-explained#article"
+    }
+  ]
+}

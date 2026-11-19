@@ -14,7 +14,7 @@
    "this-is-probably-you",
    "physician-led-care",
    "honesty",
-   "the-infrastructure-behind-the-care",
+   "infrastructure",
    "patient-stories",
    "results",
    "cost",
@@ -85,14 +85,14 @@
   ],
   "disclaimer": [
    "top",
-   "sample-legal-text-a"
+   "disclaimer-text"
   ],
   "financing": [
    "top",
    "monthly-payment-plans",
    "how-it-works",
    "what-it-covers",
-   "apply-2",
+   "apply",
    "next-step"
   ],
   "for-providers": [
@@ -111,7 +111,7 @@
    "how-we-meet-patients",
    "next-step"
   ],
-  "from-dr-natarajan": [
+  "from-dr-example": [
    "top",
    "what-happens-next",
    "three-questions",
@@ -119,7 +119,7 @@
    "in-one-breath",
    "small-print"
   ],
-  "from-dr-reyes": [
+  "from-dr-tester": [
    "top",
    "what-happens-next",
    "three-questions",
@@ -127,7 +127,7 @@
    "in-one-breath",
    "small-print"
   ],
-  "from-marcus-hale": [
+  "from-pat-specimen": [
    "top",
    "what-happens-next",
    "three-questions",
@@ -156,43 +156,43 @@
   ],
   "journal": [
    "top",
-   "what-whartons-jelly-is-and-why",
+   "articles",
    "next-step",
    "small-print"
   ],
   "journal-candidacy": [
    "top",
-   "who-tends-to-be-considered",
+   "article",
    "next-step",
    "small-print"
   ],
   "journal-exosomes-explained": [
    "top",
-   "tiny-packages-that-cells-send-to",
+   "article",
    "next-step",
    "small-print"
   ],
   "journal-in-home-visit": [
    "top",
-   "before-the-visit-the-consultation",
+   "article",
    "next-step",
    "small-print"
   ],
   "journal-reading-claims": [
    "top",
-   "start-with-what-the-regulator-says",
+   "article",
    "next-step",
    "small-print"
   ],
   "journal-surgery-questions": [
    "top",
-   "1-what-exactly-is-damaged-and",
+   "article",
    "next-step",
    "small-print"
   ],
   "journal-whartons-jelly": [
    "top",
-   "a-tissue-not-a-drug",
+   "article",
    "next-step",
    "small-print"
   ],
@@ -218,7 +218,7 @@
   ],
   "privacy-policy": [
    "top",
-   "information-collection-and-use"
+   "policy"
   ],
   "services": [
    "top",
@@ -246,7 +246,9 @@
    "yours",
    "stays",
    "booking",
+   "looks",
    "ask",
+   "not-here",
    "connect"
   ],
   "stem-cell-therapy": [
@@ -254,7 +256,7 @@
    "how-it-works",
    "key-benefits",
    "conditions-addressed",
-   "active-adultsback-on-the",
+   "who-and-where",
    "before-you-book",
    "faq",
    "next-step",
@@ -262,7 +264,7 @@
   ],
   "terms-conditions": [
    "top",
-   "accounts"
+   "terms"
   ],
   "testimonials": [
    "top",
@@ -301,7 +303,7 @@
   "why-were-different": [
    "top",
    "our-principles",
-   "sourceaccredited-tissue-banks-tested",
+   "at-a-glance",
    "side-by-side",
    "experience-the-difference",
    "next-step"

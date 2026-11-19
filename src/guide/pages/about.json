@@ -1,0 +1,87 @@
+{
+  "purpose": "This page introduces the people behind the care: the founder, the physicians who oversee every plan, the nurse practitioners who come to the home, and the support staff. It lets a patient put names to the practice before they book.",
+  "audience": "patients",
+  "owner_notes": [
+    "It answers what a careful patient asks before booking: who are these people, and is a physician really in charge.",
+    "The team is shown in four groups: Leadership, Clinicians, Patient Advocates and Support Staff. A patient chooses a group to see its people.",
+    "Some people have a short bio; the rest show a name and a title.",
+    "The founder block is the short version of the founder's story, and its button opens the Our founder page. The footer link called Our team opens this page at the team section."
+  ],
+  "replace": [
+    "Your founder's name, portrait and two short paragraphs go in the Our founder block.",
+    "Your own figures replace the samples at the top of the page and in the founder block.",
+    "Every name, title and short bio in the team section is replaced with your real team, in all four groups.",
+    "Your practice name replaces the sample name in the heading and in the founder block."
+  ],
+  "keep": [
+    "The line in the founder block that if this is not a fit, the practice says so.",
+    "The promise in the founder block that the patient gets the price in writing before deciding.",
+    "The line in the Our promise section that the treatments are not FDA-approved and investigational for most uses, and that results vary.",
+    "The small print at the foot of the page: statements not evaluated by the FDA, individual results vary."
+  ],
+  "sections": {
+    "top": { "say": "This is the opening of the Our team page, with one button to book and one that jumps to the team." },
+    "how-it-works": { "say": "These are four steps, from booking a video call to treatment and follow-ups." },
+    "our-promise": { "say": "These are four commitments the practice makes, from personal care plans to patient education; the second says plainly that the treatments are not FDA-approved." },
+    "founder": { "say": "This is a short introduction to the founder, with four figures about the practice; on this example the founder and the figures are samples." },
+    "team": { "say": "This is the team, in four groups you can switch between; every name and bio on this example is fictional." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Our team page for?",
+      "alt": ["What's on the About page?", "Why do I need an about page?"],
+      "say": "It introduces the people behind the care: your founder, your physicians, your nurse practitioners and your support staff. A careful patient wants to know who is in charge before they book. This page puts names to your practice.",
+      "show": "about"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where's the page that shows our doctors and staff?",
+      "alt": ["Where is the team?", "Where are my clinicians listed?", "How does a patient find out who works here?"],
+      "say": "Open the menu at the top, choose About, then Our team, and go down to The people behind your care. The home page also names your two lead physicians, and your founder has a page of their own.",
+      "show": "about#team"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do you need from me for the team and founder sections?",
+      "alt": ["What do I replace on the Our team page?", "What do I change on this page?"],
+      "say": "For each person: their name with credentials, their title and a short bio. For your founder, add a portrait and two short paragraphs. Your own figures replace the ones shown, and everything here now is a sample.",
+      "show": "about#team"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Are the doctors and staff on this page real?",
+      "alt": ["Is Dr. Demo a real doctor?", "Who are these people?"],
+      "say": "No, every person on this page is fictional, including {{site.team.director.name}} and {{site.team.np.name}}. They are samples, so you can see how a full team looks. On your own site this section lists your real team.",
+      "show": "about#team"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "How is the team section laid out?",
+      "alt": ["Why can I only see two people?", "Where are the nurse practitioners?"],
+      "say": "The team is split into four groups, and Leadership opens first. A patient chooses a group to see its people. Your nurse practitioners are under Clinicians, and your patient advocates and support staff have groups of their own.",
+      "show": "about#team"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Who will be in charge of my care?",
+      "alt": ["Is a doctor involved?", "Who oversees the treatment?"],
+      "say": "The site says licensed clinicians deliver the care under physician oversight. On this example the Medical Director is {{site.team.director.name}}, who reviews every plan before a home visit is booked. That name is a sample; a real practice lists its own physicians.",
+      "show": "about#team"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Who comes to my home?",
+      "alt": ["Who does the treatment?", "Is it a nurse or a doctor who visits?"],
+      "say": "The page says nurse practitioners deliver care in your home, and physicians oversee every plan. On this example the lead nurse practitioner is {{site.team.np.name}}, which is a sample name. A real practice shows its own clinicians here.",
+      "show": "about#team"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "purpose": "Speaks to other licensed clinicians and clinics, from nurse practitioners and physicians to chiropractors and physical therapists, who might partner with the practice to offer this care to their own patients. It says what the practice supplies, what the clinician brings, and how to apply.",
+  "audience": "providers",
+  "owner_notes": [
+    "This page is not for patients, and it is not for the patients a provider sends: they get a private Sent here by page. This page invites a clinician to work with the practice.",
+    "It is part of the example like every other page. It shows a sample practice inviting clinicians to partner with it; it does not describe your own website package.",
+    "Both Apply to Partner buttons open the Contact page with the provider form showing, headed Partnership inquiry. On this example that form sends nothing. The page has no form for referring a single patient.",
+    "It uses clinical and business words on purpose. It is not a patient page, so the plain-words rule for patient pages does not apply to it."
+  ],
+  "replace": [
+    "The three figures under The opportunity are samples: years of practice, licensed clinicians and patients cared for. A practice prints its own verified numbers.",
+    "Under What you get: the number of states and the name of the physician group, {{site.group}} on this example, are samples.",
+    "The revenue share card under What you get and the revenue share answer in the questions are both stamped as sample terms: a practice sets and confirms its own before launch.",
+    "Your practice name replaces the sample name {{site.name}} in the opening paragraph."
+  ],
+  "keep": [
+    "The Sample stamps beside the figures, the physician group, the revenue share card and the revenue share answer stay until your own verified figures and confirmed terms take their place."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page speaks to clinicians and clinics, and has two buttons: Apply to Partner, and How The Model Works." },
+    "the-opportunity": { "say": "The opportunity makes the case to a clinician and shows three figures about the practice; on this example those figures are samples." },
+    "what-you-get": { "say": "What you get is four cards on what the practice supplies to a partner, from the physician group behind the care to training and how the partnership is paid; the group named and the terms on this example are samples." },
+    "requirements": { "say": "Requirements lists what a clinician brings, such as an active clinical licence and their own malpractice cover, then four steps from applying to launch." },
+    "faq": { "say": "This part answers five questions a clinician asks, including malpractice cover, training and how the revenue share works." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the For providers and partners page for?",
+      "alt": ["What's the For providers page?", "Who is the providers page written for?", "Is the providers page for the doctors who send me patients?"],
+      "say": "It is written for licensed clinicians and clinics who might partner with the practice, to offer this care to their own patients. It is not for the patients a provider sends you: they get a private page of their own, called Sent here by.",
+      "show": "for-providers"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "Is the For providers page where a provider refers a patient?",
+      "alt": ["How does a provider refer a patient on the site?", "Is there a refer a patient form?", "How is the For providers page different from a referral page?"],
+      "say": "No. It speaks to a clinician about partnering with the practice, and its buttons open the Contact page at a partnership inquiry, not a referral form. A patient who has been sent to you gets a private referral page instead.",
+      "show": "for-providers"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does a provider apply to partner?",
+      "alt": ["What happens when someone presses Apply to Partner?", "Where is the partnership form?"],
+      "say": "Both Apply to Partner buttons open the Contact page with the provider form showing. It asks for their name, practice, licence type and states, and offers a fifteen-minute intro call. On this example it is a sample form, so nothing is sent.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What does the page ask a partner to bring?",
+      "alt": ["What are the requirements for a partner?", "Does a partner need their own malpractice insurance?"],
+      "say": "The page asks for an active clinical licence in good standing and the clinician's own malpractice cover. It also asks for an existing patient base or referral network, and a willingness to complete the training. Four steps follow, from applying to launch.",
+      "show": "for-providers#requirements"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "Which clinicians does the page invite to partner?",
+      "alt": ["Is the providers page only for nurse practitioners?", "Can a chiropractor or a physical therapist partner?", "Which licence types does the page name?"],
+      "say": "The page invites licensed clinicians and independent clinics, from nurse practitioners and physicians to chiropractors and physical therapists. It adds that what a partner can offer depends on their licence and their state's rules, and that this is gone through on the intro call.",
+      "show": "for-providers#q-what-kind-of-providers-do-you"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the For providers page?",
+      "alt": ["Are the numbers on the providers page real?", "What do I replace on the providers page?"],
+      "say": "Everything stamped Sample. That is the three figures, which show {{site.stats.years}} years, {{site.stats.clinicians}} clinicians and {{site.stats.patients}} patients on this example, along with the number of states, the physician group's name and the revenue share terms. You supply your own verified figures and confirmed terms.",
+      "show": "for-providers#the-opportunity"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Is the For providers page about my website package?",
+      "alt": ["Is this page your offer to me?", "Does the revenue share on this page apply to me?"],
+      "say": "No. It is part of the example, like every other page: a sample practice inviting other clinicians to partner with it, with sample figures and sample terms. About your own website package, I don't have that. Your contact for the website can tell you.",
+      "show": "for-providers#q-how-does-the-revenue-share-work"
+    }
+  ]
+}

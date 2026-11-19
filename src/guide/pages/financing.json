@@ -1,0 +1,96 @@
+{
+  "purpose": "Tells a patient that the cost of care can be spread into monthly payments through a separate financing company, and that they see the full price on the consultation before applying for anything. It exists so a patient who is worried about the price knows there is a way to pay over time, and who provides it.",
+  "audience": "patients",
+  "owner_notes": [
+    "It is reached from the footer, under Resources, from the link called Financing details on the Home page, and from the links called How financing works on the Where it hurts pages and the referral pages. Three of the Treatments pages link to it as well, and on wider screens a small Payment plans available note leads to it.",
+    "The page takes no payment and no application. On this example the Check Payment Options button only moves down to the Apply card, and the other buttons lead to the Booking page or dial the practice. A practice adds its own financing partner's application link before launch.",
+    "The order is deliberate: the patient gets the written plan and its full price on the consultation first, and financing is only discussed once they have that number.",
+    "The financing company is separate from the practice, and the page says so more than once. Financing is optional: paying in full and other payment methods are confirmed on the consultation.",
+    "The page gives no time for a decision and does not assume approval: it says the financing company decides on each application and sets the rates and terms."
+  ],
+  "replace": [
+    "The financing partner's name: your own partner replaces the sample {{site.financingPartner}} at the top, in step two, in the questions and in the Apply card.",
+    "The Apply card: a practice adds its own partner's application link and disclosure wording before launch.",
+    "The call buttons: your phone number replaces the sample {{site.phone}}.",
+    "The list under What it covers follows the programs your own site carries; the NAD+ line is there because this example carries NAD+.",
+    "The questions and the note in the Apply card carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The statement at the top that payment plans come from a separate financing company, are subject to approval, and that the partner sets the rates and terms.",
+    "The note in the Apply card that payment plans are subject to approval, that terms vary by plan, and that the practice does not extend credit.",
+    "The closing line that if someone is not a fit for any program, the practice tells them."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page says care can be paid for monthly through a separate financing company, named {{site.financingPartner}} on this example, which is a sample." },
+    "monthly-payment-plans": { "say": "Three short cards: paying monthly through a separate financing company, seeing the full price first, and that financing is optional and the company makes its own decision on each application." },
+    "how-it-works": { "say": "How it works is three steps: get your plan and its price on the consultation, apply with the financing company, then, if it approves a payment plan, your care coordinator attaches it to your program." },
+    "what-it-covers": { "say": "What it covers lists the programs a patient can ask about a payment plan for, and says approval is up to the financing partner. Beside it are three common questions about the cost, who provides the financing, and paying without it." },
+    "apply": { "say": "The Apply card has two buttons, one to ask about financing on the consultation and one to call, and a note saying the financing partner shown is a sample." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Financing page for?",
+      "alt": ["Why is there a financing page?", "What does the Financing and Payment Plans page do?"],
+      "say": "It tells a patient the cost of care can be spread into monthly payments through a separate financing company. It also says they see the full price on the consultation first, before applying for anything. The company named on this example, {{site.financingPartner}}, is a sample.",
+      "show": "financing"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does a patient apply for a payment plan?",
+      "alt": ["Where is the financing application?", "Is there an apply button on the Financing page?"],
+      "say": "Near the bottom of the Financing page there is a card called Apply. On this example it holds no application: its two buttons lead to the Booking page or call the practice. A practice adds its own financing partner's application link there before launch.",
+      "show": "financing#apply"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do you need for the Financing page?",
+      "alt": ["What do I change on the Financing page?", "What do I replace on the Financing page?"],
+      "say": "Three things from you: the name of your financing partner, its application link, and its disclosure wording. On this example the partner is {{site.financingPartner}}, a sample. The page already says the partner is a separate company and that your practice does not extend credit, and those lines stay.",
+      "show": "financing#apply"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Can patients pay on the website?",
+      "alt": ["Is there a checkout on the site?", "Does the Financing page take payment?"],
+      "say": "No, the website takes no payment and sells nothing online. The price is put in writing on the consultation, and a payment plan is arranged with a separate financing company. The Financing page explains the steps.",
+      "show": "financing#how-it-works"
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "What's the Payment plans available tag that slides in on my computer?",
+      "alt": ["What is the small financing note at the side of the screen?", "Can a patient close the Payment plans available note?"],
+      "say": "It is a small note that links to the Financing and Payment Plans page. It shows on wider screens only, once you have scrolled down, and hides again near the footer. The X closes it for the rest of the visit, and it never shows on the Financing page itself.",
+      "show": "financing"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "The note says a practice adds its own partner. Is that me?",
+      "alt": ["Who is the practice these sample notes talk about?", "Do I have to use the financing partner shown here?"],
+      "say": "Yes. Wherever a note on this example says a practice adds or replaces something, that practice is you. In the Apply card the note says {{site.financingPartner}} is a sample financing partner, and that a practice adds its own partner, application link and disclosure wording before launch.",
+      "show": "financing#apply"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will I be approved, and what would the rate be?",
+      "alt": ["Can you tell me if I qualify for a payment plan?", "How long does a financing decision take?"],
+      "say": "I can't tell you any of that, and neither can the practice. The page says payment plans come from a separate financing company, which decides on each application and sets the rates and terms. On this example that company, {{site.financingPartner}}, is a sample.",
+      "show": "financing#q-who-provides-the-financing"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How do the payment plans work?",
+      "alt": ["What are the steps to pay monthly?", "When do I apply for financing?"],
+      "say": "The page gives three steps. First you get your plan and its full price on the consultation, then you apply with the financing company, which is separate from the practice. If it approves a payment plan, you tell your care coordinator and it is attached to your program.",
+      "show": "financing#how-it-works"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "purpose": "Tells a visitor what personal details the practice collects through the website, how they are used, and how text messages are handled. On this example it is sample legal text, which a practice's own counsel reviews and replaces before launch.",
+  "audience": "everyone",
+  "owner_notes": [
+    "It is linked from the last line of the footer, and from the consent line under the forms on the Contact page and the Booking page.",
+    "The whole page is sample legal text, and a stamped note at the top of it says so.",
+    "Its paragraph on text messages matches the consent line under the forms, and it points to the Terms and Conditions for the full text message terms.",
+    "It says the site collects what a visitor types into a form, runs no analytics and no tracking tools, and sets no cookies. It also mentions the hosting company's routine server records and outside service providers. Your counsel checks all of that against what your own site really does.",
+    "It says the page will be updated if that changes, for example if an analytics tool or a booking calendar from another company is added.",
+    "A stamped line says that on this example the forms are not connected, so messages do not reach anyone."
+  ],
+  "replace": [
+    "The whole text: your own counsel reviews and replaces it before launch.",
+    "The practice name, which appears throughout as the sample {{site.name}}.",
+    "The contact email at the end, which is a sample address on this example.",
+    "The Last updated date under the heading."
+  ],
+  "keep": [
+    "A privacy policy stays linked from the footer and from the consent line under the forms; the wording itself is for your counsel to set.",
+    "The paragraph on text messages, in whatever form your counsel approves: what is collected, that it is not shared for marketing, and how to stop the messages."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page is the heading, Privacy Policy, and one line saying it covers how the practice collects, uses and protects personal information." },
+    "policy": { "say": "This is the policy itself: what the site collects through its forms, how text messages are handled, and that the site sets no cookies and runs no analytics. On this example it is sample legal text." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Privacy Policy page for?",
+      "alt": ["Where is the privacy policy?", "Where do patients read how their details are used?"],
+      "say": "It tells a visitor what personal details your practice collects through the site, how they are used, and how text messages are handled. You reach it from the last line of the footer, and from the consent line under the forms. On this example it is sample legal text.",
+      "show": "privacy-policy"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Privacy Policy page?",
+      "alt": ["Can I keep the privacy policy as it is?", "Who writes my privacy policy?", "Do I have to supply my own legal pages?"],
+      "say": "All of it. The Privacy Policy, like the Terms and Conditions and the Disclaimer, is sample legal text on this example, and each says so at the top. Your own counsel reviews and replaces them before launch; what yours should say is a question for your lawyer, not for me.",
+      "show": "privacy-policy#policy"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What do you do with my phone number?",
+      "alt": ["Will you sell my information?", "How do I stop the text messages?"],
+      "say": "The sample policy on this example says a mobile number is used only to send the messages you asked for, and is not sold or shared for marketing. You can reply STOP at any time. A real practice publishes its own policy, reviewed by its counsel.",
+      "show": "privacy-policy#policy"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "Does the site use cookies or track visitors?",
+      "alt": ["Does my website set cookies?", "Is there analytics on the site?", "What does the site collect about a visitor?"],
+      "say": "The sample policy says this website sets no cookies and runs no analytics or tracking tools. It collects what a visitor types into a form. It adds that the page will be updated if that changes, for example when a booking calendar from another company is added.",
+      "show": "privacy-policy#policy"
+    }
+  ]
+}

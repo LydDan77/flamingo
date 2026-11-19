@@ -1,0 +1,97 @@
+{
+  "purpose": "Speaks to a patient who has been offered surgery and has doubts. It offers an honest second opinion on a video call, and says plainly that when a joint has lost its structure, surgery is the right answer.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. Its first card, The second opinion, in plain words, describes a second opinion, not a treatment.",
+    "With the Back and neck page, this is where the site is most ready to say no. It says the practice will not talk anyone out of a surgery they need, and it tells patients to ask their surgeon whether waiting is safe.",
+    "The second opinion has three possible answers: a non-surgical option is reasonable to try first, the joint is a surgical joint, or more information is needed.",
+    "One answer says the site itself says who the practice sends back to their specialist, and that when surgery is the right answer the practice says so. Its link, Read what we will not promise, opens that part of the Home page.",
+    "The answer about whether trying this first makes surgery harder later does not say yes or no. It says this does not close the door on surgery, and that whether it changes anything about the operation, such as the timing, is a question for the surgeon."
+  ],
+  "replace": [
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photo at the top is licensed stock standing in; your own photo can replace it."
+  ],
+  "keep": [
+    "The What we will not promise card: the practice will not talk anyone out of a surgery they need, and if the joint has lost its structure or the tendon has fully separated, surgery is the right answer.",
+    "The same card's wording that the treatment is not FDA-approved for joints and is investigational, and that results vary and none is promised.",
+    "The line in Who it tends to suit about elective surgery where the surgeon has confirmed that waiting is safe.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page says nobody should talk you out of a surgery you need, or into one you can postpone, and offers one button, Book a video call." },
+    "is-this-you": { "say": "Is this you lists five moments a patient may be in, such as a surgeon saying the timing is up to them." },
+    "what-we-do": { "say": "What we do is three cards: what a second opinion from the practice looks like, who it tends to suit, and what the practice will not promise." },
+    "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, starting with seven questions to ask before choosing between stem cell therapy and surgery." },
+    "questions": { "say": "Questions answers three things people facing surgery ask: whether trying this first makes surgery harder later, how they know the practice will not say yes to everyone, and whether to tell their surgeon." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Before surgery page for?",
+      "alt": ["Who is the Before surgery page for?", "What does the Before surgery page do?"],
+      "say": "The Before surgery page speaks to someone with a surgery date and doubts. It offers a second opinion on a video call, where a clinician looks at their imaging and gives an honest answer. It is as ready to say have the surgery as to say try something first.",
+      "show": "before-surgery"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "Is the Before surgery page trying to talk patients out of surgery?",
+      "alt": ["Does the site tell people not to have surgery?", "What does the page say to someone who needs the surgery?"],
+      "say": "No. It opens by saying nobody should talk you out of a surgery you need, or into one you can postpone. It says that if the joint has lost its structure or the tendon has fully separated, surgery is the right answer and the practice will say so.",
+      "show": "before-surgery#what-we-do"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the Before surgery page explain the second opinion?",
+      "alt": ["What does the second opinion involve?", "What does a patient get from the second opinion?"],
+      "say": "In the first card under What we do, called The second opinion, in plain words. A clinician reviews the patient's imaging and history on a video call and gives one of three answers: a non-surgical option is reasonable to try first, the joint is a surgical joint, or more information is needed.",
+      "show": "before-surgery#what-we-do"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the price on the Before surgery page?",
+      "alt": ["Where does a patient see the cost on the Before surgery page?"],
+      "say": "In the part called What it costs, about halfway down. On this example it shows {{site.pricing.from}} to {{site.pricing.to}} for a plan for one area, which is a sample. That is the price of a treatment plan; the page does not give a separate price for the video call.",
+      "show": "before-surgery#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Before surgery page?",
+      "alt": ["What do I replace on the Before surgery page?"],
+      "say": "Your price range in the What it costs part and your phone number beside the booking button at the bottom, which are samples on this example. The photo at the top is a stock stand-in you can swap for your own.",
+      "show": "before-surgery#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay on the Before surgery page?",
+      "alt": ["Can I make the Before surgery page more encouraging?"],
+      "say": "The card called What we will not promise. It says the practice will not talk anyone out of a surgery they need, that the treatment is not FDA-approved for joints and is investigational, and that results vary. The small print at the bottom stays too.",
+      "show": "before-surgery#what-we-do"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Should I cancel my surgery?",
+      "alt": ["Should I put off my operation and try this first?"],
+      "say": "I can't advise you on that. The page says to ask your surgeon whether waiting is safe, and for how long. If it is, a clinician can look at your imaging on a video call and tell you honestly, even if the answer is to have the surgery.",
+      "show": "before-surgery#q-should-i-tell-my-surgeon-i"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "My surgeon says the timing is up to me. Is this page for me?",
+      "alt": ["Who is a second opinion for?"],
+      "say": "It may be. The page says this tends to suit elective surgery where your surgeon has confirmed that waiting is safe, in a joint that still has its structure. It also says surgery remains available afterward, and that results vary and none is promised.",
+      "show": "before-surgery#what-we-do"
+    }
+  ]
+}

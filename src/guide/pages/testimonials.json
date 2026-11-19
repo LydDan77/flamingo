@@ -1,0 +1,94 @@
+{
+  "purpose": "This page gathers patient stories in one place: three video slots and six written stories. Each one shows how the care feels, never a result, so a new patient can picture the experience before they book.",
+  "audience": "patients",
+  "owner_notes": [
+    "Every story is about how the care felt: being listened to, seeing the price first, being told plainly when it was not a fit. None describes an outcome.",
+    "A practice publishes only verified reviews from real patients, with the patient's written consent.",
+    "If a reviewer was given a discount or a service at no charge, that is disclosed next to the quote.",
+    "The home page shows three of these stories, and the review strip under its opening picture links here."
+  ],
+  "replace": [
+    "Up to three patient videos go in the slots under Patient stories on camera, each recorded with written consent.",
+    "Your own six written stories go under What patients are saying: the quote, the kind of care, and how the patient is named.",
+    "Your phone number replaces the sample number in the closing band."
+  ],
+  "keep": [
+    "The rule at the top of the page: only verified reviews, with the patient's written consent.",
+    "The line under every story: individual experience, results vary.",
+    "The note under the written stories that testimonials reflect individual experiences and that candidacy is determined by a licensed clinician.",
+    "No story may promise or describe a result.",
+    "The small print at the foot of the page: statements not evaluated by the FDA, individual results vary."
+  ],
+  "sections": {
+    "top": { "say": "This is the opening of the Patient stories page, with the rule that only verified reviews are published, with written consent; the stories on this example are samples." },
+    "video-stories": { "say": "These are three slots for patient videos; on this example they are samples and no video plays." },
+    "what-patients-are-saying": { "say": "These are six written patient stories, each about how the care felt; on this example they are fictional samples." },
+    "ready-to-write-your-own-story": { "say": "This is a short invitation to book a consultation." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Patient stories page for?",
+      "alt": ["What's on the testimonials page?", "Why is there a page for patient stories?"],
+      "say": "It gathers your patient stories in one place: three video slots and six written stories. Each one is about how the care felt, not about a result. It lets a new patient picture the experience before they book.",
+      "show": "testimonials"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the patient stories?",
+      "alt": ["Where are the testimonials?", "Where do patients read reviews?"],
+      "say": "Open the menu at the top, choose About, then Patient stories. The written stories are under What patients are saying. The home page also shows three stories, with a link to this page.",
+      "show": "testimonials#what-patients-are-saying"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "How do I add patient stories and video testimonials?",
+      "alt": ["What do I replace on the Patient stories page?", "Can I put my own reviews here?"],
+      "say": "Yours take the place of the samples: up to three patient videos and six written stories. Use only verified reviews from real patients, with their written consent. And no story may promise a result.",
+      "show": "testimonials#video-stories"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Are these patient stories real?",
+      "alt": ["Are the reviews on this site real?", "Who are the sample patients?"],
+      "say": "No, every story on this page is a fictional sample, written for this example practice. That is why each one is stamped Sample. On your own site, only verified reviews from your real patients appear here.",
+      "show": "testimonials#what-patients-are-saying"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What are the rules for reviews and testimonials?",
+      "alt": ["What must stay on the Patient stories page?", "Can a review say the treatment worked?"],
+      "say": "There are three. Real patients only, with their written consent before publishing, and nothing that promises a result. And each story keeps the line that it is an individual experience and results vary.",
+      "show": "testimonials#what-patients-are-saying"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Do the videos on the Patient stories page play?",
+      "alt": ["Why doesn't the video play?", "Where do patient videos go?"],
+      "say": "Not on this example. The three video spots are sample slots, so no video plays. On your own site you can add up to three patient videos there, each with the patient's written consent.",
+      "show": "testimonials#video-stories"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What do other patients say?",
+      "alt": ["Do you have any reviews?", "Can I see testimonials?"],
+      "say": "On this example site the stories are samples, not real reviews. They describe how the care felt: a nurse who explained every step, a price on paper before deciding, and honesty when it was not a fit. Each is an individual experience, and results vary.",
+      "show": "testimonials#what-patients-are-saying"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will I get the same result as these patients?",
+      "alt": ["Does this work?", "Did it work for these patients?"],
+      "say": "No story on this page promises a result. The page says each one is an individual experience, and results vary. Whether this care is right for you is decided by a licensed clinician.",
+      "show": "testimonials#what-patients-are-saying"
+    }
+  ]
+}

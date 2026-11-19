@@ -1,0 +1,75 @@
+{
+  "purpose": "Lists six short guides in plain words for the patient who wants to read before deciding: where the cells come from, exosomes, the home visit, who is a candidate, surgery questions and how to judge a clinic's claims. It lets a careful reader check the practice's honesty for themselves before booking a video call.",
+  "audience": "patients",
+  "owner_notes": [
+    "This is where the science lives. The Where it hurts pages keep to everyday words and link to these guides under The science, if you want it.",
+    "Every article opens with a reviewer line and ends with a sources box and a Book a Consultation button. None of them describes or promises a result.",
+    "The Home page shows three of the six under From the journal, with a link to all articles. The footer lists the Journal under Resources.",
+    "The six articles are samples. The note at the top of the page says a practice's own clinician reviews each one before launch."
+  ],
+  "replace": [
+    "The six articles are sample articles: your own clinician reviews each one before launch.",
+    "Inside each article, your clinical reviewer's name and the review date replace the sample reviewer, {{site.reviewer.name}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "On your own site the top of the page says every article is reviewed before it is published, which has to be true there. The example leaves that line out, because its articles are samples.",
+    "No article may promise or describe a result.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the Journal page says what it holds: six short guides for the person weighing this care. On this example it adds that they are sample articles, and that a practice's own clinician reviews each one before launch." },
+    "articles": { "say": "This is the list of all six guides, each on a card with its subject, its reading time and a Read article link." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What's the Journal?",
+      "alt": ["What is the Journal page for?", "Why does the site have articles?", "What are the articles about?"],
+      "say": "The Journal is six short guides in plain words, for the patient who likes to read before deciding. They cover things like where the cells come from, who is a candidate and what a home visit is like. None promises a result, and each ends with a button to book a video call.",
+      "show": "journal"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where do I find the articles?",
+      "alt": ["Where is the Journal?", "How does a patient get to the articles?", "Where are the guides?"],
+      "say": "Open the menu at the top, choose About, then Journal. All six guides are listed there. The Home page shows three of them near the bottom, and the Journal is also in the footer, under Resources.",
+      "show": "journal#articles"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Who wrote the articles, and who signs them off?",
+      "alt": ["Who wrote the Journal?", "Are the articles real?", "Who is the reviewer named on the articles?"],
+      "say": "The six articles on this example are samples. Before launch your own clinician reviews each one, and their name and the review date go at the top of every article. On this example that line shows {{site.reviewer.name}}, which is a sample name.",
+      "show": "journal"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Journal page?",
+      "alt": ["What do I replace on the Journal page?", "Is anything on the Journal page mine to fill in?"],
+      "say": "Very little on this page itself. Your phone number goes in the band at the bottom, where this example shows the sample number {{site.phone}}. The real work is inside the six articles, which your own clinician reviews before launch.",
+      "show": "journal"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Some notes say my clinician reviews it, others say my counsel. Who checks what?",
+      "alt": ["What does counsel confirms mean?", "What does clinical review mean?", "Who signs off the articles and the legal pages?"],
+      "say": "Counsel means your own lawyer, who reviews the three legal pages and confirms whether the California notice applies to you. Your own clinician reviews the six articles and adds the sources. Neither is something the front desk or I can settle.",
+      "show": "journal"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Where can I read more before I decide?",
+      "alt": ["Is there something I can read first?", "Where is the science?"],
+      "say": "The Journal has six short guides. They explain where the cells come from, what a home visit is like and who is a candidate. They also say plainly that this care is not FDA-approved and is investigational for most uses, and that results vary.",
+      "show": "journal#articles"
+    }
+  ]
+}

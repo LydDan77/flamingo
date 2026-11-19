@@ -1,0 +1,96 @@
+{
+  "purpose": "Explains exosomes for the patient who wants the science: what the page says they are, how small they are, and why the practice may use them alongside Wharton's Jelly cells. It also says plainly that exosome therapy is not FDA-approved and is investigational for most uses.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of the Treatments pages, which carry the science. Patients do not need to read it to book; the Journal has a plain-words article on exosomes for those who want a shorter read.",
+    "This is the most technical page on the site. Ava describes it as what the page explains, signals between cells and the reasoning for using exosomes with the cells, and never as an established result.",
+    "The page says some plans use exosomes together with Wharton's Jelly cells in one visit at home, that the clinician decides whether a plan uses one or both, and that the exosomes come from cells grown from donated, screened umbilical cord tissue. It speaks in the practice's name, so an owner should check that this matches the care they offer.",
+    "The top of the page and the last question both give the honest answer on approval. The Before You Book cards are shared with the Stem Cell Therapy and Wharton's Jelly pages. Book a Consultation and See if you qualify both open the Booking page."
+  ],
+  "replace": [
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photos are licensed stock standing in; your own photos can replace them.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The line at the top of the page and the answer to the last question: exosome therapy is not FDA-approved, is investigational for most uses, and results vary.",
+    "The line in Combined Protocol that using both has not been shown to give a better result than either one alone.",
+    "The answer that exosomes are used alongside cell treatment and that exosome therapy is not a standalone therapy for systemic diseases.",
+    "The Before You Book cards: side effects are possible with any procedure, a clinician decides candidacy at the consultation, and someone who is not a fit hears that first.",
+    "The small print at the bottom, statements not evaluated by the FDA, stem cell and exosome therapies not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page introduces exosomes as the signals cells send each other, and says exosome products are not FDA-approved. It has a Book a Consultation button and a link to the page on where they come from." },
+    "the-science": { "say": "The Science gives the page's explanation of what exosomes are: tiny packages that cells release to carry signals to other cells. It says this is still being studied." },
+    "scale": { "say": "Scale shows how small an exosome is beside a cell and a virus, on bars labelled illustrative, and then lists four things to know about exosomes." },
+    "combined-protocol": { "say": "Combined Protocol explains why some plans use exosomes together with Wharton's Jelly cells in one visit at home. It says this has not been shown to give a better result than either one alone." },
+    "before-you-book": { "say": "Before You Book is four cards answering what everyone asks first, from Is it safe to What happens on the day." },
+    "faq": { "say": "The questions at the bottom include whether exosomes are the same as stem cells and whether the therapy is approved by the FDA, which it is not." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Exosomes page for?",
+      "alt": ["Why is there a page about exosomes?", "What does the Exosomes page do?"],
+      "say": "It explains exosomes for the patient who wants the science. The page describes them as the signals cells send each other, shows how small they are, and explains why your practice may use them alongside Wharton's Jelly cells. It also says plainly that exosome therapy is not FDA-approved.",
+      "show": "why-exosomes"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site say whether exosomes are FDA-approved?",
+      "alt": ["Where is the FDA question on the Exosomes page?", "Where does the Exosomes page talk about approval?"],
+      "say": "In two places on the Exosomes page. The top of the page says exosome products are not FDA-approved and are investigational for most uses. The last question at the bottom asks it outright, and the answer is no: it is given only as part of a plan supervised by a physician.",
+      "show": "why-exosomes#q-is-exosome-therapy-fda-approved"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Can I say exosomes are FDA-approved?",
+      "alt": ["Can I call exosome therapy approved?", "Can I take the FDA answer off the Exosomes page?"],
+      "say": "No. The page says the opposite on purpose: exosome therapy is not FDA-approved, and is investigational for most uses. That answer stays on your site, along with the small print saying results vary and the statements have not been evaluated by the FDA.",
+      "show": "why-exosomes#q-is-exosome-therapy-fda-approved"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does it explain why you use exosomes and Wharton's Jelly together?",
+      "alt": ["Where is the combined treatment explained?", "Why does the site talk about using both?"],
+      "say": "On the Exosomes page, in the part called Combined Protocol. It says some plans use both in one visit: the exosomes carry signals from the start, while the cells go on sending their own. The page adds that this has not been shown to give a better result than either one alone.",
+      "show": "why-exosomes#combined-protocol"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Exosomes page?",
+      "alt": ["What do I replace on the Exosomes page?", "Is anything on the Exosomes page a sample?"],
+      "say": "Almost nothing. Your phone number replaces the sample {{site.phone}} beside the booking button at the bottom. The photos are stock stand-ins you can replace. The science wording is not a sample; it comes with the site.",
+      "show": "why-exosomes#next-step"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Do patients need to understand exosomes to book?",
+      "alt": ["Is the Exosomes page required reading?", "Isn't the Exosomes page too technical for patients?"],
+      "say": "No. This page is optional reading for the patient who likes the detail. The Where it hurts pages keep the science at the end, as short guides, and the Journal has a plain-words article on exosomes. A patient can book without opening any of them.",
+      "show": "why-exosomes"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Are exosomes the same as stem cells?",
+      "alt": ["What's the difference between exosomes and stem cells?", "What are exosomes?"],
+      "say": "No, the page says they are different. Stem cells are living cells. Exosomes are not cells; they are tiny packages that carry the signals those cells produce. The page says they may be used alongside the cell treatment.",
+      "show": "why-exosomes#q-are-exosomes-the-same-as-stem"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Are exosomes approved by the FDA?",
+      "alt": ["Is exosome therapy FDA-approved?", "Is this approved?"],
+      "say": "No. The page says exosome therapy is not FDA-approved, and is investigational for most uses. It is given only as part of a plan supervised by a physician. Results vary, and a clinician decides at your consultation whether you are a candidate.",
+      "show": "why-exosomes#q-is-exosome-therapy-fda-approved"
+    }
+  ]
+}

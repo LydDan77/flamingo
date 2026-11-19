@@ -1,0 +1,118 @@
+{
+  "purpose": "The home page gives a patient the whole offer in one scroll: where it hurts, how care works, who is in charge, what it costs and what the practice will not promise. It is built so a patient recognises their own situation, feels able to trust the practice, and books a video call.",
+  "audience": "patients",
+  "owner_notes": [
+    "Most patients arrive here first. Every part of the page leads to the same step: the Book a Consultation button, which opens the Booking page.",
+    "The order is deliberate. A patient sees themselves first (where it hurts, who we help), feels safe second (named physicians, what we will not promise), then sees the price and the common questions.",
+    "It works as a hub: the six tiles under Start with where it hurts, the treatment cards, the patient stories and the journal cards each lead to a fuller page. One more tile there is for patients sent by a provider.",
+    "The fit check gives no score and no diagnosis, and its answers never leave the patient's browser. It only prepares the first conversation.",
+    "The cost section here shows only the starting price. The full range, from the starting figure to the top one, is on each Where it hurts page and on the pages for patients sent by a provider."
+  ],
+  "replace": [
+    "Your practice name replaces the sample name in the header, the footer and the heading that begins Why choose.",
+    "Your phone number replaces the sample number at the top right and in the closing band.",
+    "Your review score and review count go in the strip under the opening picture.",
+    "Your physicians' names, titles, portraits and a short quote each go under Physician-led care.",
+    "Your four verified figures go under By the numbers: years of practice, licensed clinicians, states served and patients cared for.",
+    "The name of the physician group behind your plans goes under The infrastructure behind the care.",
+    "Three of your own patient stories go under Patient stories: verified reviews, published with written consent.",
+    "Your starting price and your financing partner's name go in the Cost and financing section.",
+    "The picture of a vial under Coordinated care is stamped Sample picture. It is a stand-in, and your own photo can take its place."
+  ],
+  "keep": [
+    "The whole section What we will not promise, including the sentence that stem cell and exosome therapy is not FDA-approved.",
+    "The line in The short version that the care is not FDA-approved and is investigational for most uses.",
+    "The statement that the treatments are not FDA-approved and are investigational for most uses, wherever the three panels, the treatment cards and the answers to the common questions repeat it.",
+    "The line under each patient story: individual experience, results vary.",
+    "The sentence that candidacy is decided by a clinician at the consultation, never by the page, and that a patient who is not a fit is told so.",
+    "The rule beside the review score: only reviews from real patients, published with written consent.",
+    "The small print at the foot of the page: statements not evaluated by the FDA, individual results vary."
+  ],
+  "sections": {
+    "top": { "say": "This is the opening of the home page: the practice in one sentence, with the booking button and a button to see all treatments." },
+    "reviews": { "say": "This strip shows the review score and how many reviews there are; on this example both figures are samples." },
+    "where-it-hurts": { "say": "These are six plain choices, from knees to before surgery, so a patient can pick the page that sounds like their day." },
+    "short-version": { "say": "This is the short version: the whole offer in five lines, including that the care is not FDA-approved and that the price comes in writing." },
+    "what-we-do-three-pillars": { "say": "Three panels introduce the three kinds of care on offer: regenerative care for joints, exosome therapy, and longevity plans." },
+    "services": { "say": "This is the list of treatments, four on this site, each leading to its own page." },
+    "coordinated-care": { "say": "This part shows how care at home and plans by video call sit under one medical team and one patient record; the vial in it is stamped as a sample picture." },
+    "how-it-works": { "say": "These are the four steps a patient takes, from booking a video call to treatment and follow-ups." },
+    "candidacy": { "say": "This is a four-question fit check; it gives no score and no diagnosis, and the answers never leave the patient's browser." },
+    "this-is-probably-you": { "say": "Four cards describe the people the practice helps, in everyday words, and each one opens a fuller page." },
+    "physician-led-care": { "say": "This part names the physicians who oversee the care, each with a portrait and a short quote; on this example they are fictional stand-ins." },
+    "numbers": { "say": "These are the practice's four headline figures; on this example they are sample figures." },
+    "honesty": { "say": "This is the list of what the practice will not promise, what it will do, and who this care is not for." },
+    "infrastructure": { "say": "This names the physician group that supervises every plan; the group named on this example is fictional." },
+    "patient-stories": { "say": "Three short patient stories sit here; on this example they are fictional, and they describe how the care felt, not a result." },
+    "results": { "say": "These are six reasons to choose the practice, from its clinical team to honest expectations." },
+    "cost": { "say": "This is the cost section: a starting price, what the price includes, and how financing works." },
+    "faq": { "say": "These are seven common questions with the site's own answers; each answer opens when you choose its question." },
+    "journal": { "say": "Three plain-language guides from the Journal are linked here, with a link to all the articles." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the home page for?",
+      "alt": ["What is the home page meant to do, top to bottom?", "Why is the home page so long?", "Walk me through the home page."],
+      "say": "It gives a patient the whole offer in one scroll. They pick where it hurts, read how care works and what it costs, and see what you will not promise. Every part leads to one step: booking a video call.",
+      "show": "index"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does a patient see the price on the home page?",
+      "alt": ["Where do patients see what it costs?", "Where is the cost section?", "Is the price on the home page?"],
+      "say": "It is near the end of the home page, in the section called Cost and financing. Your patients see a starting price, what it includes, and a link to financing details. On this example the starting price is {{site.pricing.from}}, a sample. The full range is on each Where it hurts page.",
+      "show": "index#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I replace on the home page?",
+      "alt": ["What do I change on this page?", "How do I get my review score and my numbers on there?", "Where do my doctors go on the home page?"],
+      "say": "Anything stamped Sample on this page is yours to replace. The main ones are your physicians' names and portraits, your review score and figures, and your starting price. You supply verified figures, and they appear in the same spots.",
+      "show": "index#physician-led-care"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the See if you are a fit quiz?",
+      "alt": ["Does the quiz tell patients they qualify?", "Where do the quiz answers go?", "What's the fit check on the home page?"],
+      "say": "It is four quick questions, such as what brings you here and what you have tried so far. It gives no score and no diagnosis, and it never tells anyone they qualify. The answers stay in the patient's browser, and it ends with the booking button.",
+      "show": "index#candidacy"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Why does the home page say so much about what we will not promise?",
+      "alt": ["Won't all that honesty put patients off?", "Can I take the What we will not promise section off?", "Can I say the treatment is FDA-approved?"],
+      "say": "That section stays, and so does its wording: stem cell and exosome therapy is not FDA-approved, and results vary. It is deliberate. A patient paying out of pocket is wary of big claims, and plain honesty is what makes the rest believable.",
+      "show": "index#honesty"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the frequently asked questions?",
+      "alt": ["Where is the FAQ?", "Where do patients find the common questions?"],
+      "say": "They are near the end of the home page, under Frequently asked questions. There are seven. In the footer, under Resources, the FAQ link takes you to the same place.",
+      "show": "index#faq"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How much does it cost?",
+      "alt": ["What's the price?", "Do you have payment plans?"],
+      "say": "On this example site, programs start from {{site.pricing.from}} per plan. That is a sample figure. The site says every plan is quoted in writing at your consultation, and a quote is never a commitment.",
+      "show": "index#cost"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What if I'm not a good fit?",
+      "alt": ["What does the site tell someone who isn't a good fit?", "Will this work for my knee?", "Am I a candidate?"],
+      "say": "The site says a clinician decides that at your consultation, never this page. If you are not a candidate, the practice tells you honestly and points you somewhere better. I can't judge that myself; I am a guide to the website.",
+      "show": "index#honesty"
+    }
+  ]
+}

@@ -8,7 +8,7 @@ nav: contact
     <div class="hero__content">
       <p class="hero__kicker">Contact Us</p>
       <h1>Talk to a licensed clinician about <em class="hl">your knee, hip, shoulder or back</em></h1>
-      <p class="lead">Questions first, or ready to book a video call? Either is fine. A clinician answers, not a salesperson.</p>
+      <p class="lead">Questions first, or ready to book a video call? Either is fine. On the video call you talk to a licensed clinician, not a salesperson.</p>
       <ul class="hero__pills">
         <li><a class="pill" href="{{site.bookUrl}}">{{icon:calendar-check}} Book a video call</a></li>
         <li><a class="pill" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a></li>
@@ -32,7 +32,7 @@ nav: contact
           <button class="tab" role="tab" data-tab="provider">{{icon:stethoscope}} I'm a Provider</button>
         </div>
 
-        <div class="tabs__panel" data-panel="patient" hidden>
+        <div class="tabs__panel" data-panel="patient">
           <div class="info-row mb-6"><span class="card__icon">{{icon:send}}</span><div><b>Send us a message</b><span class="small" style="color:var(--text-2)">Fill out the form and we'll get back to you shortly.</span></div></div>
           {{> form-patient}}
         </div>
@@ -76,6 +76,7 @@ nav: contact
           <a class="info-row" href="mailto:{{site.email}}"><span class="card__icon">{{icon:mail}}</span><div><small>Email</small><b>{{site.email}}</b></div></a>
           <div class="info-row"><span class="card__icon">{{icon:map-pin}}</span><div><small>Address</small><b>{{site.address}}</b><span class="small muted">Service area: {{#if sample}}{{site.serviceArea}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
           <div class="info-row"><span class="card__icon">{{icon:clock}}</span><div><small>Hours</small><b>{{site.hours}}</b></div></div>
+          <p class="small" style="color:var(--text-2)">This website is not for emergencies. In an emergency, call 911.</p>
         </div>
         <div class="card card--soft">
           <h4>Reasons to reach out</h4>
@@ -91,7 +92,7 @@ nav: contact
         <div class="card gradient-card">
           <span class="card__icon">{{icon:zap}}</span>
           <h3>Quick response</h3>
-          <p>We typically respond within one business day. For urgent inquiries, call us directly.</p>
+          <p>We typically respond within one business day.{{#if sample}} <span class="sample" style="color:inherit;border-color:currentColor">Sample</span>{{/if}} To talk sooner, call us during our hours.</p>
         </div>
         <div class="card">
           <h4 class="eyebrow" style="font-size:.66rem">Credentials &amp; Accreditations</h4>

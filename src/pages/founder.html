@@ -5,19 +5,19 @@ nav: about
 ---
 <section class="hero hero--image">
   <div class="hero__bg" aria-hidden="true" data-parallax="0.1">
-    {{img:clinician-home-visit|class=hero__img|dark=chalk-hands|warm=grandparents-picnic|elite=notebook-desk|eager|sizes=100vw|pos=center 30%|pos-warm=center 45%|pos-dark=center 50%|pos-elite=center 50%|atelier=atelier-portrait-woman|obsidian=obsidian-executive-window|sanctuary=sanctuary-couple-garden|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 25%|pos-monolith=center 22%|blush=reassuring-hand|pos-blush=center 45%|ecosystem=clinician-home-visit|onyx=chalk-hands|sandstone=hands-tea|meridian=nurse-portrait|ivory=reassuring-hand|pos-meridian=center 20%|pos-ivory=92% 50%|pos-ecosystem=85% 50%|pos-onyx=95% 50%}}
+    {{img:clinician-home-visit|class=hero__img|dark=chalk-hands|warm=grandparents-picnic|elite=notebook-desk|eager|sizes=100vw|pos=center 30%|pos-warm=center 45%|pos-dark=center 50%|pos-elite=center 50%|atelier=atelier-portrait-woman|obsidian=obsidian-executive-window|sanctuary=sanctuary-couple-garden|monolith=monolith-athlete-portrait|aurora=aurora-woman-laughing|pos-atelier=center 25%|pos-monolith=center 22%|blush=reassuring-hand|pos-blush=center 45%|ecosystem=clinician-home-visit|onyx=chalk-hands|sandstone=hands-tea|meridian=clinician-home-visit|ivory=reassuring-hand|pos-meridian=85% 50%|pos-ivory=92% 50%|pos-ecosystem=85% 50%|pos-onyx=95% 50%}}
     <div class="hero__scrim"></div>
     <div class="hero__aside"><span class="card__icon">{{icon:user-round}}</span><div><b>{{site.founder.name}}</b><span>Founder, {{site.name}}</span></div></div>
   </div>
   <div class="container hero__inner">
     <div class="hero__content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="about.html">About</a>{{icon:chevron-down}}<span>Founder</span></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a>{{icon:chevron-down}}<a href="about.html">About</a>{{icon:chevron-down}}<span>Our founder</span></nav>
       <p class="hero__kicker">Founder</p>
       <h1><em class="hl">{{site.founder.name}}</em></h1>
       <p class="lead">Founder, {{site.name}}. {{#if sample}}Care in your home, a physician who reviews every plan, and the price in writing before you decide. <span class="sample">Sample</span>{{/if}}{{#unless sample}}One-line positioning statement about the founder and the mission goes here. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
-        <a class="btn btn--secondary btn--lg" href="about.html#team">Meet The Team {{icon:arrow-up-right}}</a>
+        <a class="btn btn--secondary btn--lg" href="about.html#team">Meet the team {{icon:arrow-up-right}}</a>
       </div>
     </div>
   </div>
@@ -26,9 +26,9 @@ nav: about
 <section class="section section--tight section--deep">
   <div class="container">
     <div class="stat-strip reveal reveal--stagger">
-      <div class="stat">{{icon:users}}<div><strong>{{#if sample}}{{site.stats.patients}}{{/if}}{{#unless sample}}X,XXX+{{/unless}}</strong><span>Patients Connected</span></div></div>
-      <div class="stat">{{icon:stethoscope}}<div><strong>{{#if sample}}{{site.stats.clinicians}}{{/if}}{{#unless sample}}XX+{{/unless}}</strong><span>Licensed Practitioners</span></div></div>
-      <div class="stat">{{icon:map-pin}}<div><strong>{{#if sample}}{{site.stats.states}}{{/if}}{{#unless sample}}XX{{/unless}}</strong><span>States Covered</span></div></div>
+      <div class="stat">{{icon:users}}<div><strong>{{#if sample}}{{site.stats.patients}}{{/if}}{{#unless sample}}X,XXX+{{/unless}}</strong><span>Patients cared for</span></div></div>
+      <div class="stat">{{icon:stethoscope}}<div><strong>{{#if sample}}{{site.stats.clinicians}}{{/if}}{{#unless sample}}XX+{{/unless}}</strong><span>Licensed clinicians</span></div></div>
+      <div class="stat">{{icon:map-pin}}<div><strong>{{#if sample}}{{site.stats.states}}{{/if}}{{#unless sample}}XX{{/unless}}</strong><span>States served</span></div></div>
       <div class="stat">{{icon:building}}<div><strong>Since {{#if sample}}{{site.founded}}{{/if}}{{#unless sample}}YYYY{{/unless}}</strong><span>Founded</span></div></div>
     </div>{{#if sample}}<p class="small mt-6" style="color:var(--text-3)"><span class="sample">Sample</span> Sample figures for a fictional practice. A practice's own site shows its verified numbers here.</p>{{/if}}
   </div>
@@ -60,8 +60,8 @@ nav: about
       </div>
       <div class="timeline reveal" data-delay="1">
         <div class="timeline__item"><span class="timeline__when">{{#if sample}}{{site.founded}}{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>The first patients</h3><p>{{#if sample}}{{site.founder.name}}, begins seeing patients at home in {{site.town}}. Every visit starts with the price in writing.{{/if}}{{#unless sample}}How the founder began connecting patients with regenerative care, and what they learned in the first year.{{/unless}}</p></div>
-        <div class="timeline__item"><span class="timeline__when">{{#if sample}}2019{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>A physician-led team</h3><p>{{#if sample}}A second physician joins to review every plan. The nurse practitioner team grows to cover {{site.region}}.{{/if}}{{#unless sample}}When clinical oversight, protocols, and a nurse practitioner network came together.{{/unless}}</p></div>
-        {{#if any:hormones,peptides,nad}}<div class="timeline__item"><span class="timeline__when">{{#if sample}}2022{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>Telehealth joins in-home care</h3><p>Longevity programs added under the same chart as regenerative therapy.</p></div>{{/if}}
+        <div class="timeline__item"><span class="timeline__when">{{#if sample}}2019{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>A physician-led team</h3><p>{{#if sample}}{{site.team.cmo.name}}, joins as {{site.team.cmo.title}} and sets the standards of care. The nurse practitioner team grows to cover {{site.region}}.{{/if}}{{#unless sample}}When clinical oversight, protocols, and a nurse practitioner network came together.{{/unless}}</p></div>
+        {{#if any:hormones,peptides,nad}}<div class="timeline__item"><span class="timeline__when">{{#if sample}}2022{{/if}}{{#unless sample}}YYYY{{/unless}}</span><h3>Care by video call joins care at home</h3><p>Longevity plans are added, under the same record as regenerative therapy.</p></div>{{/if}}
         <div class="timeline__item"><span class="timeline__when">Today</span><h3>One team, one plan</h3><p>{{#if sample}}{{site.stats.clinicians}} licensed clinicians, one shared record, and the same two rules: care at home, and the price in writing.{{/if}}{{#unless sample}}Where the practice is now, and what it's building next.{{/unless}}</p></div>
       </div>
     </div>
@@ -76,7 +76,7 @@ nav: about
     </div>
     <div class="actions mt-12 reveal">
       <a class="btn btn--primary" href="{{site.bookUrl}}">{{site.bookLabel}} {{icon:arrow-up-right}}</a>
-      <a class="btn btn--secondary" href="about.html#team">Meet The Team {{icon:arrow-right}}</a>
+      <a class="btn btn--secondary" href="about.html#team">Meet the team {{icon:arrow-right}}</a>
     </div>
   </div>
 </section>

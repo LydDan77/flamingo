@@ -14,7 +14,7 @@ bodyClass: page--book
   </div>
 </section>
 
-<section class="section" id="book">
+<section class="section" id="book" data-guide-label="The calendar and the call-back form">
   <div class="container container--wide">
     <div class="split split--top split--contact">
       <div class="reveal">
@@ -25,9 +25,10 @@ bodyClass: page--book
           {{> form-patient}}
         </div>
         {{/unless}}{{/unless}}
+        <p class="small muted mt-4">This website is not for emergencies. In an emergency, call 911.</p>
       </div>
       <aside class="booking-aside reveal" data-delay="1">
-        <div class="who-answers">
+        <div class="who-answers" id="who-answers" data-guide-mark="Who answers the phone">
           <span class="eyebrow">Who answers the phone</span>
           <p class="who-answers__name">{{site.coordinator.first}}</p>
           <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. If a time here does not work, or you would rather talk first, call and {{site.coordinator.first}} will sort it out. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
@@ -60,6 +61,6 @@ bodyClass: page--book
     <span class="eyebrow">Before you book</span>
     <h2 class="mt-4">Not sure this is for you yet?</h2>
     <p class="lead mx-auto mt-5">Start with where it hurts. Each page says who tends to be a candidate, what we will not promise, and what it costs, in plain words.</p>
-    <div class="actions actions--center mt-8"><a class="btn btn--secondary btn--lg" href="knees.html">Start with where it hurts {{icon:arrow-right}}</a></div>
+    <div class="actions actions--center mt-8"><a class="btn btn--secondary btn--lg" href="index.html#where-it-hurts">Start with where it hurts {{icon:arrow-right}}</a></div>
   </div>
 </section>

@@ -1,0 +1,98 @@
+{
+  "purpose": "The detailed page about the main treatment, for a patient who wants to read before deciding: the steps, what the page says the therapy is studied for, and the four questions everyone asks first. It exists so the careful reader finds honest detail and a way to book, without a promised result.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of the Treatments pages, which carry the science. Patients do not need to read it to book; it is for the patient who wants the detail.",
+    "It goes into more detail than the Where it hurts pages, such as what researchers study these cells for and what early studies show so far. Ava says what the page explains and does not restate it as fact.",
+    "No price figure appears on this page. It says pricing is set individually and explained at the consultation, with a link to the Financing page.",
+    "The Before You Book cards are shared with the Wharton's Jelly and Exosomes pages. Three buttons, Book a Consultation twice and See if you qualify once, all open the Booking page."
+  ],
+  "replace": [
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photos are licensed stock standing in; your own photos can replace them.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The line at the top of the page, the card headed Not FDA-approved and the safety answer: the treatment is not FDA-approved, is investigational for most uses, and results vary.",
+    "The line over the list of conditions: being on the list does not make someone a candidate; that is decided at the consultation.",
+    "The Before You Book cards: side effects are possible with any procedure, a clinician decides candidacy at the consultation, and someone who is not a fit hears that first.",
+    "The answer to What results can I expect: results vary by condition and by person, the practice promises none, and some people notice little change.",
+    "The small print at the bottom: stem cell and exosome products are not sold online, the statements have not been evaluated by the FDA, stem cell and exosome therapies are not FDA-approved and investigational for most uses, and individual results vary.",
+    "The California notice at the bottom, unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page names the treatment, says it is given at home by a licensed clinician and that it is not FDA-approved, and offers two buttons, Book a Consultation and How It Works." },
+    "how-it-works": { "say": "How stem cell therapy works sets out four steps, from a consultation where a practitioner decides whether the therapy is appropriate through to follow-up over the following weeks." },
+    "key-benefits": { "say": "What we do, and what is known is six cards, from what these cells are studied for to what nobody can tell you. The last card says the treatment is not FDA-approved and that results vary." },
+    "conditions-addressed": { "say": "Who a clinician may consider lists eight joint and soft-tissue problems, with a See if you qualify button. It says being on the list does not make someone a candidate." },
+    "who-and-where": { "say": "Three picture cards speak to active adults, to people with age-related wear, and to anyone who would rather be treated at home." },
+    "before-you-book": { "say": "Before You Book is four cards answering what everyone asks first, from Is it safe to What happens on the day." },
+    "faq": { "say": "The questions at the bottom give short answers on cost, on results and on safety, among others." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Stem Cell Therapy page for?",
+      "alt": ["Why is there a Stem Cell Therapy page?", "What does the Stem Cell Therapy page do?"],
+      "say": "It is the detailed page about your main treatment, for a patient who wants to read before deciding. It explains the steps, what the cells are studied for, and the questions people ask first. It says the treatment is not FDA-approved, promises no result, and says a clinician decides who is a candidate.",
+      "show": "stem-cell-therapy"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the four questions everyone asks?",
+      "alt": ["Where does the Stem Cell Therapy page deal with safety and cost?", "Where is the Before You Book part?"],
+      "say": "On the Stem Cell Therapy page, about two thirds of the way down, in the part called Before You Book. Four cards take them one at a time, from Is it safe to What happens on the day. The same cards are on the Wharton's Jelly and Exosomes pages.",
+      "show": "stem-cell-therapy#before-you-book"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Is the price on the Stem Cell Therapy page?",
+      "alt": ["Where is the cost on the Stem Cell Therapy page?", "Does the stem cell page show a price?"],
+      "say": "No figure appears there. The page says pricing is set for each person and explained at the consultation, with a written quote and a link to Financing. Your starting price shows on the Home page, and your full range on the six Where it hurts pages.",
+      "show": "stem-cell-therapy#q-how-much-does-stem-cell-therapy"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Stem Cell Therapy page?",
+      "alt": ["What do I replace on the stem cell page?", "What on the Stem Cell Therapy page is mine to fill in?"],
+      "say": "Very little. Your phone number replaces {{site.phone}}, which is a sample, beside the booking button at the bottom. The photos are stock stand-ins you can replace. The wording about the treatment is not a sample; it comes with the site.",
+      "show": "stem-cell-therapy#next-step"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What is the California notice at the bottom of the Stem Cell Therapy page?",
+      "alt": ["What's the California notice, and do I need it?", "Do I need the California notice on the treatment pages?"],
+      "say": "It is a notice California law requires from practices offering stem cell therapy that is not FDA-approved. It tells patients so, and encourages them to talk to their own doctor first. It shows at the bottom of the treatment pages. A practice outside California can switch it off, once its own lawyer confirms.",
+      "show": "stem-cell-therapy#small-print"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "How does a patient book from the Stem Cell Therapy page?",
+      "alt": ["Where are the booking buttons on the stem cell page?", "What does See if you qualify do?"],
+      "say": "There are three buttons. Book a Consultation at the top, See if you qualify beside the list of conditions, and Book a Consultation again at the bottom. All three open the Booking page. Nothing on this page decides who is a candidate; a clinician does that at the consultation.",
+      "show": "stem-cell-therapy#conditions-addressed"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Is stem cell therapy safe?",
+      "alt": ["Is it safe?", "What are the risks?"],
+      "say": "I can't give medical advice, but here is what the page says. Every patient is screened by a licensed clinician first, and side effects are possible with any procedure. The cells come from accredited tissue banks, with every lot tested. The treatment is not FDA-approved, is investigational for most uses, and results vary.",
+      "show": "stem-cell-therapy#q-is-stem-cell-therapy-safe"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What results can I expect?",
+      "alt": ["Will stem cell therapy work for me?", "How much better will I get?"],
+      "say": "The page does not promise a result. It says results vary by condition and by person, and that some people notice little change. Your clinician talks through what is realistic for you at the consultation. If you are not a fit, the practice says so.",
+      "show": "stem-cell-therapy#q-what-results-can-i-expect"
+    }
+  ]
+}

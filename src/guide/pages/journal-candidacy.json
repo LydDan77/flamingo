@@ -1,0 +1,79 @@
+{
+  "name": "Candidacy article",
+  "reach": "the Journal page, which is under About in the menu at the top; it is the last of the six guides listed there, and four of the Where it hurts pages link to it",
+  "purpose": "Tells a patient plainly who tends to be considered for this care, who is sent back to their specialist, and how a clinician makes the decision on a video call. It exists so nobody books expecting a yes that the practice cannot honestly give.",
+  "audience": "patients",
+  "owner_notes": [
+    "This is the site's fullest answer to who is a candidate. It lists who tends to be considered and who is sent back to their specialist, and says the decision is a clinical judgement made on the consultation, never by the page.",
+    "It says the clinician gives one of three answers: yes, with a written plan; no, with the reason; or more information is needed first.",
+    "It links to the two-minute fit check on the Home page, which gives no score and sends nothing anywhere.",
+    "Four Where it hurts pages link here under The science, if you want it: After an injury, Back and neck, Before surgery and Hips. The article on surgery questions links here too."
+  ],
+  "replace": [
+    "The reviewer line under the heading: your own clinical reviewer's name and the review date replace the sample {{site.reviewer.name}}.",
+    "The last source at the end, Clinic candidacy criteria, is stamped Sample: your own clinician adds your criteria before launch.",
+    "The two lists, who tends to be considered and who is sent back, are sample wording: your own clinician reviews them before launch so they match how your practice decides.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}."
+  ],
+  "keep": [
+    "The sentence that regenerative therapy is investigational for most musculoskeletal uses and is not FDA-approved to treat any orthopedic condition.",
+    "The sentence that candidacy is a clinical judgement made by a licensed clinician on the consultation, never by the page.",
+    "The line that the practice cannot offer a certain outcome and will not pretend to.",
+    "The honest expectation, in the part about the written plan, that individual results vary.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the article says a good clinic tells some people no, and shows who reviewed it; the reviewer on this example is a sample name." },
+    "article": { "say": "The article itself lists who tends to be considered and who is sent back to their specialist, then explains how a clinician decides on the video call." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the candidacy article for?",
+      "alt": ["What does the article on who is a candidate do?", "Why does my site say who isn't a candidate?"],
+      "say": "It tells a patient plainly who tends to be considered and who is sent back to their specialist. It also explains how the decision is made: by a licensed clinician, on a video call, never by the page. Saying no openly is part of what makes your site believable.",
+      "show": "journal-candidacy"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site say who is not a candidate?",
+      "alt": ["Where is the list of people you send back?", "Where are the candidacy rules?", "Where does it say who this is not for?"],
+      "say": "In the Journal, in the guide called Who is, and isn't, a candidate. Open the menu at the top, choose About, then Journal, and it is the last of the six. The list is headed Who we send back to their specialist.",
+      "show": "journal-candidacy#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Who does the site say gets sent back to their specialist?",
+      "alt": ["Who does the site turn away?", "Who is this care not for?"],
+      "say": "The article lists four groups, and these are the main three. Someone with an active infection, or cancer under active treatment, is asked to see their own physician first. A joint that has lost its structure goes to a surgeon, and anyone wanting a promised outcome is told the practice cannot offer one.",
+      "show": "journal-candidacy#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the candidacy article?",
+      "alt": ["What do I replace on the candidacy article?", "Are the candidacy rules mine to set?"],
+      "say": "Two spots are stamped Sample. The reviewer line at the top takes your own clinician's name and date; on this example it shows {{site.reviewer.name}}, a sample name. The last source at the end is where your clinician adds your own criteria. Your clinician also reads the two lists before launch.",
+      "show": "journal-candidacy"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "How is it decided whether I'm a candidate?",
+      "alt": ["Who decides if I qualify?", "Can you tell me if this is for me?", "Can you tell a patient whether they qualify?"],
+      "say": "A licensed clinician decides, on a video call, never the page and never me. The article says they look at your history, your imaging and your goals. You hear one of three answers: yes with a written plan, no with the reason, or more information is needed.",
+      "show": "journal-candidacy#article"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What is in the written plan?",
+      "alt": ["What do I get if the answer is yes?", "What does the plan include?"],
+      "say": "The article says it sets out the treatment and where the product comes from, who gives it and who oversees it, and the full cost. It also gives the follow-up schedule and says plainly that results vary. You take it away and decide in your own time.",
+      "show": "journal-candidacy#article"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "purpose": "Speaks to an active patient whose tear, sprain or overuse injury has stalled after rest and therapy. It says what the practice can offer a soft-tissue injury, that a complete rupture needs a surgeon, and that the patient's physical therapist stays involved.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. The words on this one are about tendons, ligaments and overuse injuries.",
+    "It is the page most likely to matter to a physical therapist's patients. It says a patient can keep working with their therapist, that the two plans are coordinated, and that the practice wants the therapist involved before, during and after.",
+    "One answer says the practice keeps the patient's therapist in the loop, with the patient's permission. The website sends nothing to the therapist; the practice keeps that promise itself.",
+    "It gives no fixed recovery time. It says the practice gives a range, not a promise, and that a complete rupture is a surgical problem."
+  ],
+  "replace": [
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photo at the top is licensed stock standing in; your own photo can replace it."
+  ],
+  "keep": [
+    "The What we will not promise card: no quick fix, the treatment is not FDA-approved for soft-tissue injuries and is investigational, results vary, and a complete rupture, a tendon pulled away from the bone or an unstable joint needs a surgeon.",
+    "The line in Who it tends to suit that a clinician decides candidacy on the video call, with imaging.",
+    "The answer that says the practice gives a range for returning to training, not a promise.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page speaks to someone who did the rest, the ice and the therapy and is still not better enough, and offers one button, Book a video call." },
+    "is-this-you": { "say": "Is this you lists five situations, such as a partly torn tendon that is not healing or a sprain that has gone on for months." },
+    "what-we-do": { "say": "What we do is three cards: the treatment in plain words, who it tends to suit, and what the practice will not promise for an injury." },
+    "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, including one on what happens during a visit at home." },
+    "questions": { "say": "Questions answers three things injured patients ask: how long until they can train again, whether the practice works with their physical therapist, and what happens if imaging shows a complete tear." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the After an injury page for?",
+      "alt": ["Who is the After an injury page written for?", "What does the After an injury page do?"],
+      "say": "The After an injury page speaks to someone whose tear, sprain or tennis elbow should have settled by now and has not. It says what your practice can offer a stalled soft-tissue injury, who it tends to suit and what it costs. It keeps the physical therapist in the picture.",
+      "show": "after-an-injury"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the After an injury page say which injuries need a surgeon?",
+      "alt": ["What does the injury page say about a complete tear?", "Does the After an injury page turn anyone away?"],
+      "say": "In the card called What we will not promise, under What we do. It says a complete rupture, a tendon that has pulled away from the bone, or a joint that is unstable needs a surgeon, and that the practice says so.",
+      "show": "after-an-injury#what-we-do"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "I'm a physical therapist. What does this page tell my patients about working with me?",
+      "alt": ["Does the injury page keep the physical therapist involved?", "Will my patients stop coming to therapy?"],
+      "say": "It says a patient can keep working with their physical therapist and that the two plans are coordinated. One answer adds that the practice keeps the therapist in the loop, with the patient's permission, and wants them involved before, during and after.",
+      "show": "after-an-injury#q-do-you-work-with-my-physical"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the After an injury page?",
+      "alt": ["What do I replace on the injury page?"],
+      "say": "Your price range in the What it costs part and your phone number beside the booking button at the bottom, which are samples on this example. The photo at the top is a stock stand-in you can swap for your own.",
+      "show": "after-an-injury#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay on the After an injury page?",
+      "alt": ["Can I promise a recovery time on the injury page?"],
+      "say": "The card called What we will not promise. It says there is no quick fix and that results vary, that the treatment is not FDA-approved for soft-tissue injuries and is investigational, and that a complete rupture needs a surgeon. The small print at the bottom stays too.",
+      "show": "after-an-injury#what-we-do"
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "How does someone book from the After an injury page on a phone?",
+      "alt": ["Where is the booking button on a phone?"],
+      "say": "On a phone, once the top of the page has scrolled away, a bar stays at the bottom of the screen with the booking button and a call button. The Book a video call button at the top of the page does the same job as the booking button. Both open the Booking page.",
+      "show": "after-an-injury#top"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "I have tennis elbow that won't go away. Is this for me?",
+      "alt": ["Can you help a sprain that has gone on for months?"],
+      "say": "I can't say; a clinician decides that on a video call, with your imaging. The page says the treatment tends to suit partial tears and overuse problems that have plateaued after a proper course of rest and therapy. It is not FDA-approved for soft-tissue injuries and is investigational.",
+      "show": "after-an-injury#what-we-do"
+    },
+    {
+      "audience": "both",
+      "topic": "what a patient asks",
+      "q": "What would it cost to treat my injury?",
+      "alt": ["Where is the price on the After an injury page?"],
+      "say": "The part called What it costs gives a range for a plan for one area: {{site.pricing.from}} to {{site.pricing.to}}, which is a sample on this example site. Care is paid out of pocket, and your exact quote is written down on the call.",
+      "show": "after-an-injury#cost"
+    }
+  ]
+}

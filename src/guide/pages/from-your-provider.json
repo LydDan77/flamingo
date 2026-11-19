@@ -1,0 +1,98 @@
+{
+  "name": "Sent here by your provider",
+  "reach": "the last tile under Start with where it hurts on the Home page, or the card in the Where it hurts menu at the top",
+  "reach_phone": "the last tile under Start with where it hurts on the Home page",
+  "purpose": "The general referral page, for any patient a provider has sent, whoever that provider is. It names no one: it says your provider where a named page gives a name, asks the patient to bring that provider's name to the call, and gives the same three steps, cost and phone contact as the named referral pages.",
+  "audience": "patients sent by a provider",
+  "owner_notes": [
+    "Built the same way as the three named sample pages: who sent you, three steps, three questions, the cost, who answers the phone, then three honest lines. Here the card names no provider and no practice, so it carries no Sample referrer stamp, and the heading says your joint.",
+    "It is the only referral page a patient can reach from the site itself: the last tile under Start with where it hurts on the Home page, and on a wide screen a card in the Where it hurts menu. Both are titled Sent here by your provider. The named pages open from private links; on this example the owner's guide also lists them.",
+    "On a phone the menu folds and that card is not shown in it, so a patient on a phone finds this page from the Home page tile.",
+    "It is for patients, not for the providers who send them: the For providers and partners page, under About, speaks to clinicians. With no body area to go on, its link Read about joint care first opens the Knees page.",
+    "Under Who answers the phone, beneath the hours, the page says: This website is not for emergencies. In an emergency, call 911. All four referral pages carry that line. It is part of the page itself, not a sample detail."
+  ],
+  "replace": [
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "Who answers the phone: your coordinator's first name replaces the sample {{site.coordinator.first}}, and your own number and hours replace the samples. The number shown, {{site.phone}}, is a sample and is also on the call button at the top.",
+    "The card at the top has no provider's details to fill in. Its picture is a stock photo of a clinician, standing in, and your own photo can replace it."
+  ],
+  "keep": [
+    "The answer to Is this approved, which starts with No: not FDA-approved to treat joints, and investigational for most uses.",
+    "The In one breath lines: not FDA-approved and investigational for most uses, results vary and none is promised, and if someone is not a candidate the practice says so and sends them back to their provider with notes.",
+    "The answer to What if I am not a candidate: the patient is told so on the call.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page speaks to a patient sent by any provider, with a card asking them to bring that provider's name to the call and two buttons: Book a video call, and a call button." },
+    "what-happens-next": { "say": "What happens next sets out three steps: a video call with a licensed clinician, an honest answer in writing, then treatment at home with follow-ups by the same team." },
+    "three-questions": { "say": "Three questions gives short answers to what a referred patient asks first: is this approved, will it hurt and how long does it take, and what if I am not a candidate. A link there opens the Knees page." },
+    "cost": { "say": "What it costs gives the range for one area, such as a knee or a shoulder, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It also names who answers the phone, and ends with a line that says the website is not for emergencies." },
+    "in-one-breath": { "say": "In one breath repeats three honest lines, then offers Book a video call and a button to see the whole site." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Sent here by your provider page for?",
+      "alt": ["What is the general referral page?", "What does a referred patient see if they come through the menu?"],
+      "say": "It is the general referral page, for any patient a provider has sent to you. It names no provider. It gives the same three steps, the price range and who answers the phone as the named pages, and asks the patient to bring their provider's name to the call.",
+      "show": "from-your-provider"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the link to the Sent here by your provider page?",
+      "alt": ["How does a referred patient find this page?", "Is the general referral page in the menu?"],
+      "say": "On the home page it is the last tile in the part called Start with where it hurts. On a wide screen it is also in the menu at the top: choose Where it hurts, and after the six pages there is a card that says Sent here by your provider.",
+      "show": "index#where-it-hurts"
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "Can a patient find this page on a phone?",
+      "alt": ["Is the Sent here by your provider card in the phone menu?", "Where is the referral link on a small screen?"],
+      "say": "Yes, from the home page. It is the last tile under Start with where it hurts. The card in the Where it hurts menu shows on a wide screen only; on a phone the folded menu lists the six pages without it.",
+      "show": "index#where-it-hurts"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Why does this page say Your provider and not a name?",
+      "alt": ["Who is the provider on this page?", "Why is there no doctor's name here?"],
+      "say": "Because it is the general page, for a patient sent by any provider. Where a named page shows a provider's name and practice, this one says your provider, and its card asks the patient to bring that provider's name to the call. It names nobody, so it has no Sample referrer stamp; the three named pages here are samples.",
+      "show": "from-your-provider#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "How will I know which provider sent a patient who comes through this page?",
+      "alt": ["Does the page record who referred the patient?", "How do I track who sent a patient?"],
+      "say": "The patient tells you. This page asks them to bring their provider's name to the call, and to say who sent them when they phone. The form on the Booking page also has an optional box that asks who sent you, which the patient fills in.",
+      "show": "book#call-back"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Sent here by your provider page?",
+      "alt": ["What do I replace on the general referral page?", "Is anything on this page a sample?"],
+      "say": "Less than on a named page, because there is no provider to fill in. Your price range goes in the part called What it costs, along with the first name of whoever answers your phone, your number and your hours. On this example those are samples, such as {{site.coordinator.first}} and {{site.phone}}.",
+      "show": "from-your-provider#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "How do I get a page with a provider's own name on it?",
+      "alt": ["How do I get a referral page for a provider who refers to me?", "Can a provider who sends me patients have their own page?"],
+      "say": "I don't have that. Your contact for the website can tell you how to get one for a provider who sends you patients. This example has three named sample pages I can show you, for a chiropractor, a physical therapist and a family doctor.",
+      "show": "from-dr-example"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "My doctor sent me here. What do I do first?",
+      "alt": ["I was referred. Where do I start?", "How do I set up the call?"],
+      "say": "The page says the first step is a video call of about thirty minutes with a licensed clinician. You can press Book a video call at the top of the page, or phone. Bring your imaging if you have it, and tell them who sent you and what they said.",
+      "show": "from-your-provider#what-happens-next"
+    }
+  ]
+}

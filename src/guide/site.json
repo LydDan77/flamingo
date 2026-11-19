@@ -1,9 +1,108 @@
 {
-  "summary": "The example website for partners. Dr. Demo Regenerative Care is a fictional practice offering physician-led regenerative care at home.",
-  "rules": [],
-  "glossary": [],
-  "pronunciation": [],
-  "starters": [],
-  "questions": [],
-  "tests": []
+ "heard_as": [
+  {
+   "heard": "exit zones",
+   "means": "exosomes"
+  },
+  {
+   "heard": "exo zones",
+   "means": "exosomes"
+  },
+  {
+   "heard": "exit sums",
+   "means": "exosomes"
+  },
+  {
+   "heard": "exosome",
+   "means": "exosomes"
+  },
+  {
+   "heard": "warden's jelly",
+   "means": "whartons jelly"
+  },
+  {
+   "heard": "wardens jelly",
+   "means": "whartons jelly"
+  },
+  {
+   "heard": "wartons jelly",
+   "means": "whartons jelly"
+  },
+  {
+   "heard": "warton jelly",
+   "means": "whartons jelly"
+  },
+  {
+   "heard": "wharton's jelly",
+   "means": "whartons jelly"
+  },
+  {
+   "heard": "n a d plus",
+   "means": "nad+"
+  },
+  {
+   "heard": "nad plus",
+   "means": "nad+"
+  },
+  {
+   "heard": "n a d",
+   "means": "nad"
+  },
+  {
+   "heard": "go high level",
+   "means": "booking calendar"
+  },
+  {
+   "heard": "gohighlevel",
+   "means": "booking calendar"
+  },
+  {
+   "heard": "high level",
+   "means": "booking calendar"
+  },
+  {
+   "heard": "wear it hurts",
+   "means": "where it hurts"
+  },
+  {
+   "heard": "f d a",
+   "means": "fda"
+  },
+  {
+   "heard": "what it costs",
+   "means": "cost price"
+  },
+  {
+   "heard": "how much",
+   "means": "cost price"
+  },
+  {
+   "heard": "pricing",
+   "means": "cost price"
+  },
+  {
+   "heard": "appointment",
+   "means": "booking"
+  },
+  {
+   "heard": "schedule",
+   "means": "booking"
+  },
+  {
+   "heard": "testimonials",
+   "means": "patient stories"
+  },
+  {
+   "heard": "reviews",
+   "means": "patient stories reviews"
+  },
+  {
+   "heard": "doctors",
+   "means": "team clinicians"
+  },
+  {
+   "heard": "staff",
+   "means": "team"
+  }
+ ]
 }

@@ -1,0 +1,96 @@
+{
+  "purpose": "The overview of everything the practice offers, organised by treatment: four program cards that each open their own page, with a short introduction to Wharton's Jelly underneath. It exists for the patient who arrives thinking about a treatment by name, not about what hurts.",
+  "audience": "patients",
+  "owner_notes": [
+    "All treatments is the front door to the Treatments menu. Its four cards lead to Stem Cell Therapy, Wharton's Jelly, Exosome Therapy and NAD+ Therapy; the first three are tagged In-home and the last Video call.",
+    "The Treatments pages carry the science and the more clinical wording. Patients do not need to read them to book: the Where it hurts pages start from the patient's day and keep the science as optional reading.",
+    "NAD+ is an optional program. If it is switched off for a practice, its card comes off this page along with every mention of it.",
+    "Book a Consultation appears at the top, in the middle and at the bottom, and always opens the Booking page. Nothing here takes payment or decides who is a candidate; a clinician does that at the consultation."
+  ],
+  "replace": [
+    "All Programs: your service area replaces the sample one, {{site.town}} and the surrounding counties, which carries a Sample stamp.",
+    "Why Consider It and the closing band at the bottom: your phone number replaces the sample {{site.phone}} beside the booking buttons.",
+    "The program cards: if your practice does not offer NAD+, that card is switched off.",
+    "The photos are licensed stock standing in; your own photos can replace them.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The small print at the bottom: care follows a consultation with a licensed clinician, stem cell and exosome products are not sold online, the statements have not been evaluated by the FDA, stem cell and exosome therapies are not FDA-approved and investigational for most uses, and individual results vary.",
+    "The California notice at the bottom, unless your own lawyer confirms it does not apply.",
+    "The line that opens Why Consider It: the treatment is not FDA-approved, is investigational for most uses, and results vary. The card headed No promised result stays with it.",
+    "The lines in The Science that the research is still early and does not tell us who will be helped, or by how much.",
+    "The closing line that if someone is not a fit for any program, the practice tells them."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page introduces the two sides of the practice, regenerative care for long-standing pain and longevity care, and offers one button, Book a Consultation." },
+    "all-programs": { "say": "All Programs is four cards, three for treatments given at home and one for NAD plus by video call, and each card opens its own page. The line over the cards names the service area, which is a sample on this example." },
+    "the-science": { "say": "The Science is a short introduction to Wharton's Jelly, the umbilical cord tissue the page says the cells come from. It says the research is still early." },
+    "why-consider-it": { "say": "Why Consider It is six short cards on what the treatment is and what the practice can and cannot say about it. It says the treatment is not FDA-approved, is investigational for most uses, and that results vary." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the All treatments page for?",
+      "alt": ["What's the Services page?", "What does All treatments do?", "Is there one page that lists everything we offer?"],
+      "say": "All treatments is the overview of everything your practice offers. It has four program cards: three treatments given at home, and NAD plus by video call. Each card opens that treatment's own page. It suits a patient who arrives thinking about a treatment by name.",
+      "show": "services"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "How are the Treatments pages different from the Where it hurts pages?",
+      "alt": ["Why are there Treatments pages as well as Where it hurts pages?", "What's the difference between Treatments and Where it hurts?"],
+      "say": "Where it hurts starts from the patient's day: stairs, socks, sleep. Treatments is organised by therapy and carries the more clinical detail, for the patient who wants it. Both end the same way, with a button that opens the Booking page.",
+      "show": "services#all-programs"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Do my patients need to read the Treatments pages before they book?",
+      "alt": ["Do patients have to read the science?", "Is the science required reading?", "Will patients get lost in the treatment pages?"],
+      "say": "No. They are for the patient who wants the detail. A patient can book from the Home page or any Where it hurts page without opening them. Each Treatments page still has its own Book a Consultation button, for those who read first.",
+      "show": "services"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the list of all the treatments?",
+      "alt": ["Where are the program cards?", "How do I get to All treatments?", "Where do I see every service on one page?"],
+      "say": "Open the menu at the top, choose Treatments, then All treatments. The four program cards are near the top of that page, in the part called All Programs. Each card opens that treatment's own page.",
+      "show": "services#all-programs"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the All treatments page?",
+      "alt": ["What do I replace on the Services page?", "What on All treatments is mine to fill in?", "Where does my service area go on All treatments?"],
+      "say": "Two details. Your service area, in the line over the program cards, replaces {{site.town}} and the surrounding counties, which is a sample. Your phone number replaces the sample {{site.phone}} beside the booking buttons. The photos are stock stand-ins, and if your practice does not offer NAD plus, that card is switched off.",
+      "show": "services#all-programs"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay on the All treatments page?",
+      "alt": ["What can't I take off the Services page?", "What is the small print under All treatments?"],
+      "say": "The small print at the bottom. It says the statements have not been evaluated by the FDA, that stem cell and exosome therapies are not FDA-approved and investigational for most uses, and that individual results vary. The California notice sits there too; a practice outside California can switch it off once its own lawyer confirms.",
+      "show": "services#small-print"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What treatments do you offer?",
+      "alt": ["What do you do here?", "Which programs are there?"],
+      "say": "The page lists four programs. Three are given at home: Stem Cell Therapy, Wharton's Jelly and Exosome Therapy. The fourth, NAD plus therapy, is by video call. A clinician decides at a consultation which, if any, fits you, and if none do, the practice says so.",
+      "show": "services#all-programs"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Is there downtime afterwards?",
+      "alt": ["Will I need time off after treatment?", "Is it surgery?"],
+      "say": "The page says it is a targeted injection, not an operating room, with no general anesthesia. Before leaving, your clinician explains aftercare: what to avoid, and for how long. The page promises no result, and results vary.",
+      "show": "services#why-consider-it"
+    }
+  ]
+}

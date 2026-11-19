@@ -1,0 +1,513 @@
+{
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "What is in the menu at the top of the site?",
+      "alt": ["How is the site organised?", "What stays at the top of every page?"],
+      "say": "The menu has four items. Where it hurts, Treatments and About each open a list of pages, and Contact goes straight to the contact page. The practice name at the top left takes you home. At the top right are the phone number and the Book a Consultation button."
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the pages for knees, hips and shoulders?",
+      "alt": ["Where are the body part pages?", "What is under Where it hurts?"],
+      "say": "Open the menu at the top and choose Where it hurts. There are six pages there, such as Knees, Hips and Shoulders. The same six are on the home page, in the strip that says Start with where it hurts, and in the footer.",
+      "show": "index#where-it-hurts"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Is there a page that explains this website to me as the owner?",
+      "alt": ["Where is the site guide?", "Is there a page for practice owners?"],
+      "say": "Yes. It is called How this website works, and it is not in the menu. Open it from the link called How this site works, in the note at the top of every page, or choose Site guide at the very end of the footer. It lists every page, what you replace and what must stay.",
+      "show": "site-guide"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where are the frequently asked questions?",
+      "alt": ["Where is the FAQ?", "Do the pages have questions and answers?"],
+      "say": "The main set is near the bottom of the home page. In the footer, under Resources, the link called FAQ jumps to it. Shorter sets sit near the bottom of each Where it hurts page and most treatment pages, and each referral page has three questions of its own.",
+      "show": "index#faq"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Walk me through what a patient does, from the first click to a booked call.",
+      "alt": ["How does a patient move through the site?", "Can you give me the short tour?"],
+      "say": "A patient starts with where it hurts and reads a page written in their own words. They see the price range and what the practice will not promise. Then they book a video call and land on the thank-you page. I can walk you through it in six stops.",
+      "show": "site-guide#tour"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Why does the home page show four steps when other pages show three?",
+      "alt": ["Is it three steps or four?", "The step counts do not match. Which is right?"],
+      "say": "It is the same path, counted two ways. The home page and the Our team page count booking the call as step one, so they show four. The Where it hurts pages, the referral pages and the thank-you page start at the video call, so they show three: the call, the written plan and price, then treatment and follow-ups.",
+      "show": "index#how-it-works"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Where does a patient see the price before they decide?",
+      "alt": ["Where is the cost on the site?", "Does a patient have to phone to find out the price?"],
+      "say": "The full range is on the six Where it hurts pages and the referral pages, and the home page shows the starting figure. On this example a plan for one area, such as a knee, runs from {{site.pricing.from}} to {{site.pricing.to}}, which is a sample. The exact quote comes in writing on the call, so nobody has to phone.",
+      "show": "knees#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "What are the Where it hurts pages for, and how are they different from the Treatments pages?",
+      "alt": ["How do the six Where it hurts pages work?", "Why are there pages by body part and pages by treatment?"],
+      "say": "The six Where it hurts pages start from the patient's day. Each runs the same way: is this you, what the practice can honestly offer, then the price. The science comes last, for people who want it. The Treatments pages are organised by therapy and carry the more clinical detail.",
+      "show": "knees#is-this-you"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "What happens after a patient books or sends the form?",
+      "alt": ["Where does a patient end up after booking?", "What is the thank-you page for?"],
+      "say": "Both land on the thank-you page. It says what happens next in three steps, how to change the time, and five things to bring to the call. The confirmation itself comes from the booking system, not from the website. On this example nothing is booked or sent.",
+      "show": "thank-you"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Do all the Book buttons go to the same place?",
+      "alt": ["How do I get to the booking page from wherever I am?", "Where do the Book a video call buttons lead?"],
+      "say": "Yes. The Book a Consultation button at the top right of every page, the buttons inside the pages, and the bar at the bottom of a phone screen all lead to one booking page.",
+      "show": "book"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Where does my booking calendar show up?",
+      "alt": ["Where does my GoHighLevel calendar go?", "What happens if I pick a time on this example?"],
+      "say": "In the box at the top of the booking page. On this example a stand-in sits there, marked Sample calendar. Pick any time to see the step a patient takes, and nothing is booked. On your site that box holds your practice's own calendar, with your real openings.",
+      "show": "book#calendar"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "What does the website do, and what does the booking system do?",
+      "alt": ["Which part is the website and which part is GoHighLevel?", "Who sends the confirmation?"],
+      "say": "The website brings the patient to the one booking page, holds your calendar there, and shows the thank-you page afterward. The openings, the confirmation and the reminders all belong to the booking system, GoHighLevel.",
+      "show": "site-guide#booking"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Once my calendar is connected, can a patient still ask for a call back?",
+      "alt": ["What is the call-back form on the booking page?", "What if a patient does not want to pick a time?"],
+      "say": "On this example a call-back form sits under the sample calendar. When a practice's real calendar is connected, it takes that spot and the call-back form leaves the booking page. Patients can still phone, or send a message from the Contact page.",
+      "show": "book#call-back"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "How does a patient change or cancel their time?",
+      "alt": ["Can a patient reschedule?", "What if a patient needs to cancel?"],
+      "say": "The thank-you page tells them: call the practice, or use the link in the confirmation. On this example the number shown is {{site.phone}}, which is a sample. The confirmation and its link come from the booking system, not from the website.",
+      "show": "thank-you#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "What do you need from me to connect my calendar?",
+      "alt": ["What do I send so my GoHighLevel calendar can be added?", "Do you need my GoHighLevel password?"],
+      "say": "The website needs one thing: the link to your calendar, copied from GoHighLevel. That link is public. A password or a secret key is never needed, and should never be sent or pasted into the site.",
+      "show": "book#calendar"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Can I use a different booking tool, or add a chat or tracking snippet?",
+      "alt": ["Does it have to be a GoHighLevel calendar?", "Can I add a chat widget to my site?", "Can I add my tracking code?"],
+      "say": "The website can hold them. Another booking tool's snippet can take the calendar's place in the box at the top of the Booking page, and a chat or tracking snippet has its own spot. Only public links and IDs go in, never a secret key. Whether one suits your set-up is a question for your contact for the website.",
+      "show": "book#calendar"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "Why is there a Contact page as well as a Booking page?",
+      "alt": ["What is the difference between Contact and Booking?", "Which page should a patient use to reach us?"],
+      "say": "Contact is for questions first. It has a message form, with the phone number, address and hours beside it. Booking is for picking a time. Both end on the same thank-you page.",
+      "show": "contact"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "What are the Sent here by your provider pages?",
+      "alt": ["What is a referral page?", "What does a referred patient see?"],
+      "say": "They are private pages for patients a provider has sent to you. Each one lays out what happens next in three steps, and shows the price range and who answers the phone. Three name a sample provider, and one general page says Your provider. There is no sales pitch on them and no promise.",
+      "show": "from-your-provider"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "Does each provider who refers to me get their own page?",
+      "alt": ["Can my chiropractor have a page of their own?", "What goes on a referring provider's page?"],
+      "say": "Yes. Each provider who sends you patients gets one private page, with their name, their portrait and a short note about who they send. This example has three made-up ones, from a chiropractor, a physical therapist and a family doctor. Each is stamped Sample referrer.",
+      "show": "from-dr-example"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "Why can't I find the referral pages in the menu?",
+      "alt": ["How does a patient get to their provider's page?", "Are referral pages hidden?"],
+      "say": "They are left out of the menus on purpose, and out of search engines. A patient opens one from a direct link their provider gives them. Only the general one, for any provider, is linked: from the home page, and on a wide screen from the Where it hurts menu.",
+      "show": "from-your-provider"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "Does the website tell the referring provider when their patient books?",
+      "alt": ["The page says the provider gets a note at each step. Does the site send it?", "Does my referring doctor get notified?"],
+      "say": "No. The website sends nothing to the referring provider. The line about a note at each step is a promise the practice keeps itself, with the patient's permission.",
+      "show": "from-your-provider#what-happens-next"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "How will I know which provider sent a patient?",
+      "alt": ["Does the form ask who referred the patient?", "How do I track referrals?"],
+      "say": "The form has an optional box that asks who sent you. Each referral page also tells the patient to say who sent them when they call. The patient fills that in. The page does not do it for them.",
+      "show": "book#call-back"
+    },
+    {
+      "audience": "owner",
+      "topic": "referral pages",
+      "q": "What is the difference between a referral page and the For providers and partners page?",
+      "alt": ["Is the For providers page for doctors who send me patients?", "Which page is for other clinicians?"],
+      "say": "A referral page speaks to a patient who was sent to you. The For providers and partners page speaks to a clinician about working with the practice. Different readers, so different pages. You find the second one under About in the menu.",
+      "show": "for-providers"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "What does the Sample stamp mean?",
+      "alt": ["Why does it say Sample everywhere?", "Will the Sample stamps be on my own site?", "What does Sample picture mean?"],
+      "say": "A Sample stamp marks a detail that was made up for this example. It is a stand-in. On your own site the same spot carries your real detail instead. Product pictures, such as the vial on the home page, carry a stamp that says Sample picture.",
+      "show": "site-guide#yours"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Is this a real practice?",
+      "alt": ["Who is Dr. Demo?", "Is anything on this site real?"],
+      "say": "No. {{site.name}} is a sample practice, not a real one. Every name, number, price and story on this site is made up, so you can see how the site works before it carries your own. The note at the top of every page says so.",
+      "show": "site-guide#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "What is the note at the top of every page?",
+      "alt": ["What is the line across the top of every page?", "What does Outline what is yours to replace do?", "Will my patients see the example note?"],
+      "say": "It says this is an example site, and that everything about the practice on it is a sample. It has two controls. The link called How this site works opens your guide page. The button called Outline what is yours to replace outlines every sample on the page you are viewing. Your patients never see this note.",
+      "show": "site-guide#top"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Which details on this site are samples?",
+      "alt": ["What here is made up?", "Is the phone number real?"],
+      "say": "Every detail about the practice is a sample. That covers who it is: the name, phone number and address. It covers the people: the clinicians and whoever answers the phone. And it covers the numbers: the prices, the review score and the figures. The patient stories are samples too.",
+      "show": "site-guide#yours"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Can you show me everything on this page that is a sample?",
+      "alt": ["Which parts of this page would I replace?", "Highlight the samples for me."],
+      "say": "Yes. The note at the top of every page has a button called Outline what is yours to replace. It outlines every sample on the page you are viewing, and stays on from page to page. Press it again to switch it off. When I can move the page for you, I can switch it on myself."
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I have to replace with my own details?",
+      "alt": ["What do I need to change?", "Is there one list of everything I hand over?"],
+      "say": "Anything stamped Sample. That means your practice name, logo and contact details. It means your clinicians and your price range. And it means your reviews, your booking calendar and your legal pages. The page called How this website works lists each one, with a button that shows you where it appears.",
+      "show": "site-guide#yours"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my practice name and logo appear?",
+      "alt": ["Where does the practice name show?", "Where does my logo go?"],
+      "say": "At the top left of every page, in the footer, and in the page titles. On this example the name reads {{site.name}}, which is a sample. On your site those spots carry your own name and logo.",
+      "show": "site-guide#yours"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my phone number, address and hours appear?",
+      "alt": ["Where does my phone number show?", "Where do I put my address and opening hours?"],
+      "say": "Your phone number is at the top and bottom of every page, and on the Contact and Booking pages. Your address and hours are on the Contact page. On this example the number is {{site.phone}}, a sample, and so are the address and the hours.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my clinicians and my front desk person appear?",
+      "alt": ["Who is {{site.coordinator.first}}?", "Can I use my own photos of my staff?"],
+      "say": "Your clinicians go on the home page, with portraits, and on the Our team page, with names, titles and short bios. The first name of whoever answers your phone goes on the booking page, the thank-you page and the referral pages. On this example that is {{site.coordinator.first}}, a sample, and the portraits are stand-ins.",
+      "show": "about#team"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my prices go?",
+      "alt": ["How do I change the price range?", "What are the two price figures?"],
+      "say": "You give two figures: where a plan starts and where it tops out. Both appear in the cost sections of the six Where it hurts pages and the referral pages, and the home page shows the starting figure. On this example they are {{site.pricing.from}} and {{site.pricing.to}}, which are samples.",
+      "show": "knees#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where do my reviews and patient stories go?",
+      "alt": ["How do I add testimonials?", "Are the reviews on here real?"],
+      "say": "Your review score sits near the top of the home page. Three short stories sit lower down, with more on the Patient stories page. The ones here are samples, such as the score of {{site.reviews.score}}. A real site publishes only verified reviews, with the patient's written consent.",
+      "show": "testimonials"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Do I need my own privacy policy and terms?",
+      "alt": ["Where are the legal pages?", "Can I keep the legal text that is on here?"],
+      "say": "Yes. The Privacy Policy, the Terms and Conditions and the Disclaimer on this example are sample text. Your own counsel reviews and replaces them before launch. You find all three on the last line of the footer, on every page.",
+      "show": "privacy-policy"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What must stay on my site?",
+      "alt": ["What can I not take off?", "Which parts are not allowed to change?"],
+      "say": "Eight things stay, and the page called How this website works lists them all. Here are the first three. The plain statement that this care is not FDA-approved and is investigational for most uses. The words results vary. And the home page section on what you will not promise. Shall I go on?",
+      "show": "site-guide#stays"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What else must stay on my site?",
+      "alt": ["What are the next three things that stay?", "Go on with the list of what stays."],
+      "say": "Three more. A clinician decides who is a candidate, and if someone is not a fit the site says you will tell them. The notice required in California stays where it applies. And no patient story promises a result. Two more come after these. Shall I go on?",
+      "show": "site-guide#stays"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What are the last two things that must stay?",
+      "alt": ["Is that the whole list of what stays?", "What stays about the first call and the small print?"],
+      "say": "The honest wording about the first call: the site calls it a consultation or a video call, and says a quote is never a commitment. And the small print at the foot of the pages, which says this care is not FDA-approved and that results vary. Your own counsel reviews its exact wording before launch.",
+      "show": "site-guide#stays"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Why does the site spend so much space on what it will not promise?",
+      "alt": ["Won't the honest lines put patients off?", "Why do those things have to stay?"],
+      "say": "Those lines protect your patients and your licence. They are also why a careful reader trusts the rest. The reader is often in pain, paying out of pocket and wary of big claims, so plain honesty is what earns their trust.",
+      "show": "index#honesty"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Can I take the FDA line off?",
+      "alt": ["Can I say the treatment is FDA-approved?", "Can I soften the wording about approval?"],
+      "say": "No. That line stays. The site says plainly that stem cell and exosome products are not FDA-approved to treat joints and are investigational for most uses. It says the same in writing on the home page, under What we will not promise.",
+      "show": "index#honesty"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Can I call the first call free?",
+      "alt": ["Can I advertise a free consultation?", "Can the button say free?"],
+      "say": "No. The site never uses that word for the consultation, and that wording stays. It says a consultation or a video call, a conversation and not a sales pitch. It also says a quote is never a commitment.",
+      "show": "site-guide#stays"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Can I add before and after photos, or patient results?",
+      "alt": ["Can a testimonial say the pain went away?", "Can I show outcomes?"],
+      "say": "No. No page on the site promises an outcome, and no patient story describes one, so before and after pictures and results stay off. A story can say how the care felt. It comes from a real patient, with written consent, and keeps the line that results vary.",
+      "show": "testimonials"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Do I need the California notice?",
+      "alt": ["What is the California notice?", "I am not in California. Can the notice come off?"],
+      "say": "It applies to practices in California that offer stem cell therapy that is not FDA-approved. There, the same notice must also be posted in the clinic. A practice outside California can switch it off, and your own counsel confirms before launch. It sits at the bottom of the regenerative pages and on the Disclaimer page.",
+      "show": "knees#small-print"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "If I change the wording on a page, what rules apply?",
+      "alt": ["Which words are off limits?", "Can I rewrite the pages?"],
+      "say": "Three rules. Keep to the patient's everyday words. Keep the honest lines: not FDA-approved, results vary, a clinician decides. And add nothing that promises relief or a result. The site says what a treatment is studied for and aimed at, never what it will do.",
+      "show": "site-guide#stays"
+    },
+    {
+      "audience": "owner",
+      "topic": "the design",
+      "q": "What design is this, and are there others?",
+      "alt": ["How many designs are there?", "What are the other looks called?"],
+      "say": "This example wears the look called Ecosystem, in lavender, indigo and violet. There are four others. Onyx is the dark one, near black with sand and gold. The three lighter ones are Sandstone, Meridian and Ivory. The page called How this website works has a button for each, under One site, five looks.",
+      "show": "site-guide#looks"
+    },
+    {
+      "audience": "owner",
+      "topic": "the design",
+      "q": "Can you show me another look?",
+      "alt": ["Can I see the site in a different design?", "Is there a design button on this example?"],
+      "say": "Yes. On the page called How this website works, the part called One site, five looks has a button for each look. Press one and it shows this site in that look. Press Ecosystem to come back to this one. When I can move the page for you, you can also just name a look to me.",
+      "show": "site-guide#looks"
+    },
+    {
+      "audience": "owner",
+      "topic": "the design",
+      "q": "If I choose a different look, do the words or the pages change?",
+      "alt": ["What changes between the designs?", "Is the booking the same in every look?"],
+      "say": "No. The pages, the words and the booking stay the same in every look. What changes is the colours and the pair of typefaces.",
+      "show": "site-guide#looks"
+    },
+    {
+      "audience": "owner",
+      "topic": "the design",
+      "q": "Which look will my practice get?",
+      "alt": ["Can I pick my design?", "Do I get all five looks?"],
+      "say": "I don't have that. Your contact for the website can tell you. You can see all five looks on this example: the page called How this website works has a button for each one.",
+      "show": "site-guide#looks"
+    },
+    {
+      "audience": "owner",
+      "topic": "the design",
+      "q": "I do not offer NAD+. Can those pages come off?",
+      "alt": ["Can I remove a program?", "Can hormone or peptide programs be added?"],
+      "say": "Yes. Each program is a switch. With one off, its page, its menu links and every mention of it are gone from the site. Hormone and peptide pages also exist, switched off on this example. Which programs your own site carries is a question for your contact for the website.",
+      "show": "nad"
+    },
+    {
+      "audience": "owner",
+      "topic": "the design",
+      "q": "Is the type big enough for my older patients?",
+      "alt": ["Is the site easy to read?", "Was this designed for older readers?"],
+      "say": "These looks were tuned for older readers. The type is larger, the buttons are written in plain sentence case, and every pairing of text and background was checked for contrast."
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "What is different when a patient opens the site on a phone?",
+      "alt": ["Does it work on a phone?", "Where is the menu on a phone?"],
+      "say": "On a phone the menu folds behind the three-line button at the top right. A bar at the bottom of the screen carries the booking button and a call button. The pages and the words are the same as on a laptop, stacked in one column."
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "What is the bar at the bottom of the phone screen?",
+      "alt": ["Why is there a Book button stuck to the bottom on my phone?", "Can patients book from the bottom of the screen?"],
+      "say": "It is a phone-only bar with a wide Book a Consultation button and a round call button. It appears once the top of the page has scrolled away. It stays off the booking page and the thank-you page, where it is not needed."
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "Can patients tap to call?",
+      "alt": ["Is the phone number clickable?", "How does a patient phone us from the site?"],
+      "say": "Yes, on every page. The phone number at the top can be tapped. On a phone it becomes a round phone button, with a call button in the bar at the bottom as well. On this example they carry {{site.phone}}, a sample number. On your site they dial your practice."
+    },
+    {
+      "audience": "owner",
+      "topic": "phones and laptops",
+      "q": "What is the Payment plans available tag that slides in on my computer?",
+      "alt": ["What is the little financing note at the bottom left?", "Can I close the payment plans tag?"],
+      "say": "It is a small note on wider screens that links to the Financing and Payment Plans page. It appears after you scroll down and hides again near the footer. The X closes it for the rest of the visit. It never shows on a phone.",
+      "show": "financing"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "What does the website not do?",
+      "alt": ["What are the limits of the site?", "What should I not expect the site to do?"],
+      "say": "It does not take payment, send reminders, or give medical advice. It also has no patient log-in. And on this example the forms send nothing. Its job is to bring a patient to one step: a booked video call."
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Can patients pay on the website?",
+      "alt": ["Is there a checkout?", "Does the site sell the treatment online?"],
+      "say": "No. The website takes no payment and sells nothing online. The price is quoted in writing on the call. Monthly payment plans come from a separate financing company, subject to approval.",
+      "show": "financing"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Does the website send the reminders?",
+      "alt": ["Does the site send no-show texts?", "Does the website email or text my patients?"],
+      "say": "No. The website itself sends nothing. Reminders and no-show messages are sent by GoHighLevel, the booking system. The website's part ends at the thank-you page.",
+      "show": "site-guide#booking"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Do the forms on this example send anything?",
+      "alt": ["What happens when someone presses Request My Consultation?", "Is the contact form connected?"],
+      "say": "No. The forms here are samples. Fill one in, press the button, and you land on the thank-you page, but no message reaches anyone. A note under the button says so. A practice connects the form to its own inbox before launch.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Is there a patient log-in or a portal?",
+      "alt": ["Can patients log in?", "Can patients see their records on the site?"],
+      "say": "No. The website has no patient log-in, no accounts and no records. It is a set of pages that lead to a booked video call."
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Can the site, or you, tell a patient whether this will work for them?",
+      "alt": ["Does the site give medical advice?", "A patient is asking a medical question. Where should they go?"],
+      "say": "No. The site says its content is general education, not medical advice, and that a clinician decides who is a candidate on the call. I am a guide to the website, not a clinician. For a medical question, the next step is a video call or the phone.",
+      "show": "index#honesty"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Does the site count visitors or show a cookie banner?",
+      "alt": ["Is there analytics on the site?", "Does the site track people?"],
+      "say": "Not today. The site has no visitor counting, no cookie banner and no tracking. There is a place in the site where a tracking or chat snippet can be added later."
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Can I log in and edit the site myself?",
+      "alt": ["Is there an editor?", "Can I change the text on my own?"],
+      "say": "No. The website has no owner log-in and no editing screen. It is a set of finished pages, and changes are made by the people who build it, then published."
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Does the site say we are HIPAA compliant?",
+      "alt": ["Is there a HIPAA badge?", "What do the badges on the Contact page mean?"],
+      "say": "No. The site makes no HIPAA promise. The badge on the Contact page says Encrypted connection. The other badges beside it are samples, and a practice lists its own verified credentials there.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "What does the site tell a patient to do in an emergency?",
+      "alt": ["Is there an emergency line on the site?", "Does the site say to call 911?", "What if a patient has an urgent problem?"],
+      "say": "The site says it plainly: this website is not for emergencies, and in an emergency, call 911. That line is on the Contact page, under the hours, and on the Booking page, under the call-back form. The referral pages carry it too, under who answers the phone.",
+      "show": "contact#book"
+    },
+    {
+      "audience": "owner",
+      "topic": "what the site does not do",
+      "q": "Is my site on Google yet?",
+      "alt": ["Can patients find my site in a search?", "Is this example on Google?", "When will search engines list my site?"],
+      "say": "Not until it is ready. While a site still carries stand-in details, every page tells search engines not to list it. That comes off once your practice name, your legal pages and your reviews are in. This example stays out of search too. The date for yours: I don't have that. Your contact for the website can tell you."
+    }
+  ]
+}

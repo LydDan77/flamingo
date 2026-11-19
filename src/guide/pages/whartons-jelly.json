@@ -1,0 +1,99 @@
+{
+  "purpose": "Explains where the cells come from, for the patient who wants to know before deciding: what Wharton's Jelly is, why the practice uses it, how the tissue is donated and tested, and how treatment is delivered at home. It exists to answer the sourcing question openly.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of the Treatments pages, which carry the science. Patients do not need to read it to book; a shorter plain-language guide on the same subject is in the Journal.",
+    "The page makes statements in the practice's name about sourcing and the visit: donated tissue, an accredited tissue bank, every lot tested for sterility, viability and potency, documentation available on request, and a visit of about an hour. An owner should be able to stand behind each one.",
+    "The comparisons with bone marrow and fat-derived cells are given as the practice's reasons for its choice, and the page says they are not evidence that one source works better in a person. Its chart is labelled illustrative, not to scale. Ava says what the page explains and does not restate it as fact.",
+    "The Before You Book cards are shared with the Stem Cell Therapy and Exosomes pages. Book a Consultation and See if you qualify both open the Booking page."
+  ],
+  "replace": [
+    "Delivery: your service area replaces the sample one, {{site.town}} and the surrounding counties, which carries a Sample stamp.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photos are licensed stock standing in; your own photos can replace them.",
+    "The header and footer carry your practice name in place of the sample name {{site.name}}."
+  ],
+  "keep": [
+    "The line in The Source, in the first answer and in the safety answer: treatments made from Wharton's Jelly are not FDA-approved, are investigational for most uses, and results vary.",
+    "The lines that say what is not known: a laboratory finding does not show the cells work better in a person, and the reasons for choosing this source are not evidence of a better result.",
+    "The Before You Book cards: side effects are possible with any procedure, a clinician decides candidacy at the consultation, and someone who is not a fit hears that first.",
+    "The answer to Which conditions might a clinician consider it for: the practice does not address systemic diseases or conditions outside its clinical scope.",
+    "The small print at the bottom: stem cell and exosome products are not sold online, the statements have not been evaluated by the FDA, stem cell and exosome therapies are not FDA-approved and investigational for most uses, and individual results vary.",
+    "The California notice at the bottom, unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page introduces Wharton's Jelly as the tissue the practice's cells come from, with a Book a Consultation button and a link to the therapy that uses them." },
+    "the-source": { "say": "The Source explains what Wharton's Jelly is: tissue from inside the umbilical cord, donated after healthy, full-term births. It also says treatments made from it are not FDA-approved and are investigational for most uses." },
+    "why-it-matters": { "say": "Why we use Wharton's Jelly gives the practice's reasons for choosing cord tissue over bone marrow or fat, and says they are not evidence that one source works better. Its simple chart is labelled illustrative." },
+    "from-donation-to-your-door": { "say": "From Donation To Your Door is three steps: donated with consent, processed and tested by an accredited tissue bank, and delivered at home." },
+    "delivery": { "say": "Delivery describes the visit itself, about an hour for a targeted injection given at home by a nurse practitioner under physician oversight. It names the service area, which is a sample on this example." },
+    "before-you-book": { "say": "Before You Book is four cards answering what everyone asks first, from Is it safe to What happens on the day." },
+    "faq": { "say": "The questions at the bottom give short answers on what Wharton's Jelly is, which conditions a clinician might consider it for and how the treatment is given." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Wharton's Jelly page for?",
+      "alt": ["Why is there a page about Wharton's Jelly?", "What does the Wharton's Jelly page do?"],
+      "say": "It answers the question careful patients ask: where do the cells come from? The page explains that the tissue is donated umbilical cord, how it is tested, and how it reaches the patient. It is there for people who want that detail before they decide.",
+      "show": "whartons-jelly"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site explain where the cells come from and how they are tested?",
+      "alt": ["Where is the sourcing explained?", "Where does it say the tissue is tested?", "Where do I find Wharton's Jelly?"],
+      "say": "On the Wharton's Jelly page, in the part called From Donation To Your Door. It has three steps: donated with consent, tested by an accredited tissue bank, then delivered at home. To get there, open the menu at the top, choose Treatments, then Wharton's Jelly.",
+      "show": "whartons-jelly#from-donation-to-your-door"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Wharton's Jelly page?",
+      "alt": ["What do I replace on the Wharton's Jelly page?", "Where does my service area go on this page?"],
+      "say": "Two details. Your service area, in the part called Delivery, replaces {{site.town}} and the surrounding counties, which is a sample. Your phone number replaces the sample {{site.phone}} at the bottom. The photos are stock stand-ins you can replace.",
+      "show": "whartons-jelly#delivery"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "What on the Wharton's Jelly page is a sample?",
+      "alt": ["Is the service area on this page real?", "Why is there a Sample stamp on the Wharton's Jelly page?"],
+      "say": "Two things. The service area, {{site.town}} and the surrounding counties, is a sample and carries a Sample stamp. The phone number at the bottom, {{site.phone}}, is a sample too. The explanation of the tissue and the testing is not a sample; it comes with the site.",
+      "show": "whartons-jelly#delivery"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Do patients need to understand Wharton's Jelly before they book?",
+      "alt": ["Is the Wharton's Jelly page required reading?", "Will my patients be put off by the science?"],
+      "say": "No. The Where it hurts pages simply say cells from donated, screened umbilical cord tissue, and leave the science as optional reading. This page is for the patient who wants more. A shorter plain-language guide on the same subject is in the Journal.",
+      "show": "whartons-jelly"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "What has to stay on the Wharton's Jelly page?",
+      "alt": ["What can't come off the Wharton's Jelly page?", "Where does the Wharton's Jelly page say it is not FDA-approved?"],
+      "say": "The small print at the bottom: these therapies are not FDA-approved, are investigational for most uses, and results vary. The part called The Source says the same in the page's own words. The card saying a clinician decides who is a candidate stays too, and the California notice, unless your own lawyer confirms it does not apply.",
+      "show": "whartons-jelly#small-print"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Where do the cells come from?",
+      "alt": ["Whose cells are these?", "Is the tissue tested?"],
+      "say": "The page says they come from Wharton's Jelly, the tissue inside the umbilical cord. It is donated by screened mothers after healthy, full-term births, with no harm to mother or child. An accredited tissue bank prepares it and tests every lot before release.",
+      "show": "whartons-jelly#from-donation-to-your-door"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What conditions do you treat with it?",
+      "alt": ["Can it help my arthritis?", "What can Wharton's Jelly be used for?"],
+      "say": "The page says its clinicians consider it for joint and soft-tissue problems, such as worn joints and tendon or ligament injuries. It does not address systemic diseases. A clinician decides whether you are a candidate after reviewing your history, and results vary.",
+      "show": "whartons-jelly#q-what-conditions-can-it-address"
+    }
+  ]
+}

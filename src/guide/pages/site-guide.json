@@ -1,0 +1,101 @@
+{
+  "name": "Site guide",
+  "reach": "the Site guide link at the bottom of every page, or the How this site works link in the note near the top of every page; it is not in the menus",
+  "purpose": "The owner's own guide to this example website. It has a short tour of a patient's path, a table of every page, the list of what a practice replaces with its own details, and the list of what stays. It lets an owner see how the whole site fits together in a few minutes.",
+  "audience": "practice owner",
+  "owner_notes": [
+    "This page is for you, not for your patients. It is not in the menus: you open it from the note near the top of any page, or from the Site guide link at the bottom.",
+    "Its Show me buttons take you to the real spot on the site and mark it. They go to the same places Ava points to.",
+    "The What you replace and What stays lists are printed from Ava's own checklist, so the page and Ava give the same answers. Each item has a Show me where button.",
+    "The note at the top of every page has two controls: the How this site works link, which opens this page, and a button, Outline what is yours to replace, which outlines every sample detail on the page in view and stays on from page to page.",
+    "One site, five looks has five buttons, and each shows this site in that look. This example wears the look called Ecosystem.",
+    "What this page and Ava cannot tell you lists what is agreed between an owner and the people building the site, such as timing and who looks after the site once it is live. For those the page says to ask the person who sent the link.",
+    "The table of every page is made from the site itself each time the site is built, so it does not fall behind the pages.",
+    "The last part, For whoever connects Ava, lists what the assistant learns from. It is for the person who sets her up, and most owners can skip it."
+  ],
+  "replace": [
+    "Nothing on this page is filled in by hand. Its What you replace part lists the details a practice supplies elsewhere on the site.",
+    "The examples shown in that list are samples, such as the first name of the person who answers the phone, {{site.coordinator.first}}, and the price range, {{site.pricing.from}} to {{site.pricing.to}}."
+  ],
+  "keep": [
+    "The What stays part is the list for the whole site: the plain statement that the care is not FDA-approved and is investigational for most uses, the words results vary, the section on what you will not promise, that a clinician decides who is a candidate, the California notice, that no patient story promises a result, the honest wording about the first call, and the small print at the foot of the pages."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page says this is an example of your new website, and that every name, number, price and story on it is a sample. A short key then explains three things: the Sample stamp, Ava in the bottom corner, and the note at the top of every page." },
+    "tour": { "say": "The short tour is six stops in the order a patient meets them, each with a Show me button that takes you to the real spot." },
+    "pages": { "say": "Every page is a table of all the pages on this example, saying what each one is for and how to get there." },
+    "yours": { "say": "What you replace lists the details that are yours to supply, such as your practice name, your phone number and your price range. Each one has a Show me where button, and one more button outlines the samples on the page." },
+    "stays": { "say": "What stays lists what does not come off the site, starting with the plain statement that this care is not FDA-approved and is investigational for most uses. Each one has a Show me where button." },
+    "booking": { "say": "How booking works shows the three parts of booking: one booking page, your calendar at the top of it, then the thank-you page." },
+    "looks": { "say": "One site, five looks says this example wears the look called Ecosystem, and that the same pages come in four more. Five buttons show this site in each look." },
+    "ask": { "say": "Things worth asking is a short set of ready questions; each button goes to the same answer you would get by asking out loud." },
+    "not-here": { "say": "This part lists what this page and Ava cannot tell you, because it is agreed between you and the people building your site. Examples are when your site goes live and who looks after it later. For those, it says to ask the person who sent you this link." },
+    "connect": { "say": "This last part is for whoever sets up the assistant: it lists what she learns from, and most owners can skip it." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the site guide?",
+      "alt": ["What is the How this website works page?", "Is there a page that explains this website?", "Is there a written guide to this site?"],
+      "say": "It is your own guide to this example, a page called How this website works. It has a short tour of a patient's path, a table of every page, and the lists of what you replace and what stays. It is written for you, not for your patients.",
+      "show": "site-guide"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Is there a list of every page?",
+      "alt": ["Where is the list of all the pages?", "Can I see what each page is for in one place?"],
+      "say": "Yes. The site guide has a table of all the pages on this example, in the part called Every page, saying what each one is for and how to get there. Open the site guide from the Site guide link at the bottom of any page.",
+      "show": "site-guide#pages"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "Is there a quick tour of how a patient moves through the site?",
+      "alt": ["Can I see the short tour?", "Show me how a patient moves through the site."],
+      "say": "Yes. The site guide has a short tour of six stops, in the order a patient meets them, each with a Show me button. It starts with where it hurts, passes the price and what you will not promise, and ends on the thank-you page.",
+      "show": "site-guide#tour"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "Where is the list of what I replace?",
+      "alt": ["Where does the site guide list my details?", "Where can I see, in one place, everything I have to supply?"],
+      "say": "On the site guide, under What you replace. It lists your details one by one, such as your practice name, your price range and your booking calendar, and each has a Show me where button. Anything stamped Sample on this site is a stand-in for one of them.",
+      "show": "site-guide#yours"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Where is the list of what must stay on my site?",
+      "alt": ["Is there one list of what I can't remove?", "What are the things that stay?"],
+      "say": "On the site guide, under What stays. The list starts with the plain statement that this care is not FDA-approved and is investigational for most uses, and that results vary. Each item has a Show me where button. They protect your patients and your licence, and they are why a careful reader trusts the rest.",
+      "show": "site-guide#stays"
+    },
+    {
+      "audience": "owner",
+      "topic": "booking",
+      "q": "How does booking work, in short?",
+      "alt": ["Can you sum up how booking works?", "Where does the site guide explain booking?"],
+      "say": "Every booking button on the site leads to one Booking page, and your calendar sits in the box at the top of it. After a booked call or a sent form, the patient lands on the thank-you page. Reminders come from the booking system, not from the website.",
+      "show": "site-guide#booking"
+    },
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the last part of the site guide, about what Ava learns from?",
+      "alt": ["Who is the part for whoever connects Ava written for?", "Do I need to read the part about connecting Ava?"],
+      "say": "That part is for the person who sets me up, not for you or your patients. It lists the material I learn from, which is made from the site each time the site is built, so it does not fall behind the pages. You can skip it.",
+      "show": "site-guide#connect"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where can I see the other looks?",
+      "alt": ["Where are the five looks?", "Can I see this site in a different design?", "What is One site, five looks?"],
+      "say": "On the site guide, in the part called One site, five looks. This example wears the look called Ecosystem, and five buttons there show the same pages in each of the five looks.",
+      "show": "site-guide#looks"
+    }
+  ]
+}

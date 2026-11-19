@@ -1,0 +1,96 @@
+{
+  "purpose": "Speaks to a patient with a worn or partly torn shoulder that catches when they reach and wakes them at night. It says what the practice can offer, that a complete tear or a frozen shoulder belongs with a surgeon or a specialist, and what it costs.",
+  "audience": "patients",
+  "owner_notes": [
+    "One of six Where it hurts pages, all built the same way: Is this you, What we do, What happens, What it costs, the science, three questions, then the booking band. The words on this one are about shoulders only.",
+    "It is written for people whose physical therapy helped and then plateaued. It tells them they can keep working with their therapist, and usually not to stop, and says the practice keeps a referring therapist in the loop, with the patient's permission.",
+    "It draws a clear line: partial rotator cuff tears may be a fit, while a complete tear or a frozen shoulder is sent to a surgeon or a specialist.",
+    "On this example the sample physical therapist's referral page links here with the words Read about shoulder care first."
+  ],
+  "replace": [
+    "What it costs: your own from and to figures replace the sample range {{site.pricing.from}} to {{site.pricing.to}}.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}.",
+    "The photo at the top is licensed stock standing in; your own photo can replace it."
+  ],
+  "keep": [
+    "The What we will not promise card: the treatment is not FDA-approved for shoulders and is investigational, results vary, and a complete rotator cuff tear or a frozen shoulder usually needs a surgeon or a specialist.",
+    "The line in Who it tends to suit that a clinician decides candidacy on the video call, with imaging.",
+    "The answer that says any change in pain or reach, if it comes, tends to be gradual over weeks.",
+    "The small print at the bottom: statements not evaluated by the FDA, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page puts shoulder trouble in everyday words, the top shelf, a zip behind you and waking at two, and offers one button, Book a video call." },
+    "is-this-you": { "say": "Is this you lists five situations a shoulder patient will recognise, such as therapy that helped and then plateaued." },
+    "what-we-do": { "say": "What we do is three cards: the treatment in plain words, who it tends to suit, and what the practice will not promise for a shoulder." },
+    "what-happens": { "say": "What happens sets out three steps: a video call, a written plan and price, then treatment and follow-ups." },
+    "cost": { "say": "What it costs gives the range for a plan for one area, such as a shoulder, {{site.pricing.from}} to {{site.pricing.to}} on this example, which is a sample. It adds that the quote says so if treatment needs a partner facility." },
+    "the-science-if-you-want-it": { "say": "The science, if you want it, links to three short guides, including one on what happens during a visit at home." },
+    "questions": { "say": "Questions answers three things shoulder patients ask: whether to stop physical therapy, how a partial tear differs from a full one, and what they can do with the arm afterward." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Shoulders page for?",
+      "alt": ["Why is there a page just for shoulders?", "What does the Shoulders page do?"],
+      "say": "The Shoulders page speaks to someone who cannot reach the top shelf and wakes when they roll onto that side. It says what your practice can offer a worn or partly torn shoulder, who it tends to suit and what it costs. It also says which shoulders it will not treat.",
+      "show": "shoulders"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the Shoulders page say which shoulders you will not treat?",
+      "alt": ["What does the shoulder page say about a complete tear?", "Does the Shoulders page turn anyone away?"],
+      "say": "In the card called What we will not promise, under What we do. It says a complete rotator cuff tear or a frozen shoulder is a different problem that usually needs a surgeon or a specialist, and that the practice says so instead of treating it.",
+      "show": "shoulders#what-we-do"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where is the price on the Shoulders page?",
+      "alt": ["Where does a patient see the cost on the shoulder page?"],
+      "say": "About halfway down, in the part called What it costs, the same place as on the other Where it hurts pages. On this example it shows {{site.pricing.from}} to {{site.pricing.to}} for a plan for one area, such as a shoulder, which is a sample. Under it is a link to the Financing and Payment Plans page.",
+      "show": "shoulders#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Shoulders page?",
+      "alt": ["What do I replace on the shoulder page?"],
+      "say": "Your price range in the What it costs part, your phone number beside the booking button at the bottom, and the photo at the top if you have your own. The price and the phone number on this example are samples.",
+      "show": "shoulders#cost"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "My patients are already in physical therapy. What does the Shoulders page tell them?",
+      "alt": ["Does the shoulder page tell patients to stop physical therapy?", "I'm a physical therapist. Does this page pull my patients away from me?"],
+      "say": "It tells them usually not to stop. Most clinicians prefer the strengthening to keep going, with a short pause around the visit. If a physical therapist sent the patient, the practice keeps them in the loop, with the patient's permission.",
+      "show": "shoulders#q-should-i-stop-physical-therapy"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "What on the Shoulders page is a sample?",
+      "alt": ["Is anything on the shoulder page made up?"],
+      "say": "The price range is stamped Sample, and so is the note under the California notice at the bottom. The phone number at the bottom and the practice name at the top are samples too. The page's own wording about shoulders is what your patients would read.",
+      "show": "shoulders#cost"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "I have a torn rotator cuff. Can you help?",
+      "alt": ["Is this for a rotator cuff tear?"],
+      "say": "I can't tell you that; a clinician decides on a video call, with your imaging. The page says a partial tear still has tissue to work with, while a complete tear is usually a problem for a surgeon. The treatment is not FDA-approved for shoulders and is investigational.",
+      "show": "shoulders#q-is-a-partial-tear-different-from"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How soon would my shoulder feel better?",
+      "alt": ["How long does it take to work on a shoulder?"],
+      "say": "The page makes no promise about that. It says you take it easy for a day or two, then return to light use with specific guidance. Any change in pain or reach, if it comes, tends to be gradual over weeks.",
+      "show": "shoulders#q-will-i-be-able-to-lift"
+    }
+  ]
+}

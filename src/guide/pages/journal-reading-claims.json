@@ -1,0 +1,71 @@
+{
+  "name": "Reading claims article",
+  "reach": "the Journal page, which is under About in the menu at the top; it is the fifth of the six guides listed there, and the Home page, the Back and neck page and the Before surgery page link to it",
+  "purpose": "Teaches a patient how to judge any regenerative clinic's wording, this site's included: which words should worry them, which should reassure them, and what the regulator says. It exists because a practice that invites that test shows it has nothing to hide.",
+  "audience": "patients",
+  "owner_notes": [
+    "It opens by inviting the reader to hold this site to the same tests, and it links to What we will not promise on the Home page.",
+    "It doubles as a plain summary of the wording rules your own site follows: no words that promise a result, no claim of approval the products do not have, no countdown timers or discounts for deciding today, and no testimonial that promises an outcome.",
+    "It sets out the rules for reviews as well: real patients, written consent, and never a promised result.",
+    "The Home page shows it under From the journal, and the Back and neck and Before surgery pages link to it under The science, if you want it."
+  ],
+  "replace": [
+    "The reviewer line under the heading: your own clinical reviewer's name and the review date replace the sample {{site.reviewer.name}}.",
+    "About reviews: the stamped note says every review on the sample site is a sample, and a practice adds its own verified reviews before launch.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}."
+  ],
+  "keep": [
+    "The opening summary of what the regulator says: outside a small number of approved uses, these products are investigational.",
+    "Both lists: the words that should worry a reader and the words that should reassure them.",
+    "The sentence asking readers to hold this site to the same standard, with its link to What we will not promise.",
+    "The rules under About reviews: real patients, written consent, and never a promised result.",
+    "The sources box, with its links to the FDA consumer pages and the FTC rule on reviews.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the article says its tests apply to this site too, and shows who reviewed it; the reviewer on this example is a sample name." },
+    "article": { "say": "The article itself starts with what the regulator says, then lists the words that should worry a reader and the words that should reassure them, and ends with the rules for reviews." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the article on reading a clinic's claims for?",
+      "alt": ["Why would my site tell patients how to check my claims?", "What does How to read a regenerative clinic's claims cover?"],
+      "say": "It teaches a patient how to judge any clinic's wording, including yours. It starts with what the regulator says, then lists the words that should worry them and the words that should reassure them. Inviting that test is a strong way to earn a careful reader's trust.",
+      "show": "journal-reading-claims"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Which words and sales tactics are off limits?",
+      "alt": ["What words can't I use on my site?", "What can't my site say about results?", "Can I run a limited-time offer on the site?"],
+      "say": "The article lists them for patients, and they come in three kinds. Words that promise a result or claim an approval the products do not have, pressure tactics such as countdown timers and discounts for deciding today, and testimonials that promise an outcome. The careful wording is may support, investigational, and not everyone is a candidate.",
+      "show": "journal-reading-claims#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what must stay",
+      "q": "Where does the site set out its rules for reviews?",
+      "alt": ["What does the site say about fake reviews?", "Where are the rules for testimonials written down?"],
+      "say": "In the Journal, in the guide on how to read a clinic's claims, under About reviews. It says reviews should come from real patients, be published with their written consent, and never promise a result. On this example every review is a sample.",
+      "show": "journal-reading-claims#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the reading claims article?",
+      "alt": ["What do I replace on the article about claims?"],
+      "say": "Very little. The reviewer line at the top takes your own clinician's name and date; on this example it shows {{site.reviewer.name}}, a sample name. The note under About reviews, saying every review here is a sample, gives way to your own verified reviews before launch.",
+      "show": "journal-reading-claims"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "How do I know if a clinic is being honest with me?",
+      "alt": ["How can I tell if a clinic's claims are true?", "What should I watch out for?"],
+      "say": "The article gives a few signs. An honest clinic says its treatment is investigational and not FDA-approved, names its clinicians, and puts the price in writing before you decide. Be wary of anyone who promises a result or pushes you to decide today.",
+      "show": "journal-reading-claims#article"
+    }
+  ]
+}

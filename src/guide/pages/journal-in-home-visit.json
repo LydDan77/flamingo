@@ -1,0 +1,73 @@
+{
+  "name": "In-home visit article",
+  "reach": "the Journal page, which is under About in the menu at the top; it is the fourth of the six guides listed there, and the Shoulders and After an injury pages link to it",
+  "purpose": "Walks a patient through a home visit in order, from the video call to the follow-up: how to get a room ready, what the nurse practitioner does on the day, and what the days after are like. It exists because most people have never had a medical procedure in their living room.",
+  "audience": "patients",
+  "owner_notes": [
+    "It answers the practical worries: what to get ready, who comes to the door, how long it takes and who to call afterwards.",
+    "It follows the same path as the rest of the site: a video call first, a written plan with the full cost, then the visit, then follow-ups with the same team.",
+    "It makes promises about the practice itself: lot numbers and the certificate of analysis recorded in the chart, written aftercare, and who to call if something concerns the patient. A real practice checks that each one is true before launch. The aftercare line ends: In an emergency, call 911.",
+    "The Shoulders and After an injury pages link here under The science, if you want it."
+  ],
+  "replace": [
+    "The reviewer line under the heading: your own clinical reviewer's name and the review date replace the sample {{site.reviewer.name}}.",
+    "On the day: the length of a visit, about an hour on this example, is stamped Sample, and you confirm your own.",
+    "On the day: the line about the lot number and the certificate of analysis is stamped Sample, and you confirm what your own practice records.",
+    "The last source at the end, Clinic aftercare and consent procedures, is stamped Sample: a practice adds its own procedures before launch.",
+    "Service area: your own area replaces the sample, which is {{site.town}} and the surrounding counties.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}."
+  ],
+  "keep": [
+    "The honest expectation near the end: regenerative therapy is not FDA-approved and is investigational for most uses, change tends to be gradual if it comes at all, and individual results vary.",
+    "The line under The days after that other side effects are possible with any procedure, and that a clinician goes through them before the patient decides.",
+    "The line that if someone is not a fit, the process stops at the consultation.",
+    "The line that the patient decides in their own time and nobody calls to push.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the article says it sets out the whole sequence of a home visit so nothing on the day is a surprise, and shows who reviewed it; the reviewer on this example is a sample name." },
+    "article": { "say": "The article itself goes in order, from the video call and getting a room ready to the visit and the days after, and ends with the area the practice serves." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the in-home visit article for?",
+      "alt": ["Why is there an article about the home visit?", "What does the article on the home visit cover?"],
+      "say": "Most people have never had a medical procedure in their living room. This article walks your patient through it in order: the video call, getting a room ready, the visit itself and the days after. The aim is that nothing on the day is a surprise.",
+      "show": "journal-in-home-visit"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site say how long a home visit takes?",
+      "alt": ["Where does a patient read what happens on the day?", "Where is the article about the home visit?"],
+      "say": "In the Journal, in the guide called What happens during an in-home regenerative visit, under On the day. It says the whole visit usually runs about an hour, and the injection itself takes a few minutes. That length is stamped Sample, so you confirm your own.",
+      "show": "journal-in-home-visit#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the in-home visit article?",
+      "alt": ["Where does my service area go in the articles?", "What do I replace on the home visit article?"],
+      "say": "Five spots are stamped Sample. The main three are your reviewer's name and date at the top, the length of a visit, and your service area near the end. The other two are the lot number line and the last source. On this example the area is {{site.town}} and the surrounding counties, a sample.",
+      "show": "journal-in-home-visit"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What do I need to get ready at home?",
+      "alt": ["How do I prepare for the visit?", "Do I need any equipment at home?"],
+      "say": "Very little, the article says: a clean, well-lit room, somewhere to sit or lie comfortably, and a flat surface nearby. The nurse practitioner brings everything else. The only requests are pets in another room and a glass of water within reach.",
+      "show": "journal-in-home-visit#article"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What are the days after the visit like?",
+      "alt": ["Can I go back to normal the same day?", "What happens after the visit?"],
+      "say": "The article says mild soreness is common for a day or two, and that other side effects are possible and are gone through before you decide. The nurse practitioner tells you what to do and what to avoid, and the care team checks in over the following weeks. Change, if it comes, tends to be gradual, and results vary.",
+      "show": "journal-in-home-visit#article"
+    }
+  ]
+}

@@ -10,12 +10,12 @@ nav: journal
       <p class="hero__kicker">Decisions · 6 min read</p>
       <h1>Stem cell therapy or surgery? <em class="hl">Seven questions</em> to ask first</h1>
       <p class="lead">A surgeon has given you a date. Someone has mentioned a non-surgical option. Here is how to think it through without pressure from either side.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>{{#if sample}}Clinical review{{/if}}{{#unless sample}}Clinical Review Board{{/unless}}</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="article" data-guide-label="The article">
   <div class="container container--narrow article__body">
     <div class="article__hero media__frame">{{img:physio-knee|dark=athlete-knee|alt=Clinician examining a patient's knee|sizes=(max-width: 899px) 100vw, 900px}}</div>
 
@@ -25,13 +25,13 @@ nav: journal
     <p>Ask to see your imaging with someone who can explain it. The difference between wear, a partial tear and a complete rupture changes everything that follows. Regenerative options are generally considered for degenerative change and partial soft-tissue injury, not for a joint that has lost its structure or a tendon that has fully separated.</p>
 
     <h2>2. What happens if I wait three months?</h2>
-    <p>Some conditions get worse with delay. Many do not. If a surgeon tells you the procedure is elective and timing is up to you, that window is where a non-surgical option can be tried first, with surgery still available afterward.</p>
+    <p>Some conditions get worse with delay. Many do not. If a surgeon tells you the procedure is elective and timing is up to you, that window is where a non-surgical option can be tried first. Ask the surgeon whether trying it would change anything about the surgery later.</p>
 
     <h2>3. What does the evidence say for my condition?</h2>
     <p>Be specific. Evidence for regenerative therapy varies widely by joint and by diagnosis, and much of it is early. A reputable clinic will tell you where the research is thin. Stem cell and exosome products are not FDA-approved for orthopedic conditions and are considered investigational for most musculoskeletal uses.</p>
 
     <h2>4. Am I actually a candidate?</h2>
-    <p>Age, activity, overall health, medications and the state of the joint all matter. Our own candidacy rules send a meaningful share of people back to their specialist with a clearer picture, and we would rather do that than treat someone who is unlikely to benefit. <a href="journal-candidacy.html">Who is, and isn't, a candidate</a> goes into the detail.</p>
+    <p>Age, activity, overall health, medications and the state of the joint all matter. A good clinic tells some people no, and sends them back to their specialist with a clearer picture. Ask any clinic how often it does that. <a href="journal-candidacy.html">Who is, and isn't, a candidate</a> goes into the detail.</p>
 
     <h2>5. What will it cost, in writing?</h2>
     <p>Surgery has a price that insurance may cover. Regenerative therapy is almost always self-pay. Ask for the full cost of a protocol before you decide, including follow-up visits, and ask whether financing is available. If a clinic will not put the number in writing, that tells you something.</p>

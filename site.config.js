@@ -55,7 +55,7 @@ const variants = {
       founded: "2017",
       financingPartner: "Cascade Patient Finance",
       reviewer: { name: "Dr. Samuel Okafor, MD", date: "October 2026" },
-      legal: { updated: "November 1, 2026", state: "Oregon" },
+      legal: { updated: "November 1, 2026", state: "the State of Example" },
       founder: { name: "Dr. Hannah Whitlock, MD", title: "Founder & Medical Director" },
       team: {
         director: { name: "Dr. Hannah Whitlock, MD", title: "Medical Director" },
@@ -64,7 +64,7 @@ const variants = {
       },
       coordinator: { first: "Maria", role: "care coordinator" },
       group: "Cascade Physician Partners",
-      stats: { years: "9+", clinicians: "14", states: "6", patients: "1,800+" },
+      stats: { years: "9+", clinicians: "8", states: "6", patients: "1,800+" }, // clinicians = the licensed people the Our team page lists (2 physicians + 6 clinicians)
       pricing: { from: "$3,900", to: "$7,500" },
       reviews: { score: "4.9", count: "212" },
       stories: [
@@ -92,11 +92,28 @@ const variants = {
     theme: "ecosystem",
     switcher: false,
     guide: true,
-    guideStrict: false,
-    assistant: { name: "Ava", embedHtml: process.env.AVA_EMBED_HTML || "", headHtml: process.env.AVA_HEAD_HTML || "" },
+    // The checks on the guide (spoken answers, unfinished content) stop the build. GUIDE_STRICT=0 turns them into warnings for an emergency.
+    guideStrict: process.env.GUIDE_STRICT !== "0",
+    // Words that must never appear on this build's pages or in what the assistant learns (the program's own offers and prices).
+    guideNever: ["$997", "$2,497", "$100,000", "Business in a Box"],
+    // Ava's embed. Public widget or agent ids only: this is page source. mode "widget" (her snippet draws its own
+    // launcher) or "panel" (the site draws the launcher and loads her snippet in its panel on the first tap; use it
+    // for a bare iframe). origins: who may send the page guide messages. keepAlive: the site changes under her
+    // without a page load, so a spoken session is never cut off; AVA_KEEP_ALIVE=0 switches that off.
+    assistant: {
+      name: "Ava",
+      embedHtml: process.env.AVA_EMBED_HTML || "",
+      headHtml: process.env.AVA_HEAD_HTML || "",
+      mode: process.env.AVA_MODE === "panel" ? "panel" : "widget",
+      origins: (process.env.AVA_ORIGINS || "").split(",").map((x) => x.trim()).filter(Boolean),
+      keepAlive: process.env.AVA_KEEP_ALIVE !== "0",
+    },
     sampleNote: "Example site. Dr. Demo is not a real practice: every name, number, price and story is a sample.",
     brand: {
       name: "Dr. Demo Regenerative Care",
+      // what a link to the example shows when it is shared (the home page has no title or description of its own)
+      tagline: "Sample website",
+      description: "A sample of the website your practice is getting. Dr. Demo is a made-up practice: every name, number, price and story on it is a sample.",
       phone: "(800) 555-0199",
       phoneTel: "tel:+18005550199",
       email: "hello@drdemo.example",
@@ -109,7 +126,7 @@ const variants = {
       founded: "2016",
       financingPartner: "Example Patient Finance",
       reviewer: { name: "Dr. Sam Sample, MD", date: "October 2026" },
-      legal: { updated: "November 1, 2026", state: "your state" },
+      legal: { updated: "November 1, 2026", state: "the State of Example" },
       founder: { name: "Dr. Dana Demo, MD", title: "Founder & Medical Director" },
       team: {
         director: { name: "Dr. Dana Demo, MD", title: "Medical Director" },
@@ -118,13 +135,20 @@ const variants = {
       },
       coordinator: { first: "Casey", role: "care coordinator" },
       group: "Example Physician Partners",
-      stats: { years: "9+", clinicians: "6", states: "2", patients: "800+" },
+      stats: { years: "9+", clinicians: "8", states: "2", patients: "800+" }, // clinicians = the licensed people the Our team page lists (2 physicians + 6 clinicians)
       pricing: { from: "$3,900", to: "$7,500" },
       reviews: { score: "4.9", count: "120" },
       stories: [
         { quote: "The nurse explained every step before she did it, and the physician called the next morning to check in. I never felt rushed or sold to.", who: "Sample patient A | Anytown", what: "Knee care, at home" },
         { quote: "They told me on the first call that my hip was not a good fit and sent me back to my surgeon with notes. That honesty is why I trust them.", who: "Sample patient B | Anytown", what: "Consultation only" },
         { quote: "The price was on paper before I decided anything, and nobody chased me. I booked two weeks later on my own terms.", who: "Sample patient C | Anytown", what: "Shoulder care, at home" },
+      ],
+      // Referring providers on the example carry names that say what they are. `shortStart` opens a sentence.
+      referrers: [
+        { slug: "dr-example", stampHtml: '<span class="sample">Sample referrer</span>', alt: "Portrait of Dr. Erin Example, DC", name: "Dr. Erin Example, DC", short: "Dr. Example", shortStart: "Dr. Example", role: "chiropractor", practice: "Example Family Chiropractic", focus: "knees", focusWord: "knee", photo: "atelier-portrait-woman", pos: "center 15%", note: "Dr. Example usually sends us patients with knee wear who want to try a non-surgical option before a replacement, and who have already done the basics: weight, strengthening, and adjustments." },
+        { slug: "pat-specimen", stampHtml: '<span class="sample">Sample referrer</span>', alt: "Portrait of Pat Specimen, DPT", name: "Pat Specimen, DPT", short: "Pat", shortStart: "Pat", role: "physical therapist", practice: "Specimen Physical Therapy", focus: "shoulders", focusWord: "shoulder", photo: "atelier-portrait-man", pos: "center 15%", note: "Pat refers shoulders that have plateaued in therapy: partial rotator cuff wear, pain at night, reaching overhead. Pat keeps working with you during and after." },
+        { slug: "dr-tester", stampHtml: '<span class="sample">Sample referrer</span>', alt: "Dr. Lee Tester, MD, with a patient", name: "Dr. Lee Tester, MD", short: "Dr. Tester", shortStart: "Dr. Tester", role: "family doctor", practice: "Tester Family Medicine", focus: "hips", focusWord: "hip", photo: "doctor-senior-ultrasound", pos: "0% 30%", note: "Dr. Tester sends us patients whose hip pain is changing how far they walk, and who want an honest opinion before they see a surgeon." },
+        { slug: "your-provider", stampHtml: "", alt: "A clinician talking with a patient", name: "Your provider", short: "your provider", shortStart: "Your provider", role: "the clinician who sent you", practice: "any practice", focus: "knees", focusWord: "joint", photo: "np-patient-consult", pos: "78% 22%", note: "Whoever sent you here knows your history. Bring their name to the call and we will keep them in the loop, with your permission." },
       ],
     },
   },
@@ -229,11 +253,13 @@ return {
 
   // Sent here by your provider: one private page per referring clinician (from-<slug>.html, noindex). Fictional
   // sample referrers; a client build lists its real referral partners. `focus` names the condition page.
+  // No referrer shares a photo with a named member of the team (the Home, Our team and Our founder pages).
   referrers: [
-    { slug: "dr-reyes", stampHtml: '<span class="sample">Sample referrer</span>', name: "Dr. Elena Reyes, DC", short: "Dr. Reyes", role: "chiropractor", practice: "Reyes Family Chiropractic", focus: "knees", focusWord: "knee", photo: "atelier-portrait-woman", pos: "center 15%", note: "Dr. Reyes usually sends us patients with knee wear who want to try a non-surgical option before a replacement, and who have already done the basics: weight, strengthening, and adjustments." },
-    { slug: "marcus-hale", stampHtml: '<span class="sample">Sample referrer</span>', name: "Marcus Hale, DPT", short: "Marcus", role: "physical therapist", practice: "Hale Physical Therapy", focus: "shoulders", focusWord: "shoulder", photo: "atelier-portrait-man", pos: "center 15%", note: "Marcus refers shoulders that have plateaued in therapy: partial rotator cuff wear, pain at night, reaching overhead. He keeps working with you during and after." },
-    { slug: "dr-natarajan", stampHtml: '<span class="sample">Sample referrer</span>', name: "Dr. Priya Natarajan, MD", short: "Dr. Natarajan", role: "family doctor", practice: "Natarajan Family Medicine", focus: "hips", focusWord: "hip", photo: "nurse-portrait", pos: "center 20%", note: "Dr. Natarajan sends us patients whose hip pain is changing how far they walk, and who want an honest opinion before they see a surgeon." },
-    { slug: "your-provider", stampHtml: '<span class="sample">Sample referrer</span>', name: "Your provider", short: "Your provider", role: "clinician", practice: "", focus: "knees", focusWord: "joint", photo: "clinician-home-visit", pos: "center 30%", note: "Whoever sent you here knows your history. Bring their name to the call and we will keep them in the loop, with your permission." },
+    { slug: "dr-reyes", stampHtml: '<span class="sample">Sample referrer</span>', alt: "Portrait of Dr. Elena Reyes, DC", name: "Dr. Elena Reyes, DC", short: "Dr. Reyes", shortStart: "Dr. Reyes", role: "chiropractor", practice: "Reyes Family Chiropractic", focus: "knees", focusWord: "knee", photo: "atelier-portrait-woman", pos: "center 15%", note: "Dr. Reyes usually sends us patients with knee wear who want to try a non-surgical option before a replacement, and who have already done the basics: weight, strengthening, and adjustments." },
+    { slug: "marcus-hale", stampHtml: '<span class="sample">Sample referrer</span>', alt: "Portrait of Marcus Hale, DPT", name: "Marcus Hale, DPT", short: "Marcus", shortStart: "Marcus", role: "physical therapist", practice: "Hale Physical Therapy", focus: "shoulders", focusWord: "shoulder", photo: "atelier-portrait-man", pos: "center 15%", note: "Marcus refers shoulders that have plateaued in therapy: partial rotator cuff wear, pain at night, reaching overhead. He keeps working with you during and after." },
+    { slug: "dr-natarajan", stampHtml: '<span class="sample">Sample referrer</span>', alt: "Dr. Priya Natarajan, MD, with a patient", name: "Dr. Priya Natarajan, MD", short: "Dr. Natarajan", shortStart: "Dr. Natarajan", role: "family doctor", practice: "Natarajan Family Medicine", focus: "hips", focusWord: "hip", photo: "doctor-senior-ultrasound", pos: "0% 30%", note: "Dr. Natarajan sends us patients whose hip pain is changing how far they walk, and who want an honest opinion before they see a surgeon." },
+    // The general page names nobody, so it carries no "Sample referrer" stamp, and its photo is a scene, not the portrait of a named person.
+    { slug: "your-provider", stampHtml: "", alt: "A clinician talking with a patient", name: "Your provider", short: "your provider", shortStart: "Your provider", role: "the clinician who sent you", practice: "any practice", focus: "knees", focusWord: "joint", photo: "np-patient-consult", pos: "78% 22%", note: "Whoever sent you here knows your history. Bring their name to the call and we will keep them in the loop, with your permission." },
   ],
 
   // Brand (placeholder). While the name is still the placeholder, every page carries noindex and robots.txt disallows
@@ -327,9 +353,9 @@ return {
         { label: "Our team", href: "about.html", desc: "The clinicians, by name", icon: "info" },
         { label: "Our founder", href: "founder.html", desc: "Why we exist", icon: "user" },
         { label: "Why we're different", href: "why-were-different.html", desc: "What sets us apart", icon: "sparkles" },
-        { label: "Patient stories", href: "testimonials.html", desc: "Real patients, with consent", icon: "star" },
+        { label: "Patient stories", href: "testimonials.html", desc: "In their own words, with consent", icon: "star" },
         { label: "Journal", href: "journal.html", desc: "Plain-language guides to regenerative care", icon: "book-open" },
-        { label: "For providers & partners", href: "for-providers.html", desc: "Refer a patient, or partner with us", icon: "users" },
+        { label: "For providers & partners", href: "for-providers.html", desc: "For clinicians and clinics who want to work with us", icon: "users" },
       ],
       featured: {
         title: "What we will not promise",
@@ -354,24 +380,24 @@ return {
       ],
     },
     {
-      title: "Services",
+      title: "Treatments",
       links: [
-        { label: "Regenerative Therapy", href: "stem-cell-therapy.html" },
+        { label: "Stem Cell Therapy", href: "stem-cell-therapy.html" },
         { label: "Wharton's Jelly", href: "whartons-jelly.html" },
         { label: "Exosomes", href: "why-exosomes.html" },
         { label: "Hormones", href: "hormones.html", module: "hormones" },
-        { label: "Peptides", href: "peptides.html", module: "peptides" },
-        { label: "NAD+ & Supplements", href: "nad.html", module: "nad" },
+        { label: "Peptide programs", href: "peptides.html", module: "peptides" },
+        { label: "NAD+ & longevity", href: "nad.html", module: "nad" },
       ],
     },
     {
       title: "About",
       links: [
-        { label: "Medical Team", href: "about.html#team" },
-        { label: "Our Founder", href: "founder.html" },
-        { label: "Why We're Different", href: "why-were-different.html" },
-        { label: "Concierge Care Model", href: "concierge-care-model.html" },
-        { label: "Testimonials", href: "testimonials.html" },
+        { label: "Our team", href: "about.html#team" },
+        { label: "Our founder", href: "founder.html" },
+        { label: "Why we're different", href: "why-were-different.html" },
+        { label: "How care works", href: "concierge-care-model.html" },
+        { label: "Patient stories", href: "testimonials.html" },
       ],
     },
     {
@@ -386,9 +412,9 @@ return {
     {
       title: "Contact",
       links: [
-        { label: "Patient Support", href: "contact.html" },
+        { label: "Contact", href: "contact.html" },
         { label: "Book a Consultation", href: "book.html" },
-        { label: "For Providers", href: "for-providers.html" },
+        { label: "For providers & partners", href: "for-providers.html" },
         { label: brand.phone || "(000) 000-0000", href: brand.phoneTel || "tel:+10000000000" },
       ],
     },

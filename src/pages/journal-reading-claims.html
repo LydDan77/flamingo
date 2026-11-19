@@ -10,12 +10,12 @@ nav: journal
       <p class="hero__kicker">Trust · 5 min read</p>
       <h1>How to read a regenerative clinic's <em class="hl">claims</em></h1>
       <p class="lead">Including ours. If a sentence on this site fails the tests below, we want to hear about it.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>{{#if sample}}Clinical review{{/if}}{{#unless sample}}Clinical Review Board{{/unless}}</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="article" data-guide-label="The article">
   <div class="container container--narrow article__body">
     <div class="article__hero media__frame">{{img:certificates-check|dark=kettlebell-bw|alt=Reviewing documents|sizes=(max-width: 899px) 100vw, 900px|atelier=atelier-plaster-wall|obsidian=obsidian-glass-abstract|sanctuary=sanctuary-eucalyptus-shadow|monolith=monolith-concrete-architecture|aurora=aurora-friends-sunrise|blush=hands-tea|ecosystem=np-patient-consult|onyx=laptop-stethoscope|sandstone=tablet-coffee-plant|meridian=office-desk-light|ivory=notebook-desk}}</div>
 

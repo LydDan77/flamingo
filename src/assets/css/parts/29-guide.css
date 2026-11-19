@@ -12,7 +12,9 @@ a.guide-spot, .nav__link.guide-spot, .btn.guide-spot, .site-header__call.guide-s
 /* a menu the guide has opened to point inside it stays open while it is pointing */
 @media (min-width: 1024px) { .nav__item.guide-open > .menu { opacity: 1; visibility: visible; transform: none; } }
 
-.has-assistant { --assistant-corner: 84px; }
+.has-assistant { --assistant-corner: 88px; }
+/* nothing a patient must read (the legal links, the small print) sits under the assistant's corner */
+.has-assistant .site-footer { padding-bottom: 96px; }
 /* the stage: another page of the site shown in a frame that fills the window, so the assistant's page never reloads */
 #guide-stage { position: fixed; inset: 0; z-index: 2000; background: var(--bg); }
 #guide-stage[hidden] { display: none; }
@@ -41,14 +43,36 @@ html.is-staged, html.is-staged body { overflow: hidden; }
 @media (max-width: 899px) {
   /* the book / call bar stops short of the bottom right corner, which belongs to the assistant */
   .has-assistant .sticky-cta { right: var(--assistant-corner); border-top-right-radius: 14px; }
+  .has-assistant .site-footer { padding-bottom: 150px; }
   .assistant-dock { right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); }
   .assistant-dock__button { min-height: 0; padding: 6px; }
   .assistant-dock__label { display: none; }
   .assistant-dock__mark { width: 50px; height: 50px; }
   .assistant-dock__panel { margin-bottom: 4px; }
 }
-.nav-open .assistant-dock { display: none; }
-@media print { .assistant-dock { display: none; } }
+.nav-open :is(.assistant-dock, .assistant-slot, .assistant-note, .guide-caption) { display: none; }
+@media print { .assistant-dock, .assistant-slot, .assistant-note, .guide-caption { display: none; } }
+
+/* the assistant's own widget: above the stage, so she stays on top while the site changes beneath her */
+.assistant-slot { position: relative; z-index: 2001; }
+/* panel mode: her snippet (often a bare iframe) fills the site's own panel */
+.assistant-dock--live .assistant-dock__panel { width: min(380px, calc(100vw - 24px)); padding: 44px 12px 12px; }
+.assistant-dock__embed { display: grid; min-height: 120px; }
+.assistant-dock__embed > iframe { display: block; width: 100%; height: min(600px, 60vh); border: 0; border-radius: 10px; background: var(--surface-2); }
+.assistant-dock--live .assistant-dock__fine { margin-top: 10px; }
+/* the one line beside a live assistant: who she is and what not to tell her */
+.assistant-note { position: fixed; right: 20px; bottom: 104px; z-index: 2001; display: flex; align-items: flex-start; gap: 8px; max-width: 300px; margin: 0; padding: 10px 8px 10px 14px; border: 1px solid var(--line-strong); border-radius: 12px; background: var(--surface-solid, var(--bg)); color: var(--text-2); font-size: 0.82rem; line-height: 1.45; box-shadow: 0 18px 44px -22px rgba(16, 20, 32, 0.45); }
+.assistant-note[hidden] { display: none; }
+.assistant-note__close { flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin: -4px 0 0; border: 0; border-radius: 50%; background: none; color: var(--text-3); cursor: pointer; }
+.assistant-note__close:hover { background: var(--surface-2); color: var(--text); }
+.assistant-note__close .icon { width: 16px; height: 16px; }
+@media (max-width: 899px) { .assistant-note { right: 12px; bottom: calc(84px + env(safe-area-inset-bottom)); max-width: min(300px, calc(100vw - 24px)); } }
+/* what was just shown, said in writing: the visitor knows why the page moved even with the sound off */
+.guide-caption { position: fixed; left: 50%; bottom: 24px; z-index: 2001; transform: translate(-50%, 12px); max-width: min(520px, calc(100vw - 200px)); padding: 10px 16px; border-radius: 999px; background: var(--text); color: var(--bg); font-family: var(--font-body); font-size: 0.9rem; line-height: 1.35; text-align: center; box-shadow: 0 18px 44px -18px rgba(16, 20, 32, 0.55); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s; }
+.guide-caption.is-on { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.guide-caption b { font-weight: 600; }
+@media (max-width: 899px) { .guide-caption { left: 12px; right: calc(var(--assistant-corner, 88px) + 4px); bottom: calc(76px + env(safe-area-inset-bottom)); transform: translateY(12px); max-width: none; border-radius: 14px; text-align: left; } .guide-caption.is-on { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .guide-caption { transition: none; } }
 
 /* ---- the owner's guide page */
 .guide-steps { counter-reset: gs; list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
@@ -75,16 +99,31 @@ html.is-staged, html.is-staged body { overflow: hidden; }
 .guide-list > li b { font-weight: 600; }
 .guide-list > li span { color: var(--text-2); }
 .guide-files { font-family: var(--font-mono); font-size: 0.86rem; }
+/* how to read the example: the three things on it that are not part of a practice's own site */
+.guide-key { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 12px; max-width: 62ch; }
+.guide-key li { display: grid; grid-template-columns: 76px 1fr; gap: 14px; align-items: start; font-size: 0.98rem; line-height: 1.5; color: var(--text-2); }
+.guide-key li > :first-child { justify-self: start; margin-top: 2px; }
+.guide-key__mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); }
+.guide-key__mark .icon { width: 16px; height: 16px; }
 .guide-files a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* the owner asks "what do I replace?": every sample stamp on the page lights up, with the block it belongs to */
 .guide-samples #main .sample { background: var(--brand); border-color: var(--brand); color: #fff; }
 .guide-samples #main :is(.card, .story-card, .doctor-card, .who-answers, .referral__card, article, li, p, .booking-slot):has(> .sample) { outline: 2px dashed var(--brand); outline-offset: 6px; border-radius: 6px; }
 
+/* the practice name, phone number and email carry no stamp of their own, but they are samples too */
+.guide-samples :is(.site-header .brand, .site-footer .brand, a[href^="tel:"], a[href^="mailto:"]) { outline: 2px dashed var(--brand); outline-offset: 4px; border-radius: 6px; }
+
 /* the example-site note: scrolls away with the page, wraps instead of cutting off, and links to the owner's guide */
 .has-guide .sample-banner { position: absolute; white-space: normal; overflow: visible; text-overflow: clip; text-align: left; line-height: 1.35; align-items: flex-start; width: max-content; max-width: min(760px, calc(100vw - 24px)); pointer-events: auto; padding: 8px 14px; }
 .has-guide .sample-banner .icon { margin-top: 2px; }
 .has-guide .sample-banner a { color: inherit; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.sample-banner__btn { margin-left: 10px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.guide-samples .sample-banner__btn { text-decoration-style: double; }
+/* a product picture on a sample practice is a stand-in too */
+.sample--pic { position: absolute; top: 10px; left: 10px; z-index: 3; }
+:where(.program__vial, .media__frame--product, .treat-card__stage):has(> .sample--pic) { position: relative; }
+.hero__art--product > .sample--pic { top: auto; bottom: 12%; left: 50%; transform: translateX(-50%); }
 
 /* the sample calendar on the booking page of a sample practice */
 .booking-slot--sample { display: grid; gap: 18px; padding: 28px; }
@@ -117,3 +156,7 @@ html.is-staged, html.is-staged body { overflow: hidden; }
   .guide-table td:last-child { font-size: 0.9rem; }
   .guide-table td:last-child::before { content: "How to get there: "; font-weight: 600; color: var(--text); }
 }
+
+/* every sample practice: on a phone the note wraps instead of being cut off mid-word */
+.sample-banner > span { min-width: 0; }
+@media (max-width: 767px) { .sample-banner { white-space: normal; overflow: visible; text-overflow: clip; text-align: left; line-height: 1.35; align-items: flex-start; width: max-content; max-width: calc(100vw - 24px); padding: 7px 12px; } .sample-banner .icon { margin-top: 2px; } }

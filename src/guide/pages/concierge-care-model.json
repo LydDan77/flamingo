@@ -1,0 +1,96 @@
+{
+  "purpose": "Explains how the practice delivers care, for a patient who wants to know who is behind it: one physician-led team, treatment at home by a nurse practitioner, video calls for the rest, and one record for everything. It exists to show that a named physician oversees every patient.",
+  "audience": "patients",
+  "owner_notes": [
+    "The menu calls this page How care works, under Treatments. The footer lists the same page under About, by the same name.",
+    "The page describes one particular way of working: a named Medical Director oversees every patient, nurse practitioners treat at home, and NAD+ and longevity plans are prescribed online. It speaks in the practice's name, so an owner should read it against how their own practice is staffed.",
+    "The process here has four stages, from booking a consultation to coordination over time. The Where it hurts pages tell the same path as three steps.",
+    "Meet The Team at the top opens the team part of the Our team page. Book a Consultation appears three times and always opens the Booking page."
+  ],
+  "replace": [
+    "The opening line at the top carries your practice name in place of the sample name {{site.name}}.",
+    "The Process: the timing on the second stage, Within days, carries a Sample stamp; your own timing replaces it.",
+    "Who oversees my care, in the questions: your Medical Director and lead nurse practitioner replace the samples {{site.team.director.name}} and {{site.team.np.name}}.",
+    "What areas do you serve, in the questions: your service area replaces the sample one, {{site.town}} and the surrounding counties.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}. The photos are licensed stock standing in."
+  ],
+  "keep": [
+    "The statement that a named Medical Director oversees every patient, and that a licensed clinician reviews each patient's history and labs before a plan is made.",
+    "The end of the first answer in the questions: the regenerative treatments are not FDA-approved, are investigational for most uses, and results vary.",
+    "The closing line that if someone is not a fit for any program, the practice tells them.",
+    "This page has no small print of its own. The small print in the footer of every page still applies: statements not evaluated by the FDA, and individual results vary."
+  ],
+  "sections": {
+    "top": { "say": "The top of the page sums the model up as one medical team, one plan and one record, with two buttons, Book a Consultation and Meet The Team." },
+    "the-problem-we-solve": { "say": "The Problem We Solve says care is often split between providers who do not share notes, and that here every program runs through one team and one chart." },
+    "the-model": { "say": "The Model is four cards on how care is organised, from a named Medical Director overseeing every patient to one record for every program." },
+    "the-process": { "say": "The Process sets out four stages after a patient books, from the consultation through a clinician's review and treatment to follow-up over time. The timing on the second stage, within days, is a sample on this example." },
+    "faq": { "say": "The questions at the bottom cover who oversees care, whether a clinic visit is needed and which areas are served, and the names and the area there are samples on this example." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the How care works page for?",
+      "alt": ["What's the concierge care page?", "What does How care works explain?"],
+      "say": "It explains how your practice delivers care, for a patient who wonders who is behind it. One physician-led team, treatment at home by a nurse practitioner, video calls for the rest, and one record for everything. It ends with four stages, from booking to follow-up.",
+      "show": "concierge-care-model"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "How do I get to the How care works page?",
+      "alt": ["Where is the concierge care page?", "Where does the site explain how care is delivered?"],
+      "say": "Open the menu at the top, choose Treatments, then How care works. The same page is also in the footer at the bottom of every page, under About, by the same name.",
+      "show": "concierge-care-model"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site say who oversees a patient's care?",
+      "alt": ["Where are the medical director and nurse practitioner named on How care works?", "Where does it say who is in charge?"],
+      "say": "On the How care works page, in the questions near the bottom, under Who oversees my care. On this example it names {{site.team.director.name}} as Medical Director and {{site.team.np.name}} as Lead Nurse Practitioner. Both are samples. Your site names your own clinicians there.",
+      "show": "concierge-care-model#q-who-oversees-my-care"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the How care works page?",
+      "alt": ["What do I replace on the How care works page?", "What on the concierge page is mine to fill in?"],
+      "say": "The clinician names and the service area, both in the questions near the bottom, and your phone number at the very end. The timing on the second stage of the process, Within days, is yours to set too. On this example all of these are samples, such as the area around {{site.town}} and the number {{site.phone}}.",
+      "show": "concierge-care-model#faq"
+    },
+    {
+      "audience": "owner",
+      "topic": "samples",
+      "q": "Are the clinicians named on the How care works page real?",
+      "alt": ["Is the medical director on this page a real person?", "What on How care works is a sample?"],
+      "say": "No. {{site.team.director.name}} and {{site.team.np.name}} are sample names, and that answer carries a Sample stamp. The service area, {{site.town}} and the surrounding counties, is a sample too, and so is the timing Within days in the process. Your site shows your own.",
+      "show": "concierge-care-model#q-who-oversees-my-care"
+    },
+    {
+      "audience": "owner",
+      "topic": "the patient's path",
+      "q": "What does the How care works page say happens after a patient books?",
+      "alt": ["What are the four stages on How care works?", "What is the process on the concierge page?"],
+      "say": "The page sets out four stages. The patient books a consultation. A licensed clinician reviews their history and labs. Treatment comes to their home, or a prescription is shipped to their door. Then the same team follows up over time.",
+      "show": "concierge-care-model#the-process"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Do I need to visit a clinic?",
+      "alt": ["Do I have to come in?", "Is everything done at home?"],
+      "say": "No, the page says. Regenerative treatment is given in your home by a licensed nurse practitioner. The NAD plus and longevity plans are handled online: the consultation, the prescription and the delivery.",
+      "show": "concierge-care-model#q-do-i-need-to-visit-a"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What areas do you serve?",
+      "alt": ["Do you come to my town?", "Where do you do home visits?"],
+      "say": "On this example site, home visits are available in {{site.town}} and the surrounding counties. That is a sample. The page says to ask during your consultation about availability in your area.",
+      "show": "concierge-care-model#q-what-areas-do-you-serve"
+    }
+  ]
+}

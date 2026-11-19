@@ -11,8 +11,8 @@ bodyClass: page--thank-you
       <span class="thank-you__check" aria-hidden="true">{{icon:check}}</span>
       <p class="hero__kicker">Thank you</p>
       <h1>Thank you<span id="ty-name"></span>. <em class="hl">We have your request.</em></h1>
-      <p class="lead">If you picked a time, it is booked and a confirmation is on its way by email or text. If you asked us to call, {{site.coordinator.first}} will call within one business day to find a time. {{#if sample}}<span class="sample">Sample</span>{{/if}}</p>
-      <p class="small muted">Need to change or cancel? Call <a href="{{site.phoneTel}}">{{site.phone}}</a>, or use the link in your confirmation.</p>
+      <p class="lead">{{#if sample}}<span class="sample">Sample</span> On a real site a picked time is booked and a confirmation is sent. Nothing was booked or sent on this example. If you asked for a call, on a real site {{site.coordinator.first}} would call within one business day to find a time. Nobody will call from this example.{{/if}}{{#unless sample}}If you picked a time, it is booked and a confirmation is on its way by email or text. If you asked us to call, {{site.coordinator.first}} will call within one business day to find a time.{{/unless}}</p>
+      <p class="small muted">{{#if sample}}To change or cancel on a real site, a patient calls the practice or uses the link in the confirmation. The number here, <a href="{{site.phoneTel}}">{{site.phone}}</a>, is a sample.{{/if}}{{#unless sample}}Need to change or cancel? Call <a href="{{site.phoneTel}}">{{site.phone}}</a>, or use the link in your confirmation.{{/unless}}</p>
     </div>
   </div>
 </section>

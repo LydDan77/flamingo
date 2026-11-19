@@ -1,0 +1,70 @@
+{
+  "name": "Wharton's Jelly article",
+  "reach": "the Journal page, which is under About in the menu at the top; it is the first of the six guides listed there, and the Home page and four of the Where it hurts pages link to it",
+  "purpose": "Explains in plain words what Wharton's Jelly is, where it comes from and how it should be sourced and tested, for a patient who will hear the phrase on a consultation. It says plainly that these products are investigational for most uses and are not FDA-approved to treat any orthopedic condition.",
+  "audience": "patients",
+  "owner_notes": [
+    "Do not confuse it with the Wharton's Jelly page under Treatments. This is the short Journal read; the Treatments page presents it as part of the care on offer.",
+    "It gives a patient the questions to ask any provider about the tissue: an accredited tissue bank, screened donors, testing of every lot, and frozen storage until use.",
+    "It then says the practice's own products meet all four conditions and that the clinician can show the certificate of analysis. That paragraph is stamped Sample: a practice confirms its own supplier details before launch.",
+    "The Home page shows it first under From the journal, and the Knees, Hips, Shoulders and Back and neck pages link to it under The science, if you want it."
+  ],
+  "replace": [
+    "The reviewer line under the heading: your own clinical reviewer's name and the review date replace the sample {{site.reviewer.name}}.",
+    "Sourcing and testing: the paragraph saying your products meet all four conditions is stamped Sample, and you confirm your own supplier details before launch.",
+    "The sources box at the end: your clinical reviewer adds the citations before launch, where the Sample stamp is.",
+    "The closing band at the bottom: your phone number replaces the sample {{site.phone}}."
+  ],
+  "keep": [
+    "The honest summary: Wharton's Jelly products are investigational for most musculoskeletal uses and are not FDA-approved to treat any orthopedic condition.",
+    "The part headed What it is not: it will not grow a joint back, it does not replace a surgery someone needs, results vary, and some patients notice no meaningful change.",
+    "The careful wording that the cells are studied for the signals they send, that results in published studies vary, and that the tissue coming from a newborn is a reason for interest, not a promise of a better result.",
+    "The small print at the bottom: statements not evaluated by the FDA, not FDA-approved and investigational for most uses, individual results vary, and the California notice unless your own lawyer confirms it does not apply."
+  ],
+  "sections": {
+    "top": { "say": "The top of the article says the reader will hear the phrase on almost every consultation and promises to explain it, and shows who reviewed it; the reviewer on this example is a sample name." },
+    "article": { "say": "The article itself explains what the tissue is, what the cells are studied for and how it should be sourced and tested, and ends with what it is not." }
+  },
+  "questions": [
+    {
+      "audience": "owner",
+      "topic": "what each page is for",
+      "q": "What is the Wharton's Jelly article for?",
+      "alt": ["Why is there an article about Wharton's Jelly?", "Is the Wharton's Jelly article the same as the Wharton's Jelly page?"],
+      "say": "Your patients will hear the phrase Wharton's Jelly on almost every consultation. This short guide explains it: the tissue inside the umbilical cord, donated after healthy births. It is a different page from Wharton's Jelly under Treatments, and it says plainly the products are investigational and not FDA-approved for orthopedic conditions.",
+      "show": "journal-whartons-jelly"
+    },
+    {
+      "audience": "owner",
+      "topic": "getting around",
+      "q": "Where does the site mention the certificate of analysis?",
+      "alt": ["Where does it say the tissue bank should be accredited?", "What should a patient ask about how the tissue is tested?"],
+      "say": "In the Journal, in the guide called What Wharton's Jelly is, under Sourcing and testing. It asks for an accredited tissue bank, screened donors and testing of every lot, with the product kept frozen until use. It adds that the clinician can show the certificate of analysis for the lot used.",
+      "show": "journal-whartons-jelly#article"
+    },
+    {
+      "audience": "owner",
+      "topic": "what you replace",
+      "q": "What do I change on the Wharton's Jelly article?",
+      "alt": ["Do I need to give my supplier details?", "What do I replace on the Wharton's Jelly article?"],
+      "say": "Three spots are stamped Sample. They are the reviewer line at the top, which shows the sample name {{site.reviewer.name}}, the paragraph saying your products meet the sourcing and testing conditions, and the sources at the end. You confirm your own supplier details, and your reviewer adds the citations.",
+      "show": "journal-whartons-jelly"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "What is Wharton's Jelly?",
+      "alt": ["What does Wharton's Jelly mean?", "Is it from umbilical cords?"],
+      "say": "The article says it is the soft connective tissue inside the umbilical cord. After a healthy, full-term birth it can be donated, with the mother's informed consent, to an accredited tissue bank. Products made from it are investigational for most uses and are not FDA-approved to treat any orthopedic condition.",
+      "show": "journal-whartons-jelly#article"
+    },
+    {
+      "audience": "patient",
+      "topic": "what a patient asks",
+      "q": "Will it grow my cartilage back?",
+      "alt": ["Will this rebuild my joint?", "Does it grow new tissue?"],
+      "say": "No, and the article says so: it will not grow a joint back, and it does not replace a surgery you need. The cells are studied for the signals they send, results vary, and some people notice no meaningful change. A clinician can talk through your own case on a video call.",
+      "show": "journal-whartons-jelly#article"
+    }
+  ]
+}

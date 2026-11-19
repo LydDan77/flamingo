@@ -10,12 +10,12 @@ nav: journal
       <p class="hero__kicker">Science · 4 min read</p>
       <h1>Exosomes, explained in <em class="hl">plain words</em></h1>
       <p class="lead">The word gets used loosely. This is the version a careful clinician would give you across the kitchen table.</p>
-      <div class="article__meta"><span class="avatar">CR</span><div><b>Clinical Review Board</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
+      <div class="article__meta"><span class="avatar">CR</span><div><b>{{#if sample}}Clinical review{{/if}}{{#unless sample}}Clinical Review Board{{/unless}}</b><span>{{#if sample}}Reviewed by {{site.reviewer.name}} · {{site.reviewer.date}} <span class="sample">Sample</span>{{/if}}{{#unless sample}}Reviewed by [Reviewer Name], MD · Month DD, YYYY <span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="article" data-guide-label="The article">
   <div class="container container--narrow article__body">
     <div class="article__hero media__frame">{{img:cells-blue|light=cells-blue-white|warm=cells-violet-white|elite=cells-macro|alt=Illustration of cells and vesicles|sizes=(max-width: 899px) 100vw, 900px|ecosystem=cells-blue-white|sandstone=cells-violet-white|meridian=cells-blue-white|ivory=cells-violet-white|blush=cells-violet-white}}</div>
 
@@ -34,7 +34,7 @@ nav: journal
     <p>Exosomes are offered on their own or alongside a stem cell protocol, typically in the same visit. They are delivered by injection to the affected area by a licensed nurse practitioner under physician oversight, after a consultation that decides whether the approach is appropriate for you at all.</p>
 
     <h2>What to expect</h2>
-    <p>Mild soreness at the site for a day or two is common. Any change in symptoms, if it comes, tends to be gradual over weeks rather than immediate. Your care team schedules follow-up check-ins to track how you are doing against the goals you set together. Individual results vary, and we say so before you book.</p>
+    <p>Mild soreness at the site for a day or two is common. Other side effects are possible with any procedure, and your clinician goes through them with you before you decide. Any change in symptoms, if it comes, tends to be gradual over weeks rather than immediate. Your care team schedules follow-up check-ins to track how you are doing against the goals you set together. Individual results vary, and we say so before you book.</p>
 
     <div class="article__sources">
       <h3>Sources and further reading</h3>

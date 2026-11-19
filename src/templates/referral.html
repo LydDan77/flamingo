@@ -10,7 +10,7 @@ bodyClass: page--referral
     <div class="referral__grid">
       <div class="hero__content">
         <p class="hero__kicker">Sent here by {{page.ref.short}}</p>
-        <h1>{{page.ref.short}} asked us to look after <em class="hl">your {{page.ref.focusWord}}</em>.</h1>
+        <h1>{{page.ref.shortStart}} asked us to look after <em class="hl">your {{page.ref.focusWord}}</em>.</h1>
         <p class="lead">Here is exactly what happens next, what it costs, and who you will talk to. Nothing on this page is a sales pitch, and nothing is a promise.</p>
         <div class="hero__actions">
           <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} Book a video call</a>
@@ -19,7 +19,7 @@ bodyClass: page--referral
       </div>
       <aside class="referral__card reveal" data-delay="1">
         {{page.ref.stampHtml}}
-        <div class="referral__portrait">{{img:{{page.ref.photo}}|alt=Portrait of {{page.ref.name}}|pos={{page.ref.pos}}|sizes=112px}}</div>
+        <div class="referral__portrait">{{img:{{page.ref.photo}}|alt={{page.ref.alt}}|pos={{page.ref.pos}}|sizes=112px}}</div>
         <p class="referral__name">{{page.ref.name}}</p>
         <p class="referral__role">{{page.ref.role}} · {{page.ref.practice}}</p>
         <div class="referral__note"><span class="eyebrow">What {{page.ref.short}} told us</span><p>{{page.ref.note}}</p></div>
@@ -52,9 +52,9 @@ bodyClass: page--referral
         <a class="link-arrow mt-6" href="{{page.ref.focus}}.html">Read about {{page.ref.focusWord}} care first {{icon:arrow-right}}</a>
       </div>
       <div class="faq reveal" data-delay="1">
-        <details class="faq__item" open><summary>Is this approved?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">No. Stem cell and exosome products are not FDA-approved to treat joints and are considered investigational for most uses. We say so up front, and we will not tell you otherwise. What we can say is who tends to be a candidate, what the treatment involves, and what the research does and does not show.</div></details>
-        <details class="faq__item"><summary>Will it hurt, and how long does it take?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">The visit is about an hour, most of it preparation and aftercare instructions. The injection itself takes a few minutes and feels like any injection into a joint. Mild soreness for a day or two is common. You can usually go about a light day afterward.</div></details>
-        <details class="faq__item"><summary>What if I am not a candidate?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Then we tell you, on the call, and we send a note to {{page.ref.short}} with your permission. A meaningful share of the people we talk to are better served by their specialist, and we would rather say so than treat someone who is unlikely to benefit.</div></details>
+        <details class="faq__item" open><summary>Is this approved?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">No. Stem cell and exosome products are not FDA-approved to treat joints, and are investigational for most uses. We say so up front, and we will not tell you otherwise. What we can say is who tends to be a candidate, what the treatment involves, and what the research does and does not show.</div></details>
+        <details class="faq__item"><summary>Will it hurt, and how long does it take?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">The visit is about an hour, most of it preparation and aftercare instructions. The injection itself takes a few minutes and feels like any injection into a joint. Mild soreness for a day or two is common. Side effects are possible with any procedure, and a clinician goes through them with you before you decide.</div></details>
+        <details class="faq__item"><summary>What if I am not a candidate?<span class="faq__toggle">{{icon:plus}}</span></summary><div class="faq__a">Then we tell you, on the call, and we send a note to {{page.ref.short}} with your permission. Some people are better served by their specialist. When that is you, we say so.</div></details>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@ bodyClass: page--referral
       <div class="reveal">
         <span class="eyebrow">What it costs</span>
         <h2 class="mt-4">The number, before you decide</h2>
-        <p class="lead mt-6">Regenerative care is paid out of pocket. Plans for a single joint run from <b>{{site.pricing.from}}</b> to <b>{{site.pricing.to}}</b>, with the visit, the product and the follow-ups in one price. Your exact quote is written down on the call, and a quote is never a commitment. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
+        <p class="lead mt-6">Regenerative care is paid out of pocket. A plan for one area, such as a knee, a shoulder or the lower back, runs from <b>{{site.pricing.from}}</b> to <b>{{site.pricing.to}}</b>. That covers the treatment visit, the product and the follow-ups. If your treatment needs a partner facility instead of a home visit, your quote says so and shows any added cost. Your exact quote is written down on the call, and a quote is never a commitment. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to confirm</span>{{/unless}}</p>
         <p class="mt-4" style="color:var(--text-2)">Monthly payment plans are available through a financing partner, subject to approval, with the terms shown in full before you sign anything. <a href="financing.html">How financing works</a>.</p>
       </div>
       <div class="who-answers reveal" data-delay="1">
@@ -74,7 +74,8 @@ bodyClass: page--referral
         <p class="who-answers__name">{{site.coordinator.first}}</p>
         <p>{{site.coordinator.first}} is our {{site.coordinator.role}}. Say {{page.ref.short}} sent you and {{site.coordinator.first}} will book your call, answer the practical questions, and stay your point of contact throughout. {{#if sample}}<span class="sample">Sample</span>{{/if}}{{#unless sample}}<span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
         <a class="btn btn--primary" href="{{site.phoneTel}}">{{icon:phone}} Call {{site.phone}}</a>
-        <p class="small muted mt-4">{{site.hours}}</p>
+        <p class="small muted mt-4">{{site.hours}}{{#if sample}} <span class="sample">Sample</span>{{/if}}</p>
+        <p class="small muted">This website is not for emergencies. In an emergency, call 911.</p>
       </div>
     </div>
   </div>

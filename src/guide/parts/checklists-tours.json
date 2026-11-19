@@ -1,0 +1,384 @@
+{
+  "replace": [
+    {
+      "id": "R1",
+      "item": "Your practice name and logo",
+      "where": ["index#top", "index#results", "about#top"],
+      "say": "Your practice name and logo sit at the top left of every page, in the footer and in the page titles. On this example the name reads {{site.name}}, which is a sample. On your site those spots carry your own name and logo."
+    },
+    {
+      "id": "R2",
+      "item": "Your phone number, address and hours",
+      "where": ["contact#book", "book#book", "thank-you#top"],
+      "say": "Your phone number is at the top and bottom of every page, and on the Contact and Booking pages. Your address and hours are on the Contact page. On this example all three are samples, such as the number {{site.phone}}."
+    },
+    {
+      "id": "R3",
+      "item": "Your clinicians: names, titles, portraits and bios",
+      "where": ["index#physician-led-care", "about#team", "index#infrastructure"],
+      "say": "Your clinicians appear on the home page, with portraits, and on the Our team page, with names, titles and short bios. On this example they are samples, such as {{site.team.director.name}} and {{site.team.np.name}}. The physician group named on the home page is a sample too."
+    },
+    {
+      "id": "R4",
+      "item": "The founder page",
+      "where": ["founder", "founder#why-exists", "about#founder"],
+      "say": "The Our founder page tells why the practice exists, in the founder's own words, with a short timeline. On this example the founder is {{site.founder.name}}, a sample, and the story and the years are made up. Yours tells your own story."
+    },
+    {
+      "id": "R5",
+      "item": "The person who answers the phone",
+      "where": ["book#book", "thank-you#top", "from-dr-example#cost"],
+      "say": "The site gives patients a first name for whoever answers your phone, on the Booking page, the Thank you page and the pages for referred patients. On this example that is {{site.coordinator.first}}, the {{site.coordinator.role}}, a sample. You supply your own person's first name and role."
+    },
+    {
+      "id": "R6",
+      "item": "Your price range",
+      "where": ["knees#cost", "index#cost", "from-dr-example#cost"],
+      "say": "You give two figures: where a plan for one area, such as a knee, starts, and where it tops out. The home page shows only the starting figure, and the six Where it hurts pages and the referral pages show both. On this example they are {{site.pricing.from}} and {{site.pricing.to}}, which are samples."
+    },
+    {
+      "id": "R7",
+      "item": "Your review score and patient stories",
+      "where": ["index#reviews", "index#patient-stories", "testimonials#what-patients-are-saying"],
+      "say": "Your review score sits near the top of the home page, and your patient stories are lower down and on the Patient stories page. Here they are samples, such as a score of {{site.reviews.score}} from {{site.reviews.count}} reviews. On your site, publish only verified reviews, with written consent, and none that promises a result."
+    },
+    {
+      "id": "R8",
+      "item": "Your booking calendar",
+      "where": ["book#calendar", "site-guide#booking"],
+      "say": "Your own calendar goes in the box at the top of the Booking page, with your real openings. On this example a stand-in sits there, marked Sample calendar, and nothing is booked. The website needs only the public link to your calendar, never a password or a secret key."
+    },
+    {
+      "id": "R9",
+      "item": "A page for each provider who sends you patients",
+      "where": ["from-dr-example", "from-pat-specimen", "from-dr-tester", "from-your-provider"],
+      "say": "Each provider who sends you patients gets one private page, with their name, their portrait and a short note about who they send. This example has three made-up ones, each stamped Sample referrer, and one general page. On your site they carry your real referring providers."
+    },
+    {
+      "id": "R10",
+      "item": "Your financing partner",
+      "where": ["financing#top", "financing#apply", "index#cost"],
+      "say": "Monthly payment plans come from a separate financing company, named in the cost section of the home page and on the Financing and Payment Plans page. On this example it is {{site.financingPartner}}, a sample. You add your own partner, its application link and its disclosure wording before launch."
+    },
+    {
+      "id": "R11",
+      "item": "Your photos",
+      "where": ["index#top", "index#physician-led-care", "nad#programs"],
+      "say": "The photos on this example are stock stand-ins, and the clinician portraits are not real people. Your own photos and headshots can take their place. The product pictures are stand-ins too, and each carries a stamp that says Sample picture."
+    },
+    {
+      "id": "R12",
+      "item": "Your legal pages",
+      "where": ["privacy-policy", "terms-conditions", "disclaimer"],
+      "say": "The Privacy Policy, the Terms and Conditions and the Disclaimer on this example are sample text. Your own counsel reviews and replaces them before launch. You find all three on the last line of the footer, on every page."
+    },
+    {
+      "id": "R13",
+      "item": "Your service area",
+      "where": ["contact#book", "services#all-programs", "concierge-care-model#q-what-areas-do-you-serve", "about#team"],
+      "say": "Your service area shows beside your address on the Contact page, on the All treatments page, and in the question about areas on the How care works page. On this example it reads {{site.town}} and the surrounding counties, which is a sample. Yours names the places you really serve."
+    },
+    {
+      "id": "R14",
+      "item": "Your figures: years, clinicians and patients",
+      "where": ["index#numbers", "founder#numbers", "about#founder"],
+      "say": "The figures show things like your years of practice, your number of licensed clinicians and the patients you have cared for. On this example they read {{site.stats.years}} years, {{site.stats.clinicians}} clinicians and {{site.stats.patients}} patients, all samples. Your site shows your own verified numbers, on the home page, the Our team page and the Our founder page."
+    }
+  ],
+
+  "keep": [
+    {
+      "id": "K1",
+      "item": "The statement that this care is not FDA-approved and is investigational for most uses",
+      "where": ["index#short-version", "index#honesty", "knees#what-we-do", "from-your-provider#q-is-this-approved"],
+      "say": "The site says in plain words that stem cell and exosome products are not FDA-approved to treat joints and are investigational for most uses. It is on the home page, on every Where it hurts page and on the referral pages. That statement stays on your site, as written."
+    },
+    {
+      "id": "K2",
+      "item": "The words results vary",
+      "where": ["knees#what-we-do", "book#book", "thank-you#in-one-breath", "knees#small-print"],
+      "say": "The site says results vary, and it never promises one. Those words are in the card called What we will not promise on each Where it hurts page, on the Booking page and the Thank you page, and in the small print. They stay, and no page promises an outcome."
+    },
+    {
+      "id": "K3",
+      "item": "The section called What we will not promise",
+      "where": ["index#honesty", "knees#what-we-do"],
+      "say": "The home page has a section called What we will not promise. It sets out what the practice will not do, what it will do, and who this care is not for. It stays on the home page, and each Where it hurts page keeps its own short card with the same title."
+    },
+    {
+      "id": "K4",
+      "item": "A clinician decides who is a candidate, and the practice says so when someone is not a fit",
+      "where": ["index#honesty", "book#book", "from-dr-example#q-what-if-i-am-not-a", "index#candidacy"],
+      "say": "A licensed clinician decides who is a candidate, on the video call. The website never decides, and neither do I. If someone is not a fit, the site says the practice will tell them so, and both lines stay."
+    },
+    {
+      "id": "K5",
+      "item": "The notice required in California",
+      "where": ["knees#small-print", "disclaimer#disclaimer-text"],
+      "say": "The notice required under California law sits at the foot of the regenerative pages and on the Disclaimer page. It applies to practices in California that offer stem cell therapy that is not FDA-approved, and there it stays. A practice outside California can switch it off, and your own counsel confirms before launch."
+    },
+    {
+      "id": "K6",
+      "item": "No patient story promises a result",
+      "where": ["index#patient-stories", "testimonials#what-patients-are-saying"],
+      "say": "No patient story on the site promises a result. Each one is about how the care felt, and each carries a line saying results vary. On your site the stories come from real patients, with written consent, and that line stays under every one."
+    },
+    {
+      "id": "K7",
+      "item": "The honest wording about the first call",
+      "where": ["book#top", "book#book", "index#cost", "index#next-step"],
+      "say": "The site calls the first step a consultation or a video call, a conversation and not a sales pitch. It never advertises the call as costing nothing, and it says a quote is never a commitment. That wording stays, on your buttons too."
+    },
+    {
+      "id": "K8",
+      "item": "The small print at the foot of the pages",
+      "where": ["knees#small-print", "from-dr-example#small-print", "nad#small-print"],
+      "say": "Small print sits at the foot of the pages. It says the statements have not been evaluated by the FDA, that stem cell and exosome therapies are not FDA-approved and investigational for most uses, and that results vary. It stays, as does the NAD+ page's own small print about compounded medications, and your counsel reviews the wording before launch."
+    }
+  ],
+
+  "tours": [
+    {
+      "id": "patient-path",
+      "title": "How a patient moves through the site",
+      "ask": ["Walk me through the site", "Show me what a patient sees", "Give me the short tour", "Take the two-minute tour", "How does a patient get from the home page to a booked call?"],
+      "steps": [
+        {
+          "say": "A patient starts on the home page. Near the top is a strip called Start with where it hurts, with six plain choices, such as knees, hips and shoulders.",
+          "show": "index#where-it-hurts"
+        },
+        {
+          "say": "Say they choose Knees. The page opens with Is this you: stairs, low chairs, kneeling in the garden. It is written in the patient's own words, and the science comes after the price.",
+          "show": "knees#is-this-you"
+        },
+        {
+          "say": "Next is what the practice can honestly offer, with a card called What we will not promise. It says the treatment is not FDA-approved for knees and is investigational, and that a clinician decides who is a candidate.",
+          "show": "knees#what-we-do"
+        },
+        {
+          "say": "Then the price, before they decide. On this example a plan for one area, such as a knee, runs from {{site.pricing.from}} to {{site.pricing.to}}, which is a sample. The exact quote is written down on the call, so nobody has to phone to find out.",
+          "show": "knees#cost"
+        },
+        {
+          "say": "Every booking button leads to this one page. A patient picks a day and a time, or leaves their details for a call back. On this example the calendar is a stand-in, so nothing is booked.",
+          "show": "book#calendar"
+        },
+        {
+          "say": "They land on the Thank you page. It gives what happens next in three steps, how to change the time, and five things that help on the call. That is the whole path.",
+          "show": "thank-you"
+        }
+      ]
+    },
+    {
+      "id": "booking",
+      "title": "How booking works",
+      "ask": ["Show me how booking works", "Show me how a patient books", "Walk me through booking", "What happens when a patient books?"],
+      "steps": [
+        {
+          "say": "Every booking button on the site leads to this one page. There is one at the top right of every page, more inside the pages, and one in the bar at the bottom of a phone screen.",
+          "show": "book#top"
+        },
+        {
+          "say": "This box is where your calendar sits. On this example it holds a stand-in, marked Sample calendar. Pick any day and time to see the step a patient takes, and nothing is booked.",
+          "show": "book#calendar"
+        },
+        {
+          "say": "Under it is a call-back form, for a patient who would rather be phoned. On this example it sends nothing. Once your real calendar is connected, the calendar takes this spot and the form leaves the page.",
+          "show": "book#call-back"
+        },
+        {
+          "say": "Beside it the page names who answers the phone, with the number and the hours. On this example that is {{site.coordinator.first}}, a sample name. It also says what happens on the call: about thirty minutes, and an honest yes, no, or we need more information.",
+          "show": "book#book"
+        },
+        {
+          "say": "After booking or sending the form, a patient lands on the Thank you page. It gives what happens next in three steps, how to change or cancel, and five things that help on the call.",
+          "show": "thank-you"
+        },
+        {
+          "say": "From there the booking system takes over, not the website. GoHighLevel sends the confirmation, the reminders and the messages after a missed call. The website's part ends at the Thank you page.",
+          "show": "site-guide#booking"
+        }
+      ]
+    },
+    {
+      "id": "referred-patient",
+      "title": "What a patient sent by a provider sees",
+      "ask": ["What does a referred patient see?", "Show me a referral page", "Walk me through a page for a provider's patients"],
+      "steps": [
+        {
+          "say": "This is a private page for the patients of one provider, opened from a link that provider gives them. It is not in the menu. It names the provider, with a portrait and a short note, and the provider on this one is a sample.",
+          "show": "from-dr-example#top"
+        },
+        {
+          "say": "Next come three steps in plain words: a video call with a licensed clinician, an honest answer in writing, then treatment at home with follow-ups by the same team.",
+          "show": "from-dr-example#what-happens-next"
+        },
+        {
+          "say": "Then the three questions these patients ask first. Is this approved, will it hurt, and what if I am not a candidate. The first answer is a plain no: the treatment is not FDA-approved and is investigational for most uses.",
+          "show": "from-dr-example#three-questions"
+        },
+        {
+          "say": "Then the cost. On this example a plan for one area runs from {{site.pricing.from}} to {{site.pricing.to}}, which is a sample. The exact quote is written down on the call, and a quote is never a commitment.",
+          "show": "from-dr-example#cost"
+        },
+        {
+          "say": "Beside the price is who answers the phone, with the number and the hours. On this example it is {{site.coordinator.first}}, a sample name. The patient is asked to say who sent them.",
+          "show": "from-dr-example#cost"
+        },
+        {
+          "say": "The page closes with the honest lines in one breath: not FDA-approved and investigational for most uses, results vary, and if someone is not a candidate the practice says so. Under that is a booking button.",
+          "show": "from-dr-example#in-one-breath"
+        }
+      ]
+    },
+    {
+      "id": "what-you-replace",
+      "title": "What you replace with your own details",
+      "ask": ["What do I need to change?", "Show me what I replace", "Walk me past the samples"],
+      "steps": [
+        {
+          "say": "Start at the top of the home page. The practice name at the top left reads {{site.name}}, which is a sample. Your own name and logo go there, in the footer and in the page titles.",
+          "show": "index#top"
+        },
+        {
+          "say": "Your phone number sits at the top of every page. Here on the Contact page it is joined by your address and your hours. On this example the number is {{site.phone}}, a sample.",
+          "show": "contact#book"
+        },
+        {
+          "say": "This is the Our team page. The names, titles and bios are samples, such as {{site.team.director.name}}. Your own clinicians go here, and on the home page with their portraits.",
+          "show": "about#team"
+        },
+        {
+          "say": "This is the price on the Knees page. On this example a plan for one area, such as a knee, runs from {{site.pricing.from}} to {{site.pricing.to}}, a sample range. You give your own two figures.",
+          "show": "knees#cost"
+        },
+        {
+          "say": "These patient stories are samples, and so is the review score on the home page. On your site only verified reviews appear, with the patient's written consent, and none promises a result.",
+          "show": "testimonials#what-patients-are-saying"
+        },
+        {
+          "say": "This box on the Booking page holds a sample calendar. Your own calendar goes here, with your real openings.",
+          "show": "book#calendar"
+        },
+        {
+          "say": "Last, the legal pages: the Privacy Policy, the Terms and Conditions and the Disclaimer. They are sample text, and your own counsel reviews and replaces them before launch. The page called How this website works has the list of what you replace.",
+          "show": "privacy-policy"
+        }
+      ]
+    },
+    {
+      "id": "what-must-stay",
+      "title": "What must stay on your site",
+      "ask": ["What must stay on my site?", "Show me what I cannot take off", "Walk me through the honest lines"],
+      "steps": [
+        {
+          "say": "This is the home page section called What we will not promise. It says the practice will not promise a result, and that this care is not FDA-approved. This section stays.",
+          "show": "index#honesty"
+        },
+        {
+          "say": "Each Where it hurts page has its own card with the same title. On the Knees page it says the treatment is not FDA-approved for knees and is investigational, and it promises no result. That card stays too.",
+          "show": "knees#what-we-do"
+        },
+        {
+          "say": "The Booking page says it again in one breath: not FDA-approved and investigational for most uses, results vary, and if someone is not a candidate the practice says so. It also says a quote is never a commitment.",
+          "show": "book#book"
+        },
+        {
+          "say": "At the foot of the page is the small print, with the notice required in California. That notice applies to practices in California, and your own counsel confirms before launch. The lines about the FDA and about results stay.",
+          "show": "knees#small-print"
+        },
+        {
+          "say": "The Disclaimer page carries the same notice. It says the site is general education and not medical advice, and that results vary. The wording here is a sample, which your own counsel reviews and replaces before launch.",
+          "show": "disclaimer"
+        },
+        {
+          "say": "The full list is here, on the page called How this website works. It also explains why these lines stay: they protect your patients and your licence, and they are why a careful reader trusts the rest.",
+          "show": "site-guide#stays"
+        }
+      ]
+    }
+  ],
+
+  "topics": [
+    {
+      "file": "the-patients-path",
+      "title": "How a patient moves through the website",
+      "body": [
+        "The website is written for one reader: a person in pain, paying out of pocket, and wary of being sold to. Often someone they trust has sent them, such as a chiropractor, a physical therapist or a family doctor, and they open the site on a phone. They want four things, in this order: is this for me, is it honest, what does it cost, and what do I do next.",
+        "Most patients start on the Home page. It opens with the practice in one sentence, then a strip called Start with where it hurts, with six choices: Knees, Hips, Shoulders, Back and neck, After an injury, and Before surgery. A patient can also arrive straight on one of those six pages, or on a private page made for people their provider has sent.",
+        "Each of the six Where it hurts pages runs the same way. First comes Is this you: everyday situations in the patient's own words, such as stairs, low chairs and sleeping on that side. Then what the practice can honestly offer: the treatment in plain words, who it tends to suit, and a card called What we will not promise. Then three steps, the price, the science for those who want it, and a few plain questions.",
+        "The price is on the page before anyone picks up a phone. On the six Where it hurts pages of this example, a plan for one area, such as a knee, a shoulder or the lower back, runs from {{site.pricing.from}} to {{site.pricing.to}}. That range is a sample, and each practice shows its own. The referral pages show the same range, and the Home page shows only the starting figure. The exact quote is written down on the call, after a clinician has decided what, if anything, makes sense, and a quote is never a commitment. The Where it hurts pages add that if treatment needs a partner facility instead of a home visit, the quote says so and shows any added cost. Monthly payment plans come from a separate financing company, subject to approval.",
+        "Every booking button leads to the one Booking page. There a patient picks a day and a time, leaves their details for a call back, or phones. Either way they land on the Thank you page, which gives what happens next in three steps, how to change the time, and five things that help on the call.",
+        "The call is about thirty minutes by video with a licensed clinician. The patient gets one of three answers: yes, no, or we need more information. If it is yes, they get a written plan with the full price. Treatment is then given at home by a licensed nurse practitioner, with a physician overseeing the plan and the same team following up. For some hips and for the spine, the site says treatment may be arranged at a partner facility instead, and the clinician says which applies on the call. The Home page and the Our team page show four steps because they count booking as the first. The Where it hurts pages, the referral pages and the Thank you page start at the call and show three. The Stem Cell Therapy page and the How care works page each set the same path out in four parts of their own.",
+        "The honest lines travel with the patient the whole way: this care is not FDA-approved and is investigational for most uses, results vary, a clinician decides who is a candidate, and if someone is not a fit the practice says so. On this example nothing is really booked and no message is sent, because {{site.name}} is a sample practice, not a real one."
+      ]
+    },
+    {
+      "file": "booking-and-what-happens-after",
+      "title": "Booking, and what happens after",
+      "body": [
+        "There is one Booking page, and every booking button on the site leads to it: the Book a Consultation button at the top right of every page, the buttons inside the pages, the link in the footer, and the bar at the bottom of a phone screen. The page has one job, which is to hold the practice's calendar.",
+        "The calendar sits in the box at the top of the Booking page. On this example the box holds a stand-in, marked Sample calendar: choose any day and time to see the step a patient takes, and nothing is booked. On a practice's own site the box holds its own calendar from GoHighLevel, the booking system, with its real openings. To connect it, the website needs only the public link to that calendar, never a password or a secret key.",
+        "Under the sample calendar is the call-back form, headed Rather we call you. It asks for the patient's contact details and what they are dealing with. Two optional boxes ask who sent them and where it hurts, and a tick box asks for consent to be contacted. On this example the form sends nothing, and its consent wording is a sample. Once a practice's real calendar is connected, it takes this spot and the form leaves the Booking page. A patient can still phone, or send a message from the Contact page. Under the form the page says: This website is not for emergencies. In an emergency, call 911. That line stays when the calendar takes the form's place.",
+        "Beside the calendar the page names who answers the phone, with the number and the hours. On this example that is {{site.coordinator.first}}, the {{site.coordinator.role}}, at {{site.phone}}, and both are samples. It also says what happens on the call: a licensed clinician, about thirty minutes by video, and one of three answers, which are yes, no, or we need more information. If the answer is yes, the patient gets a written plan with the full price, and a quote is never a commitment.",
+        "After booking a time or sending the form, a patient lands on the Thank you page. On this example its first lines say that on a real site a picked time is booked and a confirmation is sent, and that here nothing was booked or sent and nobody will call. The page then gives what happens next in three steps, and lists five things that help on the call, such as imaging reports and a list of what they take. To change or cancel, it says a patient calls the practice or uses the link in the confirmation. The Thank you page is not in the menus.",
+        "What happens after that belongs to the booking system, not to the website. GoHighLevel holds the openings and sends the confirmation, the reminders and the messages after a missed call. The practice's calendar is set to bring the patient back to the Thank you page once a time is booked. The website itself sends nothing, and its part ends at the Thank you page.",
+        "Some things about booking are not on the site, and nobody has told Ava: what the reminder messages say and when they go out, who sets up the booking account, and where a form message lands on a practice's live site. For those she says she does not have it, and that the owner's contact for the website can tell them."
+      ]
+    },
+    {
+      "file": "pages-for-referred-patients",
+      "title": "Pages for patients sent by a provider",
+      "body": [
+        "Many patients come because someone they trust sent them: a chiropractor, a physical therapist, a family doctor. The site has private pages for those patients, each titled Sent here by and the provider's name. Each provider who sends a practice patients gets one page of their own. This example has three made-up ones, from a chiropractor, a physical therapist and a family doctor, each stamped Sample referrer, and one general page for any provider.",
+        "These pages are left out of the menus on purpose and kept out of search engines. A patient opens one from a direct link their provider gives them. Only the general page is linked from the site: from the Start with where it hurts strip on the Home page and, on a wide screen, from the card in the Where it hurts menu.",
+        "Every referral page runs the same way, top to bottom. First, who sent you: the provider's name, role and practice, their portrait, and a short note on the kind of patient they usually send. The page says plainly that nothing on it is a sales pitch and nothing is a promise. Then come three steps in plain words: a video call with a licensed clinician, an honest answer in writing, and treatment at home with follow-ups by the same team.",
+        "Next come the three questions these patients ask first: Is this approved, Will it hurt and how long does it take, and What if I am not a candidate. The first answer starts with a plain no: stem cell and exosome products are not FDA-approved to treat joints and are investigational for most uses. These are the site's own words for patients, so Ava quotes them as written and adds nothing to them.",
+        "Then the cost and the phone. On this example a plan for one area runs from {{site.pricing.from}} to {{site.pricing.to}}, a sample range, and the exact quote is written down on the call. Beside the price is who answers the phone: on this example {{site.coordinator.first}}, the {{site.coordinator.role}}, a sample. The patient is asked to say who sent them. Under the hours the page says: This website is not for emergencies. In an emergency, call 911. The page closes with the honest lines in one breath, a booking button, and the small print.",
+        "The website does not tell the referring provider anything. The line that says the provider gets a note at each step is a promise the practice keeps itself, with the patient's permission. To record who sent a patient, the form has an optional box that asks Who sent you, and the patient fills it in. The page does not do it for them.",
+        "A referral page is not the same as the For providers and partners page. A referral page speaks to a patient who was sent. For providers and partners, under About in the menu, speaks to a clinician about working with the practice. How a practice asks for a new referral page, and how many it can have, is not on the site. The owner's contact for the website can say."
+      ]
+    },
+    {
+      "file": "phones-and-laptops",
+      "title": "The website on a phone and on a laptop",
+      "body": [
+        "The pages and the words are the same on a phone and on a laptop. On a phone everything stacks in one column. The reader the site is written for often opens it on a phone, so it is built to read well there.",
+        "On a wide screen the header runs across the top of every page. The practice name is at the top left and goes to the Home page, the menu is in the middle, and the phone number and the Book a Consultation button are at the top right. On a narrower screen the phone number becomes a round phone button.",
+        "On a phone the menu folds behind the three-line button at the top right. It opens the same four items, Where it hurts, Treatments, About and Contact, then a link for providers and partners, the booking button and the phone number. A round phone button and a booking button stay in the header.",
+        "A phone also gets a bar at the bottom of the screen, with a wide Book a Consultation button and a round call button. It appears once the top of the page has scrolled away. It is not shown on the Booking page or the Thank you page, where it is not needed, or while the menu is open.",
+        "A patient can tap to call from every page: the phone number or the phone button in the header, the call button in the bar on a phone, and the Call line near the foot of most pages. On this example they carry {{site.phone}}, which is a sample number. On a practice's own site they dial the practice.",
+        "Wider screens have one extra: a small note at the bottom left that says Payment plans available and links to the Financing and Payment Plans page. It appears after the top of the page has scrolled away, hides again near the footer, and does not show on the Financing page itself. Its X closes it for the rest of the visit. It never shows on a phone.",
+        "This example also carries a note for the owner at the top of every page, just under the header, on a phone and on a laptop. It says the site is an example, and it has two controls: the link How this site works, and a button, Outline what is yours to replace. The button outlines every sample detail on the page in view, stays on from page to page, and switches off when pressed again. A practice's patients never see this note. Ava's corner is at the bottom right of every page.",
+        "The design was tuned for older readers on any screen: larger type, buttons written in plain sentence case, and every pairing of text and background checked for contrast. Movement on the page is kept calm, and it switches off for anyone whose device is set to reduce motion."
+      ]
+    },
+    {
+      "file": "the-design-and-its-five-looks",
+      "title": "The design, and its five looks",
+      "body": [
+        "This example wears the look called Ecosystem: a lavender white page with deep indigo and a violet to blue accent. It is one of five looks made for this website.",
+        "The other four are Onyx, Sandstone, Meridian and Ivory. Onyx is the dark one: near black, with warm sand type and gold. Sandstone is a sand coloured page with a bronze accent and deep teal. Meridian is ice white with navy and an electric blue accent. Ivory is ivory paper with graphite and a deep plum accent.",
+        "All five share one layout. The pages, the words, the menu and the booking are the same in every look. What changes is the colours and the pair of typefaces. In each of them a serif headline sits beside a square photograph, there is one solid button, and lines rather than boxes separate the content.",
+        "The owner's guide page, How this website works, has a section called One site, five looks, with five buttons. Each button shows the site in that look, and the look stays on from page to page until another is chosen. An owner can also ask Ava for a look by name, for example Onyx or Ivory, and she shows the page they are on in that look. Choosing Ecosystem brings this one back. The other pages carry no design button. Ava only says she has changed the look once the page has done it.",
+        "All five looks were tuned for older readers: larger type, buttons in plain sentence case, calmer labels, and every pairing of text and background checked for contrast.",
+        "Which look a practice's own site wears, and whether it can be changed later, is not something Ava has been told. That is decided with the owner's contact for the website. What Ava can do is show all five on any page, so the owner knows what they are choosing between.",
+        "The programs are separate from the look. Each program is a switch. This example has NAD+ switched on, and pages for hormone and peptide programs exist but are switched off here. With a program off, its page, its menu links and every mention of it are gone from the site. Which programs a practice's own site carries is also a question for the website contact."
+      ]
+    },
+    {
+      "file": "what-the-website-does-not-do",
+      "title": "What the website does not do",
+      "body": [
+        "The website has one job: to help a patient see whether this care might be for them, show what it costs, and bring them to a booked video call with a licensed clinician. It helps an owner to know what it leaves to others.",
+        "It takes no payment. There is no checkout, and stem cell and exosome products are not sold online. The price is quoted in writing on the call. Monthly payment plans come from a separate financing company, subject to approval, and the practice does not extend credit itself. On this example that company is {{site.financingPartner}}, a sample name.",
+        "It sends no messages of its own. The confirmation, the reminders and the messages after a missed call come from the booking system, GoHighLevel. The website also sends nothing to a referring provider: the note a provider gets at each step is something the practice does itself, with the patient's permission.",
+        "It gives no medical advice and makes no diagnosis. The short fit check on the Home page has no score, and the answers stay in the visitor's browser and are not sent anywhere. The site says its content is general education, that a clinician decides who is a candidate on the call, and that if someone is not a fit the practice says so. Ava is a guide to the website, not a clinician, so she does not answer medical questions either.",
+        "It is not for emergencies, and it says so. The Contact page, the Booking page and the referral pages carry the line: This website is not for emergencies. In an emergency, call 911. What a practice does when its office is closed is not on the site, and each practice states its own.",
+        "It has no log-in. There are no patient accounts, no records and no portal, and no screen where an owner can edit the pages. Changes are made by the people who build the site and are then published. The sample Terms and Conditions say the same: this website has no accounts.",
+        "Today it does not count visitors, show a cookie banner or track anyone. There is a place where a tracking or chat snippet can be added later. It makes no HIPAA promise: the badge on the Contact page says Encrypted connection, and the other badges there are samples.",
+        "On this example a few more things are switched off, because {{site.name}} is a sample practice: the calendar books nothing, the forms send nothing, and the video slots on the Patient stories page do not play. Some questions are not answered anywhere on the site, such as what the website package costs, what it includes, and when a site goes live. For those Ava says she does not have it, and that the owner's contact for the website can tell them."
+      ]
+    }
+  ]
+}

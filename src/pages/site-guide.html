@@ -16,6 +16,11 @@ bodyClass: page--guide
         <a class="btn btn--primary btn--lg" href="#tour">Take the short tour {{icon:arrow-down}}</a>
         <a class="btn btn--secondary btn--lg" href="#pages">See every page</a>
       </div>
+      <ul class="guide-key">
+        <li><span class="sample">Sample</span><span>A made-up detail. Your own goes in the same spot.</span></li>
+        <li><span class="guide-key__mark">{{icon:message-circle}}</span><span>{{site.assistantName}}, in the bottom corner of every page. She is the guide to this example: ask her where anything is.</span></li>
+        <li><span class="guide-key__mark">{{icon:info}}</span><span>The note at the top of every page, and this page. They are here for you. Your patients never see them.</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -32,7 +37,7 @@ bodyClass: page--guide
       <li><h3>They read a page written in their words</h3><p>Each of those pages begins with "Is this you?": stairs, chairs, sleeping on that side. The science comes last, for the people who want it.</p><button type="button" class="link-arrow" data-guide-go="knees#is-this-you">Show me {{icon:arrow-right}}</button></li>
       <li><h3>They see the price before they decide</h3><p>A price range is on the page, with the promise of an exact quote in writing on the call. Nobody has to phone to find out what it costs.</p><button type="button" class="link-arrow" data-guide-go="knees#cost">Show me {{icon:arrow-right}}</button></li>
       <li><h3>They read what you will not promise</h3><p>The site says plainly that this care is not FDA-approved, that results vary, and that some people are not candidates. This is what makes the rest believable.</p><button type="button" class="link-arrow" data-guide-go="index#honesty">Show me {{icon:arrow-right}}</button></li>
-      <li><h3>They book a video call</h3><p>Every "Book" button on the site leads to one booking page. Your calendar sits at the top of it. Next to it: who answers the phone, and what happens on the call.</p><button type="button" class="link-arrow" data-guide-go="book#book">Show me {{icon:arrow-right}}</button></li>
+      <li><h3>They book a video call</h3><p>Every "Book" button on the site leads to one booking page. Your calendar sits at the top of it. Next to it: who answers the phone, and what happens on the call.</p><button type="button" class="link-arrow" data-guide-go="book#calendar">Show me {{icon:arrow-right}}</button></li>
       <li><h3>They land on the thank-you page</h3><p>After booking, they see what happens next in three steps, how to change the time, and five things to bring to the call.</p><button type="button" class="link-arrow" data-guide-go="thank-you">Show me {{icon:arrow-right}}</button></li>
     </ol>
   </div>
@@ -56,18 +61,9 @@ bodyClass: page--guide
         <span class="eyebrow">What you replace</span>
         <h2 class="mt-4">Your details go where the samples are</h2>
         <p class="lead mt-6">Anything stamped <span class="sample">Sample</span> on this site is a stand-in. On your own site the same spot carries your real detail.</p>
+        <p class="mt-6"><button type="button" class="btn btn--secondary" data-guide-go="samples">Outline the samples on this page</button></p>
       </div>
-      <ul class="guide-list reveal" data-delay="1">
-        <li><b>Your practice name and logo</b><span>Top left of every page, the footer, and the page titles.</span></li>
-        <li><b>Your phone number, address and hours</b><span>The header, the footer, the contact page and the booking page.</span></li>
-        <li><b>Your clinicians</b><span>Names, titles and portraits on the home page and the About page.</span></li>
-        <li><b>The person who answers the phone</b><span>A first name on the booking page, the thank-you page and the pages for referred patients. Here it is {{site.coordinator.first}}.</span></li>
-        <li><b>Your price range</b><span>The cost sections on the home page, the six "where it hurts" pages and the referral pages. Here it is {{site.pricing.from}} to {{site.pricing.to}}.</span></li>
-        <li><b>Your reviews and patient stories</b><span>Only verified reviews, published with written consent, and never a promised result.</span></li>
-        <li><b>Your booking calendar</b><span>The box at the top of the booking page.</span></li>
-        <li><b>A page for each provider who sends you patients</b><span>One private page per referring provider, with their name, portrait and note.</span></li>
-        <li><b>Your legal pages</b><span>Privacy, terms and the disclaimer are sample text. Your own counsel reviews and replaces them.</span></li>
-      </ul>
+      <ul class="guide-list reveal" data-delay="1"><!--guide:replace--></ul>
     </div>
   </div>
 </section>
@@ -77,17 +73,10 @@ bodyClass: page--guide
     <div class="split split--top">
       <div class="reveal">
         <span class="eyebrow">What stays</span>
-        <h2 class="mt-4">Six things that do not come off the site</h2>
+        <h2 class="mt-4">What does not come off the site</h2>
         <p class="lead mt-6">They protect your patients and your licence. They are also the reason a careful reader trusts the rest.</p>
       </div>
-      <ul class="guide-list reveal" data-delay="1">
-        <li><b>The plain statement about approval</b><span>Stem cell and exosome products are not FDA-approved to treat joints and are investigational for most uses.</span></li>
-        <li><b>"Results vary"</b><span>No page promises an outcome, and no patient story describes one.</span></li>
-        <li><b>The section on what you will not promise</b><span>It is on the home page and it stays there.</span></li>
-        <li><b>The clinician decides who is a candidate</b><span>If someone is not a fit, the site says you will tell them so.</span></li>
-        <li><b>The notice required in California</b><span>It appears on the regenerative pages and on the disclaimer page.</span></li>
-        <li><b>The honest wording about the first call</b><span>The site never calls the consultation free, and never calls a quote a commitment.</span></li>
-      </ul>
+      <ul class="guide-list reveal" data-delay="1"><!--guide:keep--></ul>
     </div>
   </div>
 </section>
@@ -100,7 +89,7 @@ bodyClass: page--guide
     </div>
     <ol class="guide-steps reveal">
       <li><h3>One booking page</h3><p>The "Book a Consultation" button at the top right of every page, the buttons inside the pages and the bar at the bottom of a phone screen all lead to the same place.</p><button type="button" class="link-arrow" data-guide-go="book">Open the booking page {{icon:arrow-right}}</button></li>
-      <li><h3>Your calendar sits at the top</h3><p>The practice's GoHighLevel calendar goes in the box at the top of that page. Until it is connected the box says so, and a call-back form underneath does the job.</p><button type="button" class="link-arrow" data-guide-go="book#book">Show me the box {{icon:arrow-right}}</button></li>
+      <li><h3>Your calendar sits at the top</h3><p>Your own calendar from GoHighLevel goes in the box at the top of that page. On this example the calendar is a sample: nothing is booked. Until a real calendar is connected, a call-back form underneath does the job. Once it is connected, the calendar takes the form's place.</p><button type="button" class="link-arrow" data-guide-go="book#calendar">Show me the box {{icon:arrow-right}}</button></li>
       <li><h3>Then the thank-you page</h3><p>A booked call or a sent form both land on the thank-you page. Reminders and no-show messages are sent by GoHighLevel, not by the website.</p><button type="button" class="link-arrow" data-guide-go="thank-you">Open the thank-you page {{icon:arrow-right}}</button></li>
     </ol>
   </div>
@@ -134,7 +123,26 @@ bodyClass: page--guide
   </div>
 </section>
 
-<section class="section" id="connect">
+<section class="section" id="not-here">
+  <div class="container container--narrow">
+    <div class="section-head section-head--left reveal">
+      <span class="eyebrow">Not on this site</span>
+      <h2>What this page and {{site.assistantName}} cannot tell you</h2>
+      <p class="lead">This example shows the website. It does not hold the things that are agreed between you and the people building it. {{site.assistantName}} will say so rather than guess.</p>
+    </div>
+    <ul class="guide-list reveal">
+      <li><b>What your website package includes and what it costs</b><span>Also contracts, and what happens if you cancel.</span></li>
+      <li><b>When your site goes live</b><span>And how many rounds of changes there are.</span></li>
+      <li><b>How to send your logo, photos, bios and prices</b><span>And in what form.</span></li>
+      <li><b>Who looks after the site once it is live</b><span>And how to ask for a change.</span></li>
+      <li><b>Your booking system</b><span>Who sets up GoHighLevel, what the reminders say and what it costs.</span></li>
+      <li><b>Anything medical or legal</b><span>A clinician answers medical questions. Your own counsel answers legal ones, including the rules in your state.</span></li>
+    </ul>
+    <p class="mt-6 reveal">For the first five, ask your contact for the website: the person who sent you this link.</p>
+  </div>
+</section>
+
+<section class="section section--alt" id="connect">
   <div class="container container--narrow">
     <div class="section-head section-head--left reveal">
       <span class="eyebrow">For whoever connects {{site.assistantName}}</span>
@@ -143,11 +151,13 @@ bodyClass: page--guide
     </div>
     <ul class="guide-list guide-files reveal">
       <li><a href="guide/brief.md">guide/brief.md</a><span>Who she is, how she speaks, what she must never say. Paste it in as her instructions.</span></li>
-      <li><a href="guide/knowledge.txt">guide/knowledge.txt</a><span>The short form of everything, in one document.</span></li>
+      <li><a href="guide/knowledge.txt">guide/knowledge.txt</a><span>The short form, in one document. The complete form: <a href="guide/knowledge-all.txt">guide/knowledge-all.txt</a>, or as one web page, <a href="guide/knowledge.html">guide/knowledge.html</a>.</span></li>
       <li><a href="guide/questions.csv">guide/questions.csv</a><span>Questions with spoken answers, one per row. Also as <a href="guide/questions.json">JSON</a>.</span></li>
       <li><a href="guide/site-map.json">guide/site-map.json</a><span>Every page and every section, with the address that opens it.</span></li>
       <li><a href="guide/tools.json">guide/tools.json</a><span>The actions she can take on the page: go to a section, highlight it, point at a menu.</span></li>
       <li><a href="guide/tests.json">guide/tests.json</a><span>Questions to try her with, and what a good answer contains.</span></li>
+      <li><a href="guide/open-questions.json">guide/open-questions.json</a><span>What nobody has told her yet, and who has to. A list for the team, not for her.</span></li>
+      <li><a href="guide/manifest.json">guide/manifest.json</a><span>Every file, which one suits which way of learning, and a code that changes when she needs loading again.</span></li>
       <li><a href="llms.txt">llms.txt</a><span>The index of all of it, with the topic files.</span></li>
     </ul>
   </div>
