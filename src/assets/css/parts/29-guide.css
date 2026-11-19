@@ -16,7 +16,10 @@ a.guide-spot, .nav__link.guide-spot, .btn.guide-spot, .site-header__call.guide-s
 /* nothing a patient must read (the legal links, the small print) sits under the assistant's corner */
 .has-assistant .site-footer { padding-bottom: 96px; }
 /* the stage: another page of the site shown in a frame that fills the window, so the assistant's page never reloads */
-#guide-stage { position: fixed; inset: 0; z-index: 2000; background: var(--bg); }
+/* The page beneath is hidden while the stage is up, so the stage needs no high layer of its own: whatever the
+   assistant's own snippet adds to the page sits above it without having to know a number. */
+#guide-stage { position: fixed; inset: 0; z-index: 10; background: var(--bg); }
+.is-staged :is(.skip-link, #site-header, #main, #footer, .site-footer) { visibility: hidden; }
 #guide-stage[hidden] { display: none; }
 #guide-stage iframe { display: block; width: 100%; height: 100%; border: 0; }
 html.is-staged, html.is-staged body { overflow: hidden; }
@@ -50,7 +53,9 @@ html.is-staged, html.is-staged body { overflow: hidden; }
   .assistant-dock__mark { width: 50px; height: 50px; }
   .assistant-dock__panel { margin-bottom: 4px; }
 }
-.nav-open :is(.assistant-dock, .assistant-slot, .assistant-note, .guide-caption) { display: none; }
+.nav-open :is(.assistant-dock, .assistant-note, .guide-caption) { display: none; }
+/* a live assistant is tucked away, not removed, while the phone menu is open: she must not lose her session */
+.nav-open .assistant-slot { visibility: hidden; }
 @media print { .assistant-dock, .assistant-slot, .assistant-note, .guide-caption { display: none; } }
 
 /* the assistant's own widget: above the stage, so she stays on top while the site changes beneath her */

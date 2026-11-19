@@ -251,7 +251,7 @@
       tile.addEventListener("focus", function () { activateTile(tile); });
       tile.addEventListener("click", function (e) {
         if (!tile.classList.contains("is-active") && window.innerWidth < 1024) { e.preventDefault(); activateTile(tile); }
-        else if (window.innerWidth < 1024 && tile.getAttribute("data-href")) { location.href = tile.getAttribute("data-href"); }
+        else if (window.innerWidth < 1024 && tile.getAttribute("data-href")) { var h = tile.getAttribute("data-href"); if (window.SiteGuide && window.SiteGuide.visit) window.SiteGuide.visit(h); else location.href = h; }
       });
     });
     if (tiles.length) activateTile(tiles[0]);

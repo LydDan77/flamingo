@@ -42,6 +42,10 @@
     {
       "source": "/dr-demo/(llms\\.txt|llms-full\\.txt)",
       "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
+    },
+    {
+      "source": "/dr-demo/view-(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ]
 }

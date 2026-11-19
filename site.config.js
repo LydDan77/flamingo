@@ -92,7 +92,8 @@ const variants = {
     theme: "ecosystem",
     switcher: false,
     guide: true,
-    // The checks on the guide (spoken answers, unfinished content) stop the build. GUIDE_STRICT=0 turns them into warnings for an emergency.
+    // GUIDE_STRICT=0 turns three checks into warnings for an emergency: the rules on spoken answers, a sample fact given
+    // without the word "sample", and unfinished content on the pages. Every other check always stops the build.
     guideStrict: process.env.GUIDE_STRICT !== "0",
     // Words that must never appear on this build's pages or in what the assistant learns (the program's own offers and prices).
     guideNever: ["$997", "$2,497", "$100,000", "Business in a Box"],

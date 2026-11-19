@@ -557,7 +557,7 @@ function build() {
     site.guide = !!variant.guide;
     site.assistant = variant.assistant ? Object.assign({ name: "Ava", embedHtml: "", headHtml: "", mode: "widget", origins: [], keepAlive: true }, variant.assistant) : null;
     site.assistantOn = !!site.assistant;
-    site.assistantLive = !!(site.assistant && site.assistant.embedHtml);
+    site.assistantLive = !!(site.assistant && (site.assistant.embedHtml || site.assistant.headHtml)); // a snippet that sits only in the head is a live assistant too
     // "widget": her snippet draws its own launcher. "panel": the site draws the launcher and loads her snippet inside
     // its own panel on the first tap (for a bare iframe embed, and to hold back the microphone prompt until asked).
     site.assistantPanel = site.assistantLive && site.assistant.mode === "panel";
@@ -583,7 +583,7 @@ function build() {
     const pages = built.map((b) => b.file);
     // Generated pages: one private referral page per referring clinician (from-<slug>.html; noindex, not in the sitemap).
     const refTpl = read(path.join(SRC, "templates", "referral.html"));
-    for (const ref of site.referrers || []) buildPage(null, outDir, variant, { raw: refTpl, slug: `from-${ref.slug}`, out: `from-${ref.slug}.html`, extra: { ref } });
+    for (const ref of site.referrers || []) buildPage(null, outDir, variant, { raw: refTpl, slug: `from-${ref.slug}`, out: `from-${ref.slug}.html`, extra: { ref: Object.assign({ stampHtml: "", shortStart: ref.short, alt: "Portrait of " + ref.name }, ref) } });
     const skipped = allPages.filter((f) => !pages.includes(f));
 
     // Simple sitemap so the deployed site has one (one per build; robots.txt only at the root).
@@ -602,7 +602,7 @@ function build() {
       fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\n${site.indexable === false ? "Disallow: /" : "Allow: /"}\n${guides.map((v) => `Allow: /${v.path}/\nDisallow: /${v.path}/view-\n`).join("")}Sitemap: ${site.url}/sitemap.xml\n${guides.map((v) => `Sitemap: ${site.url}/${v.path}/sitemap.xml\n`).join("")}`);
     }
 
-    if (site.guide) log.push(require("./tools/site-guide.js").write({ outDir, site, variant, baseUrl }));
+    if (site.guide) log.push(require("./tools/site-guide.js").write({ outDir, site, variant, baseUrl, minify: minifyJs }));
     log.push(`${variant.path ? variant.path + "/" : "root"}: ${pages.length} pages${skipped.length ? ` (modules off, skipped: ${skipped.join(", ")})` : ""}`);
   }
   site = SITE;

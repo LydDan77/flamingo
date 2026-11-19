@@ -97,6 +97,7 @@
   })();
 </script>
 <script src="{{page.assets.js}}" defer></script>
+{{#if site:guide}}<script src="guide/guide.js" defer></script>{{/if}}
 {{#if site:assistantOn}}{{> assistant}}{{/if}}
 </body>
 </html>

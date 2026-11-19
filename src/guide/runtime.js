@@ -24,9 +24,10 @@
    in a frame that fills the window, and updates the address bar and the Back button to match. The assistant's page
    never unloads, so she keeps talking. A reload, or a link opened in a new tab, lands on the ordinary page.
 
-   An assistant inside an iframe can post { type: "site-guide", action: "go", target: "knees#cost", id: 1 } to the page
-   and gets { type: "site-guide:result", id: 1, result } back. Messages are taken from this site, from the origins the
-   site lists for its assistant, or (when it lists none) from a frame placed directly on the page.
+   An assistant inside an iframe can post { type: "site-guide", action: "go", args: { page: "knees", section: "cost" },
+   ref: 1 } to the page and gets { type: "site-guide:result", ref: 1, result } back. The arguments carry the names the
+   tool definitions use. Messages are taken from this site, from the origins the site lists for its assistant, or (when
+   it lists none) from a frame in the assistant's own corner.
    A link with ?show=<section> highlights on arrival; ?samples=1 outlines the sample details. */
 (function () {
   "use strict";
@@ -37,7 +38,10 @@
   try { framed = window.self !== window.top && !!window.parent.SiteGuide; } catch (e) { framed = false; }
   function slugOf(pathname) { var f = (String(pathname).split("/").pop() || "").replace(/\.html$/, "").replace(/^view-/, ""); return f || "index"; }
   var own = slugOf(location.pathname);
-  var dotHtml = /\.html$/.test(location.pathname); // a local server; the live site uses clean addresses
+  // a local file server needs .html in its addresses; the live site uses clean ones
+  var dotHtml = /\.html$/.test(location.pathname) || /^(localhost|127\.|\[::1\])/.test(location.hostname);
+  // An assistant-free copy opened on its own (a new tab, a copied link) is not a page to stay on: go to the real one.
+  if (root.hasAttribute("data-view") && window.top === window.self) { location.replace((own === "index" ? "./" : own + (dotHtml ? ".html" : "")) + location.search + location.hash); return; }
   var bySlug = {};
   DATA.pages.forEach(function (p) { bySlug[p.s] = p; });
 
@@ -46,69 +50,111 @@
 
   /* ------------------------------------------------------------------ the stage: other pages, without a reload */
   var keepAlive = !framed && DATA.keepAlive !== false;
-  var stage = null, frame = null, staged = false, stagedSlug = "", ownTitle = doc.title, pendingShow = "";
+  var stage = null, frame = null, staged = false, stagedSlug = "", frameReady = false, wantFocus = false, ownTitle = doc.title, pendingShow = "";
   var curLook = ""; // a design look chosen for this visit (other than the site's own), carried from page to page
   try { curLook = new URLSearchParams(location.search).get("theme") || ""; if (curLook === (window.FLAMINGO_FIXED_THEME || "")) curLook = ""; } catch (e) {}
-  function inner() { try { return staged && frame && frame.contentWindow && frame.contentWindow.SiteGuide ? frame.contentWindow.SiteGuide : null; } catch (e) { return null; } }
+  function sameDir(p) { var d = function (x) { return x.slice(0, x.lastIndexOf("/") + 1); }; return d(p) === d(location.pathname); }
+  /** The page the frame is really showing right now ("" while it is elsewhere or cannot be read). */
+  function frameSlug() { try { var m = (frame.contentWindow.location.pathname.split("/").pop() || "").match(/^view-([a-z0-9-]+)(?:\.html)?$/); return m ? m[1] : ""; } catch (e) { return ""; } }
+  /** The guide of the page in the frame, once that page has finished loading. Never the page it is leaving. */
+  function inner() { try { return staged && frameReady && frame && frame.contentWindow && frame.contentWindow.SiteGuide && frameSlug() === stagedSlug ? frame.contentWindow.SiteGuide : null; } catch (e) { return null; } }
   function here() { return staged ? stagedSlug : own; }
   function viewUrl(slug, section, query) {
     var q = [];
     if (section) q.push("show=" + encodeURIComponent(section));
     String(query || "").replace(/^\?/, "").split("&").forEach(function (kv) { if (kv && !/^show=/.test(kv)) q.push(kv); });
-    return "view-" + slug + ".html" + (q.length ? "?" + q.join("&") : "") + (section ? "#" + section : "");
+    return "view-" + slug + (dotHtml ? ".html" : "") + (q.length ? "?" + q.join("&") : "") + (section ? "#" + section : "");
   }
   function realUrl(slug, hash) { return (slug === "index" ? "./" : slug + (dotHtml ? ".html" : "")) + (hash || ""); }
+  // What belongs to the page under the stage. Only these are switched off while another page is shown: anything the
+  // assistant's own snippet has put on the page is left alone.
+  var OUTER = "body > .skip-link, #site-header, #main, #footer, body > .site-footer, body > .sticky-cta, body > .financing-chip, body > .sample-banner";
   function setStaged(on) {
     staged = on;
     if (stage) stage.hidden = !on;
     root.classList.toggle("is-staged", on);
-    ["site-header", "main", "footer"].forEach(function (id) { var el = doc.getElementById(id); if (el) { if (on) el.setAttribute("inert", ""); else el.removeAttribute("inert"); } });
+    doc.querySelectorAll(OUTER).forEach(function (el) { if (on) el.setAttribute("inert", ""); else el.removeAttribute("inert"); });
     if (!on) { doc.title = ownTitle; root.classList.toggle("guide-samples", samplesOn); }
+    else if (frameReady) { try { doc.title = frame.contentDocument.title; } catch (e) {} }
   }
+  function closeDrawer() {
+    if (!doc.body.classList.contains("nav-open")) return;
+    var b = doc.querySelector(".burger");
+    if (b) b.click(); else doc.body.classList.remove("nav-open");
+  }
+  /** The frame went somewhere that is not a page of this site (an error page, a file): forget it, so the next move starts clean. */
+  function stageLost() { frameReady = false; stagedSlug = ""; }
   function onFrameLoad() {
-    var loc;
-    try { loc = frame.contentWindow.location; if (!loc || loc.href === "about:blank") return; } catch (e) { return; }
+    var loc, d;
+    try { loc = frame.contentWindow.location; d = frame.contentDocument; if (!loc || loc.href === "about:blank") return; } catch (e) { stageLost(); return; }
     var file = loc.pathname.split("/").pop() || "";
     var m = file.match(/^view-([a-z0-9-]+)(?:\.html)?$/);
     if (!m) { // the frame reached an ordinary page: swap in its assistant-free copy
       var s = slugOf(loc.pathname);
-      if (bySlug[s]) loc.replace("view-" + s + ".html" + loc.search + loc.hash);
+      if (bySlug[s] && sameDir(loc.pathname)) loc.replace(viewUrl(s, "", loc.search) + loc.hash); else stageLost();
+      return;
+    }
+    if (!d || !d.documentElement.hasAttribute("data-view")) { // the copy is missing: show the real page instead
+      frameReady = false;
+      if (bySlug[m[1]]) location.assign(realUrl(m[1], loc.hash)); else stageLost();
       return;
     }
     stagedSlug = m[1];
-    try { doc.title = frame.contentDocument.title; } catch (e) {}
+    frameReady = true;
+    try { frame.contentWindow.addEventListener("pagehide", function () { frameReady = false; }); } catch (e) {}
+    try { doc.title = d.title; frame.title = d.title; } catch (e) {}
     if (staged) { try { history.replaceState({ guideStage: 1, slug: stagedSlug }, "", realUrl(stagedSlug, loc.hash)); } catch (e) {} }
+    // After the visitor's own click, the keyboard and a screen reader follow them into the new page. After the
+    // assistant's move they stay where they are, so a chat box does not lose its cursor.
+    if (staged && wantFocus) { wantFocus = false; try { frame.contentWindow.focus(); var mn = d.getElementById("main"); if (mn && !loc.hash) { mn.setAttribute("tabindex", "-1"); mn.focus({ preventScroll: true }); } } catch (e) {} }
+    // A click inside the page closes the placeholder panel, as a click beside it does on the first page.
+    try { d.addEventListener("pointerdown", function () { var dock = doc.getElementById("assistant-dock"); if (dock && !dock.hasAttribute("data-live")) setDock(false); }); } catch (e) {}
     if (pendingShow) { var id = pendingShow; pendingShow = ""; var g = inner(); if (g) setTimeout(function () { g.show(id); }, 250); }
     if (samplesOn) { var g2 = inner(); if (g2) g2.samples(true); }
     announce();
   }
+  function ensureFrame() {
+    if (frame) return;
+    stage = doc.createElement("div");
+    stage.id = "guide-stage";
+    stage.hidden = true;
+    frame = doc.createElement("iframe");
+    frame.title = DATA.name || "Website";
+    frame.addEventListener("load", onFrameLoad);
+    stage.appendChild(frame);
+    doc.body.appendChild(stage);
+  }
+  function frameTo(url, add) {
+    frameReady = false;
+    if (!frame.getAttribute("src")) { frame.setAttribute("src", url); return; }
+    try { if (add) frame.contentWindow.location.assign(url); else frame.contentWindow.location.replace(url); } catch (e) { frame.setAttribute("src", url); }
+  }
   function openStage(slug, section, query) {
-    if (!frame) {
-      stage = doc.createElement("div");
-      stage.id = "guide-stage";
-      stage.hidden = true;
-      frame = doc.createElement("iframe");
-      frame.title = DATA.name || "Website";
-      frame.addEventListener("load", onFrameLoad);
-      stage.appendChild(frame);
-      doc.body.appendChild(stage);
-    }
+    ensureFrame();
+    closeDrawer();
     var url = viewUrl(slug, section, query);
     stagedSlug = slug;
     if (!staged) {
       try { history.pushState({ guideStage: 1, slug: slug }, "", realUrl(slug, section ? "#" + section : "")); } catch (e) { location.href = realUrl(slug, section ? "#" + section : ""); return; }
-      if (frame.getAttribute("src")) frame.contentWindow.location.replace(url); else frame.setAttribute("src", url);
+      frameTo(url, false);
       setStaged(true);
     } else {
-      frame.contentWindow.location.assign(url);
+      frameTo(url, true);
     }
   }
   if (keepAlive) {
-    window.addEventListener("popstate", function (e) {
-      var st = e.state;
-      if (st && st.guideStage && frame) { stagedSlug = st.slug || stagedSlug; setStaged(true); }
-      else if (st && st.guideStage) { location.reload(); }
-      else setStaged(false);
+    // A page that was reloaded while it was being shown in the stage is an ordinary page now: drop the old marker.
+    try { if (history.state && history.state.guideStage) history.replaceState(null, "", location.href); } catch (e) {}
+    // Back and Forward: the address says which page should be on screen.
+    window.addEventListener("popstate", function () {
+      var slug = slugOf(location.pathname);
+      if (slug === own || !bySlug[slug]) setStaged(false);
+      else {
+        ensureFrame();
+        if (frameSlug() !== slug) { stagedSlug = slug; frameTo(viewUrl(slug, "", curLook ? "theme=" + curLook : "") + location.hash, false); }
+        else stagedSlug = slug;
+        setStaged(true);
+      }
       announce();
     });
     // The visitor's own clicks on links to other pages take the same route, so the assistant is not cut off.
@@ -122,12 +168,25 @@
       var u;
       try { u = new URL(a.getAttribute("href"), location.href); } catch (err) { return; }
       if (u.origin !== location.origin) return;
-      var dir = function (p) { return p.slice(0, p.lastIndexOf("/") + 1); };
-      if (dir(u.pathname) !== dir(location.pathname)) return;
+      if (!sameDir(u.pathname)) return;
       var slug = slugOf(u.pathname);
-      if (!bySlug[slug] || slug === own) return; // same page, or not a page of this site: the browser handles it
+      if (!bySlug[slug]) return; // not a page of this site: the browser handles it
+      if (slug === own) {
+        // A link to the page the assistant lives on. A jump within the page in view is the browser's own business.
+        // Anything else would be a full load, so it is done here: come back from the stage, or just scroll.
+        if (!staged && (u.pathname === location.pathname || u.search)) return;
+        e.preventDefault();
+        closeDrawer();
+        if (staged) { try { history.pushState(null, "", realUrl(own, u.hash)); } catch (err) {} setStaged(false); }
+        var to = u.hash ? doc.getElementById(u.hash.slice(1)) : null;
+        if (to) to.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" }); else window.scrollTo({ top: 0, behavior: calm ? "auto" : "smooth" });
+        announce();
+        return;
+      }
       e.preventDefault();
-      doc.body.classList.remove("nav-open");
+      var dock = doc.getElementById("assistant-dock");
+      if (dock && !dock.hasAttribute("data-live") && dock.contains(a)) setDock(false);
+      wantFocus = true;
       openStage(slug, u.hash.slice(1), u.search || (curLook ? "theme=" + curLook : ""));
     });
   }
@@ -204,7 +263,7 @@
       var r = g.show(id);
       return r && r.ok ? caption(r) : fail("no section called " + id + " on the " + labelOf(stagedSlug).name + " page", id);
     }
-    var el = doc.getElementById(id);
+    var el = id === "footer" || known({ page: own, section: id }) ? doc.getElementById(id) : null;
     if (!el) return fail("no section called " + id + " on this page", id);
     if (el.tagName === "DETAILS") el.open = true; // a question: open it
     el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: el.tagName === "DETAILS" ? "center" : "start" });
@@ -212,6 +271,7 @@
     return caption(done(own, el.id));
   }
   function go(target) {
+    if (target === undefined || target === null || target === "" || (typeof target === "object" && !target.page && !target.section)) return fail("no page or section was named");
     var t = current(parse(target));
     if (!known(t)) return fail("there is no page or section called " + (typeof target === "string" ? target : JSON.stringify(target)) + " on this site", typeof target === "string" ? target : (target && (target.section || target.page)) || "");
     if (t.page === here()) {
@@ -241,7 +301,7 @@
     if (staged) { var g = inner(); if (g) return g.where(); var sp = bySlug[stagedSlug] || { t: "", x: [] }; return { ok: true, page: stagedSlug, name: sp.n || sp.t, title: sp.t, reach: sp.r || "", reach_phone: sp.rp || sp.r || "", section: "", section_label: "", label: "", layout: layoutNow(), sample: !!DATA.sample, sections: sp.x.map(function (s) { return { id: s[0], label: s[1] }; }) }; }
     var p = bySlug[own] || { s: own, t: doc.title, x: [] };
     var line = window.innerHeight * 0.35, cur = null;
-    doc.querySelectorAll("[data-guide][id]").forEach(function (el) {
+    doc.querySelectorAll('#main [data-guide][id]:not([data-guide="question"])').forEach(function (el) {
       var r = el.getBoundingClientRect();
       if (r.top <= line && r.bottom > 0) cur = el;
     });
@@ -253,14 +313,16 @@
   }
   /** The words of a section as they are on the page, so they can be quoted exactly. */
   function read(target) {
-    var t = current(parse(String(target || "").indexOf("#") < 0 && doc.getElementById(String(target)) ? "#" + target : target));
+    var bare = String(target || "").replace(/^#/, "");
+    var t = current(parse(bare && bare.indexOf("#") < 0 && known({ page: here(), section: bare }) ? "#" + bare : target));
     if (!known(t)) return fail("there is no section called " + String(target) + " on this site", String(target));
     if (t.page !== here()) { var p = bySlug[t.page], s = p.x.filter(function (x) { return x[0] === t.section; })[0]; return { ok: true, page: t.page, section: t.section, text: (s ? s[2] : p.p) + (s && s[3] ? " (The details shown in this section are samples.)" : ""), summary_only: true }; }
-    if (staged) { var g = inner(); if (g) return g.read("#" + t.section); }
+    if (staged) { var g = inner(); if (g) return g.read("#" + t.section); var sp = bySlug[t.page], ss = sp.x.filter(function (x) { return x[0] === t.section; })[0]; return { ok: true, page: t.page, section: t.section, text: ss ? ss[2] : sp.p, summary_only: true, loading: true }; }
     var el = t.section ? doc.getElementById(t.section) : doc.getElementById("main");
     if (!el) return { ok: false, reason: "not on this page" };
     var c = el.cloneNode(true);
-    c.querySelectorAll("script, style, svg, .ph-tag").forEach(function (x) { x.remove(); });
+    c.querySelectorAll("script, style, svg, noscript, template, .ph-tag").forEach(function (x) { x.remove(); });
+    c.querySelectorAll("p, li, h1, h2, h3, h4, summary, div, br, td, th, button").forEach(function (x) { x.appendChild(doc.createTextNode(" ")); });
     c.querySelectorAll(".sample").forEach(function (x) { x.textContent = " (sample) "; }); // a made-up detail stays marked when it is quoted
     return { ok: true, page: t.page, section: t.section, text: (c.textContent || "").replace(/\s+/g, " ").trim().slice(0, 4000) };
   }
@@ -288,7 +350,12 @@
     r.tour = t.id; r.step = n; r.of = t.steps.length; r.line = st.say; r.next = n < t.steps.length ? n + 1 : 0;
     return r;
   }
-  function back() { history.back(); return { ok: true }; }
+  /** Back to the page shown before. Only steps the guide itself made can be undone, so this never leaves the site. */
+  function back() {
+    if (!staged) return { ok: false, reason: "there is nothing to go back to on this site", layout: layoutNow(), say: "There is nothing to go back to." };
+    history.back();
+    return { ok: true, layout: layoutNow(), say: "I have gone back." };
+  }
   /** Show the page in view in another design look, without reloading the assistant's page. */
   var LOOKS = ["ecosystem", "onyx", "sandstone", "meridian", "ivory"];
   function look(name) {
@@ -318,7 +385,7 @@
 
   // Show where something lives in the header, the way a person would point at it.
   function point(what) {
-    if (staged) { var g = inner(); if (g) return g.point(what); }
+    if (staged) { var g = inner(); if (g) return g.point(what); return { ok: false, reason: "the page is still loading", layout: layoutNow(), say: "One moment, the page is still loading." }; }
     var w = String(what || "").trim(), el = null, low = w.toLowerCase();
     var phone = window.innerWidth < 1024;
     function openDrawer() { var b = doc.querySelector(".burger"); if (phone && b && !doc.body.classList.contains("nav-open")) b.click(); }
@@ -355,17 +422,39 @@
   // site's own pages and sections and nothing else, so a message cannot send the visitor anywhere else.
   var OPEN = { where: 1, pages: 1, find: 1, go: 1, show: 1, point: 1, read: 1, samples: 1, tours: 1, tour: 1, tourStep: 1, back: 1, look: 1, starters: 1 };
   var ORIGINS = DATA.origins || [];
+  /** Who may send the page a message: this site, an origin the site lists for its assistant, or, when it lists none,
+      a frame that sits in the assistant's own corner. A booking calendar or a video elsewhere on the page may not. */
   function trusted(e) {
     if (e.origin === location.origin || ORIGINS.indexOf(e.origin) >= 0) return true;
     if (ORIGINS.length) return false;
-    try { return !!e.source && e.source !== window && e.source.parent === window; } catch (err) { return false; } // a frame placed directly on this page
+    var mine = doc.querySelectorAll(".assistant-slot iframe, .assistant-dock__embed iframe");
+    for (var i = 0; i < mine.length; i++) if (mine[i].contentWindow === e.source) return true;
+    return false;
+  }
+  /** The arguments of an action, by the names the tool definitions use. "target" still works for all of them. */
+  function argsFor(action, d) {
+    var x = d.args && typeof d.args === "object" ? d.args : d;
+    var pick = function () { for (var i = 0; i < arguments.length; i++) if (x[arguments[i]] !== undefined) return x[arguments[i]]; };
+    switch (action) {
+      case "go": return [x.target !== undefined ? x.target : (x.page || x.section ? { page: x.page, section: x.section } : undefined)];
+      case "show": return [pick("section", "target")];
+      case "point": return [pick("what", "target")];
+      case "find": return [pick("query", "target"), x.limit];
+      case "read": return [pick("target", "section")];
+      case "samples": return [pick("on", "id_or_on")];
+      case "tour": return [d.args ? pick("id", "tour") : pick("tour", "target")];
+      case "tourStep": return [d.args ? pick("id", "tour") : pick("tour", "target"), x.step];
+      case "look": return [pick("name", "target")];
+      default: return [];
+    }
   }
   window.addEventListener("message", function (e) {
     var d = e.data;
-    if (!d || d.type !== "site-guide" || !OPEN[d.action] || !trusted(e)) return;
+    if (!d || d.type !== "site-guide" || !Object.prototype.hasOwnProperty.call(OPEN, d.action) || !trusted(e)) return;
     var result;
-    try { result = api[d.action](d.target !== undefined ? d.target : d.query !== undefined ? d.query : d.id_or_on, d.step !== undefined ? d.step : d.limit); } catch (err) { result = { ok: false, reason: String(err && err.message) }; }
-    if (e.source && e.source.postMessage) { try { e.source.postMessage({ type: "site-guide:result", id: d.id, action: d.action, result: result }, e.origin && e.origin !== "null" ? e.origin : "*"); } catch (err) {} }
+    try { result = api[d.action].apply(null, argsFor(d.action, d)); } catch (err) { result = { ok: false, reason: String(err && err.message) }; }
+    var ref = d.ref !== undefined ? d.ref : d.id;
+    if (e.source && e.source.postMessage) { try { e.source.postMessage({ type: "site-guide:result", ref: ref, id: ref, action: d.action, result: result }, e.origin && e.origin !== "null" ? e.origin : "*"); } catch (err) {} }
   });
 
   // Buttons and links on the page can use the same thing: <button data-guide-go="knees#cost">.
@@ -387,8 +476,18 @@
     if (!tpl || !host || dock.getAttribute("data-mounted")) return;
     dock.setAttribute("data-mounted", "1");
     var frag = tpl.content.cloneNode(true);
-    [].slice.call(frag.querySelectorAll("script")).forEach(function (old) { var s = doc.createElement("script"); [].slice.call(old.attributes).forEach(function (a) { s.setAttribute(a.name, a.value); }); s.text = old.text; old.parentNode.replaceChild(s, old); });
+    // Scripts copied from a template do not run, so each is made again, in order: one that is fetched finishes before the next starts.
+    var waiting = [].slice.call(frag.querySelectorAll("script")).map(function (old) { var mark = doc.createComment("script"); old.parentNode.replaceChild(mark, old); return [mark, old]; });
     host.appendChild(frag);
+    (function next() {
+      var item = waiting.shift();
+      if (!item) return;
+      var sc = doc.createElement("script");
+      [].slice.call(item[1].attributes).forEach(function (a) { sc.setAttribute(a.name, a.value); });
+      sc.text = item[1].text;
+      if (sc.src && !sc.hasAttribute("async")) { sc.onload = next; sc.onerror = next; item[0].parentNode.replaceChild(sc, item[0]); }
+      else { item[0].parentNode.replaceChild(sc, item[0]); next(); }
+    })();
   }
   // The placeholder that holds the assistant's corner until the real one is connected (and her launcher in panel mode).
   function setDock(open) {

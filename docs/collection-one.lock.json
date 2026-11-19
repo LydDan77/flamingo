@@ -1,9 +1,9 @@
 {
   "collection": "one",
   "tag": "v1.0-collection-one",
-  "commit": "b3907ffc9dd157f2496006d7f60cdb756eb5bf90",
+  "commit": "453d992c4965b1277170ae1a1184306190935051",
   "files": {
-    "build.js": "0a1fa7aee63f55078c03bf0ca270baa326f681d0",
+    "build.js": "d6edbac83e87b531c6f6c129c687e5e21472dd30",
     "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
     "src/assets/css/parts/10-components.css": "a80570ac5b52bd3fbe1be2cd921dedd7ce12c933",
     "src/assets/css/parts/12-partner.css": "ef431cf5da3971204d29ab6624ff54c4986f35bc",
@@ -14,8 +14,8 @@
     "src/assets/css/parts/32-theme-warm.css": "f6a01cc8e885d372579a7a68a5f1a8bd6cdd218e",
     "src/assets/css/parts/33-theme-bright.css": "18643f6fd00c006d2255e6f31e7b7eacaf6ac695",
     "src/assets/css/parts/34-theme-elite.css": "b42e3c061ef776db21ee95c085b7aff27963218e",
-    "src/assets/js/site.js": "08a73920d77eb579e79e2a9f7fae96a7c66ad3cd",
-    "src/layout.html": "22cec05abce0a0f31f2a3ac662c86747ede55d1b",
+    "src/assets/js/site.js": "bd0528e3823d16c4870dae20c3d55df23a5cae79",
+    "src/layout.html": "cac40d1ca201ceac39fdb1f7ed15f02155101caa",
     "src/partials/icons.html": "64cc8f0f41b014cb6d81c5dd6946aa38b3ad18b5",
     "src/partials/theme-switch.html": "7d934ee13223c8b5267685696d40fd98668fd2d8"
   }

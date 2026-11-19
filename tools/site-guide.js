@@ -96,6 +96,8 @@ function annotate(html, info) {
       return `<div class="${cls}${rest}"${attrs} id="${id}" data-guide="section">`;
     });
   }
+  const seen = (re) => (main.match(re) || []).length;
+  if (seen(/<section\b/g) !== seen(/<section\b[^>]*\bdata-guide="/g)) throw new Error(`site guide: ${info.slug}.html has a <section> the guide could not read (check its attributes for a ">" inside quotes, or a section nested in another)`);
   let out = html.replace(m[0], () => `<main id="main">${main}</main>`);
   if (!used.has("footer")) out = out.replace('<footer class="site-footer">', '<footer class="site-footer" id="footer" data-guide="footer">');
 
@@ -215,7 +217,7 @@ const FLOOR = [
 ];
 
 // --------------------------------------------------------------------------------------------------------- write
-function write({ outDir, site, variant, baseUrl }) {
+function write({ outDir, site, variant, baseUrl, minify }) {
   const reg = registry.get(outDir) || { pages: [] };
   registry.delete(outDir);
   const pages = reg.pages.filter((p) => p.slug !== "404").sort((a, b) => (a.slug === "index" ? -1 : b.slug === "index" ? 1 : a.slug.localeCompare(b.slug)));
@@ -224,6 +226,9 @@ function write({ outDir, site, variant, baseUrl }) {
   const notes = readNotes(site);
   const menus = menuMap(site);
   const problems = [], warnings = [];
+  // GUIDE_STRICT=0 (guideStrict: false) softens three checks into warnings: the rules on spoken answers, a sample fact
+  // given without the word "sample", and unfinished content on the pages. Everything else always stops the build.
+  const soft = variant.guideStrict === false ? warnings : problems;
   const name = (site.assistant && site.assistant.name) || "the assistant";
   const pagesDir = path.join(SRC, "pages");
   const hasNotes = fs.existsSync(pagesDir) && fs.readdirSync(pagesDir).some((f) => f.endsWith(".json"));
@@ -244,8 +249,8 @@ function write({ outDir, site, variant, baseUrl }) {
   const linkOf = (t) => (t ? base + (t.page === "index" ? "" : t.page) + (t.section ? `?show=${t.section}#${t.section}` : "") : "");
   const lintSay = (say, where) => {
     const n = say.split(/\s+/).filter(Boolean).length;
-    if (n > SAY_MAX_WORDS) problems.push(`${where}: the spoken answer is ${n} words (keep it to ${SAY_MAX_WORDS})`);
-    for (const [re, why] of SAY_BANNED) if (re.test(say)) problems.push(`${where}: the spoken answer ${why}: “${clip(say, 90)}”`);
+    if (n > SAY_MAX_WORDS) soft.push(`${where}: the spoken answer is ${n} words (keep it to ${SAY_MAX_WORDS})`);
+    for (const [re, why] of SAY_BANNED) if (re.test(say)) soft.push(`${where}: the spoken answer ${why}: “${clip(say, 90)}”`);
   };
 
   // ---- pages: the record from the build plus the hand-written note for each
@@ -334,14 +339,15 @@ function write({ outDir, site, variant, baseUrl }) {
   for (const p of pages) for (const t of p.goes || []) if (!/^(look:|samples$|menu:|book$|call$|home$|footer$)/i.test(t)) resolve(t, `${p.slug}.html: a button with data-guide-go`, p.slug);
 
   // ---- nothing unfinished may be visible on a guide build (the assistant would read it out)
-  for (const p of pages) for (const [re, why] of PAGE_GATE) { const hit = p.visible.match(re); if (hit) (variant.guideStrict === false ? warnings : problems).push(`${p.slug}.html shows ${why}: “${clip(p.visible.slice(Math.max(0, hit.index - 30), hit.index + 50), 90)}”`); }
+  for (const p of pages) for (const [re, why] of PAGE_GATE) { const hit = p.visible.match(re); if (hit) soft.push(`${p.slug}.html shows ${why}: “${clip(p.visible.slice(Math.max(0, hit.index - 30), hit.index + 50), 90)}”`); }
 
   // ---- section ids the assistant may already have learned must not disappear (src/guide/anchors.json)
   const anchorsFile = path.join(SRC, "anchors.json");
   const current = Object.fromEntries(pages.map((p) => [p.slug, p.sections.map((s) => s.id)]));
   if (process.env.GUIDE_ANCHORS === "update" || !fs.existsSync(anchorsFile)) {
     const prev = fs.existsSync(anchorsFile) ? JSON.parse(fs.readFileSync(anchorsFile, "utf8")) : {};
-    fs.writeFileSync(anchorsFile, JSON.stringify({ about: "Section ids per page, as the assistant has learned them. The build fails if one disappears. To rename one on purpose, list it under moved (old target -> new target) and rebuild with GUIDE_ANCHORS=update.", moved: prev.moved || {}, pages: current }, null, 1) + "\n");
+    const next = JSON.stringify({ about: "Section ids per page, as the assistant has learned them. The build fails if one disappears. To rename one on purpose, list it under moved (old target -> new target) and rebuild with GUIDE_ANCHORS=update.", moved: prev.moved || {}, pages: current }, null, 1) + "\n";
+    if (!fs.existsSync(anchorsFile) || fs.readFileSync(anchorsFile, "utf8") !== next) fs.writeFileSync(anchorsFile, next);
   } else {
     const lock = JSON.parse(fs.readFileSync(anchorsFile, "utf8"));
     for (const [slug, ids] of Object.entries(lock.pages || {})) for (const id of ids) {
@@ -354,7 +360,7 @@ function write({ outDir, site, variant, baseUrl }) {
   const moved = fs.existsSync(anchorsFile) ? JSON.parse(fs.readFileSync(anchorsFile, "utf8")).moved || {} : {};
 
   // ---- a sample fact is never spoken without the word "sample" beside it
-  for (const u of unmarked.splice(0)) (variant.guideStrict === false ? warnings : problems).push(u);
+  for (const u of unmarked.splice(0)) soft.push(u);
 
   // ---- the rules the assistant must carry are present, and long enough to be worth the name
   const guardrails = Object.assign({ never_say: [], always: [], refusals: [] }, notes.guardrails || {});
@@ -534,7 +540,7 @@ function write({ outDir, site, variant, baseUrl }) {
 
   // ---- the runtime the assistant can call, with a compact copy of the map inside it
   const compact = { base, name: site.name, assistant: name, sample: !!site.sample, keepAlive: !(site.assistant && site.assistant.keepAlive === false), origins: (site.assistant && site.assistant.origins) || [], heard: (notes.heard_as || []).map((h) => [String(h.heard).toLowerCase(), String(h.means).toLowerCase()]), moved, pages: outPages.map((p) => ({ s: p.slug, n: p.name, t: p.title, r: p.reach, rp: p.reach_phone !== p.reach ? p.reach_phone : undefined, p: clip(p.purpose, 160), x: p.sections.map((s) => [s.id, s.label || s.heading, clip([s.heading, s.items.join(" "), s.summary].join(" "), 150), s.sample ? 1 : 0]), m: p.sections.flatMap((s) => [...s.spots.map((x) => [x.id, x.label]), ...s.questions_on_page.map((f) => [f.id, f.q])]) })), qa: qa.filter((x) => x.show && x.voice === "own" && x.source !== "generated").map((x) => [clip(x.q + " " + (x.also_asked[0] || ""), 150), x.show]), starters, tours: tours.map((t) => ({ id: t.id, title: t.title, steps: t.steps })) };
-  put("guide.js", `window.__SITE_GUIDE__=${JSON.stringify(compact)};\n${fs.readFileSync(path.join(SRC, "runtime.js"), "utf8")}`, "The script on every page that lets the assistant move the visitor around (window.SiteGuide)");
+  put("guide.js", `window.__SITE_GUIDE__=${JSON.stringify(compact)};\n${(minify || ((x) => x))(fs.readFileSync(path.join(SRC, "runtime.js"), "utf8"))}`, "The script on every page that lets the assistant move the visitor around (window.SiteGuide)");
 
   // ---- every page says what it is (for an assistant reading the page it is on), and gets an assistant-free copy,
   //      view-<page>.html, which the runtime shows inside a frame so the assistant stays put while the site changes
@@ -551,8 +557,8 @@ function write({ outDir, site, variant, baseUrl }) {
     const view = html
       .replace(/<!--assistant:start-->[\s\S]*?<!--assistant:end-->/g, "")
       .replace('<html lang="en"', '<html lang="en" data-view="1"')
-      .replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="noindex, nofollow">')
-      .replace("</head>", () => `<link rel="canonical" href="${p.url}">\n</head>`)
+      .replace(/<meta name="robots" content="[^"]*">\s*/, "")
+      .replace("</head>", () => `<meta name="robots" content="noindex, nofollow">\n  <link rel="canonical" href="${p.url}">\n</head>`)
       .replace(/\b(href|data-thanks)="(\.\/|[a-z0-9-]+\.html)([?#][^"]*)?"/g, (m, attr, f, rest) => { const slug = f === "./" ? "index" : f.replace(/\.html$/, ""); return known.has(slug) ? `${attr}="view-${slug}.html${rest || ""}"` : m; });
     fs.writeFileSync(path.join(outDir, `view-${p.slug}.html`), view);
   }

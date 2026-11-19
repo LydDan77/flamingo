@@ -22,7 +22,7 @@ Who gets which link: `/dr-demo/` is for practice owners. `/demo/` (Northwind) an
 | Variable | What it is |
 | --- | --- |
 | `AVA_EMBED_HTML` | Her embed snippet. It is printed untouched as the last thing in the body of every Dr. Demo page. Any shape works: a script tag, a custom element with its script, or an iframe. |
-| `AVA_HEAD_HTML` | Only if part of her snippet must sit in the head. |
+| `AVA_HEAD_HTML` | Only if part of her snippet must sit in the head. A snippet that sits only in the head counts as a live assistant too. |
 | `AVA_MODE` | Leave unset when her snippet draws its own launcher. Set `panel` when it does not (a bare iframe): the site then draws the "Ask Ava" button and loads her snippet inside its own panel on the first tap, so nothing of hers loads, and no microphone is asked for, until the owner asks. |
 | `AVA_ORIGINS` | Only if she runs in an iframe and talks to the page with messages: the origins allowed to send them, separated by commas (for example `https://app.example.com`). With none listed, a frame placed directly on the page is accepted. |
 | `AVA_KEEP_ALIVE` | `0` switches off "she stays on screen while the pages change" (below). Leave unset unless her platform resumes a session by itself after a page load. |
@@ -80,7 +80,7 @@ Every Dr. Demo page loads `guide/guide.js`, which defines `window.SiteGuide`. `g
 | `start_tour` | `SiteGuide.tour("patient-path")` | The steps of a walk-through: a line to say and a place to show |
 | `tour_step` | `SiteGuide.tourStep("patient-path", 2)` | Goes to one step, and returns its line and the number of the next step |
 | `show_look` | `SiteGuide.look("sandstone")` | Shows the page in another of the five looks |
-| `go_back` | `SiteGuide.back()` | Back to the previous view |
+| `go_back` | `SiteGuide.back()` | Back to the page shown before. It only undoes moves made on this site, so it never leaves it |
 | `list_pages` | `SiteGuide.pages()` | Every page with how to reach it |
 
 Every call that moves the page answers in one shape:
@@ -97,7 +97,7 @@ Targets are checked against the site's own page list. Nothing here can send a vi
 ### Four ways she can guide, from most to least capable
 
 1. **Tools.** She says one short sentence, calls `go_to` or `show_section`, then confirms from the answer.
-2. **Messages from an iframe.** She posts `{ type: "site-guide", action: "go", target: "knees#cost", id: 1 }` to the parent page and receives `{ type: "site-guide:result", id: 1, result }`. The actions are the same names as the functions.
+2. **Messages from an iframe.** She posts `{ type: "site-guide", action: "go", args: { page: "knees", section: "cost" }, ref: 1 }` to the parent page and receives `{ type: "site-guide:result", ref: 1, result }`. The actions are the names of the functions (`go`, `show`, `where`, `point`, `find`, `read`, `samples`, `tour`, `tourStep`, `look`, `back`, `pages`) and `args` carries the same names as the tool definitions. Messages are accepted from her frame when it sits in her corner of the page, or from the origins listed in `AVA_ORIGINS`.
 3. **Links.** Every section has a ready link in `guide/site-map.json` and `guide/links.txt` (`…/knees?show=cost#cost`), which opens the page at that spot and outlines it. She puts the link in the chat and says so. `guide/links.txt` also works as a link allow-list on her platform.
 4. **Words.** Every page in her knowledge has a "reach" for a laptop and one for a phone ("the menu at the top: choose Where it hurts, then Knees"). This always works, and her notes are written so that words alone are a complete answer.
 
@@ -140,7 +140,7 @@ document.addEventListener("tavus:tool-call", function (event) {
 Anything in an iframe (the message bridge above):
 
 ```js
-parent.postMessage({ type: "site-guide", action: "go", target: { page: "knees", section: "cost" }, id: 1 }, "*");
+parent.postMessage({ type: "site-guide", action: "go", args: { page: "knees", section: "cost" }, ref: 1 }, "*");
 addEventListener("message", function (e) { if (e.data && e.data.type === "site-guide:result") { /* e.data.result */ } });
 ```
 
@@ -148,7 +148,7 @@ What we found for other platforms: Vapi's Web SDK delivers client tools as `tool
 
 ## She stays on screen while the pages change
 
-A talking assistant is cut off when the page she lives on reloads. So on Dr. Demo a move to another page does not reload: the script shows the assistant-free copy of the target page (`view-<page>.html`) in a frame that fills the window, and keeps the address bar and the Back button in step. Ava's page never unloads, so she keeps talking and the microphone is asked for once. This covers her own `go_to`, the visitor's clicks on menu items and links (also links inside her chat box), and the form's thank-you redirect. A reload, or a link opened in a new tab, lands on the ordinary page and starts her afresh.
+A talking assistant is cut off when the page she lives on reloads. So on Dr. Demo a move to another page does not reload: the script shows the assistant-free copy of the target page (`view-<page>.html`) in a frame that fills the window, and keeps the address bar and the Back button in step. Ava's page never unloads, so she keeps talking and the microphone is asked for once. This covers her own `go_to`, the visitor's clicks on menu items and links (also links inside her chat box), and the form's thank-you redirect. A reload, or a link opened in a new tab, lands on the ordinary page and starts her afresh. While the next page is loading her tools wait for it, so a `go_to` followed at once by `show_section` lands on the new page, not the old one.
 
 This helps even an Ava with no tools at all: the owner can click around while she keeps talking.
 
@@ -156,7 +156,7 @@ This helps even an Ava with no tools at all: the owner can click around while sh
 
 - Laptop: the bottom right corner is hers. The payment-plans chip stays bottom left. The footer has extra space at the bottom so the legal links are never under her.
 - Phone: she sits bottom right. The book and call bar stops 88px short of the right edge. If her launcher is wider than about 72px, tell us and we change one number (`--assistant-corner` in `src/assets/css/parts/29-guide.css`).
-- Her layer needs a z-index above 2001 to sit over the page frame. In widget mode her snippet sits in `<div id="assistant-slot">`, which is already above it.
+- The frame that shows the other pages sits on a low layer (z-index 10) and the page beneath it is hidden, so whatever her snippet adds to the page stays on top without needing a particular z-index. The site's own caption and placeholder use 2001.
 - When she is live, one small line sits above her corner until closed: "Ava is an AI guide to this example website, not a clinician. Please do not share health details with her." Anything about recording or storage is added only in wording you give us.
 
 ## Testing her

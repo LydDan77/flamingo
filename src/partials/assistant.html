@@ -1,10 +1,9 @@
-<!-- The assistant's corner. The guide runtime (window.SiteGuide) is loaded first so the assistant can use it. Then one of:
+<!-- The assistant's corner. The guide runtime (window.SiteGuide) is loaded by the layout just before this. One of:
      - no embed configured: a labelled placeholder holds the corner and offers the same tour by tapping;
      - an embed in "widget" mode (the default): her own snippet goes in untouched and draws its own launcher;
      - an embed in "panel" mode (AVA_MODE=panel): the site draws the launcher and puts her snippet in its panel on the
        first tap, so nothing of hers loads and no microphone is asked for until the visitor asks. Use it for a bare iframe.
      The snippet comes from site.assistant.embedHtml (AVA_EMBED_HTML where the site is built). -->
-{{#if site:guide}}<script src="guide/guide.js" defer></script>{{/if}}
 <!--assistant:start-->
 {{#if site:assistantWidget}}
 <div class="assistant-slot" id="assistant-slot">{{assistantEmbed}}</div>
