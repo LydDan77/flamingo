@@ -5,7 +5,7 @@
     "The menu calls this page How care works, under Treatments. The footer lists the same page under About, by the same name.",
     "The page describes one particular way of working: a named Medical Director oversees every patient, nurse practitioners treat at home, and consultations and follow-ups are by video call. It speaks in the practice's name, so an owner should read it against how their own practice is staffed.",
     "The process here has four stages, from booking a consultation to coordination over time. The Where it hurts pages tell the same path as three steps.",
-    "Meet The Team at the top opens the team part of the Our team page. Book a Consultation appears three times and always opens the Booking page."
+    "Meet the team at the top opens the team part of the Our team page. Book a Consultation appears three times and always opens the Booking page."
   ],
   "replace": [
     "The opening line at the top carries your practice name in place of the sample name {{site.name}}.",
@@ -21,7 +21,7 @@
     "This page has no small print of its own. The small print in the footer of every page still applies: statements not evaluated by the FDA, and individual results vary."
   ],
   "sections": {
-    "top": { "say": "The top of the page sums the model up as one medical team, one plan and one record, with two buttons, Book a Consultation and Meet The Team." },
+    "top": { "say": "The top of the page sums the model up as one medical team, one plan and one record, with two buttons, Book a Consultation and Meet the team." },
     "the-problem-we-solve": { "say": "The Problem We Solve says care is often split between providers who do not share notes, and that here every program runs through one team and one chart." },
     "the-model": { "say": "The Model is four cards on how care is organised, from a named Medical Director overseeing every patient to one record for every program." },
     "the-process": { "say": "The Process sets out four stages after a patient books, from the consultation through a clinician's review and treatment to follow-up over time. The timing on the second stage, within days, is a sample on this example." },

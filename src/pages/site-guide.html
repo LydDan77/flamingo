@@ -1,13 +1,13 @@
 ---
 title: How this website works
 description: A guide for the practice owner. What each page is for, how a patient moves through the site, what you replace with your own details, and what must stay.
-nav: about
+nav: none
 noindex: true
 only: guide
 bodyClass: page--guide
 ---
 <section class="hero hero--simple hero--short">
-  <div class="container hero__inner">
+  <div class="container hero__inner guide-hero">
     <div class="hero__content">
       <p class="hero__kicker">For the practice owner</p>
       <h1>This is an example of <em class="hl">your new website</em>.</h1>
@@ -16,12 +16,15 @@ bodyClass: page--guide
         <a class="btn btn--primary btn--lg" href="#tour">Take the short tour {{icon:arrow-down}}</a>
         <a class="btn btn--secondary btn--lg" href="#pages">See every page</a>
       </div>
+    </div>
+    <aside class="guide-legend" aria-label="How to read this example">
+      <p class="guide-legend__title">How to read this example</p>
       <ul class="guide-key">
         <li><span class="sample">Sample</span><span>A made-up detail. Your own goes in the same spot.</span></li>
         <li><span class="guide-key__mark">{{icon:message-circle}}</span><span>{{site.assistantName}}, in the bottom corner of every page. She is the guide to this example: ask her where anything is.</span></li>
         <li><span class="guide-key__mark">{{icon:info}}</span><span>The note at the top of every page, and this page. They are here for you. Your patients never see them.</span></li>
       </ul>
-    </div>
+    </aside>
   </div>
 </section>
 

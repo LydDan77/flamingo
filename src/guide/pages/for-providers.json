@@ -4,7 +4,7 @@
   "owner_notes": [
     "This page is not for patients, and it is not for the patients a provider sends: they get a private Sent here by page. This page invites a clinician to work with the practice.",
     "It is part of the example like every other page. It shows a sample practice inviting clinicians to partner with it; it does not describe your own website package.",
-    "Both Apply to Partner buttons open the Contact page with the provider form showing, headed Partnership inquiry. On this example that form sends nothing. The page has no form for referring a single patient.",
+    "Both Apply to partner buttons open the Contact page with the provider form showing, headed Partnership inquiry. On this example that form sends nothing. The page has no form for referring a single patient.",
     "It uses clinical and business words on purpose. It is not a patient page, so the plain-words rule for patient pages does not apply to it."
   ],
   "replace": [
@@ -17,7 +17,7 @@
     "The Sample stamps beside the figures, the physician group, the revenue share card and the revenue share answer stay until your own verified figures and confirmed terms take their place."
   ],
   "sections": {
-    "top": { "say": "The top of the page speaks to clinicians and clinics, and has two buttons: Apply to Partner, and How The Model Works." },
+    "top": { "say": "The top of the page speaks to clinicians and clinics, and has two buttons: Apply to partner, and How the model works." },
     "the-opportunity": { "say": "The opportunity makes the case to a clinician and shows three figures about the practice; on this example those figures are samples." },
     "what-you-get": { "say": "What you get is four cards on what the practice supplies to a partner, from the physician group behind the care to training and how the partnership is paid; the group named and the terms on this example are samples." },
     "requirements": { "say": "Requirements lists what a clinician brings, such as an active clinical licence and their own malpractice cover, then four steps from applying to launch." },
@@ -44,8 +44,8 @@
       "audience": "owner",
       "topic": "getting around",
       "q": "Where does a provider apply to partner?",
-      "alt": ["What happens when someone presses Apply to Partner?", "Where is the partnership form?"],
-      "say": "Both Apply to Partner buttons open the Contact page with the provider form showing. It asks for their name, practice, licence type and states, and offers a fifteen-minute intro call. On this example it is a sample form, so nothing is sent.",
+      "alt": ["What happens when someone presses Apply to partner?", "Where is the partnership form?"],
+      "say": "Both Apply to partner buttons open the Contact page with the provider form showing. It asks for their name, practice, licence type and states, and offers a fifteen-minute intro call. On this example it is a sample form, so nothing is sent.",
       "show": "contact#book"
     },
     {

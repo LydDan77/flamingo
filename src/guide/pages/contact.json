@@ -3,7 +3,7 @@
   "audience": "everyone",
   "owner_notes": [
     "Contact is for questions first; the Booking page is for picking a time. The top of this page offers both, with a Book a video call button, a call button and an email link.",
-    "The message box has two tabs. I'm a Patient shows the same form as the call-back form on the Booking page. I'm a Provider shows a partnership inquiry, and the Apply to Partner buttons on the For providers and partners page open it.",
+    "The message box has two tabs. I'm a Patient shows the same form as the call-back form on the Booking page. I'm a Provider shows a partnership inquiry, and the Apply to partner buttons on the For providers and partners page open it.",
     "On this example both forms are samples: pressing the button opens the thank-you page and no message reaches anyone. A practice connects the forms to its own inbox before launch.",
     "The practice details sit beside the form, with the credential badges under them. The page makes no HIPAA promise, on purpose: the one fixed badge says Encrypted connection.",
     "Under the hours, the details card carries an emergency line: This website is not for emergencies. In an emergency, call 911."

@@ -1,0 +1,117 @@
+/* ===================================================== COLLECTION THREE: THE FINISH
+   A once-over of the five looks of Collection Three (Ecosystem, Onyx, Sandstone, Meridian, Ivory): hierarchy, alignment
+   and the places where two parts of a page meet. Nothing here changes a layout; it settles what was a little off.
+   - the page title is the largest type on a page, section headings step down and breathe
+   - the three short lines under the first buttons sit in one ruled row, aligned with the text above
+   - everything in this collection reads from the left: cards in a row of three, and a note under a heading, follow
+   - two dark sections in a row are one surface: no seam between them, one left edge
+   - small filled icons used as bullets are drawn as outlines, so they read as icons and not as dots */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) { --h2-size: clamp(2rem, 3.4vw, 3.05rem); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) h2 { line-height: 1.09; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section-head .lead { margin-top: 18px; }
+
+/* the three short lines under the first buttons */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, auto); justify-content: start; gap: 0; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li { align-items: flex-start; text-align: left; min-height: 0; padding: 2px 20px; margin: 0; border-left: 1px solid var(--line); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li:first-child { padding-left: 0; border-left: 0; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li:last-child { padding-right: 0; }
+@media (max-width: 599px) {
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta { display: flex; flex-direction: column; gap: 0; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; padding: 10px 0; margin: 0; border-left: 0; border-top: 1px solid var(--line); }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__meta li:first-child { border-top: 0; padding-top: 0; }
+}
+
+/* where it hurts: seven choices make two full rows; the card for patients sent by a provider takes the last two places */
+@media (min-width: 1024px) {
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hurts > li:nth-child(7):last-child { grid-column: span 2; }
+}
+
+/* cards in a row of three read from the left, like the headings above them */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card { text-align: left; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card__top { align-items: flex-start; padding-inline: 0; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card__top h3 { max-width: 20ch; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card__stage { margin-top: 26px; }
+
+/* a note under a heading stays on the heading's left edge */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section-head [style*="margin-inline:auto"] { margin-inline: 0 !important; }
+
+/* two dark sections in a row are one surface */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section--deep[style*="padding-top:0"] { display: flow-root; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section--deep > .container[style*="max-width:980px"] { max-width: 1400px !important; }
+@media (min-width: 1100px) {
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section--deep .grid:has(> .doctor-card) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 56px !important; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section--deep .doctor-card { grid-template-columns: 180px 1fr; align-items: start; }
+}
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section--deep + .stats-band { padding: 0; background: var(--bg-deep); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section--deep + .stats-band .stats-band__inner { border-radius: 0; padding-top: 64px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14); }
+
+/* small icons used as bullets: outlines, not dots */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(.honesty__col li, .cost__list li, .check-list li) > .icon { --duo: 0; }
+
+/* section labels stand alone, without chapter numerals: a long page no longer counts itself out loud, and the only
+   numbers left are the ones that mean an order (steps, the three pillars). The owner's guide keeps them: it is a tour. */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) body:not(.page--partner):not(.page--guide) :is(.section-head > .eyebrow, .pillars__head > .eyebrow, .faq__aside > .eyebrow, .split > .reveal > .eyebrow, .stats-band__inner > .eyebrow, .short-version > div > .eyebrow, .section-head--row > div > .eyebrow)::before { content: none; }
+
+/* one left edge down the page: every section sits in the same container */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) { --container: 1400px; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section > .container[style*="max-width:980px"] { max-width: 1400px !important; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .candidacy { max-width: 860px; }
+
+/* a dark card keeps its dark surface (cards in this collection are otherwise open and ruled at the top) */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .card.gradient-card:not(.card--image):not(.card--overlay) { background: var(--bg-deep); border-top: 0; border-radius: var(--radius); padding: 26px 28px; }
+
+/* what we will not promise, on the pages by complaint: set apart, because it is the line that earns the rest its trust */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .card.plain-card--line:not(.card--image):not(.card--overlay) { background: var(--brand-soft); border-top: 0; border-left: 3px solid var(--brand); border-radius: 0 var(--radius) var(--radius) 0; padding: 22px 24px 24px; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .card.plain-card--line p { color: var(--text); }
+
+/* an open question: the same square, filled; only the sign turns */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .faq__item[open] .faq__toggle { transform: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .faq__toggle .icon { transition: transform 0.3s var(--ease); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .faq__item[open] .faq__toggle .icon { transform: rotate(45deg); }
+
+/* the closing band: two calm lines */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .cta-band h2 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); line-height: 1.08; max-width: 22ch; margin-inline: auto; }
+
+/* the three pillars: the numeral alone, and no more than four tags over a photograph */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .pillar__counter small { display: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .pillar__chips span:nth-child(n+5) { display: none; }
+
+/* the price card: the figure and its caption stay on one baseline and wrap together */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .cost__from { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .cost__from small { margin-left: 0; }
+
+/* forms: labels a person can read without leaning in */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .field__label { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--text); }
+
+/* the page that opens on the calendar: less air between the title and the calendar */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--short:has(+ #book) { padding-bottom: clamp(20px, 3vw, 40px); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--short + #book { padding-top: clamp(20px, 3vw, 44px); }
+
+@media (max-width: 899px) {
+  /* the caption on a photograph: two short lines, no dot left hanging at the end of the first */
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__aside div { flex-direction: column; gap: 1px; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__aside b::after { content: none; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__aside span { font-size: 0.86rem; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero--image .hero__aside { padding: 9px 14px; }
+}
+@media (max-width: 767px) {
+  /* nothing a patient is meant to read drops below a comfortable size on a phone */
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) :is(.pillar__note, .small, .story-card small, .treat-card__top p) { font-size: 0.92rem; line-height: 1.55; }
+  /* the fit check: full-width answers that look like the buttons they are */
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .candidacy__opts { flex-direction: column; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .candidacy__opts label { display: flex; width: 100%; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .candidacy__opts span { width: 100%; min-height: 54px; padding: 10px 16px; font-size: 1rem; border-radius: var(--radius-sm); }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .short-version .btn--secondary { width: auto; justify-content: flex-start; }
+  /* text links under left-aligned copy stay on the left */
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .section-head ~ .link-arrow, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .split .link-arrow { align-self: flex-start; justify-self: start; }
+}
+
+/* three cards that only held a drawing: the words carry them, as they do on the pages by complaint */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card__stage:has(> .art:only-child) { display: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card:has(.treat-card__stage > .art:only-child) .treat-card__top p { font-size: 1rem; line-height: 1.65; }
+
+/* where the words are centred, the button under them is centred too */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .text-center .actions--center { justify-content: center; }
+
+/* the short links under a page title read as sentences, not labels */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__pills .pill { font-size: 0.95rem; letter-spacing: 0; text-transform: none; padding: 10px 16px; }

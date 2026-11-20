@@ -4,14 +4,14 @@
   "purpose": "Tells a patient that their request has arrived, what happens next, how to change the time, and how to get ready for the video call. It exists so nobody is left wondering after they book a time or send a form. On this example the top of the page says plainly that nothing was booked or sent.",
   "audience": "patients",
   "owner_notes": [
-    "A patient lands here after booking a time or sending a form. On this example the Book this time button under the sample calendar and every form open it, and nothing has been booked or sent. The top of the page says so in plain words, under a Sample stamp.",
+    "A patient lands here after booking a time or sending a form. On this example the Book this time button under the sample calendar and every form open it, and nothing has been booked or sent. The top of the page says so in plain words, in a note headed On this example.",
     "On a practice's own site the calendar is set, in GoHighLevel, to send the patient here once they have booked. The site's own forms already land here, and the page greets the patient by first name when a form passes one along.",
     "The confirmation, the reminders, the no-show messages and the link for changing a time are sent by the practice's booking system, GoHighLevel, not by the website. On a practice's own site the page only tells the patient to expect a confirmation, or a call within one business day if they asked for one. That reply time is a promise about the practice, so it has to be true there.",
     "It is not in the menus, and the bar at the bottom of a phone screen is left off it, because the patient has already taken the step."
   ],
   "replace": [
     "The top of the page: the first name of the person who calls patients back replaces the sample name {{site.coordinator.first}}.",
-    "The line about changing or cancelling: your phone number replaces the sample {{site.phone}}.",
+    "The card beside the thank-you, for changing the time: your phone number replaces the sample {{site.phone}}, and your hours replace the sample hours.",
     "The header and footer carry your practice name in place of the sample name {{site.name}}."
   ],
   "keep": [
@@ -19,7 +19,7 @@
     "Step two of What happens next: the answer is yes, no, or more information is needed, and a quote is never a commitment."
   ],
   "sections": {
-    "top": { "say": "The top of the page thanks the patient. On this example it says plainly that nothing was booked or sent, and that on a real site a picked time is booked and a confirmation is sent. It also says how a patient changes or cancels." },
+    "top": { "say": "The top of the page thanks the patient and says a picked time is booked and a confirmation is on its way. A note headed On this example says plainly that nothing was booked or sent here. A card beside it says who to call to change or cancel." },
     "what-happens-next": { "say": "What happens next is three steps: the video call, an honest answer in writing, then treatment at home." },
     "get-ready": { "say": "Get ready lists five things that help the call, such as imaging and a list of what the patient takes, and says none of them are required." },
     "in-one-breath": { "say": "In one breath is three honest lines, including that the care is not FDA-approved and is investigational for most uses, with a link back to the Home page." }

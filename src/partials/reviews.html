@@ -2,7 +2,7 @@
 <div class="reviews reveal" aria-label="Patient reviews">
   <div class="container reviews__inner">
     <div class="reviews__score"><span class="reviews__stars" aria-hidden="true">★★★★★</span><b>{{site.reviews.score}}</b><small>{{#if sample}}out of 5{{/if}}{{#unless sample}}on Google{{/unless}}</small></div>
-    <p class="reviews__note">{{#if sample}}{{site.reviews.count}} patient reviews. On a practice's own site this line counts its verified reviews, each one from a real patient and published with written consent. <span class="sample">Sample</span>{{/if}}{{#unless sample}}{{site.reviews.count}} verified patient reviews. Only reviews from real patients, published with written consent, appear on this site. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
+    <p class="reviews__note">{{#if sample}}from {{site.reviews.count}} patient reviews <span class="sample">Sample</span>{{/if}}{{#unless sample}}{{site.reviews.count}} verified patient reviews. Only reviews from real patients, published with written consent, appear on this site. <span class="ph-tag">{{icon:pen}} Client to provide</span>{{/unless}}</p>
     <a class="link-arrow" href="testimonials.html">Read patient stories {{icon:arrow-right}}</a>
   </div>
 </div>

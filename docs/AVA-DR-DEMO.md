@@ -156,7 +156,8 @@ This helps even an Ava with no tools at all: the owner can click around while sh
 ## Where she sits, and what makes room for her
 
 - Laptop: the bottom right corner is hers. The payment-plans chip stays bottom left. The footer has extra space at the bottom so the legal links are never under her.
-- Phone: she sits bottom right. The book and call bar stops 88px short of the right edge. If her launcher is wider than about 72px, tell us and we change one number (`--assistant-corner` in `src/assets/css/parts/29-guide.css`).
+- Phone, with her own launcher (widget mode): she sits bottom right, and the book and call bar stops 88px short of the right edge. If her launcher is wider than about 72px, tell us and we change one number (`--assistant-corner` in `src/assets/css/parts/29-guide.css`).
+- Phone, where the site draws the launcher (the placeholder today, and panel mode): the book and call bar keeps the full width, and the "Ask Ava" button, with her name on it, sits just above the bar and rises with it as the page scrolls. On the booking and thank-you pages, which have no bar, it sits at the bottom.
 - The frame that shows the other pages sits on a low layer (z-index 10) and the page beneath it is hidden, so whatever her snippet adds to the page stays on top without needing a particular z-index. The site's own caption and placeholder use 2001.
 - When she is live, one small line sits above her corner until closed: "Ava is an AI guide to this example website, not a clinician. Please do not share health details with her." Anything about recording or storage is added only in wording you give us.
 

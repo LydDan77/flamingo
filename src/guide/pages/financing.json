@@ -3,7 +3,7 @@
   "audience": "patients",
   "owner_notes": [
     "It is reached from the footer, under Resources, from the link called Financing details on the Home page, and from the links called How financing works on the Where it hurts pages and the referral pages. Three of the Treatments pages link to it as well, and on wider screens a small Payment plans available note leads to it.",
-    "The page takes no payment and no application. On this example the Check Payment Options button only moves down to the Apply card, and the other buttons lead to the Booking page or dial the practice. A practice adds its own financing partner's application link before launch.",
+    "The page takes no payment and no application. On this example the Check payment options button only moves down to the Apply card, and the other buttons lead to the Booking page or dial the practice. A practice adds its own financing partner's application link before launch.",
     "The order is deliberate: the patient gets the written plan and its full price on the consultation first, and financing is only discussed once they have that number.",
     "The financing company is separate from the practice, and the page says so more than once. Financing is optional: paying in full and other payment methods are confirmed on the consultation.",
     "The page gives no time for a decision and does not assume approval: it says the financing company decides on each application and sets the rates and terms."

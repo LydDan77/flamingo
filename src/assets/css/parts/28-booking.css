@@ -20,3 +20,8 @@
   .booking-slot--empty { min-height: 320px; padding: 24px; }
   .callback { margin-top: 20px; }
 }
+
+/* thank-you: who to call to change the time sits beside the thank-you, not in the small print under it */
+@media (min-width: 1024px) { .hero .hero__inner.thank-you-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 72px; align-items: center; } }
+@media (max-width: 1023px) { .thank-you__who { margin-top: 36px; } }
+.thank-you__who { align-self: center; }

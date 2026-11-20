@@ -115,6 +115,9 @@ const variants = {
       name: "Dr. Demo Regenerative Care",
       // what a link to the example shows when it is shared (the home page has no title or description of its own)
       tagline: "Sample website",
+      // the strip under the header on every page: the long line on a laptop, the short one on a phone
+      sampleStrip: "Dr. Demo is a made-up practice. Every name, number, price and story on it is a sample.",
+      sampleStripShort: "Every detail here is a sample.",
       description: "A sample of the website your practice is getting. Dr. Demo is a made-up practice: every name, number, price and story on it is a sample.",
       phone: "(800) 555-0199",
       phoneTel: "tel:+18005550199",

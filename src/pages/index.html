@@ -20,8 +20,8 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
       </div>
       <ul class="hero__meta">
         <li><b>In-home</b> regenerative therapy</li>
-        {{#if any:hormones,peptides,nad}}<li><b>By video call</b> {{site.programsPhraseShort}}</li>{{/if}}{{#unless any:hormones,peptides,nad}}<li><b>NP-delivered</b>, physician-overseen</li>{{/unless}}
-        <li><b>Built around</b> your labs</li>
+        {{#if any:hormones,peptides,nad}}<li><b>By video call</b> {{site.programsPhraseShort}}</li>{{/if}}{{#unless any:hormones,peptides,nad}}<li><b>NP-delivered</b> physician-overseen</li>{{/unless}}
+        {{#if sample}}<li><b>From {{site.pricing.from}}</b> the price in writing first</li>{{/if}}{{#unless sample}}<li><b>Built around</b> your labs</li>{{/unless}}
       </ul>
     </div>
   </div>
@@ -178,7 +178,7 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
         <div>
           <h3 class="tiles__title">Stem Cell Therapy</h3>
           <p class="tiles__text">Cells from donated umbilical cord tissue, given by injection in your home by a licensed nurse practitioner. Not FDA-approved, and investigational for most uses.</p>
-          <a class="btn btn--light tiles__link" href="stem-cell-therapy.html">Learn More {{icon:arrow-up-right}}</a>
+          <a class="btn btn--light tiles__link" href="stem-cell-therapy.html">Learn more {{icon:arrow-up-right}}</a>
         </div>
       </div>
       <div class="tiles__list" role="tablist" aria-label="Services">
@@ -208,15 +208,15 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
       </a>
       <a class="treat-card" href="{{site.href.telehealth}}">
         <div class="treat-card__top">{{#if any:hormones,peptides}}<h3>Hormones and peptides, prescribed online.</h3><p>Hormone therapy and clinician-led peptide plans by goal. Prescribed by video call, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}<h3>NAD+ and longevity, prescribed online.</h3><p>Clinician-led NAD+ and supplement plans built around your labs. Prescribed by video call, dispensed by licensed compounding pharmacies, shipped to your door.</p>{{/if}}{{#unless module:nad}}<h3>Exosomes, the signals between cells.</h3><p>The signals cells send each other, studied for the part they play in repair. Offered on their own or alongside stem cell therapy, in the same home visit.</p>{{/unless}}{{/unless}}</div>
-        <div class="treat-card__stage">{{#if sample}}<span class="sample sample--pic">Sample picture</span>{{/if}}{{#if any:hormones,peptides}}{{img:vial-semaglutide-2|product|alt=Injection vial}}{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}{{img:vial-nad-2|product|alt=NAD+ injection vial}}{{/if}}{{#unless module:nad}}{{> art-cells}}{{/unless}}{{/unless}}</div>
+        <div class="treat-card__stage">{{#if any:hormones,peptides}}{{#if sample}}<span class="sample sample--pic">Sample picture</span>{{/if}}{{img:vial-semaglutide-2|product|alt=Injection vial}}{{/if}}{{#unless any:hormones,peptides}}{{#if module:nad}}{{#if sample}}<span class="sample sample--pic">Sample picture</span>{{/if}}{{img:vial-nad-2|product|alt=NAD+ injection vial}}{{/if}}{{#unless module:nad}}{{> art-cells}}{{/unless}}{{/unless}}</div>
       </a>
       <a class="treat-card" href="concierge-care-model.html">
         <div class="treat-card__top"><h3>One medical team. One patient record. One plan.</h3><p>{{#if any:hormones,peptides,nad}}Every service coordinated across in-home regenerative care and longevity programs by video call, under one physician-led team.{{/if}}{{#unless any:hormones,peptides,nad}}Every visit, every lab and every follow-up coordinated under one physician-led team, in one patient record.{{/unless}}</p></div>
-        <div class="treat-card__stage"><div class="media"><div class="media__frame">{{img:laptop-stethoscope|alt=Laptop and stethoscope, set up for a video call|sizes=(max-width: 1023px) 50vw, 30vw}}</div></div></div>
+        <div class="treat-card__stage">{{#if any:hormones,peptides,nad}}<div class="media"><div class="media__frame">{{img:laptop-stethoscope|alt=Laptop and stethoscope, set up for a video call|sizes=(max-width: 1023px) 50vw, 30vw}}</div></div>{{/if}}{{#unless any:hormones,peptides,nad}}{{> art-flow}}{{/unless}}</div>
       </a>
     </div>
     <div class="actions actions--center mt-10 reveal">
-      <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">Get Started {{icon:arrow-right}}</a>
+      <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">Get started {{icon:arrow-right}}</a>
     </div>
   </div>
 </section>
@@ -237,7 +237,7 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
     </div>
     <div class="actions actions--center mt-12 reveal">
       <a class="btn btn--primary btn--lg" href="{{site.bookUrl}}">{{icon:calendar-check}} {{site.bookLabel}}</a>
-      <a class="btn btn--secondary btn--lg" href="concierge-care-model.html">{{icon:info}} How care works</a>
+      <a class="btn btn--secondary btn--lg" href="concierge-care-model.html">How care works {{icon:arrow-right}}</a>
     </div>
   </div>
 </section>
@@ -266,7 +266,7 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
         <span class="eyebrow">Recovering From An Injury</span>
         <h3>You tore something, or woke up one day and couldn't bend it.</h3>
         <p>Regenerative therapy for active adults recovering from sports injuries, joint wear, and soft-tissue damage.</p>
-        <div class="card__foot"><span>Regenerative Therapy</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
+        <div class="card__foot"><span>After an injury</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
       <a class="card card--hover persona-card" href="before-surgery.html">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-shield-check"></use></svg>
@@ -274,7 +274,7 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
         <span class="eyebrow">Before You Say Yes To Surgery</span>
         <h3>The surgeon gave you a date. You're not sure you want it.</h3>
         <p>Non-surgical regenerative options with an honest candidacy assessment. If we're not a fit, we'll tell you.</p>
-        <div class="card__foot"><span>Regenerative Therapy</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
+        <div class="card__foot"><span>Before surgery</span><span class="card__arrow">{{icon:arrow-up-right}}</span></div>
       </a>
       <a class="card card--hover persona-card" href="{{#if module:hormones}}hormones.html{{/if}}{{#unless module:hormones}}{{#if module:nad}}nad.html{{/if}}{{#unless module:nad}}concierge-care-model.html{{/unless}}{{/unless}}">
         <svg class="icon card__watermark" aria-hidden="true"><use href="#i-gauge"></use></svg>
@@ -349,7 +349,7 @@ description: {{#if sample}}{{#if site:guide}}{{site.description}}{{/if}}{{#unles
       <div class="reveal">
         <span class="eyebrow">The Infrastructure Behind The Care</span>
         <h2 class="mt-4">Serious medicine needs <br>a serious clinical partner.</h2>
-        <a class="btn btn--secondary mt-8" href="why-were-different.html">Why We're Different {{icon:arrow-up-right}}</a>
+        <a class="btn btn--secondary mt-8" href="why-were-different.html">Why we're different {{icon:arrow-up-right}}</a>
       </div>
       <div class="card card--hover reveal" data-delay="1">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap">

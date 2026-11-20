@@ -68,13 +68,14 @@
   function realUrl(slug, hash) { return (slug === "index" ? "./" : slug + (dotHtml ? ".html" : "")) + (hash || ""); }
   // What belongs to the page under the stage. Only these are switched off while another page is shown: anything the
   // assistant's own snippet has put on the page is left alone.
-  var OUTER = "body > .skip-link, #site-header, #main, #footer, body > .site-footer, body > .sticky-cta, body > .financing-chip, body > .sample-banner";
+  var OUTER = "body > .skip-link, #site-header, #main, #footer, body > .site-footer, body > .sticky-cta, body > .financing-chip, body > .sample-banner, body > .sample-strip";
   function setStaged(on) {
     staged = on;
     if (stage) stage.hidden = !on;
     root.classList.toggle("is-staged", on);
     doc.querySelectorAll(OUTER).forEach(function (el) { if (on) el.setAttribute("inert", ""); else el.removeAttribute("inert"); });
-    if (!on) { doc.title = ownTitle; root.classList.toggle("guide-samples", samplesOn); }
+    if (!on) { doc.title = ownTitle; root.classList.toggle("guide-samples", samplesOn); root.removeAttribute("data-stage-page"); }
+    else if (stagedSlug) root.setAttribute("data-stage-page", stagedSlug);
     else if (frameReady) { try { doc.title = frame.contentDocument.title; } catch (e) {} }
   }
   function closeDrawer() {
@@ -101,6 +102,7 @@
     }
     stagedSlug = m[1];
     frameReady = true;
+    if (staged) root.setAttribute("data-stage-page", stagedSlug); // the styles know which page is on show (a phone launcher sits lower where there is no book / call bar)
     try { frame.contentWindow.addEventListener("pagehide", function () { frameReady = false; }); } catch (e) {}
     try { doc.title = d.title; frame.title = d.title; } catch (e) {}
     if (staged) { try { history.replaceState({ guideStage: 1, slug: stagedSlug }, "", realUrl(stagedSlug, loc.hash)); } catch (e) {} }
@@ -509,7 +511,13 @@
   // The one line shown beside a live assistant on the first page of a visit.
   doc.addEventListener("click", function (e) { var x = e.target.closest && e.target.closest(".assistant-note__close"); if (x && x.parentNode) x.parentNode.hidden = true; });
 
+  // The example note under the header can wrap on a narrow screen: the page starts exactly where the note ends.
+  function fitStrip() { var st = doc.querySelector(".sample-strip"); if (st && st.offsetHeight) doc.body.style.setProperty("--strip-h", st.offsetHeight + "px"); }
+  window.addEventListener("resize", fitStrip);
   function arrive() {
+    fitStrip();
+    // Inside the stage: when the outer page draws the launcher itself, this page's phone bar keeps its full width.
+    if (framed) { try { if (window.parent.document.getElementById("assistant-dock")) root.classList.add("dock-outside"); } catch (e) {} }
     var id = new URLSearchParams(location.search).get("show");
     if (id && doc.getElementById(id)) setTimeout(function () { show(id); }, 350);
     if (new URLSearchParams(location.search).get("samples") === "1") samples(true);
