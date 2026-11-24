@@ -91,9 +91,9 @@
   (function () {
     var t = document.documentElement.getAttribute("data-theme") || "ecosystem", dir = "assets/img/photos/";
     document.querySelectorAll("img[data-img]:not([data-eager])").forEach(function (img) {
-      var want = img.getAttribute("data-img-" + t), pos = img.getAttribute("data-pos-" + t);
+      var want = window.FLAMINGO_PICK(img, t), pos = img.getAttribute("data-pos-" + t);
       if (pos) img.style.objectPosition = pos;
-      if (!want) return;
+      if (want === img.getAttribute("data-img")) return;
       if (img.hasAttribute("data-portrait")) { img.src = dir + want + "-portrait.webp"; }
       else { img.srcset = window.FLAMINGO_SET(dir, want); img.src = dir + want + "-1200.webp"; }
       img.setAttribute("data-img-current", want);

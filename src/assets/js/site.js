@@ -19,7 +19,7 @@
   function applyThemeImages(t) {
     doc.querySelectorAll("img[data-img]").forEach(function (img) {
       var base = img.getAttribute("data-img");
-      var want = img.getAttribute("data-img-" + t) || base;
+      var want = window.FLAMINGO_PICK ? window.FLAMINGO_PICK(img, t) : img.getAttribute("data-img-" + t) || base;
       var pos = img.getAttribute("data-pos-" + t) || img.getAttribute("data-pos") || "";
       img.style.objectPosition = pos;
       if (img.classList.contains("hero__img")) img.sizes = SPLIT_HERO[t] && !TALL_HERO[t] ? "(max-width: 899px) 100vw, 50vw" : "100vw";

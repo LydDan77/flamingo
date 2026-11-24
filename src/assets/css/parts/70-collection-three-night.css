@@ -18,7 +18,7 @@
   --grad: linear-gradient(100deg, #C1BEEC 0%, #8985C5 45%, #71A7F5 100%); --grad-hover: linear-gradient(100deg, #C1BEEC 0%, #C1BEEC 30%, #8985C5 100%); --on-grad: #10131F; --grad-base: #8985C5; --grad-shadow: rgba(137, 133, 197, 0.4);
   --hl-fg: #C1BEEC; --hl-bg: rgba(166, 162, 224, 0.1); --hl-line: rgba(166, 162, 224, 0.38);
   --deep-accent: #A6A2E0; --deep-glow: rgba(79, 74, 142, 0.5);
-  --stage: radial-gradient(90% 80% at 50% 38%, #F6F2FB 0%, #E4DEF2 60%, #CFC8E4 100%);
+  --stage: radial-gradient(90% 80% at 50% 38%, #2D3450 0%, #242A3E 62%, #20263A 100%);
   --line: rgba(241, 236, 248, 0.13); --line-strong: rgba(241, 236, 248, 0.28);
   --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(79, 74, 142, 0.55);
   --btn-primary-bg: #6762AF; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #5A55A3;
@@ -33,7 +33,7 @@
   --ts-bg: rgba(36, 42, 62, 0.97); --ts-fg: #F1ECF8; --ts-muted: #A29FBE; --ts-line: rgba(241, 236, 248, 0.2); --ts-hover: rgba(241, 236, 248, 0.08); --ts-active: #A6A2E0; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
   --scrim: linear-gradient(90deg, rgba(26, 31, 48, 0.7), rgba(26, 31, 48, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #1A1F30 100%);
   --fade-to: #1A1F30;
-  --night-ink: #14121F;
+  --night-ink: #14121F; --night-paper: #F1ECF8; --night-band: #2D2C52; --night-card: #2F3447; --night-chip: #3B4053;
 }
 .theme-switch__swatch--ecosystem-night { --sw-a: #1A1F30; --sw-b: #8985C5; }
 
@@ -47,7 +47,7 @@
   --grad: linear-gradient(100deg, #EBD9F2 0%, #C9A0D8 45%, #8985C5 100%); --grad-hover: linear-gradient(100deg, #EBD9F2 0%, #EBD9F2 30%, #C9A0D8 100%); --on-grad: #0B0A10; --grad-base: #C9A0D8; --grad-shadow: rgba(201, 160, 216, 0.4);
   --hl-fg: #DDBDE9; --hl-bg: rgba(201, 160, 216, 0.1); --hl-line: rgba(201, 160, 216, 0.38);
   --deep-accent: #C9A0D8; --deep-glow: rgba(88, 53, 99, 0.5);
-  --stage: radial-gradient(90% 80% at 50% 38%, #F8F3FB 0%, #E9DEF0 60%, #D6C7E0 100%);
+  --stage: radial-gradient(90% 80% at 50% 38%, #1E1B29 0%, #16141F 62%, #121019 100%);
   --line: rgba(241, 236, 248, 0.13); --line-strong: rgba(241, 236, 248, 0.28);
   --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(88, 53, 99, 0.55);
   --btn-primary-bg: #C9A0D8; --btn-primary-fg: #0B0A10; --btn-primary-hover: #DDBDE9;
@@ -62,7 +62,7 @@
   --ts-bg: rgba(22, 20, 31, 0.97); --ts-fg: #F1ECF8; --ts-muted: #948FA8; --ts-line: rgba(241, 236, 248, 0.2); --ts-hover: rgba(241, 236, 248, 0.08); --ts-active: #C9A0D8; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
   --scrim: linear-gradient(90deg, rgba(11, 10, 16, 0.7), rgba(11, 10, 16, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #0B0A10 100%);
   --fade-to: #0B0A10;
-  --night-ink: #14121F;
+  --night-ink: #14121F; --night-paper: #F1ECF8; --night-band: #000000; --night-card: #221F29; --night-chip: #2F2D36;
 }
 .theme-switch__swatch--onyx-night { --sw-a: #0B0A10; --sw-b: #C9A0D8; }
 
@@ -76,10 +76,10 @@
   --grad: linear-gradient(100deg, #F1ECF8 0%, #D3ACE0 45%, #8985C5 100%); --grad-hover: linear-gradient(100deg, #F1ECF8 0%, #F1ECF8 30%, #D3ACE0 100%); --on-grad: #1F1524; --grad-base: #D3ACE0; --grad-shadow: rgba(211, 172, 224, 0.4);
   --hl-fg: #CBC8F1; --hl-bg: rgba(179, 175, 232, 0.1); --hl-line: rgba(179, 175, 232, 0.38);
   --deep-accent: #B3AFE8; --deep-glow: rgba(63, 37, 73, 0.5);
-  --stage: radial-gradient(90% 80% at 50% 38%, #F8F3FB 0%, #EBDFF0 60%, #D9C9E2 100%);
+  --stage: radial-gradient(90% 80% at 50% 38%, #36273E 0%, #2B1E32 62%, #271B2D 100%);
   --line: rgba(241, 236, 248, 0.13); --line-strong: rgba(241, 236, 248, 0.28);
   --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(63, 37, 73, 0.55);
-  --btn-primary-bg: #F1ECF8; --btn-primary-fg: #1F1524; --btn-primary-hover: #FFFFFF;
+  --btn-primary-bg: #F1ECF8; --btn-primary-fg: #1F1524; --btn-primary-hover: #CBC8F1;
   --btn-secondary-bg: transparent; --btn-secondary-fg: #F1ECF8; --btn-secondary-line: rgba(241, 236, 248, 0.32);
   --chip-bg: #2B1E32; --chip-fg: #F1ECF8; --chip-line: rgba(241, 236, 248, 0.16);
   --vial-glass: rgba(241, 236, 248, 0.06); --vial-stroke: rgba(241, 236, 248, 0.4); --vial-label: rgba(241, 236, 248, 0.14); --vial-text: rgba(241, 236, 248, 0.45); --vial-neck: rgba(241, 236, 248, 0.28);
@@ -91,7 +91,7 @@
   --ts-bg: rgba(43, 30, 50, 0.97); --ts-fg: #F1ECF8; --ts-muted: #AC9DB7; --ts-line: rgba(241, 236, 248, 0.2); --ts-hover: rgba(241, 236, 248, 0.08); --ts-active: #B3AFE8; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
   --scrim: linear-gradient(90deg, rgba(31, 21, 36, 0.7), rgba(31, 21, 36, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #1F1524 100%);
   --fade-to: #1F1524;
-  --night-ink: #14121F;
+  --night-ink: #1F1524; --night-paper: #F1ECF8; --night-band: #392341; --night-card: #352A3B; --night-chip: #413647;
 }
 .theme-switch__swatch--sandstone-night { --sw-a: #1F1524; --sw-b: #F1ECF8; }
 
@@ -105,7 +105,7 @@
   --grad: linear-gradient(100deg, #C5DBF7 0%, #71A7F5 45%, #8985C5 100%); --grad-hover: linear-gradient(100deg, #C5DBF7 0%, #C5DBF7 30%, #71A7F5 100%); --on-grad: #021E3C; --grad-base: #71A7F5; --grad-shadow: rgba(113, 167, 245, 0.4);
   --hl-fg: #9CC2F9; --hl-bg: rgba(113, 167, 245, 0.1); --hl-line: rgba(113, 167, 245, 0.38);
   --deep-accent: #71A7F5; --deep-glow: rgba(52, 86, 145, 0.5);
-  --stage: radial-gradient(90% 80% at 50% 38%, #F3F7FD 0%, #DCE8F9 60%, #C5DBF7 100%);
+  --stage: radial-gradient(90% 80% at 50% 38%, #113564 0%, #0A2B52 62%, #06264A 100%);
   --line: rgba(234, 239, 247, 0.13); --line-strong: rgba(234, 239, 247, 0.28);
   --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(52, 86, 145, 0.55);
   --btn-primary-bg: #71A7F5; --btn-primary-fg: #021E3C; --btn-primary-hover: #9CC2F9;
@@ -120,7 +120,7 @@
   --ts-bg: rgba(10, 43, 82, 0.97); --ts-fg: #EAEFF7; --ts-muted: #90A5C2; --ts-line: rgba(234, 239, 247, 0.2); --ts-hover: rgba(234, 239, 247, 0.08); --ts-active: #71A7F5; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
   --scrim: linear-gradient(90deg, rgba(2, 30, 60, 0.7), rgba(2, 30, 60, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #021E3C 100%);
   --fade-to: #021E3C;
-  --night-ink: #14121F;
+  --night-ink: #011427; --night-paper: #EAEFF7; --night-band: #183257; --night-card: #163456; --night-chip: #244060;
 }
 .theme-switch__swatch--meridian-night { --sw-a: #021E3C; --sw-b: #71A7F5; }
 
@@ -132,12 +132,12 @@
   --text: #EAEFF7; --text-2: #BEC3CF; --text-3: #989DAC;
   --brand: #C5DBF7; --brand-strong: #DDE9FB; --brand-2: #A6A2E0; --brand-3: #F1ECF8; --brand-deep: #4F4A8E; --brand-soft: rgba(197, 219, 247, 0.13); --on-brand: #0C0D12; --eyebrow: #C5DBF7;
   --grad: linear-gradient(100deg, #F1ECF8 0%, #C5DBF7 45%, #A6A2E0 100%); --grad-hover: linear-gradient(100deg, #F1ECF8 0%, #F1ECF8 30%, #C5DBF7 100%); --on-grad: #14161D; --grad-base: #C5DBF7; --grad-shadow: rgba(197, 219, 247, 0.4);
-  --hl-fg: #DDE9FB; --hl-bg: rgba(197, 219, 247, 0.1); --hl-line: rgba(197, 219, 247, 0.38);
+  --hl-fg: #A6A2E0; --hl-bg: rgba(197, 219, 247, 0.1); --hl-line: rgba(197, 219, 247, 0.38);
   --deep-accent: #C5DBF7; --deep-glow: rgba(79, 74, 142, 0.5);
-  --stage: radial-gradient(90% 80% at 50% 38%, #F5F7FB 0%, #E2E7F1 60%, #CDD4E2 100%);
+  --stage: radial-gradient(90% 80% at 50% 38%, #282C38 0%, #1E212B 62%, #1A1D26 100%);
   --line: rgba(234, 239, 247, 0.13); --line-strong: rgba(234, 239, 247, 0.28);
   --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(79, 74, 142, 0.55);
-  --btn-primary-bg: #EAEFF7; --btn-primary-fg: #14161D; --btn-primary-hover: #FFFFFF;
+  --btn-primary-bg: #EAEFF7; --btn-primary-fg: #14161D; --btn-primary-hover: #C5DBF7;
   --btn-secondary-bg: transparent; --btn-secondary-fg: #EAEFF7; --btn-secondary-line: rgba(234, 239, 247, 0.32);
   --chip-bg: #1E212B; --chip-fg: #EAEFF7; --chip-line: rgba(234, 239, 247, 0.16);
   --vial-glass: rgba(234, 239, 247, 0.06); --vial-stroke: rgba(234, 239, 247, 0.4); --vial-label: rgba(234, 239, 247, 0.14); --vial-text: rgba(234, 239, 247, 0.45); --vial-neck: rgba(234, 239, 247, 0.28);
@@ -149,39 +149,64 @@
   --ts-bg: rgba(30, 33, 43, 0.97); --ts-fg: #EAEFF7; --ts-muted: #989DAC; --ts-line: rgba(234, 239, 247, 0.2); --ts-hover: rgba(234, 239, 247, 0.08); --ts-active: #C5DBF7; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
   --scrim: linear-gradient(90deg, rgba(20, 22, 29, 0.7), rgba(20, 22, 29, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #14161D 100%);
   --fade-to: #14161D;
-  --night-ink: #14121F;
+  --night-ink: #14161D; --night-paper: #EAEFF7; --night-band: #252441; --night-card: #292C35; --night-chip: #353841;
 }
 .theme-switch__swatch--ivory-night { --sw-a: #14161D; --sw-b: #EAEFF7; }
 
 
 /* ---- what every dark version shares (the same places Onyx, the collection's first dark look, sets by hand) */
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .section--alt { background: var(--bg-alt); }
+/* cards on the alternate ground are lifted a step, so they stay cards (plain colours, set per look above) */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .section--alt { background: var(--bg-alt); --surface: var(--night-card); --surface-solid: var(--night-card); --surface-2: var(--night-chip); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillars__bars span { background: var(--brand-3); } :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillars__bars span:nth-child(2) { background: var(--brand); } :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillars__bars span:nth-child(3) { background: var(--brand-2); }
-/* light product surfaces, and the small labels laid over photographs, keep dark ink */
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .treat-card__stage { color: var(--night-ink); }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) { background: #F1ECF8; color: var(--night-ink); border-color: transparent; }
+/* the small labels laid over photographs are light paper with dark ink; product stages are dark like the page */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .treat-card__stage { color: var(--text); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .treat-card__stage::before { box-shadow: inset 0 0 0 1px var(--line); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) { background: var(--night-paper); color: var(--night-ink); border-color: transparent; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) strong { background: none; -webkit-text-fill-color: currentColor; color: var(--night-ink); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) b, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) span { color: var(--night-ink); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) .card__icon { background: var(--night-ink); color: var(--brand); border-color: transparent; }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillar__chips span { background: rgba(241, 236, 248, 0.92); color: var(--night-ink); }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .card--overlay::before { background: linear-gradient(180deg, color-mix(in srgb, var(--bg-deep) 10%, transparent) 0%, color-mix(in srgb, var(--bg-deep) 45%, transparent) 40%, color-mix(in srgb, var(--bg-deep) 92%, transparent) 100%); }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .section--deep { --surface: color-mix(in srgb, var(--text) 4%, transparent); --line: color-mix(in srgb, var(--text) 13%, transparent); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillar__chips span { background: color-mix(in srgb, var(--night-paper) 92%, transparent); color: var(--night-ink); }
+/* text set on photographs: scrims in the look's own deep colour, at least as strong as the light looks' */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .card--overlay::before { background: linear-gradient(180deg, color-mix(in srgb, var(--bg-deep) 16%, transparent) 0%, color-mix(in srgb, var(--bg-deep) 40%, transparent) 34%, color-mix(in srgb, var(--bg-deep) 82%, transparent) 62%, color-mix(in srgb, var(--bg-deep) 96%, transparent) 100%); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillar__media::before { background: linear-gradient(180deg, color-mix(in srgb, var(--bg-deep) 70%, transparent) 0%, color-mix(in srgb, var(--bg-deep) 14%, transparent) 34%, color-mix(in srgb, var(--bg-deep) 5%, transparent) 55%, color-mix(in srgb, var(--bg-deep) 74%, transparent) 100%); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__caption { background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg-deep) 86%, transparent)); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__caption small { color: rgba(255, 255, 255, 0.88); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .tiles__panel::before { background: linear-gradient(180deg, color-mix(in srgb, var(--bg-deep) 46%, transparent) 0%, color-mix(in srgb, var(--bg-deep) 30%, transparent) 26%, color-mix(in srgb, var(--bg-deep) 66%, transparent) 55%, color-mix(in srgb, var(--bg-deep) 95%, transparent) 100%); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .tiles__panel .tiles__num { color: #fff; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6); }
+/* the deep band keeps its job as the page's one change of ground: the look's deep brand colour, not a darker page */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .section--deep { background: var(--night-band); --surface: color-mix(in srgb, var(--text) 5%, transparent); --line: color-mix(in srgb, var(--text) 14%, transparent); --btn-primary-bg: inherit; --btn-primary-fg: inherit; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .stats-band__inner { background: var(--night-band); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band__bg { background: linear-gradient(120deg, var(--bg-deep) 0%, color-mix(in srgb, var(--brand-deep) 62%, var(--bg-deep)) 100%); }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band__photo { opacity: 0.42; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band .cta-band__photo { opacity: 0.26; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band .eyebrow { color: var(--brand-3); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band .lead { color: rgba(255, 255, 255, 0.88); }
 /* the one solid button takes the palette's own button colour (Amethyst with white on Ecosystem Night); other brand fills carry dark ink */
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .btn--primary { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .btn--primary:hover { background: var(--btn-primary-hover); color: var(--btn-primary-fg); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .btn--light { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .menu__featured-cta { background: var(--bg-deep); color: var(--text); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .tab.is-active { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
-:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field input, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field select, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field textarea { background: var(--input-bg); color: var(--text); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .tab:not(.is-active) .tab__count { color: var(--brand-strong); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .guide-table th { color: var(--text-2); }
+/* forms: dark fields with an edge that can be seen, the select keeps its arrow, and its open list is dark too */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field input, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field select, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field textarea { background-color: var(--input-bg); color: var(--text); border-color: color-mix(in srgb, var(--text) 42%, transparent); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field select:not([multiple]) { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C7C3DA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field select option { background: var(--input-bg); color: var(--text); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field input:focus, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field select:focus, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 35%, transparent); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field--check input { border-color: transparent; }
+/* the phone's booking bar is solid, so the page does not show through it */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .sticky-cta { background: var(--bg); border-top-color: var(--line-strong); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cursor.is-link .cursor__ring { background: color-mix(in srgb, var(--brand) 10%, transparent); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .ticker { background: var(--ticker-bg); color: var(--ticker-fg); border: 0; }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .ticker__track span::after { background: var(--brand); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .card__icon--grad { background: linear-gradient(135deg, var(--brand-deep), color-mix(in srgb, var(--brand-deep) 60%, var(--bg-deep))); }
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .quote-card .stars { color: var(--brand); }
+/* on Ecosystem Night the band is amethyst, so the button on it is Lavender Sand (the light look puts a white one there) */
+[data-theme="ecosystem"][data-tone="night"] .section--deep { --btn-primary-bg: #F1ECF8; --btn-primary-fg: #1A1F30; --btn-primary-hover: #C1BEEC; }
 /* Meridian's dot grid, in slate on Oxford blue */
 [data-theme="meridian"][data-tone="night"] body { background-color: #021E3C; background-image: radial-gradient(rgba(197, 219, 247, 0.09) 1px, transparent 1px); background-size: 28px 28px; }
 /* Ivory's champagne numerals and hairlines become lifted amethyst */
-[data-theme="ivory"][data-tone="night"] :is(.step__num, .reason__num, .card__num, .tiles__num, .tile__num, .dot-list li::before) { color: #A6A2E0; }
+[data-theme="ivory"][data-tone="night"] :is(.step__num, .reason__num, .card__num, .tile__num) { color: #A6A2E0; }
+[data-theme="ivory"][data-tone="night"] .dot-list li::before { color: #A6A2E0; }
 [data-theme="ivory"][data-tone="night"] .eyebrow::before { color: #A6A2E0; }
+[data-theme="ivory"][data-tone="night"] :is(.card--hover:hover, a.card:hover) { border-top-color: var(--brand-2); }

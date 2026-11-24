@@ -127,6 +127,16 @@ Each Collection Three look gains a dark version in the Got Stem Cells palette. A
 
 New files: `src/assets/css/parts/70-collection-three-night.css`. New link: `/dark/` (`variants.dark`).
 
+## Round 12 edits to locked files (pictures for the dark versions)
+
+The dark versions were showing the light looks' pictures, including two cell illustrations on a pure white ground that sat on the dark pages as white slabs. A picture can now name the photo it shows in a dark version, and the build and the page scripts read that choice. Collection One renders as before, with one exception noted below.
+
+- `build.js`: `{{img:…}}` accepts `night=<photo>` (every dark version) and `<look>-night=<photo>` (one of them), written as `data-img-night` and `data-img-<look>-night`. The page head gains `window.FLAMINGO_PICK(img, look)`, the one place that decides which photo a picture shows; the hero preload and the inline script after an eager picture use the same order (the look's dark choice, the shared dark choice, the look's own choice, the default).
+- `src/layout.html`: the script that points lazy pictures at the look's photo before they load asks `FLAMINGO_PICK`.
+- `src/assets/js/site.js`: `applyThemeImages` asks `FLAMINGO_PICK`, so changing between a look and its dark version swaps the pictures as well as the colours.
+
+One picture was retired in every look, Collection One included: `certificates-check` (certificates under a magnifying glass) carried garbled lettering. Its five uses now show `notebook-desk` (the "reading claims" article and its two cards), `clinician-home-visit` (the partner page) and `np-patient-consult` (the "why we are different" hero). Checked: the eleven older looks show the same photo as before in every other spot (1,265 pictures compared across 33 pages).
+
 ## Restoring Collection One exactly
 
 ```
