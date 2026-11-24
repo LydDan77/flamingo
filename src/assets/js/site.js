@@ -8,6 +8,8 @@
   var SPLIT_HERO = { light: 1, warm: 1, bright: 1, atelier: 1, sanctuary: 1, monolith: 1, aurora: 1, blush: 1, ecosystem: 1, onyx: 1, sandstone: 1, meridian: 1, ivory: 1 }; // themes whose photo hero is a half-width panel
   var TALL_HERO = { ecosystem: 1, onyx: 1, sandstone: 1, meridian: 1, ivory: 1 }; // Collection Three: the panel is nearly square, so a landscape photo is drawn about a viewport wide
   var THEME_COLORS = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD", blush: "#FFFDFB", ecosystem: "#F7F7FB", onyx: "#0B0A08", sandstone: "#F5EFE3", meridian: "#F2F5FB", ivory: "#FBF9F4" };
+  // Collection Three looks also come in a dark version, "<look>-night": the look (photos, type, layout) stays and a tone is set beside it.
+  var NIGHT = { ecosystem: "#1A1F30", onyx: "#0B0A10", sandstone: "#1F1524", meridian: "#021E3C", ivory: "#14161D" };
   var PHOTOS = "assets/img/photos/";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isMobile = function () { return window.innerWidth < 900; };
@@ -36,32 +38,35 @@
   var fontLink = doc.querySelector("link[data-theme-fonts]");
   function setTheme(t, fromUser) {
     if (t === "playful") t = "bright";
+    var full = t, night = /-night$/.test(t) && !!NIGHT[t.slice(0, -6)];
+    if (night) t = t.slice(0, -6);
     if (THEMES.indexOf(t) < 0) return;
     root.setAttribute("data-theme", t);
+    if (night) root.setAttribute("data-tone", "night"); else root.removeAttribute("data-tone");
     var fixed = window.FLAMINGO_FIXED_THEME || ""; // a variant with one design version: nothing to remember, and clean links
-    if (!fixed) { try { localStorage.setItem("flamingo-theme", t); } catch (e) {} }
+    if (!fixed) { try { localStorage.setItem("flamingo-theme", full); } catch (e) {} }
     var meta = doc.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", THEME_COLORS[t]);
+    if (meta) meta.setAttribute("content", night ? NIGHT[t] : THEME_COLORS[t]);
     if (fromUser && fontLink && window.FLAMINGO_FONTS && window.FLAMINGO_FONTS[t]) fontLink.href = window.FLAMINGO_FONTS[t];
     doc.querySelectorAll("[data-set-theme]").forEach(function (b) {
-      var on = b.getAttribute("data-set-theme") === t;
+      var on = b.getAttribute("data-set-theme") === full;
       b.setAttribute("aria-checked", String(on));
       if (on) {
         var cur = doc.querySelector("[data-theme-current]"), sw = doc.querySelector("[data-theme-swatch]");
         if (cur) cur.textContent = b.getAttribute("data-theme-name") || t;
-        if (sw) sw.className = "theme-switch__swatch theme-switch__swatch--" + t;
+        if (sw) sw.className = "theme-switch__swatch theme-switch__swatch--" + full;
       }
     });
     applyThemeImages(t);
     // keep ?theme= on internal links so the chosen version follows you between pages
-    if (fixed && t === fixed) return;
+    if (fixed && full === fixed) return;
     doc.querySelectorAll("a[href]").forEach(function (a) {
       var href = a.getAttribute("href");
       if (!href || /^(https?:|mailto:|tel:|#)/.test(href)) return;
       var clean = href.replace(/([?&])theme=[^&#]*(&?)/, function (_, p, amp) { return amp ? p : ""; }).replace(/\?(#|$)/, "$1");
       var parts = clean.split("#");
       var base = parts[0], hash = parts[1] ? "#" + parts[1] : "";
-      a.setAttribute("href", base + (base.indexOf("?") >= 0 ? "&" : "?") + "theme=" + t + hash);
+      a.setAttribute("href", base + (base.indexOf("?") >= 0 ? "&" : "?") + "theme=" + full + hash);
     });
   }
 
@@ -100,7 +105,7 @@
   }
   placeSwitcher();
   window.addEventListener("resize", placeSwitcher);
-  setTheme(root.getAttribute("data-theme") || "ecosystem", false);
+  setTheme((root.getAttribute("data-theme") || "ecosystem") + (root.getAttribute("data-tone") === "night" ? "-night" : ""), false);
 
   /* ----------------------------------------------------------- external links */
   doc.querySelectorAll('a[href^="http"]').forEach(function (a) {

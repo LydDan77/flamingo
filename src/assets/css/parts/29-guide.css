@@ -32,7 +32,7 @@ html.has-cursor:is([data-theme="dark"], [data-theme="bright"], [data-theme="elit
 .assistant-dock__button { display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 8px 20px 8px 8px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface-solid, var(--bg)); color: var(--text); box-shadow: 0 18px 44px -18px rgba(16, 20, 32, 0.45); cursor: pointer; text-align: left; }
 .assistant-dock__button { border-color: color-mix(in srgb, var(--brand) 28%, var(--line-strong)); transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
 .assistant-dock__button:hover { border-color: var(--brand); box-shadow: 0 22px 50px -18px rgba(16, 20, 32, 0.5); transform: translateY(-1px); }
-.assistant-dock__mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: #fff; flex: none; }
+.assistant-dock__mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: var(--on-brand, #fff); flex: none; }
 .assistant-dock__mark .icon { width: 22px; height: 22px; --duo: 0; }
 .assistant-dock__label { display: grid; line-height: 1.2; }
 .assistant-dock__label b { font-size: 0.98rem; font-weight: 600; }
@@ -129,7 +129,7 @@ html.has-cursor:is([data-theme="dark"], [data-theme="bright"], [data-theme="elit
 .guide-files a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* the owner asks "what do I replace?": every sample stamp on the page lights up, with the block it belongs to */
-.guide-samples #main .sample { background: var(--brand); border-color: var(--brand); color: #fff; }
+.guide-samples #main .sample { background: var(--brand); border-color: var(--brand); color: var(--on-brand, #fff); }
 .guide-samples #main :is(.card, .story-card, .doctor-card, .who-answers, .referral__card, article, li, p, .booking-slot):has(> .sample) { outline: 2px dashed var(--brand); outline-offset: 6px; border-radius: 6px; }
 
 /* the practice name, phone number and email carry no stamp of their own, but they are samples too */
@@ -178,8 +178,8 @@ html.has-cursor:is([data-theme="dark"], [data-theme="bright"], [data-theme="elit
 .booking-sample__row button { min-width: 84px; min-height: 48px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface-solid, var(--bg)); color: var(--text); font: inherit; font-size: 0.95rem; cursor: pointer; }
 .booking-sample__row button small { display: block; font-size: 0.74rem; color: var(--text-3); }
 .booking-sample__row button:hover { border-color: var(--brand); }
-.booking-sample__row button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
-.booking-sample__row button[aria-pressed="true"] small { color: rgba(255, 255, 255, 0.8); }
+.booking-sample__row button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-brand, #fff); }
+.booking-sample__row button[aria-pressed="true"] small { color: color-mix(in srgb, var(--on-brand, #fff) 82%, transparent); }
 .booking-sample__foot { display: grid; gap: 10px; justify-items: start; }
 .booking-sample__foot .small { margin: 0; color: var(--text-3); }
 @media (max-width: 899px) { .booking-slot--sample { padding: 20px; } .booking-sample__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); } .booking-sample__row button { min-width: 0; padding-inline: 6px; white-space: nowrap; } }

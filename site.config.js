@@ -38,7 +38,7 @@ const variants = {
     short: "Sample practice",
     desc: "The five premium versions dressed as a fictional practice",
     modules: DEFAULT_MODULES,
-    collections: ["three", "partners"],
+    collections: ["three", "night", "partners"],
     hidden: true,
     sample: true,
     brand: {
@@ -157,13 +157,24 @@ const variants = {
       ],
     },
   },
+  // The five dark versions of Collection Three on their own link, in the Got Stem Cells palette (see 70-collection-three-night.css).
+  dark: {
+    path: "dark",
+    label: "Collection Three · Dark",
+    short: "Dark versions",
+    desc: "The five premium versions in their dark form, in the Got Stem Cells palette",
+    modules: DEFAULT_MODULES,
+    collections: ["night", "partners"],
+    hidden: true,
+    theme: "ecosystem-night",
+  },
   three: {
     path: "three",
     label: "Collection Three",
     short: "Collection Three",
     desc: "The five premium versions on their own link",
     modules: DEFAULT_MODULES,
-    collections: ["three", "partners"],
+    collections: ["three", "night", "partners"],
     hidden: true,
   },
 };

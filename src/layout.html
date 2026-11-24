@@ -33,10 +33,14 @@
         if (q === "playful") q = "bright";
         if (s === "playful") s = "bright";
         t = q || s || fx || "ecosystem";
-        if (ok.indexOf(t) < 0) t = fx || "ecosystem";
-        if (!fx && q && ok.indexOf(q) >= 0) localStorage.setItem("flamingo-theme", q);
+        // A Collection Three look also comes in a dark version, named "<look>-night": the look stays, and a tone is set beside it.
+        var N = { ecosystem: "#1A1F30", onyx: "#0B0A10", sandstone: "#1F1524", meridian: "#021E3C", ivory: "#14161D" }, n = false, u = t;
+        var nt = function (x) { return /-night$/.test(x) && N[x.slice(0, -6)] ? x.slice(0, -6) : ""; };
+        if (nt(t)) { n = true; t = nt(t); }
+        if (ok.indexOf(t) < 0) { u = t = fx || "ecosystem"; n = false; if (nt(t)) { n = true; t = nt(t); } }
+        if (!fx && q && q === u) localStorage.setItem("flamingo-theme", q);
       } catch (e) {}
-      h.setAttribute("data-theme", t);
+      h.setAttribute("data-theme", t); if (n) h.setAttribute("data-tone", "night");
       var G = "https://fonts.googleapis.com/css2?display=swap&family=";
       var F = window.FLAMINGO_FONTS = {
         dark: G + "Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500",
@@ -58,7 +62,7 @@
       };
       var l = d.createElement("link"); l.rel = "stylesheet"; l.href = F[t]; l.setAttribute("data-theme-fonts", ""); d.head.appendChild(l);
       var C = { dark: "#07090B", light: "#FFFFFF", warm: "#FBF6EE", bright: "#FFFFFF", elite: "#0C0B0A", atelier: "#F5F1EA", obsidian: "#0B0F17", sanctuary: "#F7F4EE", monolith: "#0A0A0A", aurora: "#FBFBFD", blush: "#FFFDFB", ecosystem: "#F7F7FB", onyx: "#0B0A08", sandstone: "#F5EFE3", meridian: "#F2F5FB", ivory: "#FBF9F4" };
-      var m = d.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", C[t]);
+      var m = d.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", n ? N[t] : C[t]);
       {{page.heroPreload}}
     })();
   </script>

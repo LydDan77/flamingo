@@ -117,6 +117,16 @@ All of it is switched per variant and off in an ordinary build. The ordinary bui
 
 New files: `tools/site-guide.js`, `src/guide/` (runtime, brief, notes), `src/partials/assistant.html`, `src/pages/site-guide.html`, `29-guide.css`, `docs/AVA-DR-DEMO.md`.
 
+## Round 11 edits to locked files (dark versions of Collection Three)
+
+Each Collection Three look gains a dark version in the Got Stem Cells palette. A dark version is the look plus a tone (`<html data-theme="ivory" data-tone="night">`, chosen as `ivory-night`), so no look was renamed or added and every existing rule, photo and font carries over. Collection One renders exactly as before.
+
+- `src/layout.html`: the bootstrap accepts `<look>-night` for the five Collection Three looks (from `?theme=`, the remembered choice, or a variant's fixed look), sets `data-tone="night"` beside `data-theme`, and uses the dark page colour for the browser's theme colour.
+- `src/assets/js/site.js`: `setTheme` does the same when a look is chosen from the menu, remembers and carries the full name (`ivory-night`) on links, and clears the tone when a light look is chosen.
+- `src/partials/theme-switch.html`: a "Collection Three · Dark" group with the five dark versions (shown where a build lists the `night` collection).
+
+New files: `src/assets/css/parts/70-collection-three-night.css`. New link: `/dark/` (`variants.dark`).
+
 ## Restoring Collection One exactly
 
 ```

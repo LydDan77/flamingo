@@ -1,7 +1,7 @@
 {
   "collection": "one",
   "tag": "v1.0-collection-one",
-  "commit": "453d992c4965b1277170ae1a1184306190935051",
+  "commit": "7ed823e8dd0b207d1d86bdcd0608e412dc1c62de",
   "files": {
     "build.js": "d6edbac83e87b531c6f6c129c687e5e21472dd30",
     "src/assets/css/parts/00-tokens-base.css": "d3b90319e9440ead18b336165e8c7f9598e954d6",
@@ -14,9 +14,9 @@
     "src/assets/css/parts/32-theme-warm.css": "f6a01cc8e885d372579a7a68a5f1a8bd6cdd218e",
     "src/assets/css/parts/33-theme-bright.css": "18643f6fd00c006d2255e6f31e7b7eacaf6ac695",
     "src/assets/css/parts/34-theme-elite.css": "b42e3c061ef776db21ee95c085b7aff27963218e",
-    "src/assets/js/site.js": "bd0528e3823d16c4870dae20c3d55df23a5cae79",
-    "src/layout.html": "cac40d1ca201ceac39fdb1f7ed15f02155101caa",
+    "src/assets/js/site.js": "d20136280f4ccf330453c80046aa1cb84fd377e9",
+    "src/layout.html": "a65a256e01ff35fa6fed157acb2de8226d1d65ad",
     "src/partials/icons.html": "64cc8f0f41b014cb6d81c5dd6946aa38b3ad18b5",
-    "src/partials/theme-switch.html": "7d934ee13223c8b5267685696d40fd98668fd2d8"
+    "src/partials/theme-switch.html": "1f1b3654d60129685cf54d96c12d98d9141d29ac"
   }
 }

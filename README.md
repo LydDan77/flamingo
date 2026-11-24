@@ -239,6 +239,18 @@ Round 2 also added content modules that every version renders (`src/assets/css/p
 | Meridian | Clinical precision: ice white, navy ink, electric blue-to-violet gradient, a faint dot grid under the page | Source Serif 4 + Geist |
 | Ivory | Quiet luxury: ivory paper, graphite, a deep plum accent with champagne numerals and hairlines | Playfair Display + Albert Sans |
 
+**Dark versions.** Every Collection Three look also comes in a dark version, coloured from the Got Stem Cells palette (Amethyst `#6762AF`, Orchid `#583563`, Midnight `#1A1F30`, Lavender Sand `#F1ECF8`, Smoke `#EAEFF7`, Slate `#C5DBF7`, Luxury Lazuli `#71A7F5`, Berge Blue `#345691`, Oxford Blue `#021E3C`). A dark version is the look itself plus a tone, so its layout, type pair and photographs are the look's own and only the colour changes. All of it lives in `src/assets/css/parts/70-collection-three-night.css`. They are on their own link, https://flamingo-regenerative-revival.vercel.app/dark/ , and in the design menu of the main site and `/three/`. To give a client build a dark version, set the variant's `theme` to the name in the first column.
+
+| Name | Dark version of | Colour |
+| --- | --- | --- |
+| `ecosystem-night` | Ecosystem | Midnight ground, Amethyst button, lifted amethyst links, Lazuli as the second voice |
+| `onyx-night` | Onyx | Near-black ground, orchid in place of Onyx's gold, amethyst second voice |
+| `sandstone-night` | Sandstone | Deep orchid ground, Lavender Sand button, amethyst links |
+| `meridian-night` | Meridian | Oxford Blue ground with the dot grid in slate, Lazuli button and links |
+| `ivory-night` | Ivory | Graphite ground, Smoke button, pale Slate accent, amethyst numerals |
+
+Where a brand colour is too dark to read as text on a dark page it is lifted (Amethyst light `#8985C5` becomes `#A6A2E0`, Orchid becomes `#C9A0D8`); the brand's own values stay on fills such as the Ecosystem Night button. Text is checked against every surface it sits on (4.5:1 or better, body text 7:1 or better).
+
 Photography for the five versions is the licensed Adobe set only (warm, real, 1920 px masters). The four GSC Originals shop scenes were tried and retired: they are AI-generated at 976 px with the store's price tags composited in, and even after inpainting and 2x super-resolution they read as soft next to the licensed shots. If clean, high-resolution renders of those scenes ever arrive they can come back in small slots. Note for any photo swap: `/assets/` is served with a one-year immutable cache header, so a photo that changes must change its file name. Where a subject sits near the edge of a frame, the hero spec carries a focal point per version (`pos-ivory=92% 50%`), so the half-width hero panel shows the subject and not the empty side of the photo.
 
 Legibility for older readers (Collection Three): 18px base type, larger leads and list text, sentence-case buttons and links, calmer labels (0.8rem, lighter tracking), small numerals in the sans face and optically centred, the hero caption and proof row in plain words, no marquee ticker, and every version passing the AA contrast audit with zero failures.

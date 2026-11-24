@@ -35,6 +35,7 @@
 /* sand product surfaces, as on the shop tiles */
 [data-theme="onyx"] .treat-card__stage { color: #0B0A08; }
 [data-theme="onyx"] .media__float { background: #F5EFE3; color: #0B0A08; border-color: transparent; }
+[data-theme="onyx"] .media__float.gradient-card { background: var(--bg-deep); color: #fff; border-color: var(--line); } /* a dark stat card keeps its dark surface and light type */
 [data-theme="onyx"] .media__float strong { background: none; -webkit-text-fill-color: currentColor; color: #0B0A08; }
 [data-theme="onyx"] .media__float b, [data-theme="onyx"] .media__float span { color: #0B0A08; }
 [data-theme="onyx"] .media__float .card__icon { background: #0B0A08; color: #E2C275; border-color: transparent; }

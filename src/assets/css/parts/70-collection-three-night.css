@@ -1,0 +1,187 @@
+/* ===================================================== COLLECTION THREE · THE DARK VERSIONS
+   Each Collection Three look in a dark form, coloured from the Got Stem Cells palette (Amethyst #6762AF, Orchid #583563,
+   Midnight #1A1F30, Lavender Sand #F1ECF8, Smoke #EAEFF7, Slate #C5DBF7, Luxury Lazuli #71A7F5, Berge Blue #345691,
+   Oxford Blue #021E3C). A dark version is the look itself plus a tone: <html data-theme="ivory" data-tone="night">,
+   chosen as "ivory-night" (?theme=ivory-night, the design menu, or a variant's `theme`). So the layout, the type pair,
+   the photographs and every shared rule of the look carry over untouched, and this file only changes colour.
+   Text colours are checked against every surface they sit on (4.5:1 or better; body text 7:1 or better).
+   Written by hand from five palettes; where a brand colour is too dark to read as text on a dark page it is lifted
+   (Amethyst light #8985C5 becomes #A6A2E0, Orchid becomes #C9A0D8) and the brand's own value stays on fills. */
+
+/* Ecosystem Night. Midnight, amethyst and lazuli: the Got Stem Cells palette as it is, on the brand's own Midnight. */
+[data-theme="ecosystem"][data-tone="night"] {
+  color-scheme: dark;
+  --bg: #1A1F30; --bg-alt: #20263A; --bg-deep: #10131F; --bg-hero: transparent;
+  --surface: #242A3E; --surface-2: #2D3450; --surface-solid: #242A3E; --input-bg: #242A3E;
+  --text: #F1ECF8; --text-2: #C7C3DA; --text-3: #A29FBE;
+  --brand: #A6A2E0; --brand-strong: #C1BEEC; --brand-2: #71A7F5; --brand-3: #C5DBF7; --brand-deep: #4F4A8E; --brand-soft: rgba(166, 162, 224, 0.13); --on-brand: #10131F; --eyebrow: #A6A2E0;
+  --grad: linear-gradient(100deg, #C1BEEC 0%, #8985C5 45%, #71A7F5 100%); --grad-hover: linear-gradient(100deg, #C1BEEC 0%, #C1BEEC 30%, #8985C5 100%); --on-grad: #10131F; --grad-base: #8985C5; --grad-shadow: rgba(137, 133, 197, 0.4);
+  --hl-fg: #C1BEEC; --hl-bg: rgba(166, 162, 224, 0.1); --hl-line: rgba(166, 162, 224, 0.38);
+  --deep-accent: #A6A2E0; --deep-glow: rgba(79, 74, 142, 0.5);
+  --stage: radial-gradient(90% 80% at 50% 38%, #F6F2FB 0%, #E4DEF2 60%, #CFC8E4 100%);
+  --line: rgba(241, 236, 248, 0.13); --line-strong: rgba(241, 236, 248, 0.28);
+  --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(79, 74, 142, 0.55);
+  --btn-primary-bg: #6762AF; --btn-primary-fg: #FFFFFF; --btn-primary-hover: #5A55A3;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #F1ECF8; --btn-secondary-line: rgba(241, 236, 248, 0.32);
+  --chip-bg: #242A3E; --chip-fg: #F1ECF8; --chip-line: rgba(241, 236, 248, 0.16);
+  --vial-glass: rgba(241, 236, 248, 0.06); --vial-stroke: rgba(241, 236, 248, 0.4); --vial-label: rgba(241, 236, 248, 0.14); --vial-text: rgba(241, 236, 248, 0.45); --vial-neck: rgba(241, 236, 248, 0.28);
+  --img-filter: saturate(0.96) contrast(1.04); --img-tint: rgba(26, 31, 48, 0.22);
+  --header-bg: rgba(26, 31, 48, 0.84); --header-line: rgba(241, 236, 248, 0.1); --footer-bg: #10131F;
+  --cta-gradient: linear-gradient(120deg, #10131F 0%, #2D3450 100%); --number-gradient: linear-gradient(180deg, #C5DBF7, #A6A2E0);
+  --ticker-bg: #242A3E; --ticker-fg: #C7C3DA;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(166, 162, 224, 0.6); --cur-fill: rgba(166, 162, 224, 0.14); --btn-gloss: rgba(255, 255, 255, 0.35);
+  --ts-bg: rgba(36, 42, 62, 0.97); --ts-fg: #F1ECF8; --ts-muted: #A29FBE; --ts-line: rgba(241, 236, 248, 0.2); --ts-hover: rgba(241, 236, 248, 0.08); --ts-active: #A6A2E0; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
+  --scrim: linear-gradient(90deg, rgba(26, 31, 48, 0.7), rgba(26, 31, 48, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #1A1F30 100%);
+  --fade-to: #1A1F30;
+  --night-ink: #14121F;
+}
+.theme-switch__swatch--ecosystem-night { --sw-a: #1A1F30; --sw-b: #8985C5; }
+
+/* Onyx Night. Black, orchid and amethyst: Onyx with the gold handed over to the brand's orchid. */
+[data-theme="onyx"][data-tone="night"] {
+  color-scheme: dark;
+  --bg: #0B0A10; --bg-alt: #121019; --bg-deep: #000000; --bg-hero: transparent;
+  --surface: #16141F; --surface-2: #1E1B29; --surface-solid: #16141F; --input-bg: #16141F;
+  --text: #F1ECF8; --text-2: #B9B4C9; --text-3: #948FA8;
+  --brand: #C9A0D8; --brand-strong: #DDBDE9; --brand-2: #A6A2E0; --brand-3: #EBD9F2; --brand-deep: #583563; --brand-soft: rgba(201, 160, 216, 0.13); --on-brand: #000000; --eyebrow: #C9A0D8;
+  --grad: linear-gradient(100deg, #EBD9F2 0%, #C9A0D8 45%, #8985C5 100%); --grad-hover: linear-gradient(100deg, #EBD9F2 0%, #EBD9F2 30%, #C9A0D8 100%); --on-grad: #0B0A10; --grad-base: #C9A0D8; --grad-shadow: rgba(201, 160, 216, 0.4);
+  --hl-fg: #DDBDE9; --hl-bg: rgba(201, 160, 216, 0.1); --hl-line: rgba(201, 160, 216, 0.38);
+  --deep-accent: #C9A0D8; --deep-glow: rgba(88, 53, 99, 0.5);
+  --stage: radial-gradient(90% 80% at 50% 38%, #F8F3FB 0%, #E9DEF0 60%, #D6C7E0 100%);
+  --line: rgba(241, 236, 248, 0.13); --line-strong: rgba(241, 236, 248, 0.28);
+  --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(88, 53, 99, 0.55);
+  --btn-primary-bg: #C9A0D8; --btn-primary-fg: #0B0A10; --btn-primary-hover: #DDBDE9;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #F1ECF8; --btn-secondary-line: rgba(241, 236, 248, 0.32);
+  --chip-bg: #16141F; --chip-fg: #F1ECF8; --chip-line: rgba(241, 236, 248, 0.16);
+  --vial-glass: rgba(241, 236, 248, 0.06); --vial-stroke: rgba(241, 236, 248, 0.4); --vial-label: rgba(241, 236, 248, 0.14); --vial-text: rgba(241, 236, 248, 0.45); --vial-neck: rgba(241, 236, 248, 0.28);
+  --img-filter: saturate(0.96) contrast(1.04); --img-tint: rgba(11, 10, 16, 0.22);
+  --header-bg: rgba(11, 10, 16, 0.84); --header-line: rgba(241, 236, 248, 0.1); --footer-bg: #000000;
+  --cta-gradient: linear-gradient(120deg, #000000 0%, #1E1B29 100%); --number-gradient: linear-gradient(180deg, #EBD9F2, #C9A0D8);
+  --ticker-bg: #16141F; --ticker-fg: #B9B4C9;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(201, 160, 216, 0.6); --cur-fill: rgba(201, 160, 216, 0.14); --btn-gloss: rgba(255, 255, 255, 0.35);
+  --ts-bg: rgba(22, 20, 31, 0.97); --ts-fg: #F1ECF8; --ts-muted: #948FA8; --ts-line: rgba(241, 236, 248, 0.2); --ts-hover: rgba(241, 236, 248, 0.08); --ts-active: #C9A0D8; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
+  --scrim: linear-gradient(90deg, rgba(11, 10, 16, 0.7), rgba(11, 10, 16, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #0B0A10 100%);
+  --fade-to: #0B0A10;
+  --night-ink: #14121F;
+}
+.theme-switch__swatch--onyx-night { --sw-a: #0B0A10; --sw-b: #C9A0D8; }
+
+/* Sandstone Night. Orchid dusk and lavender sand: the warm one, on the brand's deep orchid. */
+[data-theme="sandstone"][data-tone="night"] {
+  color-scheme: dark;
+  --bg: #1F1524; --bg-alt: #271B2D; --bg-deep: #140D18; --bg-hero: transparent;
+  --surface: #2B1E32; --surface-2: #36273E; --surface-solid: #2B1E32; --input-bg: #2B1E32;
+  --text: #F1ECF8; --text-2: #CFC4D7; --text-3: #AC9DB7;
+  --brand: #B3AFE8; --brand-strong: #CBC8F1; --brand-2: #D3ACE0; --brand-3: #F1ECF8; --brand-deep: #3F2549; --brand-soft: rgba(179, 175, 232, 0.13); --on-brand: #140D18; --eyebrow: #B3AFE8;
+  --grad: linear-gradient(100deg, #F1ECF8 0%, #D3ACE0 45%, #8985C5 100%); --grad-hover: linear-gradient(100deg, #F1ECF8 0%, #F1ECF8 30%, #D3ACE0 100%); --on-grad: #1F1524; --grad-base: #D3ACE0; --grad-shadow: rgba(211, 172, 224, 0.4);
+  --hl-fg: #CBC8F1; --hl-bg: rgba(179, 175, 232, 0.1); --hl-line: rgba(179, 175, 232, 0.38);
+  --deep-accent: #B3AFE8; --deep-glow: rgba(63, 37, 73, 0.5);
+  --stage: radial-gradient(90% 80% at 50% 38%, #F8F3FB 0%, #EBDFF0 60%, #D9C9E2 100%);
+  --line: rgba(241, 236, 248, 0.13); --line-strong: rgba(241, 236, 248, 0.28);
+  --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(63, 37, 73, 0.55);
+  --btn-primary-bg: #F1ECF8; --btn-primary-fg: #1F1524; --btn-primary-hover: #FFFFFF;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #F1ECF8; --btn-secondary-line: rgba(241, 236, 248, 0.32);
+  --chip-bg: #2B1E32; --chip-fg: #F1ECF8; --chip-line: rgba(241, 236, 248, 0.16);
+  --vial-glass: rgba(241, 236, 248, 0.06); --vial-stroke: rgba(241, 236, 248, 0.4); --vial-label: rgba(241, 236, 248, 0.14); --vial-text: rgba(241, 236, 248, 0.45); --vial-neck: rgba(241, 236, 248, 0.28);
+  --img-filter: saturate(0.96) contrast(1.04); --img-tint: rgba(31, 21, 36, 0.22);
+  --header-bg: rgba(31, 21, 36, 0.84); --header-line: rgba(241, 236, 248, 0.1); --footer-bg: #140D18;
+  --cta-gradient: linear-gradient(120deg, #140D18 0%, #36273E 100%); --number-gradient: linear-gradient(180deg, #F1ECF8, #B3AFE8);
+  --ticker-bg: #2B1E32; --ticker-fg: #CFC4D7;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(179, 175, 232, 0.6); --cur-fill: rgba(179, 175, 232, 0.14); --btn-gloss: rgba(255, 255, 255, 0.35);
+  --ts-bg: rgba(43, 30, 50, 0.97); --ts-fg: #F1ECF8; --ts-muted: #AC9DB7; --ts-line: rgba(241, 236, 248, 0.2); --ts-hover: rgba(241, 236, 248, 0.08); --ts-active: #B3AFE8; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
+  --scrim: linear-gradient(90deg, rgba(31, 21, 36, 0.7), rgba(31, 21, 36, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #1F1524 100%);
+  --fade-to: #1F1524;
+  --night-ink: #14121F;
+}
+.theme-switch__swatch--sandstone-night { --sw-a: #1F1524; --sw-b: #F1ECF8; }
+
+/* Meridian Night. Oxford blue, lazuli and slate: the precise one, on the brand's deepest navy. */
+[data-theme="meridian"][data-tone="night"] {
+  color-scheme: dark;
+  --bg: #021E3C; --bg-alt: #06264A; --bg-deep: #011427; --bg-hero: transparent;
+  --surface: #0A2B52; --surface-2: #113564; --surface-solid: #0A2B52; --input-bg: #0A2B52;
+  --text: #EAEFF7; --text-2: #B9C8DE; --text-3: #90A5C2;
+  --brand: #71A7F5; --brand-strong: #9CC2F9; --brand-2: #A6A2E0; --brand-3: #C5DBF7; --brand-deep: #345691; --brand-soft: rgba(113, 167, 245, 0.13); --on-brand: #011427; --eyebrow: #71A7F5;
+  --grad: linear-gradient(100deg, #C5DBF7 0%, #71A7F5 45%, #8985C5 100%); --grad-hover: linear-gradient(100deg, #C5DBF7 0%, #C5DBF7 30%, #71A7F5 100%); --on-grad: #021E3C; --grad-base: #71A7F5; --grad-shadow: rgba(113, 167, 245, 0.4);
+  --hl-fg: #9CC2F9; --hl-bg: rgba(113, 167, 245, 0.1); --hl-line: rgba(113, 167, 245, 0.38);
+  --deep-accent: #71A7F5; --deep-glow: rgba(52, 86, 145, 0.5);
+  --stage: radial-gradient(90% 80% at 50% 38%, #F3F7FD 0%, #DCE8F9 60%, #C5DBF7 100%);
+  --line: rgba(234, 239, 247, 0.13); --line-strong: rgba(234, 239, 247, 0.28);
+  --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(52, 86, 145, 0.55);
+  --btn-primary-bg: #71A7F5; --btn-primary-fg: #021E3C; --btn-primary-hover: #9CC2F9;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #EAEFF7; --btn-secondary-line: rgba(234, 239, 247, 0.32);
+  --chip-bg: #0A2B52; --chip-fg: #EAEFF7; --chip-line: rgba(234, 239, 247, 0.16);
+  --vial-glass: rgba(234, 239, 247, 0.06); --vial-stroke: rgba(234, 239, 247, 0.4); --vial-label: rgba(234, 239, 247, 0.14); --vial-text: rgba(234, 239, 247, 0.45); --vial-neck: rgba(234, 239, 247, 0.28);
+  --img-filter: saturate(0.96) contrast(1.04); --img-tint: rgba(2, 30, 60, 0.22);
+  --header-bg: rgba(2, 30, 60, 0.84); --header-line: rgba(234, 239, 247, 0.1); --footer-bg: #011427;
+  --cta-gradient: linear-gradient(120deg, #011427 0%, #113564 100%); --number-gradient: linear-gradient(180deg, #C5DBF7, #71A7F5);
+  --ticker-bg: #0A2B52; --ticker-fg: #B9C8DE;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(113, 167, 245, 0.6); --cur-fill: rgba(113, 167, 245, 0.14); --btn-gloss: rgba(255, 255, 255, 0.35);
+  --ts-bg: rgba(10, 43, 82, 0.97); --ts-fg: #EAEFF7; --ts-muted: #90A5C2; --ts-line: rgba(234, 239, 247, 0.2); --ts-hover: rgba(234, 239, 247, 0.08); --ts-active: #71A7F5; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
+  --scrim: linear-gradient(90deg, rgba(2, 30, 60, 0.7), rgba(2, 30, 60, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #021E3C 100%);
+  --fade-to: #021E3C;
+  --night-ink: #14121F;
+}
+.theme-switch__swatch--meridian-night { --sw-a: #021E3C; --sw-b: #71A7F5; }
+
+/* Ivory Night. Graphite, smoke and slate: the quiet one, with pale slate where Ivory had champagne. */
+[data-theme="ivory"][data-tone="night"] {
+  color-scheme: dark;
+  --bg: #14161D; --bg-alt: #1A1D26; --bg-deep: #0C0D12; --bg-hero: transparent;
+  --surface: #1E212B; --surface-2: #282C38; --surface-solid: #1E212B; --input-bg: #1E212B;
+  --text: #EAEFF7; --text-2: #BEC3CF; --text-3: #989DAC;
+  --brand: #C5DBF7; --brand-strong: #DDE9FB; --brand-2: #A6A2E0; --brand-3: #F1ECF8; --brand-deep: #4F4A8E; --brand-soft: rgba(197, 219, 247, 0.13); --on-brand: #0C0D12; --eyebrow: #C5DBF7;
+  --grad: linear-gradient(100deg, #F1ECF8 0%, #C5DBF7 45%, #A6A2E0 100%); --grad-hover: linear-gradient(100deg, #F1ECF8 0%, #F1ECF8 30%, #C5DBF7 100%); --on-grad: #14161D; --grad-base: #C5DBF7; --grad-shadow: rgba(197, 219, 247, 0.4);
+  --hl-fg: #DDE9FB; --hl-bg: rgba(197, 219, 247, 0.1); --hl-line: rgba(197, 219, 247, 0.38);
+  --deep-accent: #C5DBF7; --deep-glow: rgba(79, 74, 142, 0.5);
+  --stage: radial-gradient(90% 80% at 50% 38%, #F5F7FB 0%, #E2E7F1 60%, #CDD4E2 100%);
+  --line: rgba(234, 239, 247, 0.13); --line-strong: rgba(234, 239, 247, 0.28);
+  --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.6); --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); --shadow-glow: 0 18px 44px -18px rgba(79, 74, 142, 0.55);
+  --btn-primary-bg: #EAEFF7; --btn-primary-fg: #14161D; --btn-primary-hover: #FFFFFF;
+  --btn-secondary-bg: transparent; --btn-secondary-fg: #EAEFF7; --btn-secondary-line: rgba(234, 239, 247, 0.32);
+  --chip-bg: #1E212B; --chip-fg: #EAEFF7; --chip-line: rgba(234, 239, 247, 0.16);
+  --vial-glass: rgba(234, 239, 247, 0.06); --vial-stroke: rgba(234, 239, 247, 0.4); --vial-label: rgba(234, 239, 247, 0.14); --vial-text: rgba(234, 239, 247, 0.45); --vial-neck: rgba(234, 239, 247, 0.28);
+  --img-filter: saturate(0.96) contrast(1.04); --img-tint: rgba(20, 22, 29, 0.22);
+  --header-bg: rgba(20, 22, 29, 0.84); --header-line: rgba(234, 239, 247, 0.1); --footer-bg: #0C0D12;
+  --cta-gradient: linear-gradient(120deg, #0C0D12 0%, #282C38 100%); --number-gradient: linear-gradient(180deg, #F1ECF8, #C5DBF7);
+  --ticker-bg: #1E212B; --ticker-fg: #BEC3CF;
+  --cur-dot: transparent; --cur-border: 1.5px solid rgba(197, 219, 247, 0.6); --cur-fill: rgba(197, 219, 247, 0.14); --btn-gloss: rgba(255, 255, 255, 0.35);
+  --ts-bg: rgba(30, 33, 43, 0.97); --ts-fg: #EAEFF7; --ts-muted: #989DAC; --ts-line: rgba(234, 239, 247, 0.2); --ts-hover: rgba(234, 239, 247, 0.08); --ts-active: #C5DBF7; --ts-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.8);
+  --scrim: linear-gradient(90deg, rgba(20, 22, 29, 0.7), rgba(20, 22, 29, 0.2)); --scrim-bottom: linear-gradient(180deg, transparent 60%, #14161D 100%);
+  --fade-to: #14161D;
+  --night-ink: #14121F;
+}
+.theme-switch__swatch--ivory-night { --sw-a: #14161D; --sw-b: #EAEFF7; }
+
+
+/* ---- what every dark version shares (the same places Onyx, the collection's first dark look, sets by hand) */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .section--alt { background: var(--bg-alt); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillars__bars span { background: var(--brand-3); } :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillars__bars span:nth-child(2) { background: var(--brand); } :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillars__bars span:nth-child(3) { background: var(--brand-2); }
+/* light product surfaces, and the small labels laid over photographs, keep dark ink */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .treat-card__stage { color: var(--night-ink); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) { background: #F1ECF8; color: var(--night-ink); border-color: transparent; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) strong { background: none; -webkit-text-fill-color: currentColor; color: var(--night-ink); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) b, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) span { color: var(--night-ink); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .media__float:not(.gradient-card) .card__icon { background: var(--night-ink); color: var(--brand); border-color: transparent; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .pillar__chips span { background: rgba(241, 236, 248, 0.92); color: var(--night-ink); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .card--overlay::before { background: linear-gradient(180deg, color-mix(in srgb, var(--bg-deep) 10%, transparent) 0%, color-mix(in srgb, var(--bg-deep) 45%, transparent) 40%, color-mix(in srgb, var(--bg-deep) 92%, transparent) 100%); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .section--deep { --surface: color-mix(in srgb, var(--text) 4%, transparent); --line: color-mix(in srgb, var(--text) 13%, transparent); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band__bg { background: linear-gradient(120deg, var(--bg-deep) 0%, color-mix(in srgb, var(--brand-deep) 62%, var(--bg-deep)) 100%); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cta-band__photo { opacity: 0.42; }
+/* the one solid button takes the palette's own button colour (Amethyst with white on Ecosystem Night); other brand fills carry dark ink */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .btn--primary { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .btn--primary:hover { background: var(--btn-primary-hover); color: var(--btn-primary-fg); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .btn--light { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .menu__featured-cta { background: var(--bg-deep); color: var(--text); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .tab.is-active { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field input, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field select, :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .field textarea { background: var(--input-bg); color: var(--text); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .cursor.is-link .cursor__ring { background: color-mix(in srgb, var(--brand) 10%, transparent); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .ticker { background: var(--ticker-bg); color: var(--ticker-fg); border: 0; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .ticker__track span::after { background: var(--brand); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .card__icon--grad { background: linear-gradient(135deg, var(--brand-deep), color-mix(in srgb, var(--brand-deep) 60%, var(--bg-deep))); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"])[data-tone="night"] .quote-card .stars { color: var(--brand); }
+/* Meridian's dot grid, in slate on Oxford blue */
+[data-theme="meridian"][data-tone="night"] body { background-color: #021E3C; background-image: radial-gradient(rgba(197, 219, 247, 0.09) 1px, transparent 1px); background-size: 28px 28px; }
+/* Ivory's champagne numerals and hairlines become lifted amethyst */
+[data-theme="ivory"][data-tone="night"] :is(.step__num, .reason__num, .card__num, .tiles__num, .tile__num, .dot-list li::before) { color: #A6A2E0; }
+[data-theme="ivory"][data-tone="night"] .eyebrow::before { color: #A6A2E0; }
