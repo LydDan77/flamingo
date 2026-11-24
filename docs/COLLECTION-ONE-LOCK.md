@@ -137,6 +137,21 @@ The dark versions were showing the light looks' pictures, including two cell ill
 
 One picture was retired in every look, Collection One included: `certificates-check` (certificates under a magnifying glass) carried garbled lettering. Its five uses now show `notebook-desk` (the "reading claims" article and its two cards), `clinician-home-visit` (the partner page) and `np-patient-consult` (the "why we are different" hero). Checked: the eleven older looks show the same photo as before in every other spot (1,265 pictures compared across 33 pages).
 
+## Round 13 edits to locked files (focal points for the dark versions; the service panel on a look switch)
+
+A second independent look at the dark versions found pictures whose subject fell out of frame once the dark photo replaced the light one, and a service panel that showed the first row's photo after a look switch. Collection One renders as before, with the template changes noted below.
+
+- `build.js`: `{{img:…}}` accepts `pos-night=<focal point>` (every dark version) and `pos-<look>-night=<focal point>` (one of them), written as `data-pos-night` and `data-pos-<look>-night`. The page head gains `window.FLAMINGO_POS(img, look)`, which reads them in the same order as `FLAMINGO_PICK` reads photos; the inline script after an eager picture uses it.
+- `src/layout.html`: the script that points lazy pictures at the look's photo asks `FLAMINGO_POS` for the focal point.
+- `src/assets/js/site.js`: `applyThemeImages` asks `FLAMINGO_POS`, and leaves the service panel's photo (`.tiles__img`) alone, because that photo follows the active service row, not the look.
+
+Template changes that reach every look, Collection One included (none of them in a locked file):
+
+- Size hints. Card pictures said they were half the screen wide on phones, where the cards are one full-width column, so phones loaded a file too small and stretched it. They now say `100vw` under 640px. Pictures in tall frames (the home pillars, the 4:5 frames, photo cards) state the width their crop really needs on a phone. Layout is unchanged; phones load a larger file where the old one went soft.
+- `np-patient-consult` is now `np-patient-consult-2`: the wall screen in that photo showed a readable (invented) patient name and diagnosis, and the report panel is softened so nothing can be read. New file name because `/assets/` is cached for a year.
+- The NAD page showed the same vial three times. The "Injection vs sublingual" block now shows the laptop-and-stethoscope photo; the vial stays in the hero and the first program card.
+- Product pictures in page heroes said `1px` wide on phones; they say `200px` (`140px` for the second vial on the peptides page), so a 3x phone loads the sharper file.
+
 ## Restoring Collection One exactly
 
 ```

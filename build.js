@@ -185,6 +185,7 @@ function icon(name, cls) {
  *   dark= light= warm= bright= elite=   photo to show in that design version instead of `slug`
  *   night= / <look>-night=              photo to show in the dark version of a look (all of them, or that one) instead
  *   pos= / pos-<theme>=                 object-position (focal point), overall or per version
+ *   pos-night= / pos-<look>-night=      focal point in the dark version of a look (all of them, or that one)
  *   eager                               above-the-fold photo: fetched with high priority for the active version only
  *                                       (the <img> gets its src from an inline script right after it, plus a <noscript> fallback)
  *   portrait                            use the 4:5 crop (team portraits)
@@ -203,7 +204,9 @@ const PHOTO_SET_SCRIPT =
   `var X=${JSON.stringify("|" + XL_PHOTOS.join("|") + "|")};` +
   `window.FLAMINGO_SET=function(d,s){return d+s+"-800.webp 800w, "+d+s+"-1200.webp 1200w, "+d+s+"-1920.webp 1920w"+(X.indexOf("|"+s+"|")>-1?", "+d+s+"-2880.webp 2880w":"")};` +
   // Which photo a picture shows: the look's own, or, in the dark version of a look (data-tone="night"), the one named for it.
-  `window.FLAMINGO_PICK=function(i,t){var n=document.documentElement.getAttribute("data-tone")==="night";return(n&&(i.getAttribute("data-img-"+t+"-night")||i.getAttribute("data-img-night")))||i.getAttribute("data-img-"+t)||i.getAttribute("data-img")};`;
+  `window.FLAMINGO_PICK=function(i,t){var n=document.documentElement.getAttribute("data-tone")==="night";return(n&&(i.getAttribute("data-img-"+t+"-night")||i.getAttribute("data-img-night")))||i.getAttribute("data-img-"+t)||i.getAttribute("data-img")};` +
+  // Where that photo is focused: the same order, for pos-night= / pos-<look>-night= / pos-<look>= (the plain pos= is already on the tag).
+  `window.FLAMINGO_POS=function(i,t){var n=document.documentElement.getAttribute("data-tone")==="night";return(n&&(i.getAttribute("data-pos-"+t+"-night")||i.getAttribute("data-pos-night")))||i.getAttribute("data-pos-"+t)};`;
 function imgTag(spec, ctx) {
   const parts = spec.split("|").map((s) => s.trim()).filter(Boolean);
   const slug = parts.shift();
@@ -215,7 +218,7 @@ function imgTag(spec, ctx) {
     if (i === -1) { opt[p] = true; continue; }
     const k = p.slice(0, i).trim(), v = p.slice(i + 1).trim();
     if (THEMES.includes(k) || k === "night" || (k.endsWith("-night") && THEMES.includes(k.slice(0, -6)))) themeSrc[k] = v;
-    else if (k.startsWith("pos-") && THEMES.includes(k.slice(4))) themePos[k.slice(4)] = v;
+    else if (k.startsWith("pos-") && (THEMES.includes(k.slice(4)) || k === "pos-night" || (k.endsWith("-night") && THEMES.includes(k.slice(4, -6))))) themePos[k.slice(4)] = v;
     else opt[k] = v;
   }
   if (opt.product) {
@@ -250,7 +253,7 @@ function imgTag(spec, ctx) {
     // Set src for the active version only (no wasted download of the default photo), then a no-JS fallback.
     const isHero = /\bhero__img\b/.test(opt.class);
     html +=
-      `<script>(function(i,t){var d="${PHOTO_DIR}/",s=FLAMINGO_PICK(i,t),p=i.getAttribute("data-pos-"+t);` +
+      `<script>(function(i,t){var d="${PHOTO_DIR}/",s=FLAMINGO_PICK(i,t),p=FLAMINGO_POS(i,t);` +
       `if(p)i.style.objectPosition=p;` +
       (isHero ? `i.sizes=/^(light|warm|bright)$/.test(t)?"(max-width: 899px) 100vw, 50vw":"100vw";` : `i.sizes=${JSON.stringify(opt.sizes)};`) +
       `i.srcset=FLAMINGO_SET(d,s);i.src=d+s+"-1200.webp";i.setAttribute("data-img-current",s)})` +

@@ -91,7 +91,7 @@
   (function () {
     var t = document.documentElement.getAttribute("data-theme") || "ecosystem", dir = "assets/img/photos/";
     document.querySelectorAll("img[data-img]:not([data-eager])").forEach(function (img) {
-      var want = window.FLAMINGO_PICK(img, t), pos = img.getAttribute("data-pos-" + t);
+      var want = window.FLAMINGO_PICK(img, t), pos = window.FLAMINGO_POS(img, t);
       if (pos) img.style.objectPosition = pos;
       if (want === img.getAttribute("data-img")) return;
       if (img.hasAttribute("data-portrait")) { img.src = dir + want + "-portrait.webp"; }

@@ -43,9 +43,9 @@
 [data-theme="onyx"] .card--overlay::before { background: linear-gradient(180deg, rgba(11, 10, 8, 0.1) 0%, rgba(11, 10, 8, 0.45) 40%, rgba(11, 10, 8, 0.92) 100%); }
 [data-theme="onyx"] .section--deep { --surface: rgba(245, 239, 227, 0.04); --line: rgba(245, 239, 227, 0.12); }
 [data-theme="onyx"] .cta-band__bg { background: linear-gradient(120deg, #000000 0%, rgba(28, 25, 21, 0.9) 100%); }
-[data-theme="onyx"] .cta-band__photo { opacity: 0.4; }
+[data-theme="onyx"] .cta-band__photo { opacity: 0.3; }
 [data-theme="onyx"] .btn--light { background: #E2C275; color: #0B0A08; }
 [data-theme="onyx"] .menu__featured-cta { background: #0B0A08; color: #F5EFE3; }
 [data-theme="onyx"] .tab.is-active { background: #E2C275; color: #0B0A08; }
-[data-theme="onyx"] .field input, [data-theme="onyx"] .field select, [data-theme="onyx"] .field textarea { background: #15130F; color: #F5EFE3; }
+[data-theme="onyx"] .field input, [data-theme="onyx"] .field select, [data-theme="onyx"] .field textarea { background-color: #15130F; color: #F5EFE3; }
 [data-theme="onyx"] .cursor.is-link .cursor__ring { background: rgba(226, 194, 117, 0.1); }

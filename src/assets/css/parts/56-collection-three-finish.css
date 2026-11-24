@@ -115,3 +115,36 @@
 
 /* the short links under a page title read as sentences, not labels */
 :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .hero__pills .pill { font-size: 0.95rem; letter-spacing: 0; text-transform: none; padding: 10px 16px; }
+
+/* ---- second imagery pass: what sits on, over and beside the photographs */
+/* labels on photo cards are white on a dark glass chip (the collection's solid pill was white on white there in the light looks) */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .card--overlay .pill { background: rgba(9, 10, 15, 0.62); color: #fff; border-color: rgba(255, 255, 255, 0.26); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+/* the service panel's small number sits on the photograph: white, on its own dark chip. On phones the title sits a third of
+   the way down the picture, so the scrim starts higher there */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .tiles__panel .tiles__num { display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px; border-radius: 999px; background: rgba(9, 10, 15, 0.66); color: #fff; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+@media (max-width: 1023px) {
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .tiles__panel::before { background: linear-gradient(180deg, rgba(7, 9, 11, 0.4) 0%, rgba(7, 9, 11, 0.58) 24%, rgba(7, 9, 11, 0.82) 50%, rgba(7, 9, 11, 0.95) 100%); }
+}
+/* the icon in a floating chip sits in the middle of its tile */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .media__float .card__icon { display: grid; place-items: center; }
+/* on phones a wide chip hangs from the bottom edge of its picture instead of lying over the subject, and a team banner's
+   scrim runs the whole width, because the heading does */
+@media (max-width: 639px) {
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .media > .media__float--row { position: relative; inset: auto; margin: -18px 10px 0; }
+  :is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .team-banner::before { background: linear-gradient(90deg, rgba(7, 9, 11, 0.9) 0%, rgba(7, 9, 11, 0.76) 60%, rgba(7, 9, 11, 0.6) 100%); }
+}
+/* the first of the three home cards shows a photograph in these looks; its line drawing stays with the other collections */
+.treat-card__photo { display: none; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card__photo { display: block; }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]) .treat-card__stage:has(> .treat-card__photo) > .art { display: none; }
+/* the name under a pull quote is small type: in the light looks it takes the quiet ink, not the second accent (champagne on ivory was 2.9:1) */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]):not([data-tone="night"]) .pullquote footer { color: var(--text-2); }
+/* the closing band's small label, in the three light looks whose band photo lifts the ground under it: the accent, lightened */
+[data-theme="ecosystem"]:not([data-tone="night"]) .cta-band .eyebrow { color: #E9E5FC; }
+[data-theme="sandstone"]:not([data-tone="night"]) .cta-band .eyebrow { color: #F0E3D0; }
+[data-theme="meridian"]:not([data-tone="night"]) .cta-band .eyebrow { color: #DCE3FF; }
+[data-theme="ivory"]:not([data-tone="night"]) .cta-band .eyebrow { color: #F0E7DB; }
+/* captions and counters laid on photographs in the light looks: a deeper foot under the caption, a fuller shadow under the numeral */
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]):not([data-tone="night"]) .media__caption { background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.78)); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]):not([data-tone="night"]) .media__caption small { color: rgba(255, 255, 255, 0.88); }
+:is([data-theme="ecosystem"], [data-theme="onyx"], [data-theme="sandstone"], [data-theme="meridian"], [data-theme="ivory"]):not([data-tone="night"]) .pillar__counter { text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55), 0 0 3px rgba(0, 0, 0, 0.35); }
